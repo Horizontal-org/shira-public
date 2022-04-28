@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +67,7 @@
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.10",
     "@types/styled-components": "^5.1.25",
+    "chromatic": "^6.5.4",
     "webpack": "^5.72.0"
   }
 }
