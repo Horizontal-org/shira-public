@@ -23,7 +23,7 @@ export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
       <SceneWithFooter>
         <Section
           title='Which apps do you use?'
-          subtitle='This will help us customize the quiz questions to make them look as realistic as possible. This information will not be saved or shared with anyone else.'
+          subtitle='This will help us customize the quiz questions to make them look as realistic as possible. This information will not be saved, sent out of our servers, or shared with anyone else.'
         >
           <>
             <p>
