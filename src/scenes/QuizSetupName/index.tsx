@@ -1,6 +1,8 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import { lowerCase } from 'lodash'
 import styled from 'styled-components'
+import shallow from 'zustand/shallow'
+
 import { Button } from "../../components/UI/Button";
 import { Footer } from "../../components/UI/Footer";
 import { SceneWrapper } from "../../components/UI/SceneWrapper";
@@ -17,16 +19,31 @@ import { SceneWithFooter } from "../../components/UI/SceneWithFooter";
 interface Props {}
 
 export const QuizSetupNameScene: FunctionComponent<Props> = () => {
-  const changeScene = useStore((state) => state.changeScene)
+  const {
+    changeScene,
+    persistedName,
+    persistedEmail,
+    updateName,
+    apps,
+    fetchApp,
+    fieldsOfWork,
+    fetchFieldsOfWork
+  } = useStore(
+    (state) => ({ 
+      changeScene: state.changeScene,
+      persistedName: state.setup.name, 
+      persistedEmail: state.setup.email, 
+      updateName: state.updateName,
+      apps: state.apps, 
+      fetchApp: state.fetchApp,
+      fieldsOfWork: state.fieldsOfWork, 
+      fetchFieldsOfWork: state.fetchFieldsOfWork
+    }),
+    shallow
+  )
 
-  // prefetch next screens 
-  const fetchApp = useStore((state) => state.fetchApp)
-  const apps = useStore((state) => state.apps)
-  const fetchFieldsOfWork = useStore((state) => state.fetchFieldsOfWork)
-  const fieldsOfWork = useStore((state) => state.fieldsOfWork)
-
-  const [name, handleName] = useState('')
-  const [email, handleEmail] = useState('')
+  const [name, handleName] = useState(persistedName || '')
+  const [email, handleEmail] = useState(persistedEmail || '')
 
   useEffect(() => {
     if (apps.length === 0) {
@@ -87,6 +104,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
             <Button 
               disabled={name.length === 0 || email.length === 0}
               onClick={() => { 
+                updateName(name, email)
                 changeScene('quiz-setup-apps')
               }} 
               text='Next'

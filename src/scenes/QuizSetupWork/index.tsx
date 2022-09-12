@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import styled from 'styled-components'
-import { AppItem } from '../../components/UI/AppItem'
+import shallow from 'zustand/shallow'
 import { Button } from '../../components/UI/Button'
 import { Footer } from '../../components/UI/Footer'
 import { SceneWithFooter } from '../../components/UI/SceneWithFooter'
@@ -13,10 +13,17 @@ import { useStore } from '../../store'
 interface Props {}
 
 export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
-  const changeScene = useStore((state) => state.changeScene)
-  const fieldsOfWork = useStore((state) => state.fieldsOfWork)
+  const { changeScene, fieldsOfWork, updateFieldsOfWork, persistedFieldsOfWork } = useStore(
+    (state) => ({
+      changeScene: state.changeScene,
+      fieldsOfWork: state.fieldsOfWork,
+      updateFieldsOfWork: state.updateFieldsOfWork,
+      persistedFieldsOfWork: state.setup.fields_of_work
+    }),
+    shallow
+  )
 
-  const [selected, handleSelected] = useState<Array<string>>([])
+  const [selected, handleSelected] = useState<Array<string>>(persistedFieldsOfWork)
 
   return (
     <SceneWrapper>
@@ -70,6 +77,7 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
 
                 <Button
                   onClick={() => { 
+                    updateFieldsOfWork(selected)
                     changeScene('quiz')
                   }} 
                   disabled={selected.length === 0}

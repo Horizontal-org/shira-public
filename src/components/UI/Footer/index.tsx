@@ -32,7 +32,7 @@ export const Footer: FunctionComponent<Props> = ({
 }
 
 const Wrapper = styled.div`
-  width: 100vw;
+  background: #fff;
   box-sizing: border-box;
   border: 3px solid #767676;
   display: flex;

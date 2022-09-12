@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent, useState, useEffect } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import styled from 'styled-components'
 import { AppItem } from '../../components/UI/AppItem'
@@ -9,14 +9,22 @@ import { SceneWrapper } from '../../components/UI/SceneWrapper'
 import { Section } from '../../components/UI/Section'
 import { App } from '../../domain/app'
 import { useStore } from '../../store'
+import shallow from 'zustand/shallow'
 
 interface Props {}
 
 export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
-  const changeScene = useStore((state) => state.changeScene)
-  const apps = useStore((state) => state.apps)
+  const { changeScene, apps, updateApps, persistedApps } = useStore(
+    (state) => ({
+      changeScene: state.changeScene,
+      apps: state.apps,
+      updateApps: state.updateApps,
+      persistedApps: state.setup.apps
+    }),
+    shallow
+  )
 
-  const [selected, handleSelected] = useState<Array<string>>([])
+  const [selected, handleSelected] = useState<Array<string>>(persistedApps)
 
   return (
     <SceneWrapper>
@@ -69,6 +77,7 @@ export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
 
                 <Button
                   onClick={() => { 
+                    updateApps(selected)
                     changeScene('quiz-setup-work')
                   }} 
                   disabled={selected.length === 0}

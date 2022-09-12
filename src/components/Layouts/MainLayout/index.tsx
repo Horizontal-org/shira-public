@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { Quiz } from "../../../scenes/Quiz";
 import { QuizSetupAppsScene } from "../../../scenes/QuizSetupApps";
 import { QuizSetupNameScene } from "../../../scenes/QuizSetupName";
 import { QuizSetupWorkScene } from "../../../scenes/QuizSetupWork";
@@ -27,6 +28,10 @@ export const MainLayout: FunctionComponent<Props> = () => {
 
       { scene === 'quiz-setup-work' && (
         <QuizSetupWorkScene />
+      )}
+
+      { scene === 'quiz' && (
+        <Quiz />
       )}
     </div>
   )
