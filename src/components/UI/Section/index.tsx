@@ -1,5 +1,6 @@
 import { FunctionComponent, ReactNode } from 'react'
 import styled from 'styled-components'
+import { SectionWrapper } from '../SectionWrapper';
 import { Subtitle } from '../Subtitle';
 import { Title } from '../Title';
 
@@ -15,7 +16,7 @@ export const Section: FunctionComponent<Props> = ({
   children
 }) => {
   return (
-    <Wrapper>
+    <SectionWrapper>
       <div>
         <Title>{title}</Title>
         { subtitle && (
@@ -23,11 +24,7 @@ export const Section: FunctionComponent<Props> = ({
         )}
       </div>
       { children }
-    </Wrapper>
+    </SectionWrapper>
   )
 }
 
-const Wrapper = styled.div`
-  padding: 100px 0 0 80px;
-  max-width: 70vw;
-`

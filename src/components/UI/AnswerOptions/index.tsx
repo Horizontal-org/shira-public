@@ -9,7 +9,7 @@ interface Props {
   onAnswer: (answer: string) => void 
 }
 
-export const Answers: FunctionComponent<Props> = ({onAnswer}) => {
+export const AnswerOptions: FunctionComponent<Props> = ({onAnswer}) => {
   return (
     <Wrapper>
       <PhisingButton onClick={() => { onAnswer('phising') }}>

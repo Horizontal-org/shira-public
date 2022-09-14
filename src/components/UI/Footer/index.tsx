@@ -1,22 +1,23 @@
 import { FunctionComponent, ReactNode } from "react";
 import styled from 'styled-components'
 import { VscClose } from 'react-icons/vsc'
+import { useStore } from "../../../store";
 
 interface Props {
   title?: string;
   action?: ReactNode;
-  onClose: () => void
 }
 
 export const Footer: FunctionComponent<Props> = ({
   title,
   action,
-  onClose
 }) => {
+  const changeScene = useStore((state) => state.changeScene)
+
   return (
     <Wrapper>
       <LeftContent>
-        <CloseButton onClick={onClose}>
+        <CloseButton onClick={() => { changeScene('welcome') }}>
           <VscClose size={24} color='#111' />
         </CloseButton>
         <Title>
@@ -24,9 +25,7 @@ export const Footer: FunctionComponent<Props> = ({
         </Title>
       </LeftContent>
 
-      <div>
-        { action }
-      </div>
+      { action }
     </Wrapper>
   )
 }
@@ -65,6 +64,6 @@ const Title = styled.div`
 `
 
 Footer.defaultProps = {
-  title: 'Title',
+  title: '',
   action: <></>
 }

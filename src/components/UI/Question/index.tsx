@@ -2,8 +2,8 @@ import { FunctionComponent, ReactNode, useEffect, useState } from 'react'
 import { FiChevronRight } from 'react-icons/fi';
 import styled from 'styled-components'
 import { AppLayout } from '../../Layouts/AppLayout';
-import { Answers } from '../Answers';
-import { Button } from '../Button';
+import { AnswerFeedback } from '../AnswerFeedback';
+import { AnswerOptions } from '../AnswerOptions';
 import { Footer } from '../Footer';
 import { SceneWithFooter } from '../SceneWithFooter';
 
@@ -12,15 +12,19 @@ interface Props {
     content: ReactNode;
     app: string;
     answer: string;
-  }
+  };
+  questionCount: number;
+  questionIndex: number;
   onNext: () => void
   changeScene: (scene: string) => void
 }
 
 export const Question: FunctionComponent<Props> = ({
   question,
+  questionCount,
+  questionIndex,
   changeScene,
-  onNext
+  onNext,
 }) => {
   
   const [answer, handleAnswer] = useState<string | null>(null)
@@ -31,18 +35,14 @@ export const Question: FunctionComponent<Props> = ({
       <AppLayout app={question.app}/>
 
       <Footer
-        title="Quiz"
-        onClose={() => {
-          changeScene('welcome')
-        }}
+        title={`${questionIndex + 1}/${questionCount}`}        
         action={answer ? (
-          <Button 
-            text='Next'
-            type='outline'
-            onClick={onNext}
-            rightIcon={<FiChevronRight size={18}/>}
+          <AnswerFeedback 
+            onNext={onNext}
+            userAnswer={answer}
+            realAnswer={question.answer}
           />
-        ) : <Answers onAnswer={(a) => { handleAnswer(a) }} />}
+        ) : <AnswerOptions onAnswer={(a) => { handleAnswer(a) }} />}
       />
     </SceneWithFooter>
   )

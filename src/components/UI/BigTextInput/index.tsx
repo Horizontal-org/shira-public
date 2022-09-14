@@ -7,7 +7,7 @@ interface Props {
   value: string;
 } 
 
-export const TextInput: FunctionComponent<Props> = ({
+export const BigTextInput: FunctionComponent<Props> = ({
   placeholder,
   onChange,
   value
@@ -29,10 +29,11 @@ const StyledInput = styled.input`
   appearance: none;
   border: none; 
 
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 28px;
   padding: 8px 0;
   width: 100%;
+  color: ${props => props.theme.secondary.dark};
   caret-color: ${props => props.theme.secondary.dark};
   border-bottom: 2px solid ${props => props.theme.secondary.dark};
 

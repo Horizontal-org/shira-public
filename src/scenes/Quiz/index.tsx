@@ -34,12 +34,14 @@ export const Quiz:FunctionComponent<Props> = () => {
         <Question 
           key={questionIndex}
           question={questions[questionIndex]}
+          questionIndex={questionIndex}
+          questionCount={questions.length}
           changeScene={changeScene}
           onNext={() => { 
             if (questionIndex < (questions.length -1)) {
               handleQuestionIndex(questionIndex + 1)
             } else {
-              console.log("🚀 ~ file: index.tsx ~ line 43 ~ finish")
+              changeScene('feedback')
             }
           }}
         />
@@ -55,7 +57,6 @@ export const Quiz:FunctionComponent<Props> = () => {
           </Center>
           <Footer 
             title='Quiz intro'
-            onClose={() => { changeScene('welcome' )}}
             action={(
               <Button 
                 text="OK"

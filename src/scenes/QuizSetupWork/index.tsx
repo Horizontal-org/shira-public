@@ -61,9 +61,6 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
 
         <Footer
             title="Quiz setup"
-            onClose={() => {
-              changeScene('welcome')
-            }}
             action={(
               <FooterButtons>
                 <Button

@@ -9,7 +9,7 @@ import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { FiChevronRight } from 'react-icons/fi'
 import { Title } from "../../components/UI/Title";
 import { Subtitle } from "../../components/UI/Subtitle";
-import { TextInput } from "../../components/UI/TextInput";
+import { BigTextInput } from "../../components/UI/BigTextInput";
 import { FiRefreshCcw } from 'react-icons/fi'
 import { getRandomName } from "../../utils/randomName";
 import { useStore } from "../../store";
@@ -69,12 +69,12 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
 
           <FormContent>
             <FormInputs>
-              <TextInput 
+              <BigTextInput 
                 placeholder="Name"
                 onChange={(e) => { handleName(e.target.value) }}
                 value={name}
               />
-              <TextInput 
+              <BigTextInput 
                 placeholder="Email"
                 onChange={(e) => { handleEmail(e.target.value) }}
                 value={email}
@@ -97,9 +97,6 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
 
         <Footer 
           title="Quiz setup"
-          onClose={() => {
-            changeScene('welcome')
-          }}
           action={(
             <Button 
               disabled={name.length === 0 || email.length === 0}

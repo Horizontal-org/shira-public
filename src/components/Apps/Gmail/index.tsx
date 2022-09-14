@@ -12,7 +12,7 @@ interface Props {}
 
 const Gmail: FunctionComponent<Props> = () => {
   return (
-    <DesktopWrapper>
+    <DesktopWrapper className="gmail">
       <Font />
       <div>
         <Header />
@@ -27,7 +27,7 @@ const Gmail: FunctionComponent<Props> = () => {
 }
 
 const Font = createGlobalStyle`
-  body {
+  .gmail {
     font-family: 'Product Sans Regular';
   }
 `
