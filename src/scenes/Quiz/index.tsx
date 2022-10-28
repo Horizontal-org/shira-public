@@ -7,33 +7,55 @@ import { Question } from '../../components/UI/Question'
 import { SceneWithFooter } from '../../components/UI/SceneWithFooter'
 import { SceneWrapper } from '../../components/UI/SceneWrapper'
 import { Title } from '../../components/UI/Title'
+import { Quiz as QuizType } from '../../domain/quiz'
 import { getQuiz } from '../../fetch/quiz'
 import { useStore } from '../../store'
 
 interface Props {}
 
 export const Quiz:FunctionComponent<Props> = () => {
-  const changeScene = useStore((state) => state.changeScene )
+  const {
+    changeScene,
+    apps,
+    fieldsOfWork,
+    fetchQuiz,
+    quiz
+  } = useStore((state) => ({
+    changeScene: state.changeScene,
+    apps: state.setup.apps,
+    fieldsOfWork: state.setup.fields_of_work,
+    fetchQuiz: state.fetchQuiz,
+    quiz: state.quiz
+  }), shallow)
+
   const [questions, handleQuestions] = useState([])
   const [started, handleStarted] = useState(false)
   const [questionIndex, handleQuestionIndex] = useState(0)
 
   useEffect(() => {
     const startQuiz = async() => {
-      const questions = await getQuiz()
-      handleQuestions(questions)    
+      fetchQuiz(apps, fieldsOfWork)
+      console.log("🚀 ~ file: index.tsx ~ line 33 ~ startQuiz ~ quiz", quiz)
+      // handleQuestions(quiz.questions)    
     }
 
     startQuiz()
   }, [])
 
+  useEffect(() => {
+    if (quiz) {
+      handleQuestions(quiz)
+    }
+  }, [quiz])
+
+  // console.log(questions)
   return (
     <SceneWrapper>
       
       {started ? (
         <Question 
           key={questionIndex}
-          question={questions[questionIndex]}
+          question={questions.length > 0 && questions[questionIndex]}
           questionIndex={questionIndex}
           questionCount={questions.length}
           changeScene={changeScene}

@@ -8,9 +8,12 @@ import Sidebar from './Sidebar'
 // whatsapp font 
 import '../../../fonts/Segoe/style.css'
 
-interface Props {}
+interface Props {
+  content?: HTMLElement;
+  phone?: string;
+}
 
-const Whatsapp: FunctionComponent<Props> = () => {
+const Whatsapp: FunctionComponent<Props> = ({ content, phone }) => {
   return (
     <DesktopWrapper>
       <StyledScrollbar />
@@ -18,7 +21,10 @@ const Whatsapp: FunctionComponent<Props> = () => {
         <Content>
           <div>
             <Sidebar /> 
-            <MessageWrapper />
+            <MessageWrapper 
+              content={content}
+              phone={phone}
+            />
           </div>
         </Content>
       </Background>

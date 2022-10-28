@@ -56,11 +56,11 @@ const MailOptions: FunctionComponent<Props> = () => {
 }
 
 
+// margin: 0 16px 0 0;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  margin: 0 16px 0 0;
   padding: 4px 16px;
   height: 48px;
   border-bottom: 1px solid hsla(240,5.8%,76.3%,0.2);

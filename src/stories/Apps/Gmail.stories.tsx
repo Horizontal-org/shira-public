@@ -22,4 +22,19 @@ export default {
 const Template: ComponentStory<typeof Gmail> = (args) => <Gmail {...args} />;
 
 export const GmailDefault = Template.bind({})
-GmailDefault.args = {}
+GmailDefault.args = {
+  senderName: 'Juan',
+  senderEmail: 'juan@wearehorizontal.org',
+  subject: 'Im gonna phish you!',
+  content: '',
+  attachments: [
+    {
+      name: 'at.txt',
+      position: '1'
+    },
+    {
+      name: 'at2.pdf',
+      position: '2'
+    }
+  ]
+}

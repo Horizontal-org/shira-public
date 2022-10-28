@@ -1,5 +1,6 @@
-import { FunctionComponent  } from "react"
+import React, { FunctionComponent, useRef  } from "react"
 import styled, { createGlobalStyle } from 'styled-components'
+import { domToReact } from 'html-react-parser'
 
 import Header from './Header'
 import Sidebar from "./Sidebar"
@@ -7,10 +8,25 @@ import MailOptions from "./MailOptions"
 import Applications from "./Applications"
 // google font 
 import '../../../fonts/GoogleSans/style.css'
+import { Profile } from "./Profile"
+import { Attachments } from "./Attachments"
 
-interface Props {}
+interface Props {
+  content: HTMLElement;
+  senderName: string;
+  senderEmail: string;
+  subject?: string;
+  attachments?: any[];
+}
 
-const Gmail: FunctionComponent<Props> = () => {
+const Gmail: FunctionComponent<Props> = ({ 
+  content,
+  senderName,
+  senderEmail,
+  subject,
+  attachments
+}) => {
+
   return (
     <DesktopWrapper className="gmail">
       <Font />
@@ -19,7 +35,28 @@ const Gmail: FunctionComponent<Props> = () => {
       </div>
       <Content>
         <Sidebar />
-        <MailOptions />
+        <MiddleWrapper>
+          <MailOptions />
+          <DynamicWrapper>
+            <div>
+              <Subject>
+                { subject || ''}
+              </Subject>
+              <Profile 
+                senderEmail={senderEmail}
+                senderName={senderName}
+              />
+              <PaddingLeft>
+                <DynamicContent dangerouslySetInnerHTML={{__html: content.outerHTML}}></DynamicContent>
+                {attachments.length > 0 && (
+                  <Attachments
+                    data={attachments}
+                  />    
+                )}
+              </PaddingLeft>
+            </div>
+          </DynamicWrapper>
+        </MiddleWrapper>
         <Applications />
       </Content>
     </DesktopWrapper>
@@ -32,7 +69,6 @@ const Font = createGlobalStyle`
   }
 `
 
-
 const DesktopWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -40,7 +76,30 @@ const DesktopWrapper = styled.div`
 
 const Content = styled.div`
   display: flex;
-  height: 100%;
 `
 
+const MiddleWrapper = styled.div`
+  width: 100%;
+`
+
+const DynamicWrapper = styled.div`
+  padding: 10px;
+`
+
+const Subject = styled.div`
+  color: #1f1f1f;
+  font-weight: 400;
+  padding-left: 45px;
+  font-size: 1.375rem;
+  padding: 8px 0 8px 53px;
+
+`
+
+const DynamicContent = styled.div`
+  padding: 10px 0;
+`
+
+const PaddingLeft = styled.div`
+  padding-left: 53px;
+`
 export default Gmail

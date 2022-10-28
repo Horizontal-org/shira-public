@@ -5,10 +5,13 @@ import ProfilePicture from '../../../ProfilePicture'
 import MoreOptionsIcon from '../../../Icons/MoreOptions'
 import SearchIcon from '../../../Icons/Search'
 import BackArrow from '../../../Icons/BackArrow'
+import StrangerPicture from '../../../StrangerPicture'
 
-interface Props {}
+interface Props {
+  phone?: string;
+}
 
-const Recipient:FunctionComponent<Props> = () => {
+const Recipient:FunctionComponent<Props> = ({ phone }) => {
 
   return (
     <Wrapper>
@@ -16,7 +19,11 @@ const Recipient:FunctionComponent<Props> = () => {
         <BackArrowWrapper>
           <BackArrow/>
         </BackArrowWrapper>
-        <ProfilePicture />
+
+        <Contact>
+          <StrangerPicture />
+          <span>{phone || ''}</span>
+        </Contact>
       </PictureWrapper>
       <div>
         <Icons>
@@ -31,6 +38,16 @@ const Recipient:FunctionComponent<Props> = () => {
     </Wrapper>
   )
 }
+
+const Contact = styled.div`
+  display: flex;
+  align-items: center;
+
+  > span {
+    font-size: 16px;
+    margin-left: 12px;
+  }
+`
 
 const Wrapper = styled.div`
   padding: 10px 16px;
@@ -85,4 +102,6 @@ const PictureWrapper = styled.div`
   display: flex;
   align-items: center;
 `
+
+
 export default Recipient
