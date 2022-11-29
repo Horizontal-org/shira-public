@@ -89,9 +89,11 @@ const DynamicWrapper = styled.div`
 const Subject = styled.div`
   color: #1f1f1f;
   font-weight: 400;
-  padding-left: 45px;
   font-size: 1.375rem;
   padding: 8px 0 8px 53px;
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 8px 0 8px 8px;
+  }
 
 `
 
@@ -101,5 +103,9 @@ const DynamicContent = styled.div`
 
 const PaddingLeft = styled.div`
   padding-left: 53px;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding-left: 8px;
+  }
 `
 export default Gmail

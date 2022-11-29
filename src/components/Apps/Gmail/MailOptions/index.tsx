@@ -90,6 +90,7 @@ const Wrapper = styled.div`
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     justify-content: space-between;
+    padding-left: 8px;
   }
 `
 
