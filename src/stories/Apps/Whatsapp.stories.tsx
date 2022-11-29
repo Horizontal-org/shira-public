@@ -22,4 +22,11 @@ export default {
 const Template: ComponentStory<typeof Whatsapp> = (args) => <Whatsapp {...args} />;
 
 export const WhatsappDefault = Template.bind({})
-WhatsappDefault.args = {}
+WhatsappDefault.args = {
+  phone: '+5491131312222',
+  content: new DOMParser().parseFromString(
+    '<div id="dynamic-content"><div data-position="0" id="component-text-1"><h2>Text</h2><p>Body</p></div><div data-position="0" id="component-text-2"><h2>Text1231</h2><p>Body</p></div></div>',
+    'text/html'
+  )
+}
+
