@@ -70,4 +70,8 @@ const SenderEmail = styled.span`
   font-size: .75rem;
   padding-left: 4px;
   font-weight: 400;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: none;
+  }
 `

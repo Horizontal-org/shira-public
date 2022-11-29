@@ -59,6 +59,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   padding: 8px;
   border-bottom: 1px solid hsla(240,5.8%,76.3%,0.2);
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: none;
+  }
 `
 
 const HamburgerButton = styled.div`
