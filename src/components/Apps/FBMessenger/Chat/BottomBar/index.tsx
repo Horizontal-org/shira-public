@@ -45,7 +45,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   width: 98%;
-  padding-right: 
+  padding-right: 8px;
 `
 
 const FlexWrapper = styled.div`
@@ -83,7 +83,7 @@ const Icon = styled('div')<IconProps>`
 const KeywordBar = styled.div`
   flex-grow: 1;
   border-radius: 24px;
-  background: rgba(60,64,67,.1);
+  background: rgba(60,64,67,.05);
 
   display: flex;
   justify-content: space-between;
