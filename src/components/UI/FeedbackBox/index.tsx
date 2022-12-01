@@ -61,28 +61,28 @@ export const FeedbackBox: FunctionComponent<Props> = ({
         <p>2. How likely are you to recommend Shira to friends or colleagues?</p>
         <PillWrapper>
           <Pill 
-            onClick={() => { onRecommend('very-complicated')}}
-            label='Very complicated'
+            onClick={() => { onRecommend('not-likely')}}
+            label='Not likely'
             icon={<SadIcon />}
-            selected={recommend === 'very-complicated'}
+            selected={recommend === 'not-likely'}
           />
           <Pill 
-            onClick={() => { onRecommend('complicated')}}
-            label='Complicated'
+            onClick={() => { onRecommend('somewhat-likely')}}
+            label='Somewhat likely'
             icon={<UnsureIcon />}
-            selected={recommend === 'complicated'}
+            selected={recommend === 'somewhat-likely'}
           />
           <Pill 
-            onClick={() => { onRecommend('easy')}}
-            label='Easy'
+            onClick={() => { onRecommend('likely')}}
+            label='Likely'
             icon={<SmileIcon />}
-            selected={recommend === 'easy'}
+            selected={recommend === 'likely'}
           />
           <Pill 
-            onClick={() => { onRecommend('very-easy')}}
-            label='Very easy'
+            onClick={() => { onRecommend('very-likely')}}
+            label='Very likely'
             icon={<HappyIcon />}
-            selected={recommend === 'very-easy'}
+            selected={recommend === 'very-likely'}
           />
         </PillWrapper>
       </Item>
