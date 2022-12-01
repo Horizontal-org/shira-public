@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react'
 import styled from 'styled-components'
+import useGetWidth from '../../../../hooks/useGetWidth'
 
 import ArchiveIcon from './assets/archive.png'
 import ArrowBackIcon from './assets/arrow_back.png'
@@ -14,6 +15,7 @@ import MoreIcon from './assets/more.png'
 interface Props {}
 
 const MailOptions: FunctionComponent<Props> = () => {
+  const { width } = useGetWidth()
 
   return (
     <Wrapper>
@@ -21,36 +23,57 @@ const MailOptions: FunctionComponent<Props> = () => {
         <Icon icon={ArrowBackIcon} />
       </IconWrapper>
 
-      <FirstBlock>
-        <IconWrapper>
-          <Icon icon={ArchiveIcon} />
-        </IconWrapper>
-        <IconWrapper>
-          <Icon icon={SpamIcon} />
-        </IconWrapper>
-        <IconWrapper>
-          <Icon icon={TrashIcon} />
-        </IconWrapper>    
-      </FirstBlock>
+      {width > 800 && (
+        <>
+          <FirstBlock>
+            <IconWrapper>
+              <Icon icon={ArchiveIcon} />
+            </IconWrapper>
+            <IconWrapper>
+              <Icon icon={SpamIcon} />
+            </IconWrapper>
+            <IconWrapper>
+              <Icon icon={TrashIcon} />
+            </IconWrapper>    
+          </FirstBlock>
 
-      <MiddleBlock>
-        <IconWrapper>
-          <Icon icon={LetterIcon} />
-        </IconWrapper>
-        <IconWrapper>
-          <Icon icon={TimerIcon} />
-        </IconWrapper>
-      </MiddleBlock>
+          <MiddleBlock>
+            <IconWrapper>
+              <Icon icon={LetterIcon} />
+            </IconWrapper>
+            <IconWrapper>
+              <Icon icon={TimerIcon} />
+            </IconWrapper>
+          </MiddleBlock>
 
-      <IconWrapper>
-        <Icon icon={MoveIcon} />
-      </IconWrapper>
-      <IconWrapper>
-        <Icon icon={TagIcon} />
-      </IconWrapper>
-      <IconWrapper>
-        <Icon icon={MoreIcon} />
-      </IconWrapper>
+          <IconWrapper>
+            <Icon icon={MoveIcon} />
+          </IconWrapper>
+          <IconWrapper>
+            <Icon icon={TagIcon} />
+          </IconWrapper>
+          <IconWrapper>
+            <Icon icon={MoreIcon} />
+          </IconWrapper>
+        </>
+      )}
+
+      { width <= 800 && (
+        <FirstBlock>
+          <IconWrapper>
+            <Icon icon={ArchiveIcon} />
+          </IconWrapper>
+          <IconWrapper>
+            <Icon icon={TrashIcon} />
+          </IconWrapper>
+          <IconWrapper>
+            <Icon icon={LetterIcon} />
+          </IconWrapper>
+          <IconWrapper>
+            <Icon icon={MoreIcon} />
+          </IconWrapper>
+        </FirstBlock>
+      )}
     </Wrapper>
   )
 }
@@ -64,6 +87,11 @@ const Wrapper = styled.div`
   padding: 4px 16px;
   height: 48px;
   border-bottom: 1px solid hsla(240,5.8%,76.3%,0.2);
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    justify-content: space-between;
+    padding-left: 8px;
+  }
 `
 
 const IconWrapper = styled.div`
@@ -102,6 +130,10 @@ const FirstBlock = styled.div`
   margin-left: 20px;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    margin-right: 20px;
+  }
 `
 
 const MiddleBlock = styled.div`

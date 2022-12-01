@@ -28,6 +28,10 @@ const Wrapper = styled.div`
   height: 100%;
   border-left: 1px solid hsla(240,5.8%,76.3%,0.2);
   padding-top: 8px;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: none;
+  }
 `
 
 const IconWrapper = styled.div`

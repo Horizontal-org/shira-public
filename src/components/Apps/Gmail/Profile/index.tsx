@@ -51,6 +51,9 @@ const ProfileWrapper = styled.div`
   display: flex;
   align-items: center;
   padding-top: 12px;
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding-left: 8px;
+  }
 `
 
 const Sender = styled.div`
@@ -70,4 +73,8 @@ const SenderEmail = styled.span`
   font-size: .75rem;
   padding-left: 4px;
   font-weight: 400;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: none;
+  }
 `
