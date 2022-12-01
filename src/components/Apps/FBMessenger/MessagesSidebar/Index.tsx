@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   border-right: 1px solid #F2F3F5;
   width: 361px;
 
-  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     width: 88px;    
   }
 `
@@ -38,6 +38,10 @@ const Header = styled.div`
 
 const HeaderIcons = styled.div`
   display: flex;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: none;   
+  }
 `
 
 const IconWrapper = styled.div`
