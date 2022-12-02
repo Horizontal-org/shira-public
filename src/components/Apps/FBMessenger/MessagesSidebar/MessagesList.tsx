@@ -1,7 +1,6 @@
 import { FunctionComponent  } from "react"
 import styled from 'styled-components'
 import ProfilePicture from "../../Whatsapp/ProfilePicture"
-import StrangerPicture from "../../Whatsapp/StrangerPicture"
 
 const MessagesList: FunctionComponent = () => {
   return (
@@ -101,7 +100,5 @@ const MessageInfo = styled.div`
     display: none;   
   }
 `
-
-//#65676B
 
 export default MessagesList
