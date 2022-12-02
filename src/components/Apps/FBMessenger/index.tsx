@@ -5,6 +5,8 @@ import IconSidebar from "./IconSIdebar"
 import MessageSidebar from "./MessagesSidebar/Index"
 import Chat from "./Chat"
 
+import '../../../fonts/Segoe/style.css'
+
 const FBMessenger: FunctionComponent = () => {
   return (
     <DesktopWrapper>
@@ -20,6 +22,8 @@ const FBMessenger: FunctionComponent = () => {
 const DesktopWrapper = styled.div`
   width: 100%;
   height: 100%;
+
+  font-family: 'Helvetica Neue', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 `
 
 const Content = styled.div`
