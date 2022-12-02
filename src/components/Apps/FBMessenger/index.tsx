@@ -22,7 +22,6 @@ const FBMessenger: FunctionComponent = () => {
 const DesktopWrapper = styled.div`
   width: 100%;
   height: 100%;
-
   font-family: 'Helvetica Neue', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
 `
 

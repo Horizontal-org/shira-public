@@ -1,12 +1,12 @@
 import { FunctionComponent  } from "react"
 import styled from 'styled-components'
 
-import MoreIcon from '../assets/more.png'
-import FileIcon from '../assets/file.png'
-import StickerIcon from '../assets/sticker.png'
-import GifIcon from '../assets/gif.png'
-import LikeIcon from '../assets/like.png'
-import EmojiIcon from '../assets/emoji.png'
+import MoreIcon from './assets/more.png'
+import FileIcon from './assets/file.png'
+import StickerIcon from './assets/sticker.png'
+import GifIcon from './assets/gif.png'
+import LikeIcon from './assets/like.png'
+import EmojiIcon from './assets/emoji.png'
 
 const BottomBar: FunctionComponent = () => {
   return (
@@ -40,12 +40,10 @@ const BottomBar: FunctionComponent = () => {
 }
 
 const Wrapper = styled.div`
-  position: absolute;
-  bottom: 8px;
   display: flex;
   align-items: center;
   width: 98%;
-  padding-right: 8px;
+  padding: 8px;
 `
 
 const FlexWrapper = styled.div`
@@ -93,5 +91,6 @@ const KeywordBar = styled.div`
 
 const Text = styled.div`
   padding-left: 16px;
+  color: rgba(60,64,67,.5);
 `
 export default BottomBar
