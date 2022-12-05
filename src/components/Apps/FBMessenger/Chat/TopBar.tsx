@@ -1,7 +1,8 @@
 import { FunctionComponent  } from "react"
 import styled from 'styled-components'
 
-import OptionsIcon from './assets/options.png'
+import CallIcon from './assets/call.png'
+import PhoneIcon from './assets/video.png'
 import InfoIcon from './assets/info.png'
 import ProfilePicture from "../../Whatsapp/ProfilePicture"
 
@@ -14,9 +15,14 @@ const TopBar: FunctionComponent = () => {
         <Name> Name Lastname </Name>
       </UserInfo>
       <FlexWrapper>
-        <OptionsWrapper>
-          <Icon icon={OptionsIcon} size='26'/>
-        </OptionsWrapper>
+
+        <IconWrapper>
+          <Icon icon={CallIcon} size='26'/>
+        </IconWrapper>
+
+        <IconWrapper>
+          <Icon icon={PhoneIcon} size='26'/>
+        </IconWrapper>
 
         <IconWrapper>
           <Icon icon={InfoIcon} size='26'/>
@@ -68,21 +74,6 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
-
-const OptionsWrapper = styled(IconWrapper)`
-  background: #1877F2;
-  width: 50px;
-  height: 26px;
-
-  border-radius: 24px;
-
-  &:hover {
-    background: #1877F2;
-  }
-
-  margin-right: 8px;
-
 `
 
 interface IconProps {
