@@ -31,7 +31,8 @@ const Wrapper = styled.div`
   flex-grow: 1;
 
   padding: 8px;
-  posittion
+
+  overflow-y: scroll;
 `
 
 const MessageWrapper = styled.div`
@@ -46,7 +47,7 @@ const MessageDate = styled.div`
   color: #65676B;
   font-size: .8125rem;
   font-weight: light;
-  padding-bottom: 16px;
+  padding: 16px 0;
 `
 
 const TextWrapper = styled.div`

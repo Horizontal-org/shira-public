@@ -33,6 +33,7 @@ FBMessengerDefault.args = {
 
 const Wrapper = styled.div`
   height: 800px;
+  overflow: hidden;
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     height: 96vh;
