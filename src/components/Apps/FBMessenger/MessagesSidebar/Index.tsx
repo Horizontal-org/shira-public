@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     width: 88px;    
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: none; 
+  }
 `
 
 export default MessageSidebar

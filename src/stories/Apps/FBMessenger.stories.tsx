@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components'
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import FBMessenger from '../../components/Apps/FBMessenger';
@@ -12,9 +13,9 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div style={{ height: '800px' }}>
+      <Wrapper>
         <Story />
-      </div>
+      </Wrapper>
     ),
   ]
 } as ComponentMeta<typeof FBMessenger>;
@@ -29,3 +30,11 @@ FBMessengerDefault.args = {
     'text/html'
   )
 }
+
+const Wrapper = styled.div`
+  height: 800px;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    height: 96vh;
+  }
+`

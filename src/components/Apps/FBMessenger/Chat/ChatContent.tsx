@@ -12,7 +12,7 @@ const ChatContent: FunctionComponent = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante massa, pulvinar et interdum quis, iaculis quis velit. Vivamus vel neque ante. Suspendisse vehicula, justo at volutpat interdum, est orci mollis leo, et faucibus nisl lorem eu tortor. Nulla laoreet id neque vitae sagittis. Donec molestie, ligula ut ultricies pellentesque, mi sapien porta nulla, sed lacinia purus libero elementum sapien. Cras ut mollis risus, eget varius nibh. Donec vitae augue pretium, posuere justo faucibus, pretium quam. Proin vel venenatis ex. Fusce gravida nibh id laoreet tempus. Quisque porttitor nibh et erat accumsan vulputate. Fusce elementum, neque quis accumsan ornare, metus mi auctor odio, vitae posuere leo nisi ut quam.
         </Text>
         <Text>
-          Message
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante massa, pulvinar et interdum quis, iaculis quis velit. Vivamus vel neque ante. Suspendisse vehicula, justo at volutpat interdum, est orci mollis leo, et faucibus nisl lorem eu tortor. Nulla laoreet id neque vitae sagittis.
         </Text>
         </TextWrapper>
       </MessageWrapper>

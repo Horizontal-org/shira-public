@@ -48,6 +48,10 @@ const Wrapper = styled.div`
   align-items: center;
   padding-top: 8px;
   position: relative;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: none; 
+  }
 `
 
 interface IconProps {
