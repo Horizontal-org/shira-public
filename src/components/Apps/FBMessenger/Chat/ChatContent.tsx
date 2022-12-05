@@ -16,6 +16,9 @@ const ChatContent: FunctionComponent = () => {
         </Text>
         </TextWrapper>
       </MessageWrapper>
+      <MessageDate>
+        14/12/20 10:58
+      </MessageDate>
       
     </Wrapper>
   )
@@ -35,6 +38,15 @@ const MessageWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   font-size: .9375rem;
+`
+
+const MessageDate = styled.div`
+  text-align: center;
+
+  color: #65676B;
+  font-size: .8125rem;
+  font-weight: light;
+  padding-bottom: 16px;
 `
 
 const TextWrapper = styled.div`
