@@ -1,7 +1,7 @@
 import { FunctionComponent  } from "react"
 import styled from 'styled-components'
 import ProfilePicture from "../../Whatsapp/ProfilePicture"
-
+import DocumentIcon from './assets/document.png'
 interface Props {
   content: Element[]
 }
@@ -15,7 +15,21 @@ const ChatContent: FunctionComponent<Props> = ({
         <ProfilePicture imageSize='28px'/>
         <TextWrapper> 
           {content.map( c => (
-            <Text dangerouslySetInnerHTML={{__html: c.outerHTML}} />
+            <>
+              {c.getAttribute('id').includes('component-text') && (
+                <Text dangerouslySetInnerHTML={{__html: c.outerHTML}} />
+              )}
+
+              {c.getAttribute('id').includes('component-attachment') && (
+                <Attachment> 
+                  <IconWrapper>
+                    <Icon icon={DocumentIcon} size='28'></Icon>
+                  </IconWrapper>
+
+                  <h3>{ c.textContent }</h3>
+                </Attachment>
+              )}
+            </>
           ))}
         </TextWrapper>
       </MessageWrapper>
@@ -69,8 +83,48 @@ const Text = styled.div`
   margin-top: 8px;
   flex-shrink: 1;
 
-  p {
+  p, h2 {
     margin: 0px
+  }
+`
+
+const IconWrapper = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  background: rgba(60,64,67,.05);
+  &:hover {
+    background: rgba(60,64,67,.12);
+  }
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+interface IconProps {
+  icon: string;
+  size: string;
+}
+
+const Icon = styled('div')<IconProps>`
+  background-image: url(${props => props.icon});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: ${props => `${props.size}px`};
+  width: ${props => `${props.size}px`};
+  height: ${props => `${props.size}px`};
+  opacity: .71;
+`
+
+const Attachment = styled(Text)`
+  display: flex;
+
+  align-items: center;
+
+  h3 {
+    margin-left: 8px;
   }
 `
 
