@@ -7,13 +7,21 @@ import Chat from "./Chat"
 
 import '../../../fonts/Segoe/style.css'
 
-const FBMessenger: FunctionComponent = () => {
+interface Props {
+  content?: HTMLElement;
+  phone?: string;
+}
+
+const FBMessenger: FunctionComponent<Props> = ({ 
+  phone, 
+  content
+}) => {
   return (
     <DesktopWrapper>
       <Content>
         <IconSidebar />
         <MessageSidebar />
-        <Chat />
+        <Chat content={content} phone={phone} />
       </Content>
     </DesktopWrapper>
   )

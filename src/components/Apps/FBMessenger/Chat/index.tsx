@@ -1,15 +1,28 @@
-import { FunctionComponent  } from "react"
+import { FunctionComponent, useEffect, useState } from "react"
 import styled from 'styled-components'
 import BottomBar from "./BottomBar"
 import ChatContent from "./ChatContent"
 
 import TopBar from "./TopBar"
 
-const Chat: FunctionComponent = () => {
+interface Props {
+  phone?: string;
+  content: HTMLElement
+}
+
+const Chat: FunctionComponent<Props> = ({
+  content
+}) => {
+  const [elements, handleElements] = useState([])
+
+  useEffect( () => {
+    handleElements(Array.from(content.querySelectorAll('[id*="component-"]')))
+  }, [content])
+
   return (
     <ChatWrapper>
       <TopBar />
-      <ChatContent />
+      <ChatContent content={elements}/>
       <BottomBar />
     </ChatWrapper>
   )
