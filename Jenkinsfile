@@ -7,7 +7,7 @@ pipeline {
         steps {
           script {
             sh '''            
-              ssh -o StrictHostKeyChecking=no root@shira.wearehorizontal.org "cd /home/shira-staging/shira-public ; npm run build"
+              ssh -o StrictHostKeyChecking=no root@shira.wearehorizontal.org "cd /home/shira-staging/shira-public ; pwd"
             '''
           }
         }
