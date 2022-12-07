@@ -1,7 +1,6 @@
 import { FunctionComponent  } from "react"
 import styled from 'styled-components'
 
-import IconSidebar from "./IconSIdebar"
 import MessageSidebar from "./MessagesSidebar/Index"
 import Chat from "./Chat"
 
@@ -19,7 +18,6 @@ const FBMessenger: FunctionComponent<Props> = ({
   return (
     <DesktopWrapper>
       <Content>
-        <IconSidebar />
         <MessageSidebar />
         <Chat content={content} fullname={fullname} />
       </Content>

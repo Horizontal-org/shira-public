@@ -14,17 +14,17 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer}) => {
     <Wrapper>
       <PhisingButton onClick={() => { onAnswer('phising') }}>
         <PhisingIcon />
-        Looks like phishing
+        <Text>Looks like phishing</Text>
       </PhisingButton>
 
       <UnsureButton onClick={() => { onAnswer('unsure') }}>
         <UnsureIcon />
-        I don’t know
+        <Text>I don’t know</Text>
       </UnsureButton>
 
       <LegitimateButton onClick={() => { onAnswer('legitimate') }}>
         <LegitimateIcon />
-        Looks legitimate
+        <Text>Looks legitimate</Text>
       </LegitimateButton>
     </Wrapper>
   )
@@ -67,4 +67,10 @@ const UnsureButton = styled(StyledButton)`
 
 const LegitimateButton = styled(StyledButton)`
   background: #9FB747;
+`
+
+const Text = styled.div`
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: none; 
+  }
 `
