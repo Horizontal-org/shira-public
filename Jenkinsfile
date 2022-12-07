@@ -4,6 +4,13 @@ pipeline {
     tools {nodejs "nodejs"}
 
     stages {
+        stage('Test npm') {
+          steps {
+            sh """
+              npm --version
+            """
+          }
+        }
         stage ('Deploy to staging') {
         steps {
           script {
