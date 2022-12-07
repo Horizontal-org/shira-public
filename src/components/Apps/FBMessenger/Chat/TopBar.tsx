@@ -6,13 +6,17 @@ import PhoneIcon from './assets/video.png'
 import InfoIcon from './assets/info.png'
 import ProfilePicture from "../../Whatsapp/ProfilePicture"
 
-
-const TopBar: FunctionComponent = () => {
+interface Props {
+  fullname?: string;
+}
+const TopBar: FunctionComponent<Props> = ({
+  fullname
+}) => {
   return (
     <Wrapper>
       <UserInfo>
         <ProfilePicture />
-        <Name> Name Lastname </Name>
+        <Name> {fullname} </Name>
       </UserInfo>
       <FlexWrapper>
 

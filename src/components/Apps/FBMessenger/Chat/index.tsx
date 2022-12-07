@@ -6,11 +6,12 @@ import ChatContent from "./ChatContent"
 import TopBar from "./TopBar"
 
 interface Props {
-  phone?: string;
+  fullname?: string;
   content: HTMLElement
 }
 
 const Chat: FunctionComponent<Props> = ({
+  fullname,
   content
 }) => {
   const [elements, handleElements] = useState([])
@@ -21,7 +22,7 @@ const Chat: FunctionComponent<Props> = ({
 
   return (
     <ChatWrapper>
-      <TopBar />
+      <TopBar fullname={fullname}/> 
       <ChatContent content={elements}/>
       <BottomBar />
     </ChatWrapper>

@@ -9,11 +9,11 @@ import '../../../fonts/Segoe/style.css'
 
 interface Props {
   content?: HTMLElement;
-  phone?: string;
+  fullname?: string;
 }
 
 const FBMessenger: FunctionComponent<Props> = ({ 
-  phone, 
+  fullname, 
   content
 }) => {
   return (
@@ -21,7 +21,7 @@ const FBMessenger: FunctionComponent<Props> = ({
       <Content>
         <IconSidebar />
         <MessageSidebar />
-        <Chat content={content} phone={phone} />
+        <Chat content={content} fullname={fullname} />
       </Content>
     </DesktopWrapper>
   )

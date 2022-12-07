@@ -26,7 +26,11 @@ const ChatContent: FunctionComponent<Props> = ({
                     <Icon icon={DocumentIcon} size='28'></Icon>
                   </IconWrapper>
 
-                  <h3>{ c.textContent }</h3>
+                  <div>
+                    <Heading> { c.textContent }  </Heading>
+
+                    <SecondaryText>128, 12 kb</SecondaryText>
+                  </div>
                 </Attachment>
               )}
             </>
@@ -84,7 +88,8 @@ const Text = styled.div`
   flex-shrink: 1;
 
   p, h2 {
-    margin: 0px
+    margin: 0px;
+    font-size: .9375rem;
   }
 `
 
@@ -123,9 +128,20 @@ const Attachment = styled(Text)`
 
   align-items: center;
 
-  h3 {
+  div {
     margin-left: 8px;
   }
+`
+
+const SecondaryText = styled.div`
+  color: #65676B;
+  font-size: .8125rem;
+  font-weight: light;
+`
+
+const Heading = styled.div`
+  font-weight: bold;
+  line-height: 19.9995px;
 `
 
 export default ChatContent
