@@ -23,6 +23,7 @@ const ImageWrapper = styled('div')<ImageWrapperProps>`
   width: ${(props) => props.imageSize};
   height: ${(props) => props.imageSize};
   border-radius: 50%;
+  overflow: hidden;
 
   > svg {
     width: ${(props) => props.imageSize};

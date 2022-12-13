@@ -1,29 +1,61 @@
 import { FunctionComponent  } from "react"
 import styled from 'styled-components'
 
+import RecorderIcon from "./RecorderIcon"
+
 import MoreIcon from './assets/more.png'
 import FileIcon from './assets/file.png'
 import StickerIcon from './assets/sticker.png'
 import GifIcon from './assets/gif.png'
 import LikeIcon from './assets/like.png'
 import EmojiIcon from './assets/emoji.png'
+import MenuIcon from './assets/menu.png'
+import CameraIcon from './assets/camera.png'
+import ImageIcon from './assets/image.png'
+import useGetWidth from "../../../../hooks/useGetWidth"
 
 const BottomBar: FunctionComponent = () => {
+  const { width } = useGetWidth()
+
   return (
       <Wrapper>
         <FlexWrapper>
-          <IconWrapper>
-            <Icon icon={MoreIcon} size='28'/>
-          </IconWrapper>
-          <IconWrapper>
-            <Icon icon={FileIcon} size='28'/>
-          </IconWrapper>
-          <IconWrapper>
-            <Icon icon={StickerIcon} size='28'/>
-          </IconWrapper>
-          <IconWrapper>
-            <Icon icon={GifIcon} size='28'/>
-          </IconWrapper>
+          { width > 490 && (
+            <>
+              <IconWrapper>
+                <Icon icon={MoreIcon} size='28'/>
+              </IconWrapper>
+              <IconWrapper>
+                <Icon icon={FileIcon} size='28'/>
+              </IconWrapper>
+              <IconWrapper>
+                <Icon icon={StickerIcon} size='28'/>
+              </IconWrapper>
+              <IconWrapper>
+                <Icon icon={GifIcon} size='28'/>
+              </IconWrapper>
+            </>
+          )}
+
+          { width < 490 && (
+            <>
+              <IconWrapper>
+                <Icon icon={MenuIcon} size='20'/>
+              </IconWrapper>
+
+              <IconWrapper>
+                <Icon icon={CameraIcon} size='20'/>
+              </IconWrapper>
+
+              <IconWrapper>
+                <Icon icon={ImageIcon} size='20'/>
+              </IconWrapper>
+
+              <IconWrapper>
+                <RecorderIcon />
+              </IconWrapper>
+            </>
+          )}
         </FlexWrapper>
         <KeywordBar>
           <Text>Aa</Text>

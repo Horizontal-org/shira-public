@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import CallIcon from './assets/call.png'
 import PhoneIcon from './assets/video.png'
 import InfoIcon from './assets/info.png'
+import BackIcon from './BackIcon'
 import ProfilePicture from "../../Whatsapp/ProfilePicture"
+import useGetWidth from "../../../../hooks/useGetWidth"
 
 interface Props {
   fullname?: string;
@@ -12,9 +14,16 @@ interface Props {
 const TopBar: FunctionComponent<Props> = ({
   fullname
 }) => {
+
+  const { width } = useGetWidth()
   return (
     <Wrapper>
       <UserInfo>
+        { width < 490 && (
+          <BackIconWrapper>
+            <BackIcon />
+          </BackIconWrapper>
+        )}
         <ProfilePicture />
         <Name> {fullname} </Name>
       </UserInfo>
@@ -28,9 +37,11 @@ const TopBar: FunctionComponent<Props> = ({
           <Icon icon={PhoneIcon} size='26'/>
         </IconWrapper>
 
-        <IconWrapper>
-          <Icon icon={InfoIcon} size='26'/>
-        </IconWrapper>
+        {width > 490 && (
+          <IconWrapper>
+            <Icon icon={InfoIcon} size='26'/>
+          </IconWrapper>
+        )}
       </FlexWrapper>
     </Wrapper>
   )
@@ -52,6 +63,10 @@ const UserInfo = styled.div`
 
   display: flex;
   align-items: center;
+`
+
+const BackIconWrapper = styled.div`
+  padding: 0 16px;
 `
 
 const Name = styled.div`
@@ -95,3 +110,5 @@ const Icon = styled('div')<IconProps>`
 `
 
 export default TopBar
+
+

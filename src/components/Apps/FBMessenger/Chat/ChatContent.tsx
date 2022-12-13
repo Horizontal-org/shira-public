@@ -12,7 +12,7 @@ const ChatContent: FunctionComponent<Props> = ({
   return (
     <Wrapper>
       <MessageWrapper>
-        <ProfilePicture imageSize='28px'/>
+        <div><ProfilePicture imageSize='28px'/></div>
         <TextWrapper> 
           {content.map( c => (
             <>
