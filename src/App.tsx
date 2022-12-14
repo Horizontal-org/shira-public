@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import { MainLayout } from "./components/Layouts/MainLayout";
+import { ToastProvider } from "./hooks/useToast";
 import theme from "./utils/theme";
 
 interface Props {}
@@ -13,13 +14,15 @@ interface Props {}
 const App: FunctionComponent<Props> = () => {
   return (
     <Wrapper>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <Routes>          
-            <Route path="/" element={<MainLayout />} />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
+      <ToastProvider>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <Routes>          
+              <Route path="/" element={<MainLayout />} />
+            </Routes>
+          </BrowserRouter>
+        </ThemeProvider>
+      </ToastProvider>
     </Wrapper>
   )
 }

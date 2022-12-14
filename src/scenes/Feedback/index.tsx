@@ -7,16 +7,37 @@ import { Footer } from "../../components/UI/Footer";
 import { SceneWithFooter } from "../../components/UI/SceneWithFooter";
 import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { SectionWrapper } from "../../components/UI/SectionWrapper";
+import { CreateSurvey } from "../../domain/survey";
+import { submitFeedback } from "../../fetch/feedback";
+import { useToast } from "../../hooks/useToast";
 import { useStore } from "../../store";
 
 interface Props {}
 
 export const Feedback: FunctionComponent<Props> = () => {
   const changeScene = useStore((state) => state.changeScene)
+  const { createToast } = useToast()
 
   const [easyness, onEasyness] = useState('')
   const [recommend, onRecommend] = useState('')
   const [improve, onImprove] = useState('')
+
+  const handleSubmitFeedback = async() => {                  
+    if (easyness.length > 0 || recommend.length > 0 || improve.length > 0) {
+      const data: CreateSurvey = {
+        easyness: easyness.length > 0 ? easyness : null,
+        recommend: recommend.length > 0 ? recommend : null,
+        improvements: improve.length > 0 ? improve : null,
+      }
+
+      const success = await submitFeedback(data)
+      if (success) {
+        createToast('Thanks for your feedback!')
+      }                    
+    }
+
+    changeScene('completed') 
+  }
 
   return (
     <SceneWrapper>
@@ -38,7 +59,7 @@ export const Feedback: FunctionComponent<Props> = () => {
             improve={improve}
             onEasyness={onEasyness}
             onRecommend={onRecommend}
-            onImprove={onImprove}            
+            onImprove={onImprove}
           />
 
         </StyledSectionWrapper>
@@ -52,7 +73,7 @@ export const Feedback: FunctionComponent<Props> = () => {
               <Button 
                 text="See results"
                 rightIcon={<FiChevronRight size={18}/>}          
-                onClick={() => { changeScene('completed') }}      
+                onClick={handleSubmitFeedback}      
               />
             </FooterActionWrapper>
           )}
