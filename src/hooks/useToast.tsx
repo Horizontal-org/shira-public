@@ -1,23 +1,15 @@
 import React from "react";
+import styled from 'styled-components'
+import ToastContainer from "../components/UI/ToastContainer";
 
 const Ctx = React.createContext(null);
 
-const ToastContainer = props => (
-  <div style={{ position: "fixed", right: 0, top: 0 }} {...props} />
-);
 const Toast = ({ children, onDismiss }) => (
-  <div
-    style={{
-      background: "LemonChiffon",
-      cursor: "pointer",
-      fontSize: 14,
-      margin: 10,
-      padding: 10
-    }}
+  <ToastWrapper
     onClick={onDismiss}
   >
     {children}
-  </div>
+  </ToastWrapper>
 );
 
 let toastCount = 0;
@@ -58,3 +50,11 @@ export function ToastProvider({ children }) {
 }
 
 export const useToast = () => React.useContext(Ctx);
+
+const ToastWrapper = styled.div`
+  background: LemonChiffon;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px;
+  padding: 10px;  
+`

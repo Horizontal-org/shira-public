@@ -22,6 +22,23 @@ export const Feedback: FunctionComponent<Props> = () => {
   const [recommend, onRecommend] = useState('')
   const [improve, onImprove] = useState('')
 
+  const handleSubmitFeedback = async() => {                  
+    if (easyness.length > 0 || recommend.length > 0 || improve.length > 0) {
+      const data: CreateSurvey = {
+        easyness: easyness.length > 0 ? easyness : null,
+        recommend: recommend.length > 0 ? recommend : null,
+        improvements: improve.length > 0 ? improve : null,
+      }
+
+      const success = await submitFeedback(data)
+      if (success) {
+        createToast('Thanks for your feedback!')
+      }                    
+    }
+
+    changeScene('completed') 
+  }
+
   return (
     <SceneWrapper>
       <SceneWithFooter>
@@ -56,23 +73,7 @@ export const Feedback: FunctionComponent<Props> = () => {
               <Button 
                 text="See results"
                 rightIcon={<FiChevronRight size={18}/>}          
-                onClick={async() => {
-                  
-                  if (easyness.length > 0 || recommend.length > 0 || improve.length > 0) {
-                    const data: CreateSurvey = {
-                      easyness: easyness.length > 0 ? easyness : null,
-                      recommend: recommend.length > 0 ? recommend : null,
-                      improvements: improve.length > 0 ? improve : null,
-                    }
-
-                    const success = await submitFeedback(data)
-                    if (success) {
-                      createToast('Thanks for your feedback!')
-                    }                    
-                  }
-
-                  changeScene('completed') 
-                }}      
+                onClick={handleSubmitFeedback}      
               />
             </FooterActionWrapper>
           )}

@@ -35,7 +35,6 @@ export const Quiz:FunctionComponent<Props> = () => {
   useEffect(() => {
     const startQuiz = async() => {
       fetchQuiz(apps, fieldsOfWork)
-      console.log("🚀 ~ file: index.tsx ~ line 33 ~ startQuiz ~ quiz", quiz)
       // handleQuestions(quiz.questions)    
     }
 
@@ -48,7 +47,6 @@ export const Quiz:FunctionComponent<Props> = () => {
     }
   }, [quiz])
 
-  // console.log(questions)
   return (
     <SceneWrapper>
       

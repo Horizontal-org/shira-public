@@ -25,8 +25,6 @@ export const Question: FunctionComponent<Props> = ({
 }) => {
   
   const [answer, handleAnswer] = useState<string | null>(null)
-  // TODO FIX QUESTION APP
-  // TODO FIX ANSWER
 
   return (
     <SceneWithFooter>
