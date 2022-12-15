@@ -1,6 +1,7 @@
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent } from 'react'
 import { SMS } from '../../../Apps/SMS';
 import Whatsapp from '../../../Apps/Whatsapp';
+import FBMessenger from '../../../Apps/FBMessenger';
 
 
 interface Props {
@@ -24,6 +25,13 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name }) => {
       { name === 'Whatsapp' && (
         <Whatsapp
           phone={!!(html.getElementById('component-required-phone')) ? html.getElementById('component-required-phone').textContent : ''}
+          content={html.getElementById('dynamic-content')}
+        />
+      )}
+
+      { name === 'Messenger' && (
+        <FBMessenger 
+          fullname={!!(html.getElementById('component-required-phone')) ? html.getElementById('component-required-phone').textContent : ''}
           content={html.getElementById('dynamic-content')}
         />
       )}

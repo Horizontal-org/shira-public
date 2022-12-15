@@ -4,11 +4,13 @@ import styled from 'styled-components'
 // Icons
 import GmailSvg from './assets/Mail'
 import WhatsappSvg from './assets/Whatsapp'
+import MessengerIcon from './assets/Messenger'
 
 
 const icons = {
   'Whatsapp': <WhatsappSvg />,
-  'Gmail': <GmailSvg />
+  'Gmail': <GmailSvg />,
+  'Messenger': <MessengerIcon />
 }
 
 const getIcon = (name) => {

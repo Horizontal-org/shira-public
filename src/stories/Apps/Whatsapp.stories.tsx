@@ -29,4 +29,3 @@ WhatsappDefault.args = {
     'text/html'
   )
 }
-
