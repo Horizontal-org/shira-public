@@ -32,6 +32,7 @@ export const Question: FunctionComponent<Props> = ({
       <AppLayout 
         app={question.apps[Math.floor(Math.random() * question.apps.length)]}
         content={question.content}
+        explanations={question.explanations}
       />
 
       <Footer

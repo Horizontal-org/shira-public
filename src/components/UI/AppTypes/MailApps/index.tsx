@@ -1,12 +1,14 @@
 import { FunctionComponent, useEffect, useState } from 'react'
 import Gmail from '../../../Apps/Gmail';
+import { Explanation } from '../../../../domain/explanation';
 
 interface Props {
   content: string;
   name: string;
+  explanations?: Explanation[]
 }
 
-export const MailApps: FunctionComponent<Props> = ({ content, name }) => {
+export const MailApps: FunctionComponent<Props> = ({ content, name, explanations }) => {
 
   const html = new DOMParser().parseFromString(content, 'text/html')
   const [attachments, handleAttachments] = useState([])
@@ -30,6 +32,7 @@ export const MailApps: FunctionComponent<Props> = ({ content, name }) => {
           subject={!!(html.getElementById('component-optional-subject')) ? html.getElementById('component-optional-subject').textContent : ''}
           content={html.querySelector('[id*="component-text"]')}
           attachments={attachments}
+          explanations={explanations}
         />
       )}
     </>    

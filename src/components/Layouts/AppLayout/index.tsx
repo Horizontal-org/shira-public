@@ -1,19 +1,20 @@
 import { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import { App } from '../../../domain/app'
-import Gmail from '../../Apps/Gmail'
-import Whatsapp from '../../Apps/Whatsapp'
+import { Explanation } from '../../../domain/explanation'
 import { MailApps } from '../../UI/AppTypes/MailApps'
 import { MessagingApps } from '../../UI/AppTypes/MessagingApps'
 
 interface Props {
   app: App
   content: string;
+  explanations?: Explanation[]
 }
 
 export const AppLayout: FunctionComponent<Props> = ({
   app,
-  content
+  content,
+  explanations
 }) => {
   return (
     <Wrapper>
@@ -21,6 +22,7 @@ export const AppLayout: FunctionComponent<Props> = ({
       <MailApps 
         content={content}
         name={app.name}
+        explanations={explanations}
       />      
 
       <MessagingApps

@@ -10,6 +10,8 @@ import Applications from "./Applications"
 import '../../../fonts/GoogleSans/style.css'
 import { Profile } from "./Profile"
 import { Attachments } from "./Attachments"
+import { Explanation } from "../../../domain/explanation"
+import Tippy from "@tippyjs/react"
 
 interface Props {
   content: HTMLElement;
@@ -17,6 +19,7 @@ interface Props {
   senderEmail: string;
   subject?: string;
   attachments?: any[];
+  explanations?: Explanation[]
 }
 
 const Gmail: FunctionComponent<Props> = ({ 
@@ -24,11 +27,15 @@ const Gmail: FunctionComponent<Props> = ({
   senderName,
   senderEmail,
   subject,
-  attachments
+  attachments,
+  explanations
 }) => {
-
+  console.log(explanations)
   return (
     <DesktopWrapper className="gmail">
+      {/* <Tippy content={<span>Tooltip</span>}>
+
+      </Tippy> */}
       <Font />
       <div>
         <Header />
