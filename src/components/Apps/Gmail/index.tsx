@@ -1,6 +1,5 @@
-import React, { FunctionComponent, useRef  } from "react"
+import { FunctionComponent } from "react"
 import styled, { createGlobalStyle } from 'styled-components'
-import { domToReact } from 'html-react-parser'
 
 import Header from './Header'
 import Sidebar from "./Sidebar"
@@ -11,15 +10,21 @@ import '../../../fonts/GoogleSans/style.css'
 import { Profile } from "./Profile"
 import { Attachments } from "./Attachments"
 import { Explanation } from "../../../domain/explanation"
-import Tippy from "@tippyjs/react"
+import ExplanationTooltip from "./ExplanationTooltip"
+
+interface CustomElements {
+  textContent: string,
+  explanationPosition: string | null
+}
 
 interface Props {
   content: HTMLElement;
-  senderName: string;
-  senderEmail: string;
-  subject?: string;
+  senderName: CustomElements;
+  senderEmail: CustomElements;
+  subject?: CustomElements;
   attachments?: any[];
   explanations?: Explanation[]
+  explanationNumber: number
 }
 
 const Gmail: FunctionComponent<Props> = ({ 
@@ -28,14 +33,15 @@ const Gmail: FunctionComponent<Props> = ({
   senderEmail,
   subject,
   attachments,
-  explanations
+  explanations,
+  explanationNumber
 }) => {
-  console.log(explanations)
+
   return (
     <DesktopWrapper className="gmail">
-      {/* <Tippy content={<span>Tooltip</span>}>
-
-      </Tippy> */}
+      {explanations.map(explanation => (
+        <ExplanationTooltip explanation={explanation} explanationNumber={explanationNumber}/>
+      ))}
       <Font />
       <div>
         <Header />
@@ -46,8 +52,8 @@ const Gmail: FunctionComponent<Props> = ({
           <MailOptions />
           <DynamicWrapper>
             <div>
-              <Subject>
-                { subject || ''}
+              <Subject data-explanation={subject.explanationPosition}>
+                { subject.textContent || ''}
               </Subject>
               <Profile 
                 senderEmail={senderEmail}

@@ -25,6 +25,7 @@ export const Question: FunctionComponent<Props> = ({
 }) => {
   
   const [answer, handleAnswer] = useState<string | null>(null)
+  const [ explanationNumber, setExplanationNumber ] = useState<number>(0)
 
   return (
     <SceneWithFooter>
@@ -33,12 +34,16 @@ export const Question: FunctionComponent<Props> = ({
         app={question.apps[Math.floor(Math.random() * question.apps.length)]}
         content={question.content}
         explanations={question.explanations}
+        explanationNumber={explanationNumber}
       />
 
       <Footer
         title={`${questionIndex + 1}/${questionCount}`}        
         action={answer ? (
           <AnswerFeedback 
+            explanationNumber={explanationNumber}
+            explanationsLength={question.explanations.length}
+            setExplanationNumber={(n) => { setExplanationNumber(n)}}
             onNext={onNext}
             userAnswer={answer}
             realAnswer={'legitimate'}

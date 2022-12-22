@@ -3,9 +3,14 @@ import { FunctionComponent } from "react";
 import styled from 'styled-components'
 import ProfileIcon from './assets/profile.png'
 
+interface CustomElements {
+  textContent: string,
+  explanationPosition: string | null
+}
+
 interface Props {
-  senderName: string;
-  senderEmail: string;
+  senderName: CustomElements;
+  senderEmail: CustomElements;
 }
 
 export const Profile: FunctionComponent<Props> = ({
@@ -19,8 +24,8 @@ export const Profile: FunctionComponent<Props> = ({
       </Icon>
       <SenderWrapper>
         <Sender>
-          <SenderName>{senderName || ''}</SenderName>
-          <SenderEmail>{`<${senderEmail || ''}>`}</SenderEmail>
+          <SenderName data-explanation={senderName.explanationPosition}>{senderName.textContent || ''}</SenderName>
+          <SenderEmail data-explanation={senderEmail.explanationPosition}>{`<${senderEmail.textContent || ''}>`}</SenderEmail>
         </Sender>
         <span>to me</span>
       </SenderWrapper>

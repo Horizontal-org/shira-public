@@ -7,14 +7,16 @@ import { MessagingApps } from '../../UI/AppTypes/MessagingApps'
 
 interface Props {
   app: App
-  content: string;
+  content: string
   explanations?: Explanation[]
+  explanationNumber: number
 }
 
 export const AppLayout: FunctionComponent<Props> = ({
   app,
   content,
-  explanations
+  explanations,
+  explanationNumber
 }) => {
   return (
     <Wrapper>
@@ -23,6 +25,7 @@ export const AppLayout: FunctionComponent<Props> = ({
         content={content}
         name={app.name}
         explanations={explanations}
+        explanationNumber={explanationNumber}
       />      
 
       <MessagingApps
