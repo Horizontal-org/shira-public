@@ -6,33 +6,38 @@ import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { Select } from "../../components/UI/Select";
 import { FiChevronRight } from 'react-icons/fi'
 import { useStore } from "../../store";
+import { useTranslation } from "react-i18next";
 
 export const WelcomeScene: FunctionComponent = () => {  
   const changeScene = useStore((state) => state.changeScene)
+  const { t, i18n } = useTranslation()
 
   return (
     <SceneWrapper>
       <Navbar />
       <CenterWrapper>
-        <Title>Welcome to Shira</Title>
-        <Subtitle>Build skills to detect and defeat phishing attempts</Subtitle>
+        <Title>{t('welcome.title')}</Title>
+        <Subtitle>{t('welcome.subtitle')}</Subtitle>
         <Buttons>
           <Select 
+            onChange={(v) => {
+              i18n.changeLanguage(v)
+            }}
             autoselect
             options={[
               {
                 label: 'English',
-                value: 'english'
+                value: 'en'
               },
               {
                 label: 'Español',
-                value: 'spanish'
+                value: 'es'
               }
             ]}
           />
           <Button 
             onClick={() => { changeScene('quiz-setup-name')}} 
-            text='Start quiz'
+            text={t('welcome.start')}
             rightIcon={<FiChevronRight size={18}/>}
           />          
         </Buttons>

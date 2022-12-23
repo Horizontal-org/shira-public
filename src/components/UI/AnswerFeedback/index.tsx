@@ -6,6 +6,7 @@ import { Button } from "../Button";
 import UnsureIcon from '../Icons/Unsure'
 import WrongIcon from '../Icons/Wrong'
 import CorrectIcon from '../Icons/Correct'
+import { useTranslation } from "react-i18next";
 
 interface Props {
   onNext:  () => void;
@@ -18,23 +19,23 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   realAnswer,
   userAnswer
 }) => {
-
+  const { t } = useTranslation()
   const compareAnswers = () => {
     if (userAnswer === 'unsure') {
       return (<>
         <UnsureIcon />
-        <span>"I don't know"</span>
+        <span>{t("quiz.answers.results.unsure")}</span>
       </>)
     }
     if (realAnswer === userAnswer) {
       return (<>
         <CorrectIcon />
-        <span>Good Job!</span>
+        <span>{t("quiz.answers.results.correct")}</span>
       </>)
     } else {
       return (<>
         <WrongIcon />
-        <span>Incorrect</span>
+        <span>{t("quiz.answers.results.incorrect")}</span>
       </>)
     }
   }
@@ -48,7 +49,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
         </UserAnswerWrapper>
       )}
       <Button 
-        text='Next'
+        text={t("quiz.answers.results.next_button")}
         type='outline'
         onClick={onNext}
         rightIcon={<FiChevronRight size={18}/>}

@@ -7,6 +7,7 @@ import UnsureIcon from '../Icons/Unsure'
 import SmileIcon from '../Icons/Smile'
 import HappyIcon from '../Icons/Happy'
 import { TextInput } from '../TextInput'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   easyness: string;
@@ -25,78 +26,79 @@ export const FeedbackBox: FunctionComponent<Props> = ({
   improve,
   onImprove
 }) => {
-  
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
       <Item>
-        <p>1. How easy is Shira to use?</p>
+        <p>{ t('feedback.box.question_1.title') }</p>
         <PillWrapper>
           <Pill 
             onClick={() => { onEasyness('very-complicated')}}
-            label='Very complicated'
+            label={ t('feedback.box.question_1.very_complicated') }
             icon={<SadIcon />}
             selected={easyness === 'very-complicated'}
           />
           <Pill 
             onClick={() => { onEasyness('complicated')}}
-            label='Complicated'
+            label={ t('feedback.box.question_1.complicated') }
             icon={<UnsureIcon />}
             selected={easyness === 'complicated'}
           />
           <Pill 
             onClick={() => { onEasyness('easy')}}
-            label='Easy'
+            label={ t('feedback.box.question_1.easy') }
             icon={<SmileIcon />}
             selected={easyness === 'easy'}
           />
           <Pill 
             onClick={() => { onEasyness('very-easy')}}
-            label='Very easy'
+            label={ t('feedback.box.question_1.very_easy') }
             icon={<HappyIcon />}
             selected={easyness === 'very-easy'}
           />
         </PillWrapper>
       </Item>
       <Item>
-        <p>2. How likely are you to recommend Shira to friends or colleagues?</p>
+        <p>{ t('feedback.box.question_2.title') }</p>
         <PillWrapper>
           <Pill 
             onClick={() => { onRecommend('not-likely')}}
-            label='Not likely'
+            label={ t('feedback.box.question_2.not_likely') }
             icon={<SadIcon />}
             selected={recommend === 'not-likely'}
           />
           <Pill 
             onClick={() => { onRecommend('somewhat-likely')}}
-            label='Somewhat likely'
+            label={ t('feedback.box.question_2.somewhat_likely') }
             icon={<UnsureIcon />}
             selected={recommend === 'somewhat-likely'}
           />
           <Pill 
             onClick={() => { onRecommend('likely')}}
-            label='Likely'
+            label={ t('feedback.box.question_2.likely') }
             icon={<SmileIcon />}
             selected={recommend === 'likely'}
           />
           <Pill 
             onClick={() => { onRecommend('very-likely')}}
-            label='Very likely'
+            label={ t('feedback.box.question_2.very_likely') }
             icon={<HappyIcon />}
             selected={recommend === 'very-likely'}
           />
         </PillWrapper>
       </Item>
       <Item>
-        <p>3. How can we improve Shira?</p>
+        <p>{t('feedback.box.question_3.title')}</p>
         <TextInput 
           onChange={(e) => { onImprove(e.target.value)}}
-          placeholder="Placeholder"
+          placeholder={t('feedback.box.question_3.placeholder')}
           value={improve}
         />
       </Item>
       <Item>
         <BottomText>
-          <i>Your feedback will be sent when you click “see results”</i>
+          <i>{t('feedback.box.bottom_text')}</i>
         </BottomText>
       </Item>
     </Wrapper>

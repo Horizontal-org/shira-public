@@ -1,4 +1,5 @@
 import { FunctionComponent, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import styled from 'styled-components'
 import shallow from 'zustand/shallow'
@@ -13,6 +14,7 @@ import { useStore } from '../../store'
 interface Props {}
 
 export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
+  const { t } = useTranslation()
   const { changeScene, fieldsOfWork, updateFieldsOfWork, persistedFieldsOfWork } = useStore(
     (state) => ({
       changeScene: state.changeScene,
@@ -29,12 +31,12 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
     <SceneWrapper>
       <SceneWithFooter>
         <Section
-          title='Which fields do you work in?'
-          subtitle='This will help us customize the quiz questions to make them look as realistic as possible. This information will not be saved, sent out of our servers, or shared with anyone else.'
+          title={t('setup.fields_of_work.title')}
+          subtitle={t('setup.fields_of_work.subtitle')}
         >
           <>
             <p>
-              <i>Select up to 3 items</i>    
+              <i>{t('setup.fields_of_work.select')}</i>    
             </p>
           </>
 
@@ -60,14 +62,14 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
         </Section>
 
         <Footer
-            title="Quiz setup"
+            title={t('setup.fields_of_work.footer_title')}
             action={(
               <FooterButtons>
                 <Button
                   onClick={() => { 
                     changeScene('quiz-setup-apps')
                   }} 
-                  text='Back'
+                  text={t('setup.fields_of_work.back_button')}
                   type="outline"
                   rightIcon={<FiChevronLeft size={18}/>}
                 />             
@@ -78,7 +80,7 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
                     changeScene('quiz')
                   }} 
                   disabled={selected.length === 0}
-                  text='Start quiz'
+                  text={t('setup.fields_of_work.next_button')}
                   type="primary"
                   rightIcon={<FiChevronRight size={18}/>}
                 />             

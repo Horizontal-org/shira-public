@@ -1,4 +1,5 @@
 import { FunctionComponent, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 import { Button } from "../../components/UI/Button";
@@ -15,6 +16,7 @@ import { useStore } from "../../store";
 interface Props {}
 
 export const Feedback: FunctionComponent<Props> = () => {
+  const { t } = useTranslation()
   const changeScene = useStore((state) => state.changeScene)
   const { createToast } = useToast()
 
@@ -46,10 +48,10 @@ export const Feedback: FunctionComponent<Props> = () => {
         <StyledSectionWrapper>
           <FeedbackHeading>
             <FeedbackTitle>
-              Help us improve
+              { t('feedback.title') }
             </FeedbackTitle>
             <FeedbackSubtitle>
-              One last thing before the quiz results: let us know what you think about Shira to help improve it for future users.
+            { t('feedback.subtitle') }
             </FeedbackSubtitle>
           </FeedbackHeading>
 
@@ -69,9 +71,9 @@ export const Feedback: FunctionComponent<Props> = () => {
           title=""
           action={(
             <FooterActionWrapper>
-              <p>You’re almost done! Keep going to see your quiz results and recommended next steps.</p>
+              <p>{ t('feedback.footer_title') }</p>
               <Button 
-                text="See results"
+                text={ t('feedback.next_button') }
                 rightIcon={<FiChevronRight size={18}/>}          
                 onClick={handleSubmitFeedback}      
               />

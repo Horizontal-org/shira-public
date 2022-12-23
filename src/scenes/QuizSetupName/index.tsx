@@ -15,10 +15,12 @@ import { getRandomName } from "../../utils/randomName";
 import { useStore } from "../../store";
 import { Section } from "../../components/UI/Section";
 import { SceneWithFooter } from "../../components/UI/SceneWithFooter";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
 export const QuizSetupNameScene: FunctionComponent<Props> = () => {
+  const { t } = useTranslation()
   const {
     changeScene,
     persistedName,
@@ -60,22 +62,22 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
       <SceneWithFooter>
 
         <Section
-          title='Add a name and email address'
-          subtitle="We ask for a name and email address to make the phishing quiz feel more realistic. This information will not be saved, sent out of our servers, or shared with anyone else"
+          title={t('setup.name.title')}
+          subtitle={t('setup.name.subtitle')}
         >
           <p>
-            <Subtitle>To be extra-safe, you can use a fake name and email address, or generate random ones.</Subtitle>
+            <Subtitle>{t('setup.name.recommendation')}</Subtitle>
           </p>
 
           <FormContent>
             <FormInputs>
               <BigTextInput 
-                placeholder="Name"
+                placeholder={t('setup.name.name')}
                 onChange={(e) => { handleName(e.target.value) }}
                 value={name}
               />
               <BigTextInput 
-                placeholder="Email"
+                placeholder={t('setup.name.email')}
                 onChange={(e) => { handleEmail(e.target.value) }}
                 value={email}
               />
@@ -88,7 +90,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
                   handleName(randomName)
                   handleEmail(`${lowerCase(randomName)}@awesomemail.com`)
                 }}
-                text="Make a random name and email address"
+                text={t('setup.name.random_button')}
                 leftIcon={<FiRefreshCcw size={18}/>}
               />
             </FormButton>
@@ -96,7 +98,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
         </Section>
 
         <Footer 
-          title="Quiz setup"
+          title={t('setup.name.footer_title')}
           action={(
             <Button 
               disabled={name.length === 0 || email.length === 0}
@@ -104,7 +106,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
                 updateName(name, email)
                 changeScene('quiz-setup-apps')
               }} 
-              text='Next'
+              text={t('setup.name.next_button')}
               type="outline"
               rightIcon={<FiChevronRight size={18}/>}
             />             

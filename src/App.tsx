@@ -8,6 +8,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { MainLayout } from "./components/Layouts/MainLayout";
 import { ToastProvider } from "./hooks/useToast";
 import theme from "./utils/theme";
+import './language/i18n'
 
 interface Props {}
 

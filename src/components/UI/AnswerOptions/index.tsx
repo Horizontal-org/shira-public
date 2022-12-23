@@ -4,27 +4,30 @@ import styled from 'styled-components'
 import LegitimateIcon from '../Icons/ThumbUp'
 import UnsureIcon from '../Icons/Unsure'
 import PhisingIcon from '../Icons/Alert'
+import { useTranslation } from "react-i18next";
 
 interface Props {
   onAnswer: (answer: string) => void 
 }
 
 export const AnswerOptions: FunctionComponent<Props> = ({onAnswer}) => {
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
       <PhisingButton onClick={() => { onAnswer('phising') }}>
         <PhisingIcon />
-        <Text>Looks like phishing</Text>
+        <Text>{ t('quiz.answers.options.phising') }</Text>        
       </PhisingButton>
 
       <UnsureButton onClick={() => { onAnswer('unsure') }}>
         <UnsureIcon />
-        <Text>I don’t know</Text>
+        <Text>{ t('quiz.answers.options.unsure') }</Text>        
       </UnsureButton>
 
       <LegitimateButton onClick={() => { onAnswer('legitimate') }}>
         <LegitimateIcon />
-        <Text>Looks legitimate</Text>
+        <Text>{ t('quiz.answers.options.legitimate') }</Text>        
       </LegitimateButton>
     </Wrapper>
   )

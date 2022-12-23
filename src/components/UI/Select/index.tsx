@@ -15,12 +15,14 @@ interface Option {
 
 interface Props {
   autoselect?: boolean;
-  options: Option[]
+  options: Option[];
+  onChange: (value: string) => void
 }
 
 export const Select: FunctionComponent<Props> = ({ 
   options,
-  autoselect
+  autoselect,
+  onChange
 }) => {
 
   const optionsRef = useRef(null)
@@ -52,8 +54,9 @@ export const Select: FunctionComponent<Props> = ({
             <Option 
               key={o.value}
               onClick={() => {
-                handleSelected(o)
+                handleSelected(o)                
                 handleOpen(false)
+                onChange(o.value)
               }}
             >
               { o.label }

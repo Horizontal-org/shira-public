@@ -10,10 +10,12 @@ import { Section } from '../../components/UI/Section'
 import { App } from '../../domain/app'
 import { useStore } from '../../store'
 import shallow from 'zustand/shallow'
+import { useTranslation } from 'react-i18next'
 
 interface Props {}
 
 export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
+  const { t } = useTranslation()
   const { changeScene, apps, updateApps, persistedApps } = useStore(
     (state) => ({
       changeScene: state.changeScene,
@@ -30,12 +32,12 @@ export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
     <SceneWrapper>
       <SceneWithFooter>
         <Section
-          title='Which apps do you use?'
-          subtitle='This will help us customize the quiz questions to make them look as realistic as possible. This information will not be saved, sent out of our servers, or shared with anyone else.'
+          title={t('setup.apps.title')}
+          subtitle={t('setup.apps.subtitle')}
         >
           <>
-            <p>
-              <i>Select at least 1</i>    
+          <p>
+              <i>{t('setup.apps.select')}</i>    
             </p>
           </>
 
@@ -60,14 +62,14 @@ export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
         </Section>
 
         <Footer
-            title="Quiz setup"
+            title={t('setup.apps.footer_title')}
             action={(
               <FooterButtons>
                 <Button
                   onClick={() => { 
                     changeScene('quiz-setup-name')
                   }} 
-                  text='Back'
+                  text={t('setup.apps.back_button')}
                   type="outline"
                   rightIcon={<FiChevronLeft size={18}/>}
                 />             
@@ -78,7 +80,7 @@ export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
                     changeScene('quiz-setup-work')
                   }} 
                   disabled={selected.length === 0}
-                  text='Next'
+                  text={t('setup.apps.next_button')}
                   type="outline"
                   rightIcon={<FiChevronRight size={18}/>}
                 />             

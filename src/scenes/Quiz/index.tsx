@@ -1,4 +1,5 @@
 import { FunctionComponent, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import shallow from 'zustand/shallow'
 import { Button } from '../../components/UI/Button'
@@ -14,6 +15,7 @@ import { useStore } from '../../store'
 interface Props {}
 
 export const Quiz:FunctionComponent<Props> = () => {
+  const { t } = useTranslation()
   const {
     changeScene,
     apps,
@@ -69,14 +71,14 @@ export const Quiz:FunctionComponent<Props> = () => {
         <SceneWithFooter>
           <Center>
             <div>
-              <Title>How it works</Title>
-              <p>This quiz contains 10 questions.</p>
-              <p>For each question, please determine whether the message shown seems like a phishing attempt or seems legitimate.</p>
-              <p>If you are not sure, you can select the “I don’t know” option.</p>
+              <Title>{t('quiz.how_it_works.title')}</Title>
+              <p>{t('quiz.how_it_works.explanation_1')}</p>
+              <p>{t('quiz.how_it_works.explanation_2')}</p>
+              <p>{t('quiz.how_it_works.explanation_3')}</p>
             </div>
           </Center>
           <Footer 
-            title='Quiz intro'
+            title={t('quiz.how_it_works.footer_title')}
             action={(
               <Button 
                 text="OK"

@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FiHome } from 'react-icons/fi'
 import { HiOutlineRefresh } from 'react-icons/hi'
 import styled from 'styled-components'
@@ -14,28 +15,29 @@ interface Props {}
 
 
 export const CompletedScene: FunctionComponent<Props> = () => {
+  const { t } = useTranslation()
   const changeScene = useStore((state) => state.changeScene)
 
   return (
     <SceneWrapper>
       <StyledSectionWrapper>
         <StyledSection>
-          <Title>Quiz completed</Title>
-          <HeavySubtitle>You answered 7 out of 10 questions correctly.</HeavySubtitle>
-          <Subtitle>Take a new quiz or check out some recommendations below to continue strengthening your skills and become better at avoiding phishing.</Subtitle>
+          <Title>{ t('completed.title') }</Title>
+          <HeavySubtitle>{ t('completed.heavy_subtitle') }</HeavySubtitle>
+          <Subtitle>{ t('completed.subtitle') }</Subtitle>
 
           <ButtonsWrapper>
             <Button 
               type='outline'
               leftIcon={<FiHome />}
               onClick={() => { changeScene('welcome')}}
-              text='Back to home'
+              text={ t('completed.back_button') }
             />
             <Button 
               type='outline'
               leftIcon={<HiOutlineRefresh />}
               onClick={() => { changeScene('quiz-setup-name')}}
-              text='New quiz'
+              text={ t('completed.next_button') }
             />
           </ButtonsWrapper>
 
