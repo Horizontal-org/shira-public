@@ -32,11 +32,12 @@ export const Select: FunctionComponent<Props> = ({
   
   const [open, handleOpen] = useState<boolean>(false)
   const [selected, handleSelected] = useState<Option | null>(null)
+
   useEffect(() => {
     if (options.length > 0 && autoselect) {
       handleSelected(options[0])
     }
-  }, [options])
+  }, [])
 
   return (
     <StyledSelect ref={optionsRef}>
