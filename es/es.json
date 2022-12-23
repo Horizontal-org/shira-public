@@ -1,0 +1,90 @@
+{
+    "welcome": {
+        "title": "Bienvenide a Shira",
+        "subtitle": "",
+        "start": ""
+    },
+    "setup": {
+        "name": {
+            "title": "",
+            "subtitle": "",
+            "recommendation": "",
+            "name": "",
+            "email": "",
+            "random_button": "",
+            "next_button": ""
+        },
+        "apps": {
+            "title": "",
+            "subtitle": "",
+            "select": "",
+            "footer_title": "",
+            "back_button": "",
+            "next_button": ""
+        },
+        "fields_of_work": {
+            "title": "",
+            "subtitle": "",
+            "select": "",
+            "footer_title": "",
+            "back_button": "",
+            "next_button": ""
+        }
+    },
+    "quiz": {
+        "how_it_works": {
+            "title": "",
+            "explanation_1": "",
+            "explanation_2": "",
+            "explanation_3": "",
+            "footer_title": ""
+        },
+        "answers": {
+            "options": {
+                "unsure": "",
+                "legitimate": "",
+                "phising": ""
+            },
+            "results": {
+                "unsure": "",
+                "correct": "",
+                "incorrect": "",
+                "next_button": ""
+            }
+        }
+    },
+    "feedback": {
+        "title": "",
+        "subtitle": "",
+        "box": {
+            "question_1": {
+                "title": "",
+                "very_complicated": "",
+                "complicated": "",
+                "easy": "",
+                "very_easy": ""
+            },
+            "question_2": {
+                "title": "",
+                "not_likely": "",
+                "somewhat_likely": "",
+                "likely": "",
+                "very_likely": ""
+            },
+            "question_3": {
+                "title": "",
+                "input_placeholder": ""
+            },
+            "bottom_text": ""
+        },
+        "footer_title": "",
+        "next_button": ""
+    },
+    "completed": {
+        "title": "",
+        "heavy_subtitle": "",
+        "subtitle": "",
+        "back_button": "",
+        "next_button": ""
+    }
+}
