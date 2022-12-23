@@ -1,3 +1,5 @@
 {
-  "welcome": "Bienvenide a Shira"
+  "welcome": {
+    "title": "Bienvenide a Shira"
+  }
 }
