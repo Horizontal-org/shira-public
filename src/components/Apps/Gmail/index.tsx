@@ -10,7 +10,7 @@ import '../../../fonts/GoogleSans/style.css'
 import { Profile } from "./Profile"
 import { Attachments } from "./Attachments"
 import { Explanation } from "../../../domain/explanation"
-import ExplanationTooltip from "./ExplanationTooltip"
+import ExplanationTooltip from "../../UI/ExplanationTooltip"
 
 interface CustomElements {
   textContent: string,
@@ -104,6 +104,7 @@ const Subject = styled.div`
   font-weight: 400;
   font-size: 1.375rem;
   padding: 8px 0 8px 53px;
+  width: max-content;
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     padding: 8px 0 8px 8px;
   }
@@ -112,6 +113,9 @@ const Subject = styled.div`
 
 const DynamicContent = styled.div`
   padding: 10px 0;
+  mark {
+    background-color: transparent;
+  }
 `
 
 const PaddingLeft = styled.div`

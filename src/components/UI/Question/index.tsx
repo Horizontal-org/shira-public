@@ -35,6 +35,7 @@ export const Question: FunctionComponent<Props> = ({
         content={question.content}
         explanations={question.explanations}
         explanationNumber={explanationNumber}
+        answer={answer}
       />
 
       <Footer

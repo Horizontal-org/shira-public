@@ -1,8 +1,8 @@
-import { FunctionComponent, useState, useEffect } from "react"
-import styled from 'styled-components'
+import { FunctionComponent, useEffect } from "react"
 
 import { computePosition } from '@floating-ui/react'
 import { Explanation } from "../../../domain/explanation"
+import Tooltip from "../Tooltip"
 
 interface Props {
   explanation: Explanation
@@ -26,25 +26,12 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
     })
   }, [])
   return (
-    <Wrapper id={`explanation-${explanation.position}`} display={explanationNumber !== parseInt(explanation.position)}>
-        {explanation.text}
-    </Wrapper>
+    <Tooltip 
+        position={explanation.position}
+        text={explanation.text} 
+        hide={parseInt(explanation.position) !== explanationNumber}
+    />
   )
-    
 }
-
-interface WrapperProps {
-  display: boolean
-}
-
-const Wrapper = styled('div')<WrapperProps>`
-  ${props => props.display && 'display: none;'}
-  position: absolute;
-
-  width: max-content;
-  top: 0;
-  bottom: 0;
-`
-
 
 export default ExplanationTooltip

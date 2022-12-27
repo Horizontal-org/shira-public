@@ -24,8 +24,16 @@ export const Profile: FunctionComponent<Props> = ({
       </Icon>
       <SenderWrapper>
         <Sender>
-          <SenderName data-explanation={senderName.explanationPosition}>{senderName.textContent || ''}</SenderName>
-          <SenderEmail data-explanation={senderEmail.explanationPosition}>{`<${senderEmail.textContent || ''}>`}</SenderEmail>
+          <SenderName 
+            data-explanation={senderName.explanationPosition}
+          >
+              {senderName.textContent || ''}
+          </SenderName>
+          <SenderEmail 
+            data-explanation={senderEmail.explanationPosition}
+          >
+              {`<${senderEmail.textContent || ''}>`}
+          </SenderEmail>
         </Sender>
         <span>to me</span>
       </SenderWrapper>
