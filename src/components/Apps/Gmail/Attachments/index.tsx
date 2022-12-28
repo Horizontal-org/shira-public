@@ -6,11 +6,12 @@ interface Props {
   data: {
     name: string;
     position: string;
-  }[]
+    explanationPosition: string | null;
+  }[],
 }
 
 export const Attachments: FunctionComponent<Props> = ({
-  data
+  data,
 }) => {
 
   return (
@@ -26,6 +27,7 @@ export const Attachments: FunctionComponent<Props> = ({
             key={d.name}
             name={d.name}
             position={d.position}
+            explanationPosition={d.explanationPosition}
           />
         ))}
       </AttachmentWrapper>

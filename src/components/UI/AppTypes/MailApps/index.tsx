@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from 'react'
+import { FunctionComponent } from 'react'
 import Gmail from '../../../Apps/Gmail';
 import { Explanation } from '../../../../domain/explanation';
 
@@ -12,17 +12,19 @@ interface Props {
 export const MailApps: FunctionComponent<Props> = ({ content, name, explanations, explanationNumber }) => {
 
   const html = new DOMParser().parseFromString(content, 'text/html')
-  const [attachments, handleAttachments] = useState([])
 
-  useEffect(() => {
+  const parseAttachments = () => {
     const htmlAttachments = html.querySelectorAll('[id*="component-attachment"]')
-    handleAttachments(Array.from(htmlAttachments).map((a) => {
+    const attachments = Array.from(htmlAttachments).map((a) => {
       return {
         name: a.textContent,
-        position: a.getAttribute('data-position')
+        position: a.getAttribute('data-position'),
+        explanationPosition: a.getAttribute('data-explanation')
       }
-    }))
-  }, [])
+    })
+
+    return attachments
+  }
 
   const parseCustomElement = (name) => {
     const element = html.getElementById(name)
@@ -43,7 +45,7 @@ export const MailApps: FunctionComponent<Props> = ({ content, name, explanations
           senderEmail={parseCustomElement('component-required-sender-email')}
           subject={parseCustomElement('component-optional-subject')}
           content={html.querySelector('[id*="component-text"]')}
-          attachments={attachments}
+          attachments={parseAttachments()}
           explanations={explanations}
           explanationNumber={explanationNumber}
         />

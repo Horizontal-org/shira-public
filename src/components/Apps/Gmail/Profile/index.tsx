@@ -1,4 +1,3 @@
-import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 import { FunctionComponent } from "react";
 import styled from 'styled-components'
 import ProfileIcon from './assets/profile.png'
@@ -15,7 +14,7 @@ interface Props {
 
 export const Profile: FunctionComponent<Props> = ({
   senderName,
-  senderEmail
+  senderEmail,
 }) => {  
   return (
     <ProfileWrapper>
@@ -78,6 +77,7 @@ const SenderName = styled.span`
   line-height: 20px;
   font-size: .875rem;
   font-weight: bold;
+  padding-right: 8px;
 `
 
 const SenderEmail = styled.span`
@@ -86,7 +86,6 @@ const SenderEmail = styled.span`
   font-size: .75rem;
   padding-left: 4px;
   font-weight: 400;
-
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     display: none;
   }

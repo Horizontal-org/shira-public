@@ -5,11 +5,12 @@ import { RiFileFill } from 'react-icons/ri'
 interface Props {
   position: string;
   name: string;
+  explanationPosition: string | null;
 }
 
 export const Attachment: FunctionComponent<Props> = ({
-  position,
-  name
+  name,
+  explanationPosition
 }) => {
   return (
     <Wrapper>
@@ -36,7 +37,9 @@ export const Attachment: FunctionComponent<Props> = ({
             size={16}
             color='#15c'
           />
-          <span>
+          <span 
+            data-explanation={explanationPosition} 
+          >
             {name}
           </span>
         </Name>

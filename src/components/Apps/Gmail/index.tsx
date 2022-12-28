@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react"
+import { FunctionComponent, useEffect } from "react"
 import styled, { createGlobalStyle } from 'styled-components'
 
 import Header from './Header'
@@ -37,6 +37,22 @@ const Gmail: FunctionComponent<Props> = ({
   explanationNumber
 }) => {
 
+  // move this to a reusable hook
+  useEffect(() => {
+    const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
+    const lastReference = document.querySelector(`[data-explanation="${explanationNumber - 1}"]`) as HTMLElement
+
+    if(reference) {
+      reference.style.backgroundColor = '#FFCBD4'
+      reference.style.zIndex = '2'
+    }
+    
+    if(lastReference) {
+      lastReference.style.backgroundColor = 'transparent'
+      lastReference.style.zIndex = '0'
+    }
+  }, [explanationNumber])
+
   return (
     <DesktopWrapper className="gmail">
       {explanations.map(explanation => (
@@ -52,8 +68,12 @@ const Gmail: FunctionComponent<Props> = ({
           <MailOptions />
           <DynamicWrapper>
             <div>
-              <Subject data-explanation={subject.explanationPosition}>
-                { subject.textContent || ''}
+              <Subject>
+                <span
+                  data-explanation={subject.explanationPosition}
+                >
+                  {subject.textContent}
+                </span>
               </Subject>
               <Profile 
                 senderEmail={senderEmail}
@@ -107,6 +127,10 @@ const Subject = styled.div`
   width: max-content;
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     padding: 8px 0 8px 8px;
+  }
+
+  span {
+    position: relative;
   }
 
 `
