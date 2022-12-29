@@ -37,22 +37,6 @@ const Gmail: FunctionComponent<Props> = ({
   explanationNumber
 }) => {
 
-  // move this to a reusable hook
-  useEffect(() => {
-    const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
-    const lastReference = document.querySelector(`[data-explanation="${explanationNumber - 1}"]`) as HTMLElement
-
-    if(reference) {
-      reference.style.backgroundColor = '#FFCBD4'
-      reference.style.zIndex = '2'
-    }
-    
-    if(lastReference) {
-      lastReference.style.backgroundColor = 'transparent'
-      lastReference.style.zIndex = '0'
-    }
-  }, [explanationNumber])
-
   return (
     <DesktopWrapper className="gmail">
       {explanations.map(explanation => (

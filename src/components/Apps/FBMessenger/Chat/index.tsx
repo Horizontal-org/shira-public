@@ -6,7 +6,10 @@ import ChatContent from "./ChatContent"
 import TopBar from "./TopBar"
 
 interface Props {
-  fullname?: string;
+  fullname: {
+    textContent: string,
+    explanationPosition: string
+  };
   content: HTMLElement
 }
 
