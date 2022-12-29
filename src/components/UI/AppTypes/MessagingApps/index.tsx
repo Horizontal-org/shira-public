@@ -19,6 +19,9 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
 
   const { parseCustomElement } = useParseHTML(content)
 
+  // console.log(parseDynamicContent())
+  // console.log(typeof parseDynamicContent())
+
   return (
     <>
       { name === 'SMS' && (
