@@ -3,17 +3,20 @@ import styled from 'styled-components'
 import { Pic } from "../Pic";
 import Document from './assets/Document'
 interface Props {
-  name: string
+  name: string;
+  explanationPosition: string | null;
 }
 
-export const Attachment: FunctionComponent<Props> = ({ name }) => {
+export const Attachment: FunctionComponent<Props> = ({ name, explanationPosition }) => {
 
   return (
     <Wrapper>
       <Pic />
       <Content>
         <SvgWrapper><Document /></SvgWrapper>
-        { name }
+        <span data-explanation={explanationPosition}>
+          { name }
+        </span>
       </Content>
     </Wrapper>    
   )
@@ -54,5 +57,9 @@ const SvgWrapper = styled.div`
     height: 20px;
     width: 20px;
     fill: white;
+  }
+
+  span {
+    position: relative;
   }
 `

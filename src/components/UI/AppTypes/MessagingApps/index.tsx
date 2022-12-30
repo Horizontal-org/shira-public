@@ -19,22 +19,23 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
 
   const { parseCustomElement } = useParseHTML(content)
 
-  // console.log(parseDynamicContent())
-  // console.log(typeof parseDynamicContent())
-
   return (
     <>
       { name === 'SMS' && (
         <SMS
-          phone={!!(html.getElementById('component-required-phone')) ? html.getElementById('component-required-phone').textContent : ''}
+          phone={parseCustomElement('component-required-phone')}
           content={html.getElementById('dynamic-content')}
+          explanations={explanations}
+          explanationNumber={explanationNumber}
         />
       )}
 
       { name === 'Whatsapp' && (
         <Whatsapp
-          phone={!!(html.getElementById('component-required-phone')) ? html.getElementById('component-required-phone').textContent : ''}
+          phone={parseCustomElement('component-required-phone')}
           content={html.getElementById('dynamic-content')}
+          explanations={explanations}
+          explanationNumber={explanationNumber}
         />
       )}
 

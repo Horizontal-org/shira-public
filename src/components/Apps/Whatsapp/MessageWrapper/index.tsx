@@ -6,7 +6,10 @@ import Background from './assets/background.png'
 import { Attachment } from './components/Attachment'
 
 interface Props {
-  phone?: string;
+  phone?: {
+    textContent: string
+    explanationPosition: string
+  };
   content: HTMLElement
 }
 
@@ -30,7 +33,7 @@ const MessageWrapper: FunctionComponent<Props> = ({
             )}
 
             { e.getAttribute('id').includes('component-attachment') && (
-              <Attachment name={e.textContent}/>
+              <Attachment explanationPosition={e.getAttribute('data-explanation') || null} name={e.textContent}/>
             )}
           </>
         ))}

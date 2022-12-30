@@ -20,7 +20,10 @@ export const Content: FunctionComponent<Props> = ({ data }) => {
           )}
 
           { e.getAttribute('id').includes('component-attachment') && (
-            <Attachment name={e.textContent}/>
+            <Attachment 
+              explanationPosition={e.getAttribute('data-explanation') || null} 
+              name={e.textContent}
+            />
           )}
         </>
       ))}
@@ -34,5 +37,9 @@ const Wrapper = styled.div`
   flex-direction: column-reverse;  
   height: 100%;
   overflow-y: scroll;
+
+  mark {
+    background: transparent;
+  }
   
 `

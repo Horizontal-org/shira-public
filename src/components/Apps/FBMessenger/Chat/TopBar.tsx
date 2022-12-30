@@ -78,6 +78,9 @@ const BackIconWrapper = styled.div`
 
 const Name = styled.div`
   margin-left: 8px;
+  span {
+    position: relative;
+  }
 `
 
 const FlexWrapper = styled.div`

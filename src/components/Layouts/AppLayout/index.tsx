@@ -57,5 +57,5 @@ const Overlay = styled.div`
   bottom: 86px;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 3;
 `

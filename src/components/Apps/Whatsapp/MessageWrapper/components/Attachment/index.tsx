@@ -4,17 +4,18 @@ import Document from '../../assets/document.png'
 import DownloadIcon from '../../../Icons/Download'
 
 interface Props {
-  name: string
+  name: string,
+  explanationPosition?: string
 }
 
-export const Attachment: FunctionComponent<Props> = ({ name }) => {
+export const Attachment: FunctionComponent<Props> = ({ name, explanationPosition }) => {
 
   return (
     <Wrapper>
         <Card>
           <div>
             <ImageWrapper src={Document}/>
-            <Name>
+            <Name data-explanation={explanationPosition}>
               { name }
             </Name>
             <Download>

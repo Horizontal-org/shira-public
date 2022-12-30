@@ -32,7 +32,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
 
     if(reference) {
       reference.style.backgroundColor = '#FFCBD4'
-      reference.style.zIndex = '2'
+      reference.style.zIndex = '4'
     }
     
     if(lastReference) {

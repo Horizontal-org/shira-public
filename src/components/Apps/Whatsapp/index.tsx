@@ -4,18 +4,35 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Background from './Background'
 import MessageWrapper from "./MessageWrapper"
 import Sidebar from './Sidebar'
-
+import { Explanation } from "../../../domain/explanation"
+import ExplanationTooltip from "../../UI/ExplanationTooltip"
 // whatsapp font 
 import '../../../fonts/Segoe/style.css'
 
 interface Props {
   content?: HTMLElement;
-  phone?: string;
+  phone: {
+    textContent: string
+    explanationPosition: string
+  };
+  explanations?: Explanation[]
+  explanationNumber: number
 }
 
-const Whatsapp: FunctionComponent<Props> = ({ content, phone }) => {
+const Whatsapp: FunctionComponent<Props> = ({
+  content,
+  phone,
+  explanations,
+  explanationNumber,
+}) => {
   return (
     <DesktopWrapper>
+      {explanations.map(explanation => (
+        <ExplanationTooltip 
+          explanation={explanation}
+          explanationNumber={explanationNumber}
+        />
+      ))}
       <StyledScrollbar />
       <Background>
         <Content>
@@ -61,6 +78,10 @@ const Content = styled.div`
   > div {
     height: 100%;
     display: flex;
+  }
+
+  mark {
+    background: transparent;
   }
 
   @media (max-width: ${props => props.theme.breakpoints.lg}) {

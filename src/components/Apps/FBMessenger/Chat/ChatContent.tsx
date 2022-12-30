@@ -29,7 +29,8 @@ const ChatContent: FunctionComponent<Props> = ({
                   <AttachmentText>
                     <Heading>
                       <span 
-                        data-explanation={c.getAttribute('data-explanation' || null)}>
+                        data-explanation={c.getAttribute('data-explanation' || null)}
+                      >
                           { c.textContent }
                       </span>
                     </Heading>
@@ -143,6 +144,9 @@ const SecondaryText = styled.div`
 
 const Heading = styled.div`
   font-weight: bold;
+  span {
+    position: relative;
+  }
 `
 
 const AttachmentText = styled.div`
