@@ -20,7 +20,6 @@ const Wrapper = styled.div`
   padding: 12px 8px;
 `
 
-
 const Content = styled.div`
   width: 70%;
   text-align: left;

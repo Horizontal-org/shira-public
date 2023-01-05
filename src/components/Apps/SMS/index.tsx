@@ -22,14 +22,14 @@ interface Props {
 export const SMS: FunctionComponent<Props> = ({ phone, content, explanations, explanationNumber }) => {
   return (
     <DesktopWrapper>
-      {explanations.map(explanation => (
-        <ExplanationTooltip 
-          explanation={explanation}
-          explanationNumber={explanationNumber}
-        />
-      ))}
       <Font />
       <Mobile className='android'>
+        {explanations.map(explanation => (
+          <ExplanationTooltip 
+            explanation={explanation}
+            explanationNumber={explanationNumber}
+          />
+        ))}
         <Header phone={phone}/>
         <Content data={content}/>
         <Footer />

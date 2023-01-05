@@ -1,6 +1,5 @@
 import { FunctionComponent, useEffect } from "react"
 
-import { computePosition } from '@floating-ui/react'
 import { Explanation } from "../../../domain/explanation"
 import Tooltip from "../Tooltip"
 
@@ -14,17 +13,24 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   explanationNumber
 }) => {
 
+  // refactor this
   useEffect( () => {
-    const tooltip = document.querySelector(`#explanation-${explanation.position}`) as HTMLElement
-    const reference = document.querySelector(`[data-explanation="${explanation.position}"]`)
+    const observer = new ResizeObserver(() => {
+      const tooltip = document.querySelector(`#explanation-${explanation.position}`) as HTMLElement
+      const reference = document.querySelector(`[data-explanation="${explanation.position}"]`)
 
-    computePosition(reference, tooltip).then(({x, y}) => {
-      Object.assign(tooltip.style, {
-        left: `${x}px`,
-        top: `${y}px`
-      })
+      const referencePosition = reference.getBoundingClientRect()
+
+      tooltip.style.top = `${referencePosition.y + referencePosition.height}px`
+      tooltip.style.left = `${referencePosition.x}px`
     })
-  }, [])
+
+    observer.observe(document.documentElement)
+
+    return () => {
+      observer.unobserve(document.documentElement)
+    }
+  }, [explanation.position, explanationNumber])
 
   useEffect(() => {
     const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement

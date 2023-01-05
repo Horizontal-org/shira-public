@@ -13,7 +13,7 @@ export const Content: FunctionComponent<Props> = ({ data }) => {
 
   return (
     <Wrapper>
-      { elements.sort((a, b) => parseInt(b.getAttribute('data-position')) - parseInt(a.getAttribute('data-position'))).map((e) => (
+      { Array.from(data.querySelectorAll('[id*="component-"]')).sort((a, b) => parseInt(b.getAttribute('data-position')) - parseInt(a.getAttribute('data-position'))).map((e) => (
         <>
           { e.getAttribute('id').includes('component-text') && (
             <Message data={e}/>
