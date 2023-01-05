@@ -51,6 +51,7 @@ const Content = styled.div`
   height: 100%;
   mark {
     background-color: transparent;
+    position: relative;
   }
 `
 

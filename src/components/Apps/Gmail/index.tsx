@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from "react"
+import { FunctionComponent } from "react"
 import styled, { createGlobalStyle } from 'styled-components'
 
 import Header from './Header'
@@ -123,6 +123,7 @@ const DynamicContent = styled.div`
   padding: 10px 0;
   mark {
     background-color: transparent;
+    position: relative;
   }
 `
 

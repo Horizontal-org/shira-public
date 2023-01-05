@@ -40,6 +40,7 @@ const Wrapper = styled.div`
 
   mark {
     background: transparent;
+    position: relative;
   }
   
 `

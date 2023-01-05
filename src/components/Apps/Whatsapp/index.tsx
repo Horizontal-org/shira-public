@@ -82,6 +82,7 @@ const Content = styled.div`
 
   mark {
     background: transparent;
+    position: relative;
   }
 
   @media (max-width: ${props => props.theme.breakpoints.lg}) {
