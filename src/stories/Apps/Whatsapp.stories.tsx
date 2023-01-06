@@ -27,5 +27,7 @@ WhatsappDefault.args = {
   content: new DOMParser().parseFromString(
     '<div id="dynamic-content"><div data-position="0" id="component-text-1"><h2>Text</h2><p>Body</p></div><div data-position="0" id="component-text-2"><h2>Text1231</h2><p>Body</p></div></div>',
     'text/html'
-  )
+  ),
+  explanationNumber: 0,
+  explanations: []
 }

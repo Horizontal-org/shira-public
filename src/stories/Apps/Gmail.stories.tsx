@@ -36,5 +36,7 @@ GmailDefault.args = {
       name: 'at2.pdf',
       position: '2'
     }
-  ]
+  ],
+  explanationNumber: 0,
+  explanations: []
 }
