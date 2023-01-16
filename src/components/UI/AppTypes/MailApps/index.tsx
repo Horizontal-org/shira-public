@@ -8,9 +8,10 @@ interface Props {
   name: string;
   explanations?: Explanation[]
   explanationNumber: number
+  showExplanations: boolean
 }
 
-export const MailApps: FunctionComponent<Props> = ({ content, name, explanations, explanationNumber }) => {
+export const MailApps: FunctionComponent<Props> = ({ content, name, explanations, explanationNumber, showExplanations }) => {
 
   const {
     parseAttachments,
@@ -29,6 +30,7 @@ export const MailApps: FunctionComponent<Props> = ({ content, name, explanations
           attachments={parseAttachments()}
           explanations={explanations}
           explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
         />
       )}
     </>    

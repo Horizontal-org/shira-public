@@ -16,7 +16,8 @@ interface Props {
     explanationPosition: string
   };
   explanations?: Explanation[]
-  explanationNumber: number
+  explanationNumber: number;
+  showExplanations: boolean
 }
 
 const Whatsapp: FunctionComponent<Props> = ({
@@ -24,6 +25,7 @@ const Whatsapp: FunctionComponent<Props> = ({
   phone,
   explanations,
   explanationNumber,
+  showExplanations
 }) => {
   return (
     <DesktopWrapper>
@@ -31,6 +33,7 @@ const Whatsapp: FunctionComponent<Props> = ({
         <ExplanationTooltip 
           explanation={explanation}
           explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
         />
       ))}
       <StyledScrollbar />

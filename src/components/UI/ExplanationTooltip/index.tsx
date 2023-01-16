@@ -6,18 +6,21 @@ import Tooltip from "../Tooltip"
 interface Props {
   explanation: Explanation
   explanationNumber: number
+  showExplanations: boolean
 }
 
 const ExplanationTooltip: FunctionComponent<Props> = ({ 
   explanation,
-  explanationNumber
+  explanationNumber,
+  showExplanations 
 }) => {
+  console.log("🚀 ~ file: index.tsx:17 ~ showExplanations", showExplanations)
 
   // refactor this
   useEffect( () => {
     const observer = new ResizeObserver(() => {
-      const tooltip = document.querySelector(`#explanation-${explanation.position}`) as HTMLElement
-      const reference = document.querySelector(`[data-explanation="${explanation.position}"]`)
+      const tooltip = document.querySelector(`#explanation-${explanation.index}`) as HTMLElement
+      const reference = document.querySelector(`[data-explanation="${explanation.index}"]`)
 
       const referencePosition = reference.getBoundingClientRect()
 
@@ -30,7 +33,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
     return () => {
       observer.unobserve(document.documentElement)
     }
-  }, [explanation.position, explanationNumber])
+  }, [explanation.index, explanationNumber])
 
   useEffect(() => {
     const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
@@ -48,9 +51,9 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   }, [explanationNumber])
   return (
     <Tooltip 
-        position={explanation.position}
+        explanationIndex={explanation.index}
         text={explanation.text} 
-        hide={parseInt(explanation.position) !== explanationNumber}
+        hide={parseInt(explanation.index) !== explanationNumber || !showExplanations}
     />
   )
 }

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import styled from 'styled-components'
 import { Button } from "../Button";
@@ -16,6 +16,8 @@ interface Props {
   explanationsLength: number
   explanationNumber: number
   setExplanationNumber: (explanationNumber: number) => void  
+  showExplanations: boolean;
+  handleShowExplanations: Dispatch<SetStateAction<boolean>>
 }
 
 export const AnswerFeedback: FunctionComponent<Props> = ({
@@ -24,7 +26,9 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   userAnswer,
   explanationsLength,
   explanationNumber,
-  setExplanationNumber
+  setExplanationNumber,
+  showExplanations,
+  handleShowExplanations
 }) => {
   const { t } = useTranslation()
   const compareAnswers = () => {
@@ -57,19 +61,17 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       )}
 
       { 
-        explanationsLength > 0 && explanationNumber === 0 && (
+        explanationsLength > 0 && !showExplanations && (
           <Button 
             text='See Why'
             type='outline'
-            onClick={() => setExplanationNumber(explanationNumber + 1)}
+            onClick={() => handleShowExplanations(true)}
             leftIcon={<QuestionMarkIcon size={18}/>}
           />
       )}
 
       {
-        explanationsLength > 0 &&
-        explanationNumber !==0 &&
-        explanationNumber < explanationsLength && (
+        explanationsLength > 0 && explanationNumber < explanationsLength && showExplanations && (
           <Button 
             text={t("quiz.answers.results.next_button")}
             type='outline'
@@ -80,7 +82,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       }
 
       {
-        explanationNumber === explanationsLength && (
+        (explanationNumber === explanationsLength || explanationsLength === 0) && (
           <Button 
             text='Next Question'
             type='outline'

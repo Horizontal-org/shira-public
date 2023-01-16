@@ -2,18 +2,18 @@ import { FunctionComponent } from "react"
 import styled from 'styled-components'
 
 interface Props {
-  position: string,
+  explanationIndex: string,
   text: string,
   hide: boolean
 }
 
 const ExplanationTooltip: FunctionComponent<Props> = ({ 
-  position,
+  explanationIndex,
   text,
   hide
 }) => {
   return (
-    <Wrapper id={`explanation-${position}`} hide={hide} className='arrow'>
+    <Wrapper id={`explanation-${explanationIndex}`} hide={hide} className='arrow'>
       <RelativeWrapper>
         <span> {text} </span>
       </RelativeWrapper>

@@ -11,6 +11,7 @@ interface Props {
   explanations?: Explanation[]
   explanationNumber: number
   answer: string | null
+  showExplanations: boolean
 }
 
 export const AppLayout: FunctionComponent<Props> = ({
@@ -18,7 +19,8 @@ export const AppLayout: FunctionComponent<Props> = ({
   content,
   explanations,
   explanationNumber,
-  answer
+  answer,
+  showExplanations
 }) => {
   return (
     <Wrapper>
@@ -28,6 +30,7 @@ export const AppLayout: FunctionComponent<Props> = ({
         name={app.name}
         explanations={explanations}
         explanationNumber={explanationNumber}
+        showExplanations={showExplanations}
       />      
 
       <MessagingApps
@@ -35,6 +38,7 @@ export const AppLayout: FunctionComponent<Props> = ({
         name={app.name}
         explanations={explanations}
         explanationNumber={explanationNumber}
+        showExplanations={showExplanations}
       />
 
       { answer && <Overlay />}

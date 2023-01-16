@@ -11,9 +11,10 @@ interface Props {
   name: string;
   explanations?: Explanation[];
   explanationNumber: number;
+  showExplanations: boolean
 }
 
-export const MessagingApps: FunctionComponent<Props> = ({ content, name, explanations, explanationNumber }) => {
+export const MessagingApps: FunctionComponent<Props> = ({ content, name, explanations, explanationNumber, showExplanations }) => {
 
   const html = new DOMParser().parseFromString(content, 'text/html')
 
@@ -27,6 +28,7 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
           content={html.getElementById('dynamic-content')}
           explanations={explanations}
           explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
         />
       )}
 
@@ -36,6 +38,7 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
           content={html.getElementById('dynamic-content')}
           explanations={explanations}
           explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
         />
       )}
 
@@ -45,6 +48,7 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
           content={html.getElementById('dynamic-content')}
           explanations={explanations}
           explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
         />
       )}
     </>    

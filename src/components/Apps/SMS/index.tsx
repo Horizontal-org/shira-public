@@ -16,10 +16,11 @@ interface Props {
   content: HTMLElement;
   explanations?: Explanation[];
   explanationNumber: number;
+  showExplanations: boolean
 }
 
 
-export const SMS: FunctionComponent<Props> = ({ phone, content, explanations, explanationNumber }) => {
+export const SMS: FunctionComponent<Props> = ({ phone, content, explanations, explanationNumber, showExplanations }) => {
   return (
     <DesktopWrapper>
       <Font />
@@ -28,6 +29,7 @@ export const SMS: FunctionComponent<Props> = ({ phone, content, explanations, ex
           <ExplanationTooltip 
             explanation={explanation}
             explanationNumber={explanationNumber}
+            showExplanations={showExplanations}
           />
         ))}
         <Header phone={phone}/>

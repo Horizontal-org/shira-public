@@ -15,14 +15,16 @@ interface Props {
     explanationPosition: string;
   }
   explanations?: Explanation[]
-  explanationNumber: number
+  explanationNumber: number,
+  showExplanations: boolean
 }
 
 const FBMessenger: FunctionComponent<Props> = ({ 
   fullname, 
   content,
   explanations,
-  explanationNumber
+  explanationNumber,
+  showExplanations
 }) => {
   return (
     <DesktopWrapper>
@@ -30,6 +32,7 @@ const FBMessenger: FunctionComponent<Props> = ({
         <ExplanationTooltip 
           explanation={explanation}
           explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
         />
       ))}
       <Content>

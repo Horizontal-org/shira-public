@@ -24,7 +24,8 @@ interface Props {
   subject?: CustomElements;
   attachments?: any[];
   explanations?: Explanation[]
-  explanationNumber: number
+  explanationNumber: number;
+  showExplanations: boolean
 }
 
 const Gmail: FunctionComponent<Props> = ({ 
@@ -34,13 +35,18 @@ const Gmail: FunctionComponent<Props> = ({
   subject,
   attachments,
   explanations,
-  explanationNumber
+  explanationNumber,
+  showExplanations
 }) => {
 
   return (
     <DesktopWrapper className="gmail">
       {explanations.map(explanation => (
-        <ExplanationTooltip explanation={explanation} explanationNumber={explanationNumber}/>
+        <ExplanationTooltip 
+          explanation={explanation} 
+          explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
+        />
       ))}
       <Font />
       <div>
