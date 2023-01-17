@@ -39,7 +39,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
     const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
     const lastReference = document.querySelector(`[data-explanation="${explanationNumber - 1}"]`) as HTMLElement
 
-    if(reference) {
+    if(reference && showExplanations) {
       reference.style.backgroundColor = '#FFCBD4'
       reference.style.zIndex = '4'
     }
@@ -48,7 +48,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
       lastReference.style.backgroundColor = 'transparent'
       lastReference.style.zIndex = '0'
     }
-  }, [explanationNumber])
+  }, [explanationNumber, showExplanations])
   return (
     <Tooltip 
         explanationIndex={explanation.index}

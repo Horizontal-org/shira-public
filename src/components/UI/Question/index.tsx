@@ -1,6 +1,4 @@
-import { FunctionComponent, ReactNode, useEffect, useState } from 'react'
-import { FiChevronRight } from 'react-icons/fi';
-import styled from 'styled-components'
+import { FunctionComponent, useEffect, useState } from 'react'
 import { Question as QuestionType } from '../../../domain/question';
 import { AppLayout } from '../../Layouts/AppLayout';
 import { AnswerFeedback } from '../AnswerFeedback';

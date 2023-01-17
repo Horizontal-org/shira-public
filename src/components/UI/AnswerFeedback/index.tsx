@@ -71,7 +71,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       )}
 
       {
-        explanationsLength > 0 && explanationNumber < explanationsLength && showExplanations && (
+        explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
           <Button 
             text={t("quiz.answers.results.next_button")}
             type='outline'
@@ -82,7 +82,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       }
 
       {
-        (explanationNumber === explanationsLength || explanationsLength === 0) && (
+        (explanationNumber === (explanationsLength - 1) || explanationsLength === 0) && (
           <Button 
             text='Next Question'
             type='outline'
