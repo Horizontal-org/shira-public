@@ -27,5 +27,7 @@ SMSDefault.args = {
   content: new DOMParser().parseFromString(
     '<div data-position="1" id="component-text-2"><h2>Text</h2><p>Body</p></div>',
     'text/html'
-  )
+  ),
+  explanationNumber: 0,
+  explanations: []
 }

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { Dispatch, FunctionComponent, SetStateAction } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import styled from 'styled-components'
 import { Button } from "../Button";
@@ -7,17 +7,28 @@ import UnsureIcon from '../Icons/Unsure'
 import WrongIcon from '../Icons/Wrong'
 import CorrectIcon from '../Icons/Correct'
 import { useTranslation } from "react-i18next";
+import QuestionMarkIcon from '../Icons/QuestionMark'
 
 interface Props {
   onNext:  () => void;
   realAnswer: string;
   userAnswer: string | null;
+  explanationsLength: number
+  explanationNumber: number
+  setExplanationNumber: (explanationNumber: number) => void  
+  showExplanations: boolean;
+  handleShowExplanations: Dispatch<SetStateAction<boolean>>
 }
 
 export const AnswerFeedback: FunctionComponent<Props> = ({
   onNext,
   realAnswer,
-  userAnswer
+  userAnswer,
+  explanationsLength,
+  explanationNumber,
+  setExplanationNumber,
+  showExplanations,
+  handleShowExplanations
 }) => {
   const { t } = useTranslation()
   const compareAnswers = () => {
@@ -48,12 +59,38 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
           <p>{`This message seems ${realAnswer}`}</p>
         </UserAnswerWrapper>
       )}
-      <Button 
-        text={t("quiz.answers.results.next_button")}
-        type='outline'
-        onClick={onNext}
-        rightIcon={<FiChevronRight size={18}/>}
-      />
+
+      { 
+        explanationsLength > 0 && !showExplanations && (
+          <Button 
+            text='See Why'
+            type='outline'
+            onClick={() => handleShowExplanations(true)}
+            leftIcon={<QuestionMarkIcon size={18}/>}
+          />
+      )}
+
+      {
+        explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
+          <Button 
+            text={t("quiz.answers.results.next_button")}
+            type='outline'
+            onClick={() => setExplanationNumber(explanationNumber + 1)}
+            leftIcon={<FiChevronRight size={18}/>}
+          />
+        )
+      }
+
+      {
+        (explanationNumber === (explanationsLength - 1) || explanationsLength === 0) && (
+          <Button 
+            text='Next Question'
+            type='outline'
+            onClick={onNext}
+            rightIcon={<FiChevronRight size={18}/>}
+          />
+        )
+      }
     </Wrapper>
   )
 }

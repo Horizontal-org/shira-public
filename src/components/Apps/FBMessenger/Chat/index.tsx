@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react"
+import { FunctionComponent } from "react"
 import styled from 'styled-components'
 import BottomBar from "./BottomBar"
 import ChatContent from "./ChatContent"
@@ -6,7 +6,10 @@ import ChatContent from "./ChatContent"
 import TopBar from "./TopBar"
 
 interface Props {
-  fullname?: string;
+  fullname: {
+    textContent: string,
+    explanationPosition: string
+  };
   content: HTMLElement
 }
 
@@ -14,16 +17,11 @@ const Chat: FunctionComponent<Props> = ({
   fullname,
   content
 }) => {
-  const [elements, handleElements] = useState([])
-
-  useEffect( () => {
-    handleElements(Array.from(content.querySelectorAll('[id*="component-"]')))
-  }, [content])
 
   return (
     <ChatWrapper>
       <TopBar fullname={fullname}/> 
-      <ChatContent content={elements}/>
+      <ChatContent content={Array.from(content.querySelectorAll('[id*="component-"]'))}/> {/* refactor this */}
       <BottomBar />
     </ChatWrapper>
   )

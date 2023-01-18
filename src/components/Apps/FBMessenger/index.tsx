@@ -5,18 +5,36 @@ import MessageSidebar from "./MessagesSidebar/Index"
 import Chat from "./Chat"
 
 import '../../../fonts/Segoe/style.css'
+import { Explanation } from "../../../domain/explanation"
+import ExplanationTooltip from "../../UI/ExplanationTooltip"
 
 interface Props {
   content?: HTMLElement;
-  fullname?: string;
+  fullname: {
+    textContent: string;
+    explanationPosition: string;
+  }
+  explanations?: Explanation[]
+  explanationNumber: number,
+  showExplanations: boolean
 }
 
 const FBMessenger: FunctionComponent<Props> = ({ 
   fullname, 
-  content
+  content,
+  explanations,
+  explanationNumber,
+  showExplanations
 }) => {
   return (
     <DesktopWrapper>
+      {explanations.map(explanation => (
+        <ExplanationTooltip 
+          explanation={explanation}
+          explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
+        />
+      ))}
       <Content>
         <MessageSidebar />
         <Chat content={content} fullname={fullname} />
@@ -34,6 +52,10 @@ const DesktopWrapper = styled.div`
 const Content = styled.div`
   display: flex;
   height: 100%;
+  mark {
+    background-color: transparent;
+    position: relative;
+  }
 `
 
 export default FBMessenger

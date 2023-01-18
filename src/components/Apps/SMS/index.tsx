@@ -6,18 +6,32 @@ import { Header } from './Header';
 import '../../../fonts/GoogleSans/style.css'
 import { Footer } from './Footer';
 import { Content } from './Content';
-
+import { Explanation } from '../../../domain/explanation';
+import ExplanationTooltip from '../../UI/ExplanationTooltip';
 interface Props {
-  phone: string;
+  phone: {
+    textContent: string;
+    explanationPosition: string;
+  };
   content: HTMLElement;
+  explanations?: Explanation[];
+  explanationNumber: number;
+  showExplanations: boolean
 }
 
 
-export const SMS: FunctionComponent<Props> = ({ phone, content }) => {
+export const SMS: FunctionComponent<Props> = ({ phone, content, explanations, explanationNumber, showExplanations }) => {
   return (
     <DesktopWrapper>
       <Font />
       <Mobile className='android'>
+        {explanations.map(explanation => (
+          <ExplanationTooltip 
+            explanation={explanation}
+            explanationNumber={explanationNumber}
+            showExplanations={showExplanations}
+          />
+        ))}
         <Header phone={phone}/>
         <Content data={content}/>
         <Footer />

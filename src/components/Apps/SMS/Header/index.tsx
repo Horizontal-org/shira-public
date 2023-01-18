@@ -6,7 +6,10 @@ import Search from './assets/Search'
 import More from './assets/More'
 
 interface Props {
-  phone: string;
+  phone: {
+    textContent: string;
+    explanationPosition: string;
+  };
 }
 
 export const Header: FunctionComponent<Props> = ({ phone }) => {
@@ -14,7 +17,9 @@ export const Header: FunctionComponent<Props> = ({ phone }) => {
     <Wrapper>
       <div>
         <SvgWrapper><Arrow /></SvgWrapper>
-        <Phone>{phone}</Phone>
+        <Phone>
+          <span data-explanation={phone.explanationPosition}>{phone.textContent}</span>
+        </Phone>
       </div>
       <div>
         <SvgWrapper><Call /></SvgWrapper>
@@ -52,4 +57,8 @@ const Phone = styled.div`
   font-weight: 400; 
   color: #424242;
   margin-top: -6px;
+
+  span {
+    position: relative;
+  }
 `

@@ -1,6 +1,5 @@
-import React, { FunctionComponent, useRef  } from "react"
+import { FunctionComponent } from "react"
 import styled, { createGlobalStyle } from 'styled-components'
-import { domToReact } from 'html-react-parser'
 
 import Header from './Header'
 import Sidebar from "./Sidebar"
@@ -10,13 +9,23 @@ import Applications from "./Applications"
 import '../../../fonts/GoogleSans/style.css'
 import { Profile } from "./Profile"
 import { Attachments } from "./Attachments"
+import { Explanation } from "../../../domain/explanation"
+import ExplanationTooltip from "../../UI/ExplanationTooltip"
+
+interface CustomElements {
+  textContent: string,
+  explanationPosition: string | null
+}
 
 interface Props {
   content: HTMLElement;
-  senderName: string;
-  senderEmail: string;
-  subject?: string;
+  senderName: CustomElements;
+  senderEmail: CustomElements;
+  subject?: CustomElements;
   attachments?: any[];
+  explanations?: Explanation[]
+  explanationNumber: number;
+  showExplanations: boolean
 }
 
 const Gmail: FunctionComponent<Props> = ({ 
@@ -24,11 +33,21 @@ const Gmail: FunctionComponent<Props> = ({
   senderName,
   senderEmail,
   subject,
-  attachments
+  attachments,
+  explanations,
+  explanationNumber,
+  showExplanations
 }) => {
 
   return (
     <DesktopWrapper className="gmail">
+      {explanations.map(explanation => (
+        <ExplanationTooltip 
+          explanation={explanation} 
+          explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
+        />
+      ))}
       <Font />
       <div>
         <Header />
@@ -40,7 +59,11 @@ const Gmail: FunctionComponent<Props> = ({
           <DynamicWrapper>
             <div>
               <Subject>
-                { subject || ''}
+                <span
+                  data-explanation={subject.explanationPosition}
+                >
+                  {subject.textContent}
+                </span>
               </Subject>
               <Profile 
                 senderEmail={senderEmail}
@@ -91,14 +114,23 @@ const Subject = styled.div`
   font-weight: 400;
   font-size: 1.375rem;
   padding: 8px 0 8px 53px;
+  width: max-content;
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     padding: 8px 0 8px 8px;
+  }
+
+  span {
+    position: relative;
   }
 
 `
 
 const DynamicContent = styled.div`
   padding: 10px 0;
+  mark {
+    background-color: transparent;
+    position: relative;
+  }
 `
 
 const PaddingLeft = styled.div`

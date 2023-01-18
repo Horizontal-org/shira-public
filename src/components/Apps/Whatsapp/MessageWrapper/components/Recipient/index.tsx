@@ -8,7 +8,10 @@ import BackArrow from '../../../Icons/BackArrow'
 import StrangerPicture from '../../../StrangerPicture'
 
 interface Props {
-  phone?: string;
+  phone?: {
+    textContent: string
+    explanationPosition: string
+  };
 }
 
 const Recipient:FunctionComponent<Props> = ({ phone }) => {
@@ -22,7 +25,7 @@ const Recipient:FunctionComponent<Props> = ({ phone }) => {
 
         <Contact>
           <StrangerPicture />
-          <span>{phone || ''}</span>
+          <span data-explanation={phone.explanationPosition}>{phone.textContent || ''}</span>
         </Contact>
       </PictureWrapper>
       <div>
@@ -46,6 +49,7 @@ const Contact = styled.div`
   > span {
     font-size: 16px;
     margin-left: 12px;
+    position: relative;
   }
 `
 

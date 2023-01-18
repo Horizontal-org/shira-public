@@ -13,14 +13,17 @@ export const Content: FunctionComponent<Props> = ({ data }) => {
 
   return (
     <Wrapper>
-      { elements.sort((a, b) => parseInt(b.getAttribute('data-position')) - parseInt(a.getAttribute('data-position'))).map((e) => (
+      { Array.from(data.querySelectorAll('[id*="component-"]')).sort((a, b) => parseInt(b.getAttribute('data-position')) - parseInt(a.getAttribute('data-position'))).map((e) => (
         <>
           { e.getAttribute('id').includes('component-text') && (
             <Message data={e}/>
           )}
 
           { e.getAttribute('id').includes('component-attachment') && (
-            <Attachment name={e.textContent}/>
+            <Attachment 
+              explanationPosition={e.getAttribute('data-explanation') || null} 
+              name={e.textContent}
+            />
           )}
         </>
       ))}
@@ -34,5 +37,10 @@ const Wrapper = styled.div`
   flex-direction: column-reverse;  
   height: 100%;
   overflow-y: scroll;
+
+  mark {
+    background: transparent;
+    position: relative;
+  }
   
 `

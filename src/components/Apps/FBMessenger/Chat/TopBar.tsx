@@ -9,7 +9,10 @@ import ProfilePicture from "../../Whatsapp/ProfilePicture"
 import useGetWidth from "../../../../hooks/useGetWidth"
 
 interface Props {
-  fullname?: string;
+  fullname: {
+    textContent: string;
+    explanationPosition: string;
+  }
 }
 const TopBar: FunctionComponent<Props> = ({
   fullname
@@ -25,7 +28,11 @@ const TopBar: FunctionComponent<Props> = ({
           </BackIconWrapper>
         )}
         <ProfilePicture />
-        <Name> {fullname} </Name>
+        <Name>
+          <span data-explanation={fullname.explanationPosition}>
+            {fullname.textContent} 
+          </span>
+        </Name>
       </UserInfo>
       <FlexWrapper>
 
@@ -71,6 +78,9 @@ const BackIconWrapper = styled.div`
 
 const Name = styled.div`
   margin-left: 8px;
+  span {
+    position: relative;
+  }
 `
 
 const FlexWrapper = styled.div`
