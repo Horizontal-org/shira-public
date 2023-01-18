@@ -32,6 +32,16 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
         />
       )}
 
+      { name === 'Dating App' && (
+        <SMS
+          phone={parseCustomElement('component-required-phone')}
+          content={html.getElementById('dynamic-content')}
+          explanations={explanations}
+          explanationNumber={explanationNumber}
+          showExplanations={showExplanations}
+        />
+      )}
+
       { name === 'Whatsapp' && (
         <Whatsapp
           phone={parseCustomElement('component-required-phone')}
