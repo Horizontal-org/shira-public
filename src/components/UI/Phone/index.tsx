@@ -4,14 +4,15 @@ import { lighten } from 'polished'
 
 interface Props {
   children: ReactNode,
-  className: string
+  className: string,
+  background: string
 }
 
-export const Phone: FunctionComponent<Props> = ({ children, className }) => {
+export const Phone: FunctionComponent<Props> = ({ children, className, background }) => {
   return (
     <DesktopWrapper>
       <Font />
-      <Mobile className={className}>
+      <Mobile background={background} className={className}>
         { children }
       </Mobile>
     </DesktopWrapper>
@@ -33,15 +34,20 @@ const DesktopWrapper = styled.div`
   align-items: center;
 `
 
-const Mobile = styled.div`
+interface PhoneProps {
+  background: string
+}
+
+const Mobile = styled('div')<PhoneProps>`
   box-sizing: border-box;
   padding-top: 30px;
   width: 390px;
   height: 650px;
-  background: white;
+  background: ${props => props.background};
   border-radius: 30px;
   border: 2px solid #424242;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 `
