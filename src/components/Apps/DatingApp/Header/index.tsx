@@ -17,7 +17,10 @@ export const Header: FunctionComponent<Props> = ({ phone }) => {
         <BackArrow />
       </div>
       <UserInfo>
-        <div>{phone.textContent}</div>
+        <UserName>
+          <OnlineMark></OnlineMark>
+          <span>{phone.textContent}</span>
+        </UserName>
         <div>832 feet away</div>
       </UserInfo>
       <div>
@@ -36,4 +39,17 @@ const Wrapper = styled.div`
 
 const UserInfo = styled.div`
   color: #fafafa
+`
+
+const UserName = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const OnlineMark = styled.div`
+  background-color: green;
+  width: 8px;
+  height: 8px;
+  border-radius:50%;
+  margin-right: 8px;
 `
