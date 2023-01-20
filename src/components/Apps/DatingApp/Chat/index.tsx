@@ -9,6 +9,7 @@ interface Props {
 export const Chat: FunctionComponent<Props> = ({ data}) => {
   return (
     <Wrapper>
+      <Date>14:58</Date>
       { Array.from(data.querySelectorAll('[id*="component-"]')).sort((a, b) => parseInt(b.getAttribute('data-position')) - parseInt(a.getAttribute('data-position'))).map((e) => (
         <>
           { e.getAttribute('id').includes('component-text') && (
@@ -37,4 +38,10 @@ const Wrapper = styled.div`
     position: relative;
   }
   
+`
+
+const Date = styled.div`
+  color: #9E9EA8;
+  font-size: .7rem;
+  padding:0 8px 16px 8px;
 `

@@ -16,7 +16,7 @@ export const Message:FunctionComponent<Props> = ({ data }) => {
 
 const Wrapper = styled.div`
   display: flex;
-  padding: 12px 16px;
+  padding: 4px 16px;
   position: relative;
 `
 
@@ -46,7 +46,7 @@ const Content = styled.div`
     border-width: 10px;
     border-style: solid;
     border-color: transparent #70BEDF transparent transparent;
-    bottom: 12px;
+    bottom: 4px;
     left: 7px;
     rotate: 90deg
 }

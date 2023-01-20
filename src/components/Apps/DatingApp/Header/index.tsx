@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import BackArrow from './Icons/BackArrow'
 import MoreOptions from './Icons/MoreOptions'
+import Stranger from './Icons/Stranger'
 
 interface Props {
   phone: {
@@ -16,13 +17,18 @@ export const Header: FunctionComponent<Props> = ({ phone }) => {
       <div>
         <BackArrow />
       </div>
-      <UserInfo>
-        <UserName>
-          <OnlineMark></OnlineMark>
-          <span>{phone.textContent}</span>
-        </UserName>
-        <div>832 feet away</div>
-      </UserInfo>
+      <Profile>
+        <AvatarWrapper>
+          <Stranger />
+        </AvatarWrapper>
+        <UserInfo>
+          <UserName>
+            <OnlineMark></OnlineMark>
+            <span>{phone.textContent}</span>
+          </UserName>
+          <Location>832 feet away</Location>
+        </UserInfo>
+      </Profile>
       <div>
         <MoreOptions />
       </div>
@@ -34,9 +40,12 @@ const Wrapper = styled.div`
   padding: 0 8px;
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
 `
 
+const Profile = styled.div`
+  display: flex;
+`
 const UserInfo = styled.div`
   color: #fafafa
 `
@@ -52,4 +61,19 @@ const OnlineMark = styled.div`
   height: 8px;
   border-radius:50%;
   margin-right: 8px;
+`
+
+const AvatarWrapper = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  padding: 4px;
+  background: #2C2C2E;
+  margin-right: 8px;
+`
+
+const Location = styled.div`
+  color: #9E9EA8;
+  font-size: .8rem;
+  font-weight: light;
 `
