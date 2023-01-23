@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import BackArrow from './Icons/BackArrow'
 import MoreOptions from './Icons/MoreOptions'
 import Stranger from './Icons/Stranger'
+import Video from './Icons/Video'
 
 interface Props {
   phone: {
@@ -24,14 +25,17 @@ export const Header: FunctionComponent<Props> = ({ phone }) => {
         <UserInfo>
           <UserName>
             <OnlineMark></OnlineMark>
-            <span>{phone.textContent}</span>
+            <span data-explanation={phone.explanationPosition}>{phone.textContent}</span>
           </UserName>
           <Location>832 feet away</Location>
         </UserInfo>
       </Profile>
-      <div>
+      <FlexWrapper>
+        <VideoWrapper>
+          <Video />
+        </VideoWrapper>
         <MoreOptions />
-      </div>
+      </FlexWrapper>
     </Wrapper>
   )
 }
@@ -76,4 +80,12 @@ const Location = styled.div`
   color: #9E9EA8;
   font-size: .8rem;
   font-weight: light;
+`
+
+const FlexWrapper = styled.div`
+  display: flex;
+`
+
+const VideoWrapper = styled.div`
+  padding-right: 8px;
 `

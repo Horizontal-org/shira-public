@@ -50,4 +50,9 @@ const Mobile = styled('div')<PhoneProps>`
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    border-radius: 0;
+    height: 100%;   
+  }
 `

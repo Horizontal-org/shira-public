@@ -21,7 +21,8 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  width: 70%;
+  width: fit-content;
+  max-width: 70%;
   text-align: left;
   background: #70BEDF;
   border-radius: 8px;

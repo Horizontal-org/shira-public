@@ -10,7 +10,7 @@ import MessengerIcon from './assets/Messenger'
 const icons = {
   'Whatsapp': <WhatsappSvg />,
   'Gmail': <GmailSvg />,
-  'Messenger': <MessengerIcon />
+  'Messenger': <MessengerIcon />,
 }
 
 const getIcon = (name) => {
