@@ -67,16 +67,6 @@ const Buttons = styled.div`
   }
 `
 
-const ButtonContent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  > svg {
-    padding-left: 16px;
-  }
-`
-
 const Title = styled.div`
   font-size: 48px;
   font-weight: 700;

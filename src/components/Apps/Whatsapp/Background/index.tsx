@@ -42,9 +42,8 @@ const HeadBrand = styled.div`
   z-index: 1;
   height: 120px;
 
-  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     display: none;
   }
 `
 export default Background
-// 0 6px 18px rgba(var(--shadow-rgb 11, 20, 26),.05) 

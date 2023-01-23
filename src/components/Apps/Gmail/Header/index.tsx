@@ -60,7 +60,7 @@ const Wrapper = styled.div`
   padding: 8px;
   border-bottom: 1px solid hsla(240,5.8%,76.3%,0.2);
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: none;
   }
 `

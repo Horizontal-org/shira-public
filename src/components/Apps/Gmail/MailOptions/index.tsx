@@ -88,7 +88,7 @@ const Wrapper = styled.div`
   height: 48px;
   border-bottom: 1px solid hsla(240,5.8%,76.3%,0.2);
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     justify-content: space-between;
     padding-left: 8px;
   }
@@ -131,7 +131,7 @@ const FirstBlock = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     margin-right: 20px;
   }
 `

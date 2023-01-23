@@ -88,7 +88,7 @@ const Content = styled.div`
     position: relative;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     width: 100vw;
     height: 100%;
   }

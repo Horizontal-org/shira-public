@@ -25,7 +25,7 @@ const Sidebar: FunctionComponent<Props> = () => {
 
 const Wrapper = styled.div`
   min-width: 238px;  
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: none;
   }
 `

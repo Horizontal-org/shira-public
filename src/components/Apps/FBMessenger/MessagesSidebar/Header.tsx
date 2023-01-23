@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: none;   
   }
 `

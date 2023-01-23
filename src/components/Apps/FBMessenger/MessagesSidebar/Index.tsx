@@ -19,11 +19,11 @@ const Wrapper = styled.div`
   border-right: 1px solid #F2F3F5;
   width: 361px;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     width: 88px;    
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
     display: none; 
   }
 `
