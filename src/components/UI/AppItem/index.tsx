@@ -5,12 +5,16 @@ import styled from 'styled-components'
 import GmailSvg from './assets/Mail'
 import WhatsappSvg from './assets/Whatsapp'
 import MessengerIcon from './assets/Messenger'
+import DatingAppIcon from "./assets/DatingApp";
+import SmsIcon from "./assets/Sms";
 
 
 const icons = {
   'Whatsapp': <WhatsappSvg />,
   'Gmail': <GmailSvg />,
   'Messenger': <MessengerIcon />,
+  'Dating App': <DatingAppIcon />,
+  'SMS': <SmsIcon />,
 }
 
 const getIcon = (name) => {
