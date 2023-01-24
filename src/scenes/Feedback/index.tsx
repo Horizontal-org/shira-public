@@ -112,7 +112,7 @@ const FeedbackSubtitle = styled.div`
 const StyledSectionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 100px 80px;  
+  padding: 10vh 80px;  
 `
 
 const FeedbackHeading = styled.div`
