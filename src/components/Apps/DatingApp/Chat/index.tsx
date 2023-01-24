@@ -1,15 +1,15 @@
-import { FunctionComponent, useEffect, useState } from 'react'
+import { FunctionComponent } from 'react'
 import styled from 'styled-components'
-import { Attachment } from '../Attachment'
-import { Message } from '../Message'
-
+import { Message } from './Message'
+import { Attachment } from './Attachment'
 interface Props {
-  data: HTMLElement
-}
+    data: HTMLElement
+  }
 
-export const Content: FunctionComponent<Props> = ({ data }) => {
+export const Chat: FunctionComponent<Props> = ({ data}) => {
   return (
     <Wrapper>
+      <Date>14:58</Date>
       { Array.from(data.querySelectorAll('[id*="component-"]')).sort((a, b) => parseInt(b.getAttribute('data-position')) - parseInt(a.getAttribute('data-position'))).map((e) => (
         <>
           { e.getAttribute('id').includes('component-text') && (
@@ -28,16 +28,20 @@ export const Content: FunctionComponent<Props> = ({ data }) => {
   )
 }
 
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;  
   height: 100%;
-  overflow-y: scroll;
 
   mark {
     background: transparent;
     position: relative;
   }
   
+`
+
+const Date = styled.div`
+  color: #9E9EA8;
+  font-size: .7rem;
+  padding:0 8px 16px 8px;
 `
