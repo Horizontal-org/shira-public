@@ -62,7 +62,7 @@ const Wrapper = styled.div`
 
   
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     background: #00a884;
   }
 `
@@ -83,7 +83,7 @@ const IconWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     > svg {
       > path {
         fill: #fff;
@@ -95,7 +95,7 @@ const IconWrapper = styled.div`
 const BackArrowWrapper = styled.div`
   display: none;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: inline-block;
     padding-right: 8px;
   }

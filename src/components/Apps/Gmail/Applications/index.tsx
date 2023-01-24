@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   border-left: 1px solid hsla(240,5.8%,76.3%,0.2);
   padding-top: 8px;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: none;
   }
 `

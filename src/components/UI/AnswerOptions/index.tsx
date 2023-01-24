@@ -73,7 +73,7 @@ const LegitimateButton = styled(StyledButton)`
 `
 
 const Text = styled.div`
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
     display: none; 
   }
 `

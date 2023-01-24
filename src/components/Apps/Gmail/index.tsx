@@ -115,7 +115,7 @@ const Subject = styled.div`
   font-size: 1.375rem;
   padding: 8px 0 8px 53px;
   width: max-content;
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     padding: 8px 0 8px 8px;
   }
 
@@ -136,7 +136,7 @@ const DynamicContent = styled.div`
 const PaddingLeft = styled.div`
   padding-left: 53px;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     padding-left: 8px;
   }
 `

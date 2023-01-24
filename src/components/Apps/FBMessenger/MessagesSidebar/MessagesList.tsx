@@ -81,7 +81,7 @@ const Card = styled('div')<CardProps>`
     background: rgba(60,64,67,.1);
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     justify-content: center;   
   }
 `
@@ -96,7 +96,7 @@ const SecondaryText = styled.div`
 const MessageInfo = styled.div`
   padding-left: 8px;
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: none;   
   }
 `

@@ -24,11 +24,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content:space-between;
 
-  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex: calc(40%);
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: none;
   }
 `

@@ -69,7 +69,7 @@ const SearchIconWrapper = styled(IconWrapper)`
 `
 
 const SearchText = styled.span`
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     display: none;   
   }
 `

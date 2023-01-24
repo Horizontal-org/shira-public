@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   height: 800px;
   overflow: hidden;
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
     height: 96vh;
   }
 `
