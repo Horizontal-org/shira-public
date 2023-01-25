@@ -82,7 +82,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       }
 
       {
-        (explanationNumber === (explanationsLength - 1) || explanationsLength === 0) && (
+        ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
           <Button 
             text='Next Question'
             type='outline'
