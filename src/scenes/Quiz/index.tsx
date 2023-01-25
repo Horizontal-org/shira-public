@@ -44,7 +44,6 @@ export const Quiz:FunctionComponent<Props> = () => {
 
   useEffect(() => {
     if (quiz) {
-      console.log("🚀 ~ file: index.tsx:47 ~ useEffect ~ quiz", quiz)
       handleQuestions(quiz)
     }
   }, [quiz])

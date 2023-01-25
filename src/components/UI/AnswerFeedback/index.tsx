@@ -56,7 +56,11 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       { userAnswer && (
         <UserAnswerWrapper>          
           {compareAnswers()}
-          <p>{`This message seems ${realAnswer}`}</p>
+          { realAnswer === 'phising' ? (
+            <p>{`This message looks like phishing`}</p>
+          ) : (
+            <p>{`This message seems ${realAnswer}`}</p>
+          )}
         </UserAnswerWrapper>
       )}
 

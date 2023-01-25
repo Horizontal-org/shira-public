@@ -100,7 +100,6 @@ const FooterButtons = styled.div`
 `
 
 const Fields = styled.div`
-  padding-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -110,7 +109,6 @@ const Fields = styled.div`
   }
 
   > div {
-    margin-right: 12px;
     margin-top: 12px;
   }
 `
