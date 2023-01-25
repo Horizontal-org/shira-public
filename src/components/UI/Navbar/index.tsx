@@ -32,7 +32,7 @@ const NavbarWrapper = styled.div`
 `
 
 const Nav = styled.nav`
-  padding-left: 20px;
+  padding-left: 5px;
 `
 
 const Link = styled.span`
