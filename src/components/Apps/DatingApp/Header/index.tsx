@@ -15,21 +15,21 @@ interface Props {
 export const Header: FunctionComponent<Props> = ({ phone }) => {
   return (
     <Wrapper>
-      <div>
+      <FlexWrapper>
         <BackArrow />
-      </div>
-      <Profile>
-        <AvatarWrapper>
-          <Stranger />
-        </AvatarWrapper>
-        <UserInfo>
-          <UserName>
-            <OnlineMark></OnlineMark>
-            <span data-explanation={phone.explanationPosition}>{phone.textContent}</span>
-          </UserName>
-          <Location>832 feet away</Location>
-        </UserInfo>
-      </Profile>
+        <Profile>
+          <AvatarWrapper>
+            <Stranger />
+          </AvatarWrapper>
+          <UserInfo>
+            <UserName>
+              <OnlineMark></OnlineMark>
+              <span data-explanation={phone.explanationPosition}>{phone.textContent}</span>
+            </UserName>
+            <Location>832 feet away</Location>
+          </UserInfo>
+        </Profile>
+      </FlexWrapper>
       <FlexWrapper>
         <VideoWrapper>
           <Video />
@@ -49,6 +49,7 @@ const Wrapper = styled.div`
 
 const Profile = styled.div`
   display: flex;
+  padding-left: 8px;
 `
 const UserInfo = styled.div`
   color: #fafafa
@@ -84,6 +85,7 @@ const Location = styled.div`
 
 const FlexWrapper = styled.div`
   display: flex;
+  align-items: center;
 `
 
 const VideoWrapper = styled.div`
