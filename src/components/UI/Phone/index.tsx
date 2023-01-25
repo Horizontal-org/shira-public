@@ -41,11 +41,11 @@ interface PhoneProps {
 const Mobile = styled('div')<PhoneProps>`
   box-sizing: border-box;
   padding-top: 30px;
-  width: 390px;
-  height: 650px;
+  width: 336px;
+  height: 80vh;
   background: ${props => props.background};
-  border-radius: 30px;
-  border: 2px solid #424242;
+  border-radius: 50px;
+  border: 17px solid #F3F3F3;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -53,6 +53,8 @@ const Mobile = styled('div')<PhoneProps>`
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     border-radius: 0;
-    height: 100%;   
+    border: none;
+    height: 100%;
+    width: 100%;
   }
 `
