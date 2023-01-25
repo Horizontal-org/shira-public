@@ -51,8 +51,6 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
     }
   }
 
-  console.log(explanationNumber)
-
   return (
     <Wrapper>
       { userAnswer && (
