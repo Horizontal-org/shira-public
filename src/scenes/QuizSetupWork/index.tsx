@@ -101,10 +101,16 @@ const FooterButtons = styled.div`
 
 const Fields = styled.div`
   padding-top: 20px;
-  display: flex;
-  flex-wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   > div {
     margin-right: 12px;
+    margin-top: 12px;
   }
 `

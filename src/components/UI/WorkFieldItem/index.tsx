@@ -4,11 +4,24 @@ import styled from 'styled-components'
 // Icons
 import HumanResourcesSvg from './assets/HumanResources'
 import ActivistSvg from './assets/Activist'
+import Book from './assets/Book'
+import Business from './assets/Business'
+import Service from './assets/Service'
+import Media from './assets/Media'
+
 
 
 const icons = {
   'human-resources': <HumanResourcesSvg />,
-  'activist': <ActivistSvg />
+  'activist': <ActivistSvg />,
+  'journalism-and-media': <Media />,
+  'business': <Business />,
+  'services': <Service />,
+  'education': <Book />,
+  'healthcare': <ActivistSvg />,
+  'marketing': <Business />,
+  'arts-and-culture': <Book />,
+  'human-rights': <HumanResourcesSvg />,
 }
 
 const getIcon = (slug) => {
