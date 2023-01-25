@@ -92,7 +92,7 @@ export const FeedbackBox: FunctionComponent<Props> = ({
         <p>{t('feedback.box.question_3.title')}</p>
         <TextInput 
           onChange={(e) => { onImprove(e.target.value)}}
-          placeholder={t('feedback.box.question_3.placeholder')}
+          placeholder={t('feedback.box.question_3.input_placeholder')}
           value={improve}
         />
       </Item>

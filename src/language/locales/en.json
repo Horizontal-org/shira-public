@@ -11,6 +11,7 @@
             "recommendation": "To be extra-safe, you can use a fake name and email address, or generate random ones.",
             "name": "Name",
             "email": "Email",
+            "footer_title": "Quiz setup",
             "random_button": "Make a random name and email address",
             "next_button": "Next"
         },
@@ -73,7 +74,7 @@
             },
             "question_3": {
                 "title": "3. How can we improve Shira?",
-                "input_placeholder": "Placeholder"
+                "input_placeholder": "Enter your feedback here"
             },
             "bottom_text": "Your feedback will be sent when you click “see results”"
         },
