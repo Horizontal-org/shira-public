@@ -67,8 +67,8 @@ const Box = styled.div<BoxProps>`
   padding: 16px 20px;
 
   > svg {
-    height: 23px;
-    width: 23px;
+    height: 21px;
+    width: 21px;
   } 
 
   > span {
