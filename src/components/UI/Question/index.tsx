@@ -26,9 +26,7 @@ export const Question: FunctionComponent<Props> = ({
   const [ explanationNumber, setExplanationNumber ] = useState<number>(0)
   const [explanationsOrder, handleExplanationsOrder] = useState<Array<number>>([])
   const [showExplanations, handleShowExplanations] = useState<boolean>(false)
-  console.log("🚀 ~ file: index.tsx:31 ~ showExplanations", showExplanations)
-
-  // use effect explanations 
+  
   useEffect(() => {
     const order = question.explanations
       .sort((a, b) => parseInt(a.position) - parseInt(b.position))
@@ -61,7 +59,7 @@ export const Question: FunctionComponent<Props> = ({
             setExplanationNumber={(n) => { setExplanationNumber(n)}}
             onNext={onNext}
             userAnswer={answer}
-            realAnswer={'legitimate'}
+            realAnswer={question.isPhising ? 'phising' : 'legitimate'}
           />
         ) : <AnswerOptions onAnswer={(a) => { handleAnswer(a) }} />}
       />

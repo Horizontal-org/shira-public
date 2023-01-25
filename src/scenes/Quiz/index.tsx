@@ -37,7 +37,6 @@ export const Quiz:FunctionComponent<Props> = () => {
   useEffect(() => {
     const startQuiz = async() => {
       fetchQuiz(apps, fieldsOfWork)
-      // handleQuestions(quiz.questions)    
     }
 
     startQuiz()
@@ -45,6 +44,7 @@ export const Quiz:FunctionComponent<Props> = () => {
 
   useEffect(() => {
     if (quiz) {
+      console.log("🚀 ~ file: index.tsx:47 ~ useEffect ~ quiz", quiz)
       handleQuestions(quiz)
     }
   }, [quiz])
@@ -82,7 +82,14 @@ export const Quiz:FunctionComponent<Props> = () => {
             action={(
               <Button 
                 text="OK"
-                onClick={() => { handleStarted(true) }}
+                onClick={() => { 
+                  if (quiz.length === 0) { 
+                    changeScene('feedback')                  
+                  } else {
+                    handleStarted(true) 
+                  }
+
+                }}
               />
             )}
           />
