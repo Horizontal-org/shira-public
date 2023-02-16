@@ -1,5 +1,6 @@
 import create from 'zustand'
 import { SceneSlice, createSceneSlice } from '../store/slices/scene'
+import { AnalyticsSlice, createAnalyticsSlice } from './slices/analytics'
 import { AppsSlice, createAppsSlice } from './slices/apps'
 import { createFieldsOfWorkSlice, FieldsOfWorkSlice } from './slices/fields_of_work'
 import { createQuizSlice, QuizSlice } from './slices/quiz'
@@ -10,11 +11,13 @@ export const useStore = create<
   AppsSlice &
   FieldsOfWorkSlice & 
   QuizSetupSlice &
-  QuizSlice
+  QuizSlice &
+  AnalyticsSlice
 >()((...a) => ({
   ...createSceneSlice(...a),
   ...createAppsSlice(...a),
   ...createFieldsOfWorkSlice(...a),
   ...createQuizSetupSlice(...a),
-  ...createQuizSlice(...a)
+  ...createQuizSlice(...a),
+  ...createAnalyticsSlice(...a)
 }))

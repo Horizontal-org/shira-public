@@ -21,13 +21,15 @@ export const Quiz:FunctionComponent<Props> = () => {
     apps,
     fieldsOfWork,
     fetchQuiz,
-    quiz
+    quiz,
+    ci
   } = useStore((state) => ({
     changeScene: state.changeScene,
     apps: state.setup.apps,
     fieldsOfWork: state.setup.fields_of_work,
     fetchQuiz: state.fetchQuiz,
-    quiz: state.quiz
+    quiz: state.quiz,
+    ci: state.ci
   }), shallow)
 
   const [questions, handleQuestions] = useState([])
@@ -83,6 +85,7 @@ export const Quiz:FunctionComponent<Props> = () => {
                 text="OK"
                 onClick={() => { 
                   if (quiz.length === 0) { 
+                    ci.measureEvent('app-state', 'quiz-finished', 'test')
                     changeScene('feedback')                  
                   } else {
                     handleStarted(true) 
