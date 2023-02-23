@@ -20,12 +20,30 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   useEffect( () => {
     const observer = new ResizeObserver(() => {
       const tooltip = document.querySelector(`#explanation-${explanation.index}`) as HTMLElement
-      const reference = document.querySelector(`[data-explanation="${explanation.index}"]`)
+      const reference = document.querySelector(`[data-explanation="${explanation.index}"]`) as HTMLElement
+      const container = reference.closest(".apps-container") as HTMLElement
+      let scrollPerformed = false
 
-      const referencePosition = reference.getBoundingClientRect()
+      const handleScroll = () => {
+        scrollPerformed=true
+        const referencePosition = reference.getBoundingClientRect()
+        tooltip.style.top = `${referencePosition.y + referencePosition.height}px`
+        tooltip.style.left = `${referencePosition.x}px`
+      }
 
-      tooltip.style.top = `${referencePosition.y + referencePosition.height}px`
-      tooltip.style.left = `${referencePosition.x}px`
+      if(showExplanations && parseInt(explanation.index) === explanationNumber) {
+        reference.scrollIntoView({ behavior: 'smooth' })
+        container.addEventListener("scroll", handleScroll)
+
+        if(!scrollPerformed) {
+          const referencePosition = reference.getBoundingClientRect()
+
+          tooltip.style.top = `${referencePosition.y + referencePosition.height}px`
+          tooltip.style.left = `${referencePosition.x}px`
+        }
+      } else {
+        container.removeEventListener("scroll", handleScroll)
+      }
     })
 
     observer.observe(document.documentElement)
@@ -33,7 +51,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
     return () => {
       observer.unobserve(document.documentElement)
     }
-  }, [explanation.index, explanationNumber])
+  }, [explanation.index, explanationNumber, showExplanations])
 
   useEffect(() => {
     const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
