@@ -5,6 +5,7 @@ import { AnswerFeedback } from '../AnswerFeedback';
 import { AnswerOptions } from '../AnswerOptions';
 import { Footer } from '../Footer';
 import { SceneWithFooter } from '../SceneWithFooter';
+import { Explanation } from '../../../domain/explanation';
 
 interface Props {
   question: QuestionType;
@@ -28,12 +29,15 @@ export const Question: FunctionComponent<Props> = ({
   const [showExplanations, handleShowExplanations] = useState<boolean>(false)
   
   useEffect(() => {
-    const order = question.explanations
+    const order = parseExplanations(question.explanations)
       .sort((a, b) => parseInt(a.position) - parseInt(b.position))
       .map(e => parseInt(e.index))
 
     handleExplanationsOrder(order)
   }, [])
+
+  const parseExplanations = (explanation: Explanation[]):Explanation[] => 
+    explanation.filter( expl =>  document.querySelector(`[data-explanation="${expl.index}"]`))
 
   return (
     <SceneWithFooter>
@@ -42,7 +46,7 @@ export const Question: FunctionComponent<Props> = ({
       <AppLayout 
         app={question.apps[0]}
         content={question.content}
-        explanations={question.explanations}
+        explanations={parseExplanations(question.explanations)}
         explanationNumber={explanationsOrder[explanationNumber]}
         answer={answer}
         showExplanations={showExplanations}
@@ -55,7 +59,7 @@ export const Question: FunctionComponent<Props> = ({
             showExplanations={showExplanations}
             handleShowExplanations={handleShowExplanations}
             explanationNumber={explanationNumber}
-            explanationsLength={question.explanations.length}
+            explanationsLength={parseExplanations(question.explanations).length}
             setExplanationNumber={(n) => { setExplanationNumber(n)}}
             onNext={onNext}
             userAnswer={answer}
