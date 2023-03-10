@@ -40,7 +40,7 @@ export const Question: FunctionComponent<Props> = ({
 
       {/* TODO Replace app param with algorithm on backend */}
       <AppLayout 
-        app={question.apps[0]}
+        app={question.app}
         content={question.content}
         explanations={question.explanations}
         explanationNumber={explanationsOrder[explanationNumber]}
