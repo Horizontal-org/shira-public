@@ -79,6 +79,6 @@
     "@storybook/testing-library": "^0.0.10",
     "@types/styled-components": "^5.1.25",
     "chromatic": "^6.5.4",
-    "webpack": "^5.72.0"
+    "webpack": "^5.76.0"
   }
 }
