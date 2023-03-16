@@ -35,7 +35,7 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
 
       { name === 'Dating App' && (
         <DatingApp
-          phone={parseCustomElement('component-required-phone')}
+          phone={parseCustomElement('component-required-fullname')}
           content={html.getElementById('dynamic-content')}
           explanations={explanations}
           explanationNumber={explanationNumber}
@@ -55,7 +55,7 @@ export const MessagingApps: FunctionComponent<Props> = ({ content, name, explana
 
       { name === 'Messenger' && (
         <FBMessenger 
-          fullname={parseCustomElement('component-required-phone')}
+          fullname={parseCustomElement('component-required-fullname')}
           content={html.getElementById('dynamic-content')}
           explanations={explanations}
           explanationNumber={explanationNumber}
