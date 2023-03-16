@@ -1,7 +1,9 @@
 import { FunctionComponent, ReactNode } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { lighten } from 'polished'
-
+import Battery from './Icons/BatteryIcon'
+import Signal from './Icons/SignalIcon'
+import WiFi from './Icons/WiFiIcon'
 interface Props {
   children: ReactNode,
   className: string,
@@ -13,6 +15,16 @@ export const Phone: FunctionComponent<Props> = ({ children, className, backgroun
     <DesktopWrapper>
       <Font />
       <Mobile background={background} className={className}>
+        <Header>
+          <div>9:30</div>
+          <FlexWrapper>
+            <WiFi />
+            <Signal />
+            <IconWrapper>
+              <Battery />
+            </IconWrapper>
+          </FlexWrapper>
+        </Header>
         { children }
       </Mobile>
     </DesktopWrapper>
@@ -38,11 +50,30 @@ interface PhoneProps {
   background: string
 }
 
+const Header = styled.div`
+  padding: 8px 24px 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #5F6368;
+  font-weight: 500;
+  font-size: 14px;
+`
+
+const IconWrapper = styled.div`
+  height: 15px;
+  padding-left: 4px;
+`
+
+const FlexWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const Mobile = styled('div')<PhoneProps>`
   box-sizing: border-box;
-  padding-top: 30px;
-  width: 23vw;
   height: 80vh;
+  aspect-ratio: 1/2;
   background: ${props => props.background};
   border-radius: 50px;
   border: 17px solid #F3F3F3;
@@ -51,13 +82,6 @@ const Mobile = styled('div')<PhoneProps>`
   justify-content: space-between;
   overflow: hidden;
 
-  @media (max-width: 1200px) {
-    width: 28vw;
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    width: 38vw;
-  }
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     border-radius: 0;
     border: none;
