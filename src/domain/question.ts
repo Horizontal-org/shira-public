@@ -6,5 +6,6 @@ export interface Question {
   isPhising: boolean;
   content: string; 
   apps: App[];
+  app: App;
   explanations: Explanation[]
 }
