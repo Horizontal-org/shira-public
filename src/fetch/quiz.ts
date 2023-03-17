@@ -5,6 +5,6 @@ import { Question } from "../domain/question"
 import { Quiz } from "../domain/quiz"
 
 export const getQuiz = async(apps:string[], fieldsOfWork: string[]) => {
-  const res = await axios.get<Question[]>(`${process.env.REACT_APP_API_URL}/question?apps=${apps.join(',')}`)
+  const res = await axios.get<Question[]>(`${process.env.REACT_APP_API_URL}/question/quiz?fieldsOfWork=${fieldsOfWork.join(',')}&apps=${apps.join(',')}`)
   return res.data
 }
