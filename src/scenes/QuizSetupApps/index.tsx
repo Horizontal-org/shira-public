@@ -71,7 +71,7 @@ export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
                   }} 
                   text={t('setup.apps.back_button')}
                   type="outline"
-                  rightIcon={<FiChevronLeft size={18}/>}
+                  leftIcon={<FiChevronLeft size={18}/>}
                 />             
 
                 <Button
@@ -81,7 +81,7 @@ export const QuizSetupAppsScene: FunctionComponent<Props> = () => {
                   }} 
                   disabled={selected.length === 0}
                   text={t('setup.apps.next_button')}
-                  type="outline"
+                  type="primary"
                   rightIcon={<FiChevronRight size={18}/>}
                 />             
               </FooterButtons>

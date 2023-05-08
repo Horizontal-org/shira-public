@@ -71,7 +71,7 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
                   }} 
                   text={t('setup.fields_of_work.back_button')}
                   type="outline"
-                  rightIcon={<FiChevronLeft size={18}/>}
+                  leftIcon={<FiChevronLeft size={18}/>}
                 />             
 
                 <Button

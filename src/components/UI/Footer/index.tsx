@@ -54,7 +54,7 @@ const CloseButton = styled.div`
   justify-content: center;
   border-radius: 50%;
   cursor: pointer;
-  background: ${props => props.theme.secondary.base};
+  background: $fff;
 `
 
 const Title = styled.div`

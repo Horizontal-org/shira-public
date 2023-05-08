@@ -80,7 +80,7 @@ export const Quiz:FunctionComponent<Props> = () => {
             title={t('quiz.how_it_works.footer_title')}
             action={(
               <Button 
-                text="OK"
+                text={t('quiz.how_it_works.next')}
                 onClick={() => { 
                   if (quiz.length === 0) { 
                     changeScene('feedback')                  

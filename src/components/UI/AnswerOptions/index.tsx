@@ -44,32 +44,50 @@ const Wrapper = styled.div`
 
 const StyledButton = styled.button`
   all: unset;
-  border-radius: 4px;
+  border-radius: 100px;
   padding: 11px 16px;
   cursor: pointer;
   font-weight: 400;
   display: flex;
   align-items: center;
-
-  color: #404040;
+  justify-content: center;
 
   > svg {
     height: 18px;
     width: 18px;
     margin-right: 10px;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    border-radius: 16px;
+    >svg {
+      margin-right: 0;
+    }
+  }
 `
 
 const PhisingButton = styled(StyledButton)`
-  background: #F99C93;
+  background: ${props => props.theme.colors.error7};
+  &:hover {
+    background: ${props => props.theme.colors.error6};
+  }
+  color: #fff;
 `
 
 const UnsureButton = styled(StyledButton)`
-  background: #FFAE72;
+  background: ${props => props.theme.colors.warning2};
+  color: ${props => props.theme.colors.dark.black};
+  &:hover {
+    background: ${props => props.theme.colors.warning1};
+  }
 `
 
 const LegitimateButton = styled(StyledButton)`
-  background: #9FB747;
+  background: ${props => props.theme.colors.green7};
+  &:hover {
+    background: ${props => props.theme.colors.green6};
+  }
+  color: #fff;
 `
 
 const Text = styled.div`

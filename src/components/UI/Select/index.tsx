@@ -79,7 +79,7 @@ const SelectBox = styled.div`
   border: 2px solid ${props => props.theme.primary.base};
   background: white;
   border-radius: 4px;
-  padding: 11px 16px;
+  padding: 16px 24px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;

@@ -107,7 +107,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
                 changeScene('quiz-setup-apps')
               }} 
               text={t('setup.name.next_button')}
-              type="outline"
+              type="primary"
               rightIcon={<FiChevronRight size={18}/>}
             />             
           )}
