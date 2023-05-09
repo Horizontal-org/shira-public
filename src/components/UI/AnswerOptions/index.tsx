@@ -9,10 +9,11 @@ import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
 
 interface Props {
-  onAnswer: (answer: string) => void 
+  onAnswer: (answer: string) => void;
+  goBack: () => void;
 }
 
-export const AnswerOptions: FunctionComponent<Props> = ({onAnswer}) => {
+export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack}) => {
   const { t } = useTranslation()
   const [selected, handleSelected] = useState<string | null>(null)
 
@@ -48,7 +49,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer}) => {
       <OptionsWrapper>
         <ActionButtonsWrapper>
           <Button
-            onClick={() => { console.log('go back')}} 
+            onClick={() => { goBack()}} 
             text={t('setup.apps.back_button')}
             type="outline"
             leftIcon={<FiChevronLeft size={18}/>}

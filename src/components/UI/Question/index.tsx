@@ -11,7 +11,8 @@ interface Props {
   question: QuestionType;
   questionCount: number;
   questionIndex: number;
-  onNext: () => void
+  onNext: () => void;
+  goBack: () => void;
   changeScene: (scene: string) => void
 }
 
@@ -19,7 +20,7 @@ export const Question: FunctionComponent<Props> = ({
   question,
   questionCount,
   questionIndex,
-  changeScene,
+  goBack,
   onNext,
 }) => {
   
@@ -65,7 +66,7 @@ export const Question: FunctionComponent<Props> = ({
             userAnswer={answer}
             realAnswer={question.isPhising ? 'phising' : 'legitimate'}
           />
-        ) : <AnswerOptions onAnswer={(a) => { handleAnswer(a) }} />}
+        ) : <AnswerOptions goBack={goBack} onAnswer={(a) => { handleAnswer(a) }} />}
       />
     </SceneWithFooter>
   )

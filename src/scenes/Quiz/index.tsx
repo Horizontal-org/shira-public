@@ -65,6 +65,13 @@ export const Quiz:FunctionComponent<Props> = () => {
               changeScene('feedback')
             }
           }}
+          goBack={() => {
+            if (questionIndex > 0) {
+              handleQuestionIndex(questionIndex - 1)
+            } else {
+              changeScene('quiz-setup-work')
+            }
+          }}
         />
       ) : (
         <SceneWithFooter>
