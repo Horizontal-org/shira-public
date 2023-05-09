@@ -1,10 +1,12 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import styled from 'styled-components'
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 import LegitimateIcon from '../Icons/ThumbUp'
 import UnsureIcon from '../Icons/Unsure'
 import PhisingIcon from '../Icons/Alert'
 import { useTranslation } from "react-i18next";
+import { Button } from "../Button";
 
 interface Props {
   onAnswer: (answer: string) => void 
@@ -12,23 +14,56 @@ interface Props {
 
 export const AnswerOptions: FunctionComponent<Props> = ({onAnswer}) => {
   const { t } = useTranslation()
+  const [selected, handleSelected] = useState<string | null>(null)
 
   return (
     <Wrapper>
-      <PhisingButton onClick={() => { onAnswer('phising') }}>
-        <PhisingIcon />
-        <Text>{ t('quiz.answers.options.phising') }</Text>        
-      </PhisingButton>
+      
+      <OptionsWrapper>
+        <PhisingButton
+          selected={selected === 'phishing'} 
+          opacity={selected !== null && selected !== 'phishing'}
+          onClick={() => { handleSelected('phishing') }}>
+          <PhisingIcon />
+          <Text>{ t('quiz.answers.options.phising') }</Text>        
+        </PhisingButton>
 
-      <UnsureButton onClick={() => { onAnswer('unsure') }}>
-        <UnsureIcon />
-        <Text>{ t('quiz.answers.options.unsure') }</Text>        
-      </UnsureButton>
+        <UnsureButton 
+          selected={selected === 'unsure'}
+          opacity={selected !== null && selected !== 'unsure'}
+          onClick={() => { handleSelected('unsure') }}>
+          <UnsureIcon />
+          <Text>{ t('quiz.answers.options.unsure') }</Text>        
+        </UnsureButton>
 
-      <LegitimateButton onClick={() => { onAnswer('legitimate') }}>
-        <LegitimateIcon />
-        <Text>{ t('quiz.answers.options.legitimate') }</Text>        
-      </LegitimateButton>
+        <LegitimateButton
+          opacity={selected !== null && selected !== 'legitimate'}
+          selected={selected === 'legitimate'} 
+          onClick={() => { handleSelected('legitimate') }}>
+          <LegitimateIcon />
+          <Text>{ t('quiz.answers.options.legitimate') }</Text>        
+        </LegitimateButton>
+      </OptionsWrapper>
+
+      <OptionsWrapper>
+        <ActionButtonsWrapper>
+          <Button
+            onClick={() => { console.log('go back')}} 
+            text={t('setup.apps.back_button')}
+            type="outline"
+            leftIcon={<FiChevronLeft size={18}/>}
+          />
+        </ActionButtonsWrapper>
+        <ActionButtonsWrapper>
+          <Button 
+            text={t("quiz.answers.results.next_button")}
+            type='primary'
+            disabled={!selected}
+            onClick={() => {onAnswer(selected)}}
+            leftIcon={<FiChevronRight size={18}/>}
+          />
+        </ActionButtonsWrapper>
+      </OptionsWrapper>
     </Wrapper>
   )
 }
@@ -36,13 +71,31 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer}) => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-left: 16px;
 
   > button {
     margin-left: 12px;
   }
 `
 
-const StyledButton = styled.button`
+const OptionsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const ActionButtonsWrapper = styled.div`
+  padding-left: 16px;
+`
+// add prop to styled button
+interface StyledButtonProps {
+  selected?: boolean
+  opacity?: boolean
+}
+
+const StyledButton = styled.button<StyledButtonProps>`
   all: unset;
   border-radius: 100px;
   padding: 11px 16px;
@@ -51,6 +104,8 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 16px;
+  ${props => props.opacity && `opacity: 0.64;`}
 
   > svg {
     height: 18px;
@@ -67,7 +122,7 @@ const StyledButton = styled.button`
 `
 
 const PhisingButton = styled(StyledButton)`
-  background: ${props => props.theme.colors.error7};
+  background: ${props => props.selected ? props.theme.colors.error8 : props.theme.colors.error7};
   &:hover {
     background: ${props => props.theme.colors.error6};
   }
@@ -75,7 +130,7 @@ const PhisingButton = styled(StyledButton)`
 `
 
 const UnsureButton = styled(StyledButton)`
-  background: ${props => props.theme.colors.warning2};
+  background: ${props => props.selected ? props.theme.colors.warning3 : props.theme.colors.warning2};
   color: ${props => props.theme.colors.dark.black};
   &:hover {
     background: ${props => props.theme.colors.warning1};
@@ -83,7 +138,7 @@ const UnsureButton = styled(StyledButton)`
 `
 
 const LegitimateButton = styled(StyledButton)`
-  background: ${props => props.theme.colors.green7};
+  background: ${props => props.selected ? props.theme.colors.green8 : props.theme.colors.green7};
   &:hover {
     background: ${props => props.theme.colors.green6};
   }

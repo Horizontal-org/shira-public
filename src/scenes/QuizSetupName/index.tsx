@@ -84,7 +84,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
             </FormInputs>
             <FormButton>
               <Button
-                type='secondary'
+                type='primary'
                 onClick={() => {
                   const randomName = getRandomName()
                   handleName(randomName)
@@ -118,17 +118,14 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
 }
 
 const FormContent = styled.div`
-  display: flex;
-  align-items: center;
 `
 
 const FormButton = styled.div`
-  max-width: 300px;
-  padding-left: 20px;
+  display: flex;
+  justify-content: center;
 `
 
 const FormInputs = styled.div`
-  flex-grow: 1;
   
   > input {
     margin-bottom: 20px;
