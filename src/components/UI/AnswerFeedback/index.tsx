@@ -1,5 +1,5 @@
 import { Dispatch, FunctionComponent, SetStateAction } from "react";
-import { FiChevronRight } from "react-icons/fi";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import styled from 'styled-components'
 import { Button } from "../Button";
 
@@ -11,6 +11,7 @@ import QuestionMarkIcon from '../Icons/QuestionMark'
 
 interface Props {
   onNext:  () => void;
+  onAnswer: (answer: string) => void;
   realAnswer: string;
   userAnswer: string | null;
   explanationsLength: number
@@ -22,6 +23,7 @@ interface Props {
 
 export const AnswerFeedback: FunctionComponent<Props> = ({
   onNext,
+  onAnswer,
   realAnswer,
   userAnswer,
   explanationsLength,
@@ -64,37 +66,55 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
         </UserAnswerWrapper>
       )}
 
-      { 
-        explanationsLength > 0 && !showExplanations && (
+      <OptionsWrapper>
+        <ActionButtonsWrapper>
           <Button 
-            text='See Why'
+            text={t("quiz.answers.results.back_button")}
             type='outline'
-            onClick={() => handleShowExplanations(true)}
-            leftIcon={<QuestionMarkIcon size={18}/>}
+            onClick={() => {
+              if(explanationsLength > 0 && explanationNumber >= 0) {
+                setExplanationNumber(explanationNumber - 1)
+              } else {
+                onAnswer(null)
+              }
+            }}
+            leftIcon={<FiChevronLeft size={18}/>}
           />
-      )}
+        </ActionButtonsWrapper>
+        <ActionButtonsWrapper>
+          { 
+            explanationsLength > 0 && !showExplanations && (
+              <Button 
+                text='See Why'
+                type='primary'
+                onClick={() => handleShowExplanations(true)}
+                leftIcon={<QuestionMarkIcon size={18} />}
+              />
+          )}
 
-      {
-        explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
-          <Button 
-            text={t("quiz.answers.results.next_button")}
-            type='outline'
-            onClick={() => setExplanationNumber(explanationNumber + 1)}
-            leftIcon={<FiChevronRight size={18}/>}
-          />
-        )
-      }
+          {
+            explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
+              <Button 
+                text={t("quiz.answers.results.next_button")}
+                type='primary'
+                onClick={() => setExplanationNumber(explanationNumber + 1)}
+                leftIcon={<FiChevronRight size={18}/>}
+              />
+            )
+          }
 
-      {
-        ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
-          <Button 
-            text='Next Question'
-            type='outline'
-            onClick={onNext}
-            rightIcon={<FiChevronRight size={18}/>}
-          />
-        )
-      }
+          {
+            ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
+              <Button 
+                text='Next Question'
+                type='primary'
+                onClick={onNext}
+                rightIcon={<FiChevronRight size={18}/>}
+              />
+            )
+          }
+        </ActionButtonsWrapper>
+      </OptionsWrapper>
     </Wrapper>
   )
 }
@@ -119,6 +139,14 @@ const UserAnswerWrapper = styled.div`
     width: 18px;
     margin-right: 10px;
   }
+`
+
+const OptionsWrapper = styled.div`
+  display: flex;
+`
+
+const ActionButtonsWrapper = styled.div`
+  padding-left: 16px;
 `
 
 const Wrapper = styled.div`

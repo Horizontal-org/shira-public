@@ -64,6 +64,7 @@ export const Question: FunctionComponent<Props> = ({
             setExplanationNumber={(n) => { setExplanationNumber(n)}}
             onNext={onNext}
             userAnswer={answer}
+            onAnswer={(a) => { handleAnswer(a) }}
             realAnswer={question.isPhising ? 'phising' : 'legitimate'}
           />
         ) : <AnswerOptions goBack={goBack} onAnswer={(a) => { handleAnswer(a) }} />}

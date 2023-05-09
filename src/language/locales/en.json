@@ -51,7 +51,8 @@
                 "unsure": "“I don’t know”",
                 "correct": "Good job!",
                 "incorrect": "Incorrect",
-                "next_button": "Next"
+                "next_button": "Next",
+                "back_button": "Back"
             }
         }
     },
