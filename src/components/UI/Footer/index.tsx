@@ -33,12 +33,14 @@ export const Footer: FunctionComponent<Props> = ({
 const Wrapper = styled.div`
   background: #fff;
   box-sizing: border-box;
-  border: 3px solid #767676;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 86px;
   padding: 8px 20px;
+
+  box-shadow: 0px -6px 10px 4px rgba(0, 0, 0, 0.15), 0px -2px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 0px 0px;
 `
 
 const LeftContent = styled.div`
@@ -58,6 +60,9 @@ const CloseButton = styled.div`
 `
 
 const Title = styled.div`
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    display: none;
+  }
   padding-left: 20px;
   color: black;
   font-size: 16px;

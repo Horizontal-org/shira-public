@@ -8,6 +8,7 @@ interface Props {
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   disabled?: boolean
+  size?: string
 }
 
 export const Button: FunctionComponent<Props> = ({
@@ -16,7 +17,8 @@ export const Button: FunctionComponent<Props> = ({
   type,
   leftIcon,
   rightIcon,
-  disabled
+  disabled,
+  size
 }) => {
   return (
     <StyledButton
@@ -24,6 +26,7 @@ export const Button: FunctionComponent<Props> = ({
       styledType={type || 'primary'}
       styleDisabled={disabled || false}
       disabled={disabled || false}
+      size={size}
     >
       { leftIcon && (
         <Left>
@@ -47,6 +50,7 @@ interface StyledButtonProps {
   styledType: string;
   children: ReactNode;
   styleDisabled: boolean;
+  size?: string;
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -86,6 +90,11 @@ const StyledButton = styled.button<StyledButtonProps>`
   ${props => props.styleDisabled && `
     opacity: 0.5;
     cursor: auto;    
+  `}
+
+  ${props => props.size === 'lg' && `
+    width: 80%;
+    justify-content: center;
   `}
 
 `
