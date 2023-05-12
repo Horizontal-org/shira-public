@@ -6,6 +6,7 @@ import { AnswerOptions } from '../AnswerOptions';
 import { Footer } from '../Footer';
 import { SceneWithFooter } from '../SceneWithFooter';
 import { Explanation } from '../../../domain/explanation';
+import useGetWidth from '../../../hooks/useGetWidth';
 
 interface Props {
   question: QuestionType;
@@ -23,11 +24,12 @@ export const Question: FunctionComponent<Props> = ({
   goBack,
   onNext,
 }) => {
-  
+  const { width } = useGetWidth()
   const [answer, handleAnswer] = useState<string | null>(null)
   const [ explanationNumber, setExplanationNumber ] = useState<number>(0)
   const [explanationsOrder, handleExplanationsOrder] = useState<Array<number>>([])
   const [showExplanations, handleShowExplanations] = useState<boolean>(false)
+  const [isExpanded, handleIsExpanded] = useState(false)
   
   useEffect(() => {
     const order = parseExplanations(question.explanations)
@@ -54,7 +56,10 @@ export const Question: FunctionComponent<Props> = ({
       />
 
       <Footer
-        title={`${questionIndex + 1}/${questionCount}`}        
+        title={`${questionIndex + 1}/${questionCount}`}
+        hideCloseButton={width < 768}
+        isExpanded={isExpanded}
+        handleIsExpanded={handleIsExpanded}        
         action={answer ? (
           <AnswerFeedback 
             showExplanations={showExplanations}
@@ -67,7 +72,7 @@ export const Question: FunctionComponent<Props> = ({
             onAnswer={(a) => { handleAnswer(a) }}
             realAnswer={question.isPhising ? 'phising' : 'legitimate'}
           />
-        ) : <AnswerOptions goBack={goBack} onAnswer={(a) => { handleAnswer(a) }} />}
+        ) : <AnswerOptions goBack={goBack} onAnswer={(a) => { handleAnswer(a) }} isExpanded={isExpanded} />}
       />
     </SceneWithFooter>
   )

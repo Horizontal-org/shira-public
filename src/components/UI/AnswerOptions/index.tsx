@@ -7,69 +7,76 @@ import UnsureIcon from '../Icons/Unsure'
 import PhisingIcon from '../Icons/Alert'
 import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
+import useGetWidth from "../../../hooks/useGetWidth";
 
 interface Props {
   onAnswer: (answer: string) => void;
   goBack: () => void;
+  isExpanded: boolean;
 }
 
-export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack}) => {
+export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExpanded}) => {
   const { t } = useTranslation()
+  const { width } = useGetWidth()
   const [selected, handleSelected] = useState<string | null>(null)
 
   return (
-    <Wrapper>
+    <Wrapper isExpanded={isExpanded}>
       
-      <OptionsWrapper>
+      <OptionsWrapper isExpanded={isExpanded}>
         <PhisingButton
+          isExpanded={isExpanded}
           selected={selected === 'phishing'} 
           opacity={selected !== null && selected !== 'phishing'}
           onClick={() => { handleSelected('phishing') }}>
           <PhisingIcon />
-          <Text>{ t('quiz.answers.options.phising') }</Text>        
+          <Text isExpanded={isExpanded}>{ t('quiz.answers.options.phising') }</Text>        
         </PhisingButton>
 
-        <UnsureButton 
+        <UnsureButton
+          isExpanded={isExpanded}
           selected={selected === 'unsure'}
           opacity={selected !== null && selected !== 'unsure'}
           onClick={() => { handleSelected('unsure') }}>
           <UnsureIcon />
-          <Text>{ t('quiz.answers.options.unsure') }</Text>        
+          <Text isExpanded={isExpanded}>{ t('quiz.answers.options.unsure') }</Text>        
         </UnsureButton>
 
         <LegitimateButton
+          isExpanded={isExpanded}
           opacity={selected !== null && selected !== 'legitimate'}
           selected={selected === 'legitimate'} 
           onClick={() => { handleSelected('legitimate') }}>
           <LegitimateIcon />
-          <Text>{ t('quiz.answers.options.legitimate') }</Text>        
+          <Text isExpanded={isExpanded}>{ t('quiz.answers.options.legitimate') }</Text>        
         </LegitimateButton>
       </OptionsWrapper>
-
-      <OptionsWrapper>
-        <ActionButtonsWrapper>
-          <Button
-            onClick={() => { goBack()}} 
-            text={t('setup.apps.back_button')}
-            type="outline"
-            leftIcon={<FiChevronLeft size={18}/>}
-          />
-        </ActionButtonsWrapper>
-        <ActionButtonsWrapper>
-          <Button 
-            text={t("quiz.answers.results.next_button")}
-            type='primary'
-            disabled={!selected}
-            onClick={() => {onAnswer(selected)}}
-            leftIcon={<FiChevronRight size={18}/>}
-          />
-        </ActionButtonsWrapper>
-      </OptionsWrapper>
+      { (width > 768 || isExpanded) && (
+        <OptionsWrapper>
+          <ActionButtonsWrapper>
+            <Button
+              onClick={() => { goBack()}} 
+              text={t('setup.apps.back_button')}
+              type="outline"
+              leftIcon={<FiChevronLeft size={18}/>}
+            />
+          </ActionButtonsWrapper>
+          <ActionButtonsWrapper>
+            <Button 
+              text={t("quiz.answers.results.next_button")}
+              type='primary'
+              disabled={!selected}
+              onClick={() => {onAnswer(selected)}}
+              leftIcon={<FiChevronRight size={18}/>}
+            />
+          </ActionButtonsWrapper>
+        </OptionsWrapper>
+      )}
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{isExpanded?: boolean}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,12 +86,21 @@ const Wrapper = styled.div`
   > button {
     margin-left: 12px;
   }
+
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    padding-left: 0;
+    display: ${props => props.isExpanded ? 'block' : 'flex'};
+  }
 `
 
-const OptionsWrapper = styled.div`
+const OptionsWrapper = styled.div<{isExpanded?: boolean}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: ${props => props.isExpanded ? 'block' : 'flex'};
+    ${props => props.isExpanded && `width: 80%`}
+  }
 `
 
 const ActionButtonsWrapper = styled.div`
@@ -94,6 +110,7 @@ const ActionButtonsWrapper = styled.div`
 interface StyledButtonProps {
   selected?: boolean
   opacity?: boolean
+  isExpanded?: boolean
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -117,8 +134,10 @@ const StyledButton = styled.button<StyledButtonProps>`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     border-radius: 16px;
     >svg {
-      margin-right: 0;
+      ${props => !props.isExpanded && `margin-right: 0;`}
     }
+    margin-bottom: ${props => props.isExpanded ? '16px' : '0'};
+    ${props => props.isExpanded && `width: 100%;`};
   }
 `
 
@@ -146,8 +165,8 @@ const LegitimateButton = styled(StyledButton)`
   color: #fff;
 `
 
-const Text = styled.div`
+const Text = styled.div<{isExpanded?: boolean}>`
   @media (max-width: ${props => props.theme.breakpoints.xs}) {
-    display: none; 
+    ${props => !props.isExpanded && `display: none;`} 
   }
 `

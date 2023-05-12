@@ -16,11 +16,13 @@ import { useStore } from "../../store";
 import { Section } from "../../components/UI/Section";
 import { SceneWithFooter } from "../../components/UI/SceneWithFooter";
 import { useTranslation } from "react-i18next";
+import useGetWidth from "../../hooks/useGetWidth";
 
 interface Props {}
 
 export const QuizSetupNameScene: FunctionComponent<Props> = () => {
   const { t } = useTranslation()
+  const { width } = useGetWidth()
   const {
     changeScene,
     persistedName,
@@ -102,6 +104,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
           action={(
             <Button 
               disabled={name.length === 0 || email.length === 0}
+              size={width > 768 ? 'sm' : 'lg'}
               onClick={() => { 
                 updateName(name, email)
                 changeScene('quiz-setup-apps')
