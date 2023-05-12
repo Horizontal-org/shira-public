@@ -72,7 +72,12 @@ export const Question: FunctionComponent<Props> = ({
             onAnswer={(a) => { handleAnswer(a) }}
             realAnswer={question.isPhising ? 'phising' : 'legitimate'}
           />
-        ) : <AnswerOptions goBack={goBack} onAnswer={(a) => { handleAnswer(a) }} isExpanded={isExpanded} />}
+        ) : <AnswerOptions 
+              goBack={goBack} 
+              onAnswer={(a) => { handleAnswer(a) }} 
+              isExpanded={isExpanded}
+              handleIsExpanded={handleIsExpanded} 
+            />}
       />
     </SceneWithFooter>
   )

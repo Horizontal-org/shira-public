@@ -13,12 +13,18 @@ interface Props {
   onAnswer: (answer: string) => void;
   goBack: () => void;
   isExpanded: boolean;
+  handleIsExpanded?: (isExpanded: boolean) => void;
 }
 
-export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExpanded}) => {
+export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExpanded, handleIsExpanded}) => {
   const { t } = useTranslation()
   const { width } = useGetWidth()
   const [selected, handleSelected] = useState<string | null>(null)
+
+  const handleAnswer = (answer) => {
+    handleSelected(answer)
+    handleIsExpanded(true)
+  }
 
   return (
     <Wrapper isExpanded={isExpanded}>
@@ -28,7 +34,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
           isExpanded={isExpanded}
           selected={selected === 'phishing'} 
           opacity={selected !== null && selected !== 'phishing'}
-          onClick={() => { handleSelected('phishing') }}>
+          onClick={() => { handleAnswer('phishing') }}>
           <PhisingIcon />
           <Text isExpanded={isExpanded}>{ t('quiz.answers.options.phising') }</Text>        
         </PhisingButton>
@@ -37,7 +43,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
           isExpanded={isExpanded}
           selected={selected === 'unsure'}
           opacity={selected !== null && selected !== 'unsure'}
-          onClick={() => { handleSelected('unsure') }}>
+          onClick={() => { handleAnswer('unsure') }}>
           <UnsureIcon />
           <Text isExpanded={isExpanded}>{ t('quiz.answers.options.unsure') }</Text>        
         </UnsureButton>
@@ -46,7 +52,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
           isExpanded={isExpanded}
           opacity={selected !== null && selected !== 'legitimate'}
           selected={selected === 'legitimate'} 
-          onClick={() => { handleSelected('legitimate') }}>
+          onClick={() => { handleAnswer('legitimate') }}>
           <LegitimateIcon />
           <Text isExpanded={isExpanded}>{ t('quiz.answers.options.legitimate') }</Text>        
         </LegitimateButton>

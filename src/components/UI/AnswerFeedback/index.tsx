@@ -139,6 +139,15 @@ const UserAnswerWrapper = styled.div`
     width: 18px;
     margin-right: 10px;
   }
+
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    padding-left: 16px;
+    display: block;
+    padding-bottom: 16px;
+    >p {
+      padding-left: 0;
+    }
+  }
 `
 
 const OptionsWrapper = styled.div`
@@ -153,4 +162,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
+
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    display: block;
+  }
 `

@@ -86,7 +86,8 @@ const Wrapper = styled.div<WrapperProps>`
   ${({ hideCloseButton }) => hideCloseButton && `flex-direction: row-reverse;`}
   justify-content: space-between;
   align-items: center;
-  height: ${({ isExpanded }) => isExpanded ? 'auto' : '86px'};
+  height: ${({ isExpanded }) => isExpanded ? 'auto' : 'auto'};
+  min-height: 86px;
   padding: ${({ isExpanded }) => isExpanded ? '8px 20px' : '8px'};
 
   box-shadow: 0px -6px 10px 4px rgba(0, 0, 0, 0.15), 0px -2px 3px rgba(0, 0, 0, 0.3);
