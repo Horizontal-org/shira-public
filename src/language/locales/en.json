@@ -29,7 +29,7 @@
             "select": "Select up to 3 items",
             "footer_title": "Quiz setup",
             "back_button": "Back",
-            "next_button": "Start quiz"
+            "next_button": "Next"
         }
     },
     "quiz": {
@@ -38,7 +38,8 @@
             "explanation_1": "This quiz contains 10 questions.",
             "explanation_2": "For each question, please determine whether the message shown seems like a phishing attempt or seems legitimate.",
             "explanation_3": "If you are not sure, you can select the “I don’t know” option.",
-            "footer_title": "Quiz intro"
+            "footer_title": "Quiz intro",
+            "next": "OK"
         },
         "answers": {
             "options": {
@@ -50,7 +51,8 @@
                 "unsure": "“I don’t know”",
                 "correct": "Good job!",
                 "incorrect": "Incorrect",
-                "next_button": "Next"
+                "next_button": "Next",
+                "back_button": "Back"
             }
         }
     },

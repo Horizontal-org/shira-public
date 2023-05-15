@@ -22,6 +22,7 @@ export const WelcomeScene: FunctionComponent = () => {
           <Select 
             onChange={(v) => {
               i18n.changeLanguage(v)
+              localStorage.setItem('lang', v);
             }}
             autoselect
             options={[
@@ -32,6 +33,10 @@ export const WelcomeScene: FunctionComponent = () => {
               {
                 label: 'Español',
                 value: 'es'
+              },
+              {
+                label: 'French',
+                value: 'fr'
               }
             ]}
           />

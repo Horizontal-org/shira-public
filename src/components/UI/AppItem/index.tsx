@@ -72,8 +72,15 @@ const Box = styled.div<BoxProps>`
     padding-top: 8px;
   }
 
+  margin-bottom: 16px;
+
   ${props => props.selected && `
     border: 1px solid #000;
     opacity: 1;
   `}
+
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    height: 96px;
+    width: 96px;
+  }
 `

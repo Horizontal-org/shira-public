@@ -27,15 +27,15 @@ const StyledInput = styled.input`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none; 
 
   font-weight: 700;
-  font-size: 28px;
-  padding: 8px 0;
+  font-size: 16px;
+  padding: 16px;
   width: 100%;
   color: ${props => props.theme.secondary.dark};
   caret-color: ${props => props.theme.secondary.dark};
-  border-bottom: 2px solid ${props => props.theme.secondary.dark};
+  border: 2px solid ${props => props.theme.secondary.dark};
+  border-radius: 16px;
 
   &::placeholder {
     color: #aaa;

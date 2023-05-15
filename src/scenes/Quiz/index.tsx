@@ -8,13 +8,13 @@ import { Question } from '../../components/UI/Question'
 import { SceneWithFooter } from '../../components/UI/SceneWithFooter'
 import { SceneWrapper } from '../../components/UI/SceneWrapper'
 import { Title } from '../../components/UI/Title'
-import { Quiz as QuizType } from '../../domain/quiz'
-import { getQuiz } from '../../fetch/quiz'
 import { useStore } from '../../store'
-
+import { FiChevronRight } from 'react-icons/fi'
+import useGetWidth from '../../hooks/useGetWidth'
 interface Props {}
 
 export const Quiz:FunctionComponent<Props> = () => {
+  const { width } = useGetWidth()
   const { t } = useTranslation()
   const {
     changeScene,
@@ -65,6 +65,13 @@ export const Quiz:FunctionComponent<Props> = () => {
               changeScene('feedback')
             }
           }}
+          goBack={() => {
+            if (questionIndex > 0) {
+              handleQuestionIndex(questionIndex - 1)
+            } else {
+              changeScene('quiz-setup-work')
+            }
+          }}
         />
       ) : (
         <SceneWithFooter>
@@ -79,17 +86,19 @@ export const Quiz:FunctionComponent<Props> = () => {
           <Footer 
             title={t('quiz.how_it_works.footer_title')}
             action={(
-              <Button 
-                text="OK"
-                onClick={() => { 
-                  if (quiz.length === 0) { 
-                    changeScene('feedback')                  
-                  } else {
-                    handleStarted(true) 
-                  }
+                <Button 
+                  text={t('quiz.how_it_works.next')}
+                  size={width > 490 ? 'sm' : 'lg'}
+                  onClick={() => { 
+                    if (quiz.length === 0) { 
+                      changeScene('feedback')                  
+                    } else {
+                      handleStarted(true) 
+                    }
 
-                }}
-              />
+                  }}
+                  rightIcon={<FiChevronRight size={18}/>}
+                />
             )}
           />
         </SceneWithFooter>

@@ -10,6 +10,7 @@ import { SceneWrapper } from '../../components/UI/SceneWrapper'
 import { Section } from '../../components/UI/Section'
 import { WorkFieldItem } from '../../components/UI/WorkFieldItem'
 import { useStore } from '../../store'
+import { FooterButtonsSetup } from '../../components/UI/FooterSetup'
 
 interface Props {}
 
@@ -32,7 +33,6 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
       <SceneWithFooter>
         <Section
           title={t('setup.fields_of_work.title')}
-          subtitle={t('setup.fields_of_work.subtitle')}
         >
           <>
             <p>
@@ -64,40 +64,24 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
         <Footer
             title={t('setup.fields_of_work.footer_title')}
             action={(
-              <FooterButtons>
-                <Button
-                  onClick={() => { 
-                    changeScene('quiz-setup-apps')
-                  }} 
-                  text={t('setup.fields_of_work.back_button')}
-                  type="outline"
-                  rightIcon={<FiChevronLeft size={18}/>}
-                />             
-
-                <Button
-                  onClick={() => { 
-                    updateFieldsOfWork(selected)
-                    changeScene('quiz')
-                  }} 
-                  disabled={selected.length === 0}
-                  text={t('setup.fields_of_work.next_button')}
-                  type="primary"
-                  rightIcon={<FiChevronRight size={18}/>}
-                />             
-              </FooterButtons>
+              <FooterButtonsSetup
+                onBack={() => { 
+                  changeScene('quiz-setup-apps')
+                }}
+                onNext={() => { 
+                  updateFieldsOfWork(selected)
+                  changeScene('quiz')
+                }}
+                backText={t('setup.fields_of_work.back_button')}
+                nextText={t('setup.fields_of_work.next_button')}
+                disabled={selected.length === 0} 
+              />
             )}
           />
       </SceneWithFooter>
     </SceneWrapper>
   )
 }
-
-const FooterButtons = styled.div`
-  display: flex;
-  > button {
-    margin-left: 10px;
-  }
-`
 
 const Fields = styled.div`
   display: grid;

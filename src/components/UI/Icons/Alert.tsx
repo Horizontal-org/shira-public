@@ -10,7 +10,7 @@ function Icon() {
       viewBox="0 0 24 24"
     >
       <g
-        stroke="#404040"
+        stroke="#fff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

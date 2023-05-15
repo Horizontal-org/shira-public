@@ -16,11 +16,13 @@ import { useStore } from "../../store";
 import { Section } from "../../components/UI/Section";
 import { SceneWithFooter } from "../../components/UI/SceneWithFooter";
 import { useTranslation } from "react-i18next";
+import useGetWidth from "../../hooks/useGetWidth";
 
 interface Props {}
 
 export const QuizSetupNameScene: FunctionComponent<Props> = () => {
   const { t } = useTranslation()
+  const { width } = useGetWidth()
   const {
     changeScene,
     persistedName,
@@ -84,7 +86,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
             </FormInputs>
             <FormButton>
               <Button
-                type='secondary'
+                type='primary'
                 onClick={() => {
                   const randomName = getRandomName()
                   handleName(randomName)
@@ -102,12 +104,13 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
           action={(
             <Button 
               disabled={name.length === 0 || email.length === 0}
+              size={width > 768 ? 'sm' : 'lg'}
               onClick={() => { 
                 updateName(name, email)
                 changeScene('quiz-setup-apps')
               }} 
               text={t('setup.name.next_button')}
-              type="outline"
+              type="primary"
               rightIcon={<FiChevronRight size={18}/>}
             />             
           )}
@@ -118,17 +121,14 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
 }
 
 const FormContent = styled.div`
-  display: flex;
-  align-items: center;
 `
 
 const FormButton = styled.div`
-  max-width: 300px;
-  padding-left: 20px;
+  display: flex;
+  justify-content: center;
 `
 
 const FormInputs = styled.div`
-  flex-grow: 1;
   
   > input {
     margin-bottom: 20px;
