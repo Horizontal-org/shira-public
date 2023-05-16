@@ -70,13 +70,21 @@ export default {
     },
     light: {
       white: '#fff',
-      paleGrey: '#f3f3f3'
+      paleGrey: '#f3f3f3',
+      paleGreen: '#F3F5E4'
     },
     others: {
       whatsapp: '#25D366',
       telegram: '#039BE5',
       facebook: '#335A9F',
       dating: '#FD6D7E'
-    }    
+    } 
+  },
+  apps: {
+    whatsapp: '#25D366',
+    gmail: '#ffffff',
+    messenger: '#335A9F',
+    sms: '#C1D24B',
+    datingapp: '#FD6D7E'
   }
 }

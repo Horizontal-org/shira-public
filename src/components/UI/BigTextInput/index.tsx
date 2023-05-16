@@ -31,7 +31,6 @@ const StyledInput = styled.input`
   font-weight: 700;
   font-size: 16px;
   padding: 16px;
-  width: 100%;
   color: ${props => props.theme.secondary.dark};
   caret-color: ${props => props.theme.secondary.dark};
   border: 2px solid ${props => props.theme.secondary.dark};

@@ -7,7 +7,6 @@ import { Button } from "../../components/UI/Button";
 import { Footer } from "../../components/UI/Footer";
 import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { FiChevronRight } from 'react-icons/fi'
-import { Title } from "../../components/UI/Title";
 import { Subtitle } from "../../components/UI/Subtitle";
 import { BigTextInput } from "../../components/UI/BigTextInput";
 import { FiRefreshCcw } from 'react-icons/fi'
@@ -65,11 +64,13 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
 
         <Section
           title={t('setup.name.title')}
-          subtitle={t('setup.name.subtitle')}
         >
-          <p>
-            <Subtitle>{t('setup.name.recommendation')}</Subtitle>
-          </p>
+          {width > 490 && (
+            <p>
+              <Subtitle>{t('setup.name.subtitle')}</Subtitle>
+              <Subtitle>{t('setup.name.recommendation')}</Subtitle>
+            </p>)
+          }
 
           <FormContent>
             <FormInputs>
@@ -97,6 +98,13 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
               />
             </FormButton>
           </FormContent>
+
+          {width < 490 && (
+            <p>
+              <Subtitle>{t('setup.name.subtitle')}</Subtitle>
+              <Subtitle>{t('setup.name.recommendation')}</Subtitle>
+            </p>)
+          }
         </Section>
 
         <Footer 
@@ -121,6 +129,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
 }
 
 const FormContent = styled.div`
+  padding-top: 20px;
 `
 
 const FormButton = styled.div`
@@ -129,7 +138,8 @@ const FormButton = styled.div`
 `
 
 const FormInputs = styled.div`
-  
+  display: flex;
+  flex-direction: column;
   > input {
     margin-bottom: 20px;
   }

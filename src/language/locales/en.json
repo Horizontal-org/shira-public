@@ -6,7 +6,7 @@
     },
     "setup": {
         "name": {
-            "title": "Add a name and email address",
+            "title": "Create a name and email address",
             "subtitle": "We ask for a name and email address to make the phishing quiz feel more realistic. This information will not be saved, sent out of our servers, or shared with anyone else",
             "recommendation": "To be extra-safe, you can use a fake name and email address, or generate random ones.",
             "name": "Name",
