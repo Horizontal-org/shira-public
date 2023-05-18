@@ -56,15 +56,15 @@ interface BoxProps {
 }
 
 const Box = styled.div<BoxProps>`
-  width: 215px;
-  background: ${props => props.theme.secondary.light};
-  border: 1px solid ${props => props.theme.secondary.light};
+  width: 80%;
+  background: ${props => props.theme.colors.light.white};
+  border: 1px solid ${props => props.theme.colors.dark.mediumGrey};
   border-radius: 24px;
   cursor: pointer;
   display: flex;  
   align-items: center;
-  opacity: 0.55;
   padding: 16px 20px;
+  margin-bottom: 12px;
 
   > svg {
     height: 21px;
@@ -80,7 +80,12 @@ const Box = styled.div<BoxProps>`
   }
 
   ${props => props.selected && `
-    border: 1px solid #000;
-    opacity: 1;
+    background: ${props.theme.colors.green2};
   `}
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 100%;
+    margin-right: 0;
+  }
+
 `

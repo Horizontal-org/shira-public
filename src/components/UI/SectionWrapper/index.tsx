@@ -4,16 +4,21 @@ export const SectionWrapper = styled.div`
   padding: 32px 24px;
   background: #fff;
   @media (min-width:  ${props => props.theme.breakpoints.xs}) {
-    max-width: 80vw;
+    width: 80vw;
     padding: 48px;
     border-radius: 24px;
   }
 
   @media (min-width:  ${props => props.theme.breakpoints.md}) {
-    max-width: 50vw;
+    width: 50vw;
   }
   @media (min-width:  ${props => props.theme.breakpoints.lg}) {
-    max-width: 40vw;
+    width: 40vw;
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.xs}) {
+    max-height: calc(100vh - 116px); // height of all of the screen minus the footer and 30px of margin
+    overflow-y: scroll;
   }
 `
 
