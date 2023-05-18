@@ -12,16 +12,16 @@ import Media from './assets/Media'
 
 
 const icons = {
-  'human-resources': <HumanResourcesSvg />,
-  'activist': <ActivistSvg />,
-  'journalism-and-media': <Media />,
-  'business': <Business />,
-  'services': <Service />,
-  'education': <Book />,
-  'healthcare': <ActivistSvg />,
-  'marketing': <Business />,
-  'arts-and-culture': <Book />,
-  'human-rights': <HumanResourcesSvg />,
+  'human-resources': '✊🏽',
+  'activist': '📢',
+  'journalism-and-media': '🗒️',
+  'business': '💼',
+  'services': '☕',
+  'education': '🏫',
+  'healthcare': '💊',
+  'marketing': '📢',
+  'arts-and-culture': '🎨',
+  'human-rights': '✊🏽',
 }
 
 const getIcon = (slug) => {
@@ -43,9 +43,10 @@ export const WorkFieldItem: FunctionComponent<Props> = ({
   slug,
   onClick 
 }) => { 
+  console.log(slug)
   return (
     <Box selected={selected} onClick={onClick}>
-      { getIcon(slug) }
+      <div>{getIcon(slug)}</div>
       <span>{name}</span>
     </Box>
   )
@@ -62,13 +63,14 @@ const Box = styled.div<BoxProps>`
   border-radius: 24px;
   cursor: pointer;
   display: flex;  
-  align-items: center;
+  align-items: center;;
   padding: 16px 20px;
   margin-bottom: 12px;
 
-  > svg {
-    height: 21px;
-    width: 21px;
+  > div {
+    display: flex;
+    jiustify-content: center;
+    font-size: 21px;
   } 
 
   > span {
@@ -76,7 +78,7 @@ const Box = styled.div<BoxProps>`
     line-height: 18px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.64);
-    padding-left: 16px;
+    padding-left: 8px;
   }
 
   ${props => props.selected && `
