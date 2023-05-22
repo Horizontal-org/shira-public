@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SectionWrapper = styled.div`
+export const SectionWrapper = styled.div<{ size?: string }>`
   padding: 32px 24px;
   background: #fff;
   @media (min-width:  ${props => props.theme.breakpoints.xs}) {
@@ -10,7 +10,7 @@ export const SectionWrapper = styled.div`
   }
 
   @media (min-width:  ${props => props.theme.breakpoints.md}) {
-    width: 50vw;
+    width: ${props => props.size === 'lg' ? '70vw' : '50vw'};
   }
   @media (min-width:  ${props => props.theme.breakpoints.lg}) {
     width: 40vw;
@@ -23,10 +23,10 @@ export const SectionWrapper = styled.div`
 `
 
 export const Wrapper = styled.div`
-@media (min-width:  ${props => props.theme.breakpoints.xs}) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-}
+  @media (min-width:  ${props => props.theme.breakpoints.xs}) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
 `

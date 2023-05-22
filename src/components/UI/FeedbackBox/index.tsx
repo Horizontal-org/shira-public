@@ -107,20 +107,31 @@ export const FeedbackBox: FunctionComponent<Props> = ({
 
 const Wrapper = styled.div`
   width: 600px;
-  border: 2px solid rgba(157, 177, 73, 0.64);
-  border-radius: 40px;
   padding: 16px 32px;
   flex-grow: 2;
   flex-shrink: 0;
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+    margin-top: 32px;
+    padding: 0;
+    width: 100%;
+    border-top: 1px solid ${props => props.theme.secondary.dark};
+  }
 `
 
 const PillWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+    display: block;
+  }
 `
 
 const Item = styled.div`
-  padding: 10px 0;
+  padding-top: 16px;
+
+  p {
+    color: ${ props => props.theme.colors.dark.black};
 `
 
 const BottomText = styled.p`

@@ -62,8 +62,8 @@
         "box": {
             "question_1": {
                 "title": "1. How easy is Shira to use?",
-                "very_complicated": "Very complicated",
-                "complicated": "Complicated",
+                "very_complicated": "Very Difficult",
+                "complicated": "Difficult",
                 "easy": "Easy",
                 "very_easy": "Very easy"
             },
@@ -81,7 +81,7 @@
             "bottom_text": "Your feedback will be sent when you click “see results”"
         },
         "footer_title": "You’re almost done! Keep going to see your quiz results and recommended next steps.",
-        "next_button": "See results"
+        "next_button": "Quiz results"
     },
     "completed": {
         "title": "Quiz completed",

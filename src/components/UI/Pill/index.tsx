@@ -30,21 +30,22 @@ interface StyledWrapper {
 }
 
 const Wrapper = styled.div<StyledWrapper>`
-  background: ${props => props.theme.secondary.light};
-  border-radius: 32px;
+  background: ${props => props.theme.colors.light.white};
+  border: 1px solid ${props => props.theme.colors.dark.mediumGrey};
+  border-radius: 24px;
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 8px 16px;
   color: #111;
   display: inline-block;
 
   ${props => props.selected && `
-    background: ${props.theme.secondary.dark};
-    color: white;
-    
-    > div > svg {
-      stroke: white;
-    }
+    background: ${props.theme.colors.green2};
   `}
+
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+    display: block;
+    margin-bottom: 16px;
+  }
 `
 
 const Content = styled.div`
