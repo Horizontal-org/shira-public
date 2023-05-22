@@ -88,8 +88,13 @@ const Apps = styled.div`
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
-
-  > div {
-    margin-right: 12px;
+  justify-content: flex-start;
+  gap: 40px 20px;
+  @media (min-width:  ${props => props.theme.breakpoints.lg}) {
+    width: 70%;
+    margin: 0 auto;
+  }
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    gap: 40px 12px;
   }
 `

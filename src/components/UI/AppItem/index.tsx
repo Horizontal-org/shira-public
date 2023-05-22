@@ -32,32 +32,41 @@ export const AppItem: FunctionComponent<Props> = ({
   id, 
   name, 
   selected, 
-  onClick 
+  onClick
 }) => { 
   return (
-    <Box selected={selected} onClick={onClick}>
-      { getIcon(name) }
+    <Wrapper selected={selected}>
+      <Box onClick={onClick} name={name.toLowerCase().replace(/\s/g, '')}>
+        { getIcon(name) }
+      </Box>
       <span>{name}</span>
-    </Box>
+    </Wrapper>
   )
 }
 
 interface BoxProps {
-  selected: boolean;
+  name: string;
 }
 
+const Wrapper = styled.div<{ selected: boolean }>`
+  text-align: center;
+  opacity: 0.55;
+  border: 2px solid transparent;
+
+  ${props => props.selected && `
+    border: 2px solid #000;
+    opacity: 1;
+  `}
+`
 const Box = styled.div<BoxProps>`
-  height: 140px;
-  width: 140px;
-  border: 1px solid ${props => props.theme.secondary.light};
-  border-radius: 12px;
+  height: 120px;
+  width: 120px;
   cursor: pointer;
-  background: ${props => props.theme.secondary.light};
+  background: ${props => props.theme.apps[props.name]};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0.55;
 
   > svg {
     height: 55px;
@@ -68,16 +77,11 @@ const Box = styled.div<BoxProps>`
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.64);
+    color: ${props => props.theme.secondary.dark.darkGrey};
     padding-top: 8px;
   }
 
-  margin-bottom: 16px;
-
-  ${props => props.selected && `
-    border: 1px solid #000;
-    opacity: 1;
-  `}
+  margin-bottom: 8px;
 
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     height: 96px;
