@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import { Pill } from '../Pill'
 
-import { TextInput } from '../TextInput'
+import { TextAreaInput } from '../TextArea'
 import { useTranslation } from 'react-i18next'
 
 interface Props {
@@ -93,7 +93,7 @@ export const FeedbackBox: FunctionComponent<Props> = ({
       </Item>
       <Item>
         <p>{t('feedback.box.question_3.title')}</p>
-        <TextInput 
+        <TextAreaInput 
           onChange={(e) => { onImprove(e.target.value)}}
           placeholder={t('feedback.box.question_3.input_placeholder')}
           value={improve}
@@ -144,6 +144,7 @@ const Item = styled.div`
 
   p {
     color: ${ props => props.theme.colors.dark.black};
+  }
 `
 
 const BottomText = styled.p`
