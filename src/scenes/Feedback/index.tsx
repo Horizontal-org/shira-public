@@ -120,5 +120,13 @@ const FeedbackHeading = styled.div`
 `
 
 const Box = styled.div`
-  margin-top: 40px;
+  @media (min-width: ${props => props.theme.breakpoints.xs}) {
+    margin-top: 40px;
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.xs}) {
+    h2{
+      color: ${props => props.theme.colors.green6};
+      font-size: 40px;
+    }
 `

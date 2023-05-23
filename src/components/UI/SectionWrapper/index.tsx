@@ -13,7 +13,7 @@ export const SectionWrapper = styled.div<{ size?: string }>`
     width: ${props => props.size === 'lg' ? '70vw' : '50vw'};
   }
   @media (min-width:  ${props => props.theme.breakpoints.lg}) {
-    width: 40vw;
+    width: ${props => props.size === 'lg' ? '50vw' : '40vw'};
   }
 
   @media(max-width: ${props => props.theme.breakpoints.xs}) {

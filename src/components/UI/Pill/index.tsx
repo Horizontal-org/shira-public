@@ -1,11 +1,11 @@
-import { FunctionComponent, ReactNode } from 'react'
+import { FunctionComponent } from 'react'
 import styled from 'styled-components'
 
 interface Props {
   label: string;
   onClick: () => void;
   selected: boolean;
-  icon: ReactNode;
+  icon: string;
 }
 
 export const Pill: FunctionComponent<Props> = ({
@@ -18,7 +18,7 @@ export const Pill: FunctionComponent<Props> = ({
   return (
     <Wrapper selected={selected} onClick={onClick}>
       <Content>
-        { icon }
+        <Icon>{icon}</Icon>
         { label }
       </Content>
     </Wrapper>
@@ -36,7 +36,9 @@ const Wrapper = styled.div<StyledWrapper>`
   cursor: pointer;
   padding: 8px 16px;
   color: #111;
-  display: inline-block;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
 
   ${props => props.selected && `
     background: ${props.theme.colors.green2};
@@ -46,8 +48,20 @@ const Wrapper = styled.div<StyledWrapper>`
     display: block;
     margin-bottom: 16px;
   }
-`
 
+  @media (min-width: ${props => props.theme.breakpoints.xs}) {
+    width: 20%;
+    justify-content: space-between;
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.md} ) {
+    font-size: 12px;
+  }
+`
+const Icon = styled.span`
+  padding-right: 16px;
+  font-size: 16px;
+`
 const Content = styled.div`
   display: flex;
   align-items: center;
