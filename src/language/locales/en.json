@@ -87,7 +87,7 @@
         "title": "Quiz completed",
         "heavy_subtitle": "You answered 7 out of 10 questions correctly.",
         "subtitle": "Take a new quiz or check out some recommendations below to continue strengthening your skills and become better at avoiding phishing.",
-        "back_button": "Back to home",
+        "back_button": "Home",
         "next_button": "New quiz"
     }
 }

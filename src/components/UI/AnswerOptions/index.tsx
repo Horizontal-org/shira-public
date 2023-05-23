@@ -73,7 +73,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
               type='primary'
               disabled={!selected}
               onClick={() => {onAnswer(selected)}}
-              leftIcon={<FiChevronRight size={18}/>}
+              rightIcon={<FiChevronRight size={18}/>}
             />
           </ActionButtonsWrapper>
         </OptionsWrapper>
