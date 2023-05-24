@@ -61,6 +61,10 @@ const CenterWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: -100px;
+
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+    padding: 24px;
+  }
 `
 
 const Buttons = styled.div`
