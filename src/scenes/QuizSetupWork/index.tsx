@@ -87,7 +87,7 @@ const Fields = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
     display: flex;
     flex-wrap: wrap;
   }

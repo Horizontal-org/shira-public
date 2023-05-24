@@ -73,7 +73,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
               type='primary'
               disabled={!selected}
               onClick={() => {onAnswer(selected)}}
-              leftIcon={<FiChevronRight size={18}/>}
+              rightIcon={<FiChevronRight size={18}/>}
             />
           </ActionButtonsWrapper>
         </OptionsWrapper>
@@ -147,7 +147,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 `
 
-const PhisingButton = styled(StyledButton)`
+export const PhisingButton = styled(StyledButton)`
   background: ${props => props.selected ? props.theme.colors.error8 : props.theme.colors.error7};
   &:hover {
     background: ${props => props.theme.colors.error6};
@@ -155,7 +155,7 @@ const PhisingButton = styled(StyledButton)`
   color: #fff;
 `
 
-const UnsureButton = styled(StyledButton)`
+export const UnsureButton = styled(StyledButton)`
   background: ${props => props.selected ? props.theme.colors.warning3 : props.theme.colors.warning2};
   color: ${props => props.theme.colors.dark.black};
   &:hover {
@@ -163,7 +163,7 @@ const UnsureButton = styled(StyledButton)`
   }
 `
 
-const LegitimateButton = styled(StyledButton)`
+export const LegitimateButton = styled(StyledButton)`
   background: ${props => props.selected ? props.theme.colors.green8 : props.theme.colors.green7};
   &:hover {
     background: ${props => props.theme.colors.green6};
@@ -171,7 +171,7 @@ const LegitimateButton = styled(StyledButton)`
   color: #fff;
 `
 
-const Text = styled.div<{isExpanded?: boolean}>`
+export const Text = styled.div<{isExpanded?: boolean}>`
   @media (max-width: ${props => props.theme.breakpoints.xs}) {
     ${props => !props.isExpanded && `display: none;`} 
   }

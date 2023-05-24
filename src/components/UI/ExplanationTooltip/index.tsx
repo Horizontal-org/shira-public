@@ -56,17 +56,16 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   useEffect(() => {
     const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
     const explanations = document.querySelectorAll(`[data-explanation]`) as NodeListOf<HTMLElement>
-
+    console.log(reference)
 
     // here we should remove the background color from all the explanations
     explanations.forEach( e => {
-      e.style.backgroundColor = 'transparent'
       e.style.zIndex = '0'
     })
     
     // here we should add the background color to the current explanation
     if(reference && showExplanations) {
-      reference.style.backgroundColor = '#FFCBD4'
+      reference.style.opacity = '1'
       reference.style.zIndex = '4'
     }
     

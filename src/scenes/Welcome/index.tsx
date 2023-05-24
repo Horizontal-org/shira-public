@@ -13,7 +13,7 @@ export const WelcomeScene: FunctionComponent = () => {
   const { t, i18n } = useTranslation()
 
   return (
-    <SceneWrapper>
+    <SceneWrapper bg='white'>
       <Navbar />
       <CenterWrapper>
         <Title>{t('welcome.title')}</Title>

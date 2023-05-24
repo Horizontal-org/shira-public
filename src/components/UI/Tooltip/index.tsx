@@ -40,7 +40,7 @@ const RelativeWrapper = styled.div`
   margin-top: 8px;
   padding: 8px;
   font-size: 12px;
-  border: 3px solid #AAAAAA;
+  border: 3px solid #9FB747;
   border-radius: 6px;
   background-color: #fff;
   color: #767676;
@@ -53,7 +53,7 @@ const RelativeWrapper = styled.div`
     left: 7px;
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent #aaa transparent;
+    border-color: transparent transparent #9FB747 transparent;
     z-index: 1000;
   }
 `

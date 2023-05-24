@@ -1,12 +1,8 @@
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import { Pill } from '../Pill'
 
-import SadIcon from '../Icons/Sad'
-import UnsureIcon from '../Icons/Unsure'
-import SmileIcon from '../Icons/Smile'
-import HappyIcon from '../Icons/Happy'
-import { TextInput } from '../TextInput'
+import { TextAreaInput } from '../TextArea'
 import { useTranslation } from 'react-i18next'
 
 interface Props {
@@ -16,6 +12,13 @@ interface Props {
   onEasyness: (e: string) => void
   onRecommend: (r: string) => void
   onImprove: (i: string) => void 
+}
+
+const icons = {
+  sad: '🙁',
+  unsure: '😕',
+  easy: '🙂',
+  veryEasy: '😀'
 }
 
 export const FeedbackBox: FunctionComponent<Props> = ({
@@ -36,25 +39,25 @@ export const FeedbackBox: FunctionComponent<Props> = ({
           <Pill 
             onClick={() => { onEasyness('very-complicated')}}
             label={ t('feedback.box.question_1.very_complicated') }
-            icon={<SadIcon />}
+            icon={icons.sad}
             selected={easyness === 'very-complicated'}
           />
           <Pill 
             onClick={() => { onEasyness('complicated')}}
             label={ t('feedback.box.question_1.complicated') }
-            icon={<UnsureIcon />}
+            icon={icons.unsure}
             selected={easyness === 'complicated'}
           />
           <Pill 
             onClick={() => { onEasyness('easy')}}
             label={ t('feedback.box.question_1.easy') }
-            icon={<SmileIcon />}
+            icon={icons.easy}
             selected={easyness === 'easy'}
           />
           <Pill 
             onClick={() => { onEasyness('very-easy')}}
             label={ t('feedback.box.question_1.very_easy') }
-            icon={<HappyIcon />}
+            icon={icons.veryEasy}
             selected={easyness === 'very-easy'}
           />
         </PillWrapper>
@@ -65,32 +68,32 @@ export const FeedbackBox: FunctionComponent<Props> = ({
           <Pill 
             onClick={() => { onRecommend('not-likely')}}
             label={ t('feedback.box.question_2.not_likely') }
-            icon={<SadIcon />}
+            icon={icons.sad}
             selected={recommend === 'not-likely'}
           />
           <Pill 
             onClick={() => { onRecommend('somewhat-likely')}}
             label={ t('feedback.box.question_2.somewhat_likely') }
-            icon={<UnsureIcon />}
+            icon={icons.unsure}
             selected={recommend === 'somewhat-likely'}
           />
           <Pill 
             onClick={() => { onRecommend('likely')}}
             label={ t('feedback.box.question_2.likely') }
-            icon={<SmileIcon />}
+            icon={icons.easy}
             selected={recommend === 'likely'}
           />
           <Pill 
             onClick={() => { onRecommend('very-likely')}}
             label={ t('feedback.box.question_2.very_likely') }
-            icon={<HappyIcon />}
+            icon={icons.veryEasy}
             selected={recommend === 'very-likely'}
           />
         </PillWrapper>
       </Item>
       <Item>
         <p>{t('feedback.box.question_3.title')}</p>
-        <TextInput 
+        <TextAreaInput 
           onChange={(e) => { onImprove(e.target.value)}}
           placeholder={t('feedback.box.question_3.input_placeholder')}
           value={improve}
@@ -107,20 +110,41 @@ export const FeedbackBox: FunctionComponent<Props> = ({
 
 const Wrapper = styled.div`
   width: 600px;
-  border: 2px solid rgba(157, 177, 73, 0.64);
-  border-radius: 40px;
   padding: 16px 32px;
   flex-grow: 2;
   flex-shrink: 0;
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+    margin-top: 32px;
+    padding: 0;
+    width: 100%;
+    border-top: 1px solid ${props => props.theme.secondary.dark};
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.md} ) {
+    width: 100%;
+    padding: 0;
+  }
+  @media(min-width: ${props => props.theme.breakpoints.lg}) {
+    margin: 0 auto;
+    width: 90%;
+  }
 `
 
 const PillWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+    display: block;
+  }
 `
 
 const Item = styled.div`
-  padding: 10px 0;
+  padding-top: 16px;
+
+  p {
+    color: ${ props => props.theme.colors.dark.black};
+  }
 `
 
 const BottomText = styled.p`

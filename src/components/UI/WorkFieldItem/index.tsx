@@ -60,7 +60,7 @@ const Box = styled.div<BoxProps>`
   width: 80%;
   background: ${props => props.theme.colors.light.white};
   border: 1px solid ${props => props.theme.colors.dark.mediumGrey};
-  border-radius: 24px;
+  border-radius: 100px;
   cursor: pointer;
   display: flex;  
   align-items: center;;
@@ -85,7 +85,7 @@ const Box = styled.div<BoxProps>`
     background: ${props.theme.colors.green2};
   `}
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
     width: 100%;
     margin-right: 0;
   }

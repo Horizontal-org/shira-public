@@ -7,16 +7,18 @@ interface Props {
   title: string;
   subtitle?: string;
   children: ReactNode;
+  size?: string;
 }
 
 export const Section: FunctionComponent<Props> = ({
   title,
   subtitle,
-  children
+  children,
+  size,
 }) => {
   return (
     <Wrapper>
-      <SectionWrapper>
+      <SectionWrapper size={size}>
         <div>
           <Title>{title}</Title>
           { subtitle && (
