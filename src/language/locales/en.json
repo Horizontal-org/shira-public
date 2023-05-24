@@ -36,8 +36,7 @@
         "how_it_works": {
             "title": "How it works",
             "explanation_1": "This quiz contains 10 questions.",
-            "explanation_2": "For each question, please determine whether the message shown seems like a phishing attempt or seems legitimate.",
-            "explanation_3": "If you are not sure, you can select the “I don’t know” option.",
+            "explanation_2": "For each question, select one of the options:",
             "footer_title": "Quiz intro",
             "next": "OK"
         },
