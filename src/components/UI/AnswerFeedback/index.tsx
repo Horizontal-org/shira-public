@@ -98,7 +98,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
                 text={t("quiz.answers.results.next_button")}
                 type='primary'
                 onClick={() => setExplanationNumber(explanationNumber + 1)}
-                leftIcon={<FiChevronRight size={18}/>}
+                rightIcon={<FiChevronRight size={18}/>}
               />
             )
           }

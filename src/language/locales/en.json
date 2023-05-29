@@ -12,7 +12,7 @@
             "name": "Name",
             "email": "Email",
             "footer_title": "Quiz setup",
-            "random_button": "Make a random name and email address",
+            "random_button": "Create a random name and email address",
             "next_button": "Next"
         },
         "apps": {
@@ -77,7 +77,7 @@
                 "title": "3. How can we improve Shira?",
                 "input_placeholder": "Enter your feedback here"
             },
-            "bottom_text": "Your feedback will be sent when you click “see results”"
+            "bottom_text": "Your feedback will be sent when you click “quiz results”"
         },
         "footer_title": "You’re almost done! Keep going to see your quiz results and recommended next steps.",
         "next_button": "Quiz results"

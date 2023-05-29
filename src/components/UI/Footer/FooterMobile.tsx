@@ -43,10 +43,10 @@ export const FooterMobile: FunctionComponent<Props> = ({
           <ExpandedDropdown>
             {isExpanded && (
               <LeftContent>
-                <CloseButton onClick={() => { changeScene('welcome') }}>
+                <CloseButton isExpanded={isExpanded} onClick={() => { changeScene('welcome') }}>
                   <VscClose size={24} color='#111' />
                 </CloseButton>
-                <div>exit modal</div>
+                <div>Exit quiz</div>
               </LeftContent>
             )}
             <DropdownOpen onClick={toggleDropdown}>
@@ -76,7 +76,7 @@ const Container = styled.div`
 const Wrapper = styled.div<WrapperProps>`
   background: #fff;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -95,6 +95,13 @@ const Wrapper = styled.div<WrapperProps>`
 
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     padding: 8px;
+    padding-right: 16px;
+  }
+
+  @media (max-height: calc(100vh - 56px)) {
+    position: sticky;
+    /* Set a higher value if necessary to account for other elements on the page */
+    bottom: 56px;
   }
 `
 
@@ -103,15 +110,16 @@ const LeftContent = styled.div`
   align-items: center;
 `
 
-const CloseButton = styled.div`
+const CloseButton = styled.div<{isExpanded?: boolean}>`
   width: 48px;
-  height: 48px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   cursor: pointer;
   background: $fff;
+  border-right: 1px solid ${props => props.isExpanded ? 'none' : props.theme.colors.dark.mediumGrey};
+  margin-right: 16px;
 `
 
 const Title = styled.div`

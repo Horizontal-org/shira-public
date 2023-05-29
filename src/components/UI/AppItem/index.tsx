@@ -52,6 +52,7 @@ const Wrapper = styled.div<{ selected: boolean }>`
   text-align: center;
   opacity: 0.55;
   border: 2px solid transparent;
+  padding-bottom: 8px;
 
   ${props => props.selected && `
     border: 2px solid #000;
