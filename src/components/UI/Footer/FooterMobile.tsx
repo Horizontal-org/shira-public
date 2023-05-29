@@ -97,12 +97,6 @@ const Wrapper = styled.div<WrapperProps>`
     padding: 8px;
     padding-right: 16px;
   }
-
-  @media (max-height: calc(100vh - 56px)) {
-    position: sticky;
-    /* Set a higher value if necessary to account for other elements on the page */
-    bottom: 56px;
-  }
 `
 
 const LeftContent = styled.div`
