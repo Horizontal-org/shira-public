@@ -40,6 +40,10 @@ const Wrapper = styled.div<StyledWrapper>`
   font-size: 14px;
   align-items: center;
 
+  &:hover {
+    background: ${props => props.theme.colors.green2};
+  }
+
   ${props => props.selected && `
     background: ${props.theme.colors.green2};
   `}

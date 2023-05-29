@@ -82,8 +82,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   `}
 
   ${props => props.styledType === 'secondary' && `
-    background: ${props.theme.secondary.dark};
-    border: 2px solid ${props.theme.secondary.dark};
+    background: ${props.theme.colors.green7};
+    border: 1px solid ${props.theme.colors.green7};
     color: white;
   `}
 

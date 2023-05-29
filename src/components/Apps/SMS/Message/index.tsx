@@ -25,7 +25,7 @@ const Content = styled.div`
   text-align: left;
   background: #f1f1f1;
   border-radius: 12px;
-  font-size: 12px;
+  font-size: 15px;
   color: #333;
   padding: 8px 12px;
 

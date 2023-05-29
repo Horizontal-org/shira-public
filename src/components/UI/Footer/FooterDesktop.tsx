@@ -57,13 +57,14 @@ const LeftContent = styled.div`
 
 const CloseButton = styled.div`
   width: 48px;
-  height: 48px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   cursor: pointer;
   background: $fff;
+  border-right: 1px solid ${props => props.theme.colors.dark.mediumGrey};
+  margin-right: 16px;
 `
 
 const Title = styled.div`

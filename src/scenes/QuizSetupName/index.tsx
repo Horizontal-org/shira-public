@@ -87,7 +87,7 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
             </FormInputs>
             <FormButton>
               <Button
-                type='primary'
+                type='secondary'
                 onClick={() => {
                   const randomName = getRandomName()
                   handleName(randomName)
