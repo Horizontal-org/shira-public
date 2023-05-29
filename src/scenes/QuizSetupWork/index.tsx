@@ -54,7 +54,9 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
                   } else {
                     newSelected.push(a.id + '')
                   }
-                  handleSelected(newSelected)
+                  if(selected.length < 3) {
+                    handleSelected(newSelected)
+                  }
                 }}
               />
             ))}
