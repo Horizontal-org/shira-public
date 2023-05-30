@@ -30,17 +30,14 @@ export const FooterMobile: FunctionComponent<Props> = ({
       <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton}>
         {!hideCloseButton && (
           <LeftContent>
-          <CloseButton onClick={() => { changeScene('welcome') }}>
-            <VscClose size={24} color='#111' />
-          </CloseButton>
-          <Title>
-            { title }
-          </Title>
-        </LeftContent>)
-      }
+            <CloseButton onClick={() => { changeScene('welcome') }}>
+              <VscClose size={24} color='#111' />
+            </CloseButton>
+          </LeftContent>
+        )}
 
         {hideCloseButton && (
-          <ExpandedDropdown>
+          <ExpandedDropdown isExpanded={isExpanded}>
             {isExpanded && (
               <LeftContent>
                 <CloseButton isExpanded={isExpanded} onClick={() => { changeScene('welcome') }}>
@@ -59,6 +56,9 @@ export const FooterMobile: FunctionComponent<Props> = ({
           </ExpandedDropdown>
         )}
         {action}
+        {isExpanded && (
+          <Title>{title}</Title>
+        )}
       </Wrapper>
     </Container>
   )
@@ -95,7 +95,6 @@ const Wrapper = styled.div<WrapperProps>`
 
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     padding: 8px;
-    padding-right: 16px;
   }
 `
 
@@ -117,19 +116,22 @@ const CloseButton = styled.div<{isExpanded?: boolean}>`
 `
 
 const Title = styled.div`
-  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
-    display: none;
-  }
-  padding-left: 20px;
-  color: black;
-  font-size: 16px;
+  padding: 16px;
+  color: #5F6368;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
 `
 
-const ExpandedDropdown = styled.div`
+const ExpandedDropdown = styled.div<{ isExpanded?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
+  ${props => !props.isExpanded && `
+    position: absolute;
+    top: 0;
+  `}
 `
 const DropdownOpen = styled.div`
   margin-right: 32px;
