@@ -10,6 +10,7 @@ interface Props {
   action?: ReactNode;
   handleIsExpanded?: (isExpanded: boolean) => void;
   isExpanded?: boolean;
+  showExplanations?: boolean;
 }
 
 export const FooterMobile: FunctionComponent<Props> = ({
@@ -17,7 +18,8 @@ export const FooterMobile: FunctionComponent<Props> = ({
   action,
   hideCloseButton,
   isExpanded,
-  handleIsExpanded
+  handleIsExpanded,
+  showExplanations
 }) => {
   const changeScene = useStore((state) => state.changeScene)
 
@@ -27,7 +29,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
 
   return (
     <Container>
-      <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton}>
+      <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton} showExplanations={showExplanations}>
         {!hideCloseButton && (
           <LeftContent>
             <CloseButton onClick={() => { changeScene('welcome') }}>
@@ -56,7 +58,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
           </ExpandedDropdown>
         )}
         {action}
-        {isExpanded && (
+        {(isExpanded && hideCloseButton) && (
           <Title>{title}</Title>
         )}
       </Wrapper>
@@ -67,6 +69,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
 interface WrapperProps {
   isExpanded: boolean;
   hideCloseButton?: boolean;
+  showExplanations?: boolean;
 }
 
 const Container = styled.div`
@@ -82,11 +85,11 @@ const Wrapper = styled.div<WrapperProps>`
   right: 0;
   transition: bottom 0.3s ease;
 
-  display: ${({ isExpanded }) => isExpanded ? 'block' : 'flex'}};
+  display: ${({ isExpanded }) => (isExpanded) ? 'block' : 'flex'}};
   ${({ hideCloseButton }) => hideCloseButton && `flex-direction: row-reverse;`}
   justify-content: space-between;
   align-items: center;
-  height: ${({ isExpanded }) => isExpanded ? 'auto' : 'auto'};
+  height: auto;
   min-height: 86px;
   padding: ${({ isExpanded }) => isExpanded ? '8px 20px' : '8px'};
 
@@ -96,6 +99,8 @@ const Wrapper = styled.div<WrapperProps>`
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     padding: 8px;
   }
+
+  ${props => props.showExplanations && `display: flex;`}
 `
 
 const LeftContent = styled.div`

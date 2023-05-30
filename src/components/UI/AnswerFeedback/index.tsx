@@ -57,7 +57,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   console.log(explanationNumber, showExplanations)
   return (
     <Wrapper>
-      { (userAnswer) && (
+      { (userAnswer && width > 800) && (
         <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
           { realAnswer === 'phising' ? (
@@ -67,6 +67,18 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
           )}
         </UserAnswerWrapper>
       )}
+
+      {
+        (userAnswer && width < 800 && !showExplanations) && (
+          <UserAnswerWrapper hide={showExplanations}>          
+          {compareAnswers()}
+          { realAnswer === 'phising' ? (
+            <p>{`This message looks like phishing`}</p>
+          ) : (
+            <p>{`This message seems ${realAnswer}`}</p>
+          )}
+        </UserAnswerWrapper>)
+      }
 
       <OptionsWrapper>
         {(showExplanations && explanationNumber > 0) && <ActionButtonsWrapper>
