@@ -36,6 +36,7 @@ const Content = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 8px 12px;
+  background: ${props => props.theme.colors.light.white};
 
   border: 1px solid #eee;
   border-radius: 12px;

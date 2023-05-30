@@ -56,17 +56,38 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   useEffect(() => {
     const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
     const explanations = document.querySelectorAll(`[data-explanation]`) as NodeListOf<HTMLElement>
-    console.log(reference)
+    let parentDiv: HTMLElement | null = null
 
     // here we should remove the background color from all the explanations
     explanations.forEach( e => {
       e.style.zIndex = '0'
+      e.style.background = 'transparent';
+      parentDiv = e.parentElement as HTMLElement;
+      if (parentDiv) {
+        parentDiv.style.zIndex = '0';
+      }
+      if(parentDiv.tagName.toLocaleLowerCase() === 'p') {
+        const div = parentDiv.parentElement as HTMLElement
+        const highlited = div?.parentElement as HTMLElement
+        highlited.style.zIndex = '0'
+      }
     })
     
-    // here we should add the background color to the current explanation
+    // here we should highlight the current explanation
     if(reference && showExplanations) {
-      reference.style.opacity = '1'
-      reference.style.zIndex = '4'
+      parentDiv = reference.parentElement as HTMLElement;
+      console.log(parentDiv)
+      reference.style.zIndex = '4';
+      reference.style.background = 'white';
+      if (parentDiv) {
+        parentDiv.style.zIndex = '4';
+      }
+
+      if(parentDiv.tagName.toLocaleLowerCase() === 'p') {
+        const div = parentDiv.parentElement as HTMLElement
+        const highlited = div?.parentElement as HTMLElement
+        highlited.style.zIndex = '4'
+      }
     }
     
   }, [explanationNumber, showExplanations])

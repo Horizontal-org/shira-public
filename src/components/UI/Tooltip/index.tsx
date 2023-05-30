@@ -32,7 +32,6 @@ const Wrapper = styled('div')<WrapperProps>`
 
 const RelativeWrapper = styled.div`
   position: relative;
-  border: 1px solid red;
 
   max-width: 314px;
   font-weight: 400;

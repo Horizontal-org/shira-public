@@ -44,9 +44,9 @@ export const FooterMobile: FunctionComponent<Props> = ({
             {isExpanded && (
               <LeftContent>
                 <CloseButton isExpanded={isExpanded} onClick={() => { changeScene('welcome') }}>
-                  <VscClose size={24} color='#111' />
+                  <VscClose size={24} color='#A51D0F' />
                 </CloseButton>
-                <div>Exit quiz</div>
+                <ExitText>Exit quiz</ExitText>
               </LeftContent>
             )}
             <DropdownOpen onClick={toggleDropdown}>
@@ -113,7 +113,7 @@ const CloseButton = styled.div<{isExpanded?: boolean}>`
   cursor: pointer;
   background: $fff;
   border-right: 1px solid ${props => props.isExpanded ? 'none' : props.theme.colors.dark.mediumGrey};
-  margin-right: 16px;
+  margin-right: ${props => props.isExpanded ? '0px' : '16px'}};
 `
 
 const Title = styled.div`
@@ -129,10 +129,16 @@ const ExpandedDropdown = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 8px 0;
 `
 const DropdownOpen = styled.div`
   margin-right: 32px;
   cursor: pointer;
+`
+
+const ExitText = styled.div`
+  color: ${props => props.theme.colors.error8};
+  font-weight: 600;
 `
 
 FooterMobile.defaultProps = {
