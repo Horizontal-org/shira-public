@@ -9,6 +9,7 @@ interface Props {
   action?: ReactNode;
   handleIsExpanded?: (isExpanded: boolean) => void;
   isExpanded?: boolean;
+  showExplanations?: boolean;
 }
 
 export const Footer: FunctionComponent<Props> = ({
@@ -16,7 +17,8 @@ export const Footer: FunctionComponent<Props> = ({
   action,
   hideCloseButton,
   isExpanded,
-  handleIsExpanded
+  handleIsExpanded,
+  showExplanations
 }) => {
   const { width } = useGetWidth()
 
@@ -29,6 +31,7 @@ export const Footer: FunctionComponent<Props> = ({
           hideCloseButton={hideCloseButton} 
           isExpanded={isExpanded}
           handleIsExpanded={handleIsExpanded}
+          showExplanations={showExplanations}
         />
       ) : (
         <FooterDesktop title={title} action={action} hideCloseButton={hideCloseButton} />

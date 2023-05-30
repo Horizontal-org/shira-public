@@ -8,6 +8,7 @@ import WrongIcon from '../Icons/Wrong'
 import CorrectIcon from '../Icons/Correct'
 import { useTranslation } from "react-i18next";
 import QuestionMarkIcon from '../Icons/QuestionMark'
+import useGetWidth from "../../../hooks/useGetWidth";
 
 interface Props {
   onNext:  () => void;
@@ -33,6 +34,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   handleShowExplanations
 }) => {
   const { t } = useTranslation()
+  const { width } = useGetWidth()
   const compareAnswers = () => {
     if (userAnswer === 'unsure') {
       return (<>
@@ -52,11 +54,11 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       </>)
     }
   }
-
+  console.log(explanationNumber, showExplanations)
   return (
     <Wrapper>
-      { userAnswer && (
-        <UserAnswerWrapper>          
+      { (userAnswer && width > 800) && (
+        <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
           { realAnswer === 'phising' ? (
             <p>{`This message looks like phishing`}</p>
@@ -66,8 +68,20 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
         </UserAnswerWrapper>
       )}
 
+      {
+        (userAnswer && width < 800 && !showExplanations) && (
+          <UserAnswerWrapper hide={showExplanations}>          
+          {compareAnswers()}
+          { realAnswer === 'phising' ? (
+            <p>{`This message looks like phishing`}</p>
+          ) : (
+            <p>{`This message seems ${realAnswer}`}</p>
+          )}
+        </UserAnswerWrapper>)
+      }
+
       <OptionsWrapper>
-        <ActionButtonsWrapper>
+        {(showExplanations && explanationNumber > 0) && <ActionButtonsWrapper>
           <Button 
             text={t("quiz.answers.results.back_button")}
             type='outline'
@@ -80,46 +94,53 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
             }}
             leftIcon={<FiChevronLeft size={18}/>}
           />
-        </ActionButtonsWrapper>
-        <ActionButtonsWrapper>
+        </ActionButtonsWrapper>}
           { 
             explanationsLength > 0 && !showExplanations && (
-              <Button 
-                text='See Why'
-                type='primary'
-                onClick={() => handleShowExplanations(true)}
-                leftIcon={<QuestionMarkIcon size={18} />}
-              />
+              <ActionButtonsWrapper size="lg">
+                <Button 
+                  text='See Why'
+                  size={width < 490 ? 'lg' : 'md'}
+                  type='primary'
+                  onClick={() => handleShowExplanations(true)}
+                  leftIcon={<QuestionMarkIcon size={18} />}
+                />
+              </ActionButtonsWrapper>
           )}
 
           {
             explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
-              <Button 
-                text={t("quiz.answers.results.next_button")}
-                type='primary'
-                onClick={() => setExplanationNumber(explanationNumber + 1)}
-                rightIcon={<FiChevronRight size={18}/>}
-              />
+              <ActionButtonsWrapper size={explanationNumber === 0 ? 'lg' : 'md'}>
+                <Button 
+                  text={t("quiz.answers.results.next_button")}
+                  size={width < 490 ? 'lg' : 'md'}
+                  type='primary'
+                  onClick={() => setExplanationNumber(explanationNumber + 1)}
+                  rightIcon={<FiChevronRight size={18}/>}
+                />
+              </ActionButtonsWrapper>
             )
           }
 
           {
             ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
-              <Button 
-                text='Next Question'
-                type='primary'
-                onClick={onNext}
-                rightIcon={<FiChevronRight size={18}/>}
-              />
+              <ActionButtonsWrapper size="lg">
+                <Button 
+                  text='Next Question'
+                  size={width < 490 ? 'lg' : 'md'}
+                  type='primary'
+                  onClick={onNext}
+                  rightIcon={<FiChevronRight size={18}/>}
+                />
+              </ActionButtonsWrapper>
             )
           }
-        </ActionButtonsWrapper>
       </OptionsWrapper>
     </Wrapper>
   )
 }
 
-const UserAnswerWrapper = styled.div`
+const UserAnswerWrapper = styled.div<{hide?: boolean}>`
   padding-left: 50px;
   display: flex;
   align-items: center;
@@ -154,8 +175,11 @@ const OptionsWrapper = styled.div`
   display: flex;
 `
 
-const ActionButtonsWrapper = styled.div`
+const ActionButtonsWrapper = styled.div<{ size?: string }>`
   padding-left: 16px;
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    ${props => props.size === 'lg' && `width: 100%;`};
+  }
 `
 
 const Wrapper = styled.div`

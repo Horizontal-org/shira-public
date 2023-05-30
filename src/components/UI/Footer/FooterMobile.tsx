@@ -10,6 +10,7 @@ interface Props {
   action?: ReactNode;
   handleIsExpanded?: (isExpanded: boolean) => void;
   isExpanded?: boolean;
+  showExplanations?: boolean;
 }
 
 export const FooterMobile: FunctionComponent<Props> = ({
@@ -17,7 +18,8 @@ export const FooterMobile: FunctionComponent<Props> = ({
   action,
   hideCloseButton,
   isExpanded,
-  handleIsExpanded
+  handleIsExpanded,
+  showExplanations
 }) => {
   const changeScene = useStore((state) => state.changeScene)
 
@@ -27,26 +29,23 @@ export const FooterMobile: FunctionComponent<Props> = ({
 
   return (
     <Container>
-      <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton}>
+      <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton} showExplanations={showExplanations}>
         {!hideCloseButton && (
           <LeftContent>
-          <CloseButton onClick={() => { changeScene('welcome') }}>
-            <VscClose size={24} color='#111' />
-          </CloseButton>
-          <Title>
-            { title }
-          </Title>
-        </LeftContent>)
-      }
+            <CloseButton onClick={() => { changeScene('welcome') }}>
+              <VscClose size={24} color='#111' />
+            </CloseButton>
+          </LeftContent>
+        )}
 
         {hideCloseButton && (
-          <ExpandedDropdown>
+          <ExpandedDropdown isExpanded={isExpanded}>
             {isExpanded && (
               <LeftContent>
                 <CloseButton isExpanded={isExpanded} onClick={() => { changeScene('welcome') }}>
-                  <VscClose size={24} color='#111' />
+                  <VscClose size={24} color='#A51D0F' />
                 </CloseButton>
-                <div>Exit quiz</div>
+                <ExitText>Exit quiz</ExitText>
               </LeftContent>
             )}
             <DropdownOpen onClick={toggleDropdown}>
@@ -59,6 +58,9 @@ export const FooterMobile: FunctionComponent<Props> = ({
           </ExpandedDropdown>
         )}
         {action}
+        {(isExpanded && hideCloseButton) && (
+          <Title>{title}</Title>
+        )}
       </Wrapper>
     </Container>
   )
@@ -67,6 +69,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
 interface WrapperProps {
   isExpanded: boolean;
   hideCloseButton?: boolean;
+  showExplanations?: boolean;
 }
 
 const Container = styled.div`
@@ -82,11 +85,11 @@ const Wrapper = styled.div<WrapperProps>`
   right: 0;
   transition: bottom 0.3s ease;
 
-  display: ${({ isExpanded }) => isExpanded ? 'block' : 'flex'}};
+  display: ${({ isExpanded }) => (isExpanded) ? 'block' : 'flex'}};
   ${({ hideCloseButton }) => hideCloseButton && `flex-direction: row-reverse;`}
   justify-content: space-between;
   align-items: center;
-  height: ${({ isExpanded }) => isExpanded ? 'auto' : 'auto'};
+  height: auto;
   min-height: 86px;
   padding: ${({ isExpanded }) => isExpanded ? '8px 20px' : '8px'};
 
@@ -95,8 +98,9 @@ const Wrapper = styled.div<WrapperProps>`
 
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     padding: 8px;
-    padding-right: 16px;
   }
+
+  ${props => props.showExplanations && `display: flex;`}
 `
 
 const LeftContent = styled.div`
@@ -113,26 +117,35 @@ const CloseButton = styled.div<{isExpanded?: boolean}>`
   cursor: pointer;
   background: $fff;
   border-right: 1px solid ${props => props.isExpanded ? 'none' : props.theme.colors.dark.mediumGrey};
-  margin-right: 16px;
+  margin-right: ${props => props.isExpanded ? '0px' : '16px'}};
 `
 
 const Title = styled.div`
-  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
-    display: none;
-  }
-  padding-left: 20px;
-  color: black;
-  font-size: 16px;
+  padding: 16px;
+  color: #5F6368;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
 `
 
-const ExpandedDropdown = styled.div`
+const ExpandedDropdown = styled.div<{ isExpanded?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 8px 0;
+  ${props => !props.isExpanded && `
+    position: absolute;
+    top: 0;
+  `}
 `
 const DropdownOpen = styled.div`
   margin-right: 32px;
   cursor: pointer;
+`
+
+const ExitText = styled.div`
+  color: ${props => props.theme.colors.error8};
+  font-weight: 600;
 `
 
 FooterMobile.defaultProps = {

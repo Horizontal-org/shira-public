@@ -138,7 +138,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    border-radius: ${props => props.isExpanded ? '100px' : '16px'}};
+    border-radius: ${props => props.isExpanded ? '100px' : '16px'};
     padding: 16px;
     >svg {
       ${props => !props.isExpanded && `margin-right: 0;`}

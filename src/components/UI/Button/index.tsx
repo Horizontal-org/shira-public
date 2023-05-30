@@ -73,12 +73,24 @@ const StyledButton = styled.button<StyledButtonProps>`
     color: white;
     background: ${props.theme.colors.blue7};
     border: 2px solid ${props.theme.colors.blue7};
+    &:hover {
+      background: ${props.theme.colors.blue8};
+      border-color: ${props.theme.colors.blue8};
+    }
+    &:focus {
+      background: ${props.theme.colors.blue8};
+      border-color: ${props.theme.colors.blue4};
+    }
   `}
 
   ${props => props.styledType === 'outline' && `
     background: white;
     border: 1px solid ${props.theme.colors.dark.mediumGrey};
     color: ${props.theme.colors.dark.black};
+
+    &:focus {
+      border: 2px solid ${props.theme.colors.dark.mediumGrey};
+    }
   `}
 
   ${props => props.styledType === 'secondary' && `
