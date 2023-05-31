@@ -14,7 +14,6 @@ export const FooterDesktop: FunctionComponent<Props> = ({
   action,
 }) => {
   const changeScene = useStore((state) => state.changeScene)
-  console.log(title)
   return (
     <Wrapper>
       <LeftContent>

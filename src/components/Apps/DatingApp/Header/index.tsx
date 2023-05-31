@@ -24,7 +24,7 @@ export const Header: FunctionComponent<Props> = ({ phone }) => {
           <UserInfo>
             <UserName>
               <OnlineMark></OnlineMark>
-              <span data-explanation={phone.explanationPosition}>{phone.textContent}</span>
+              <span data-explanation={phone.explanationPosition} className='userInfo'>{phone.textContent}</span>
             </UserName>
             <Location>832 feet away</Location>
           </UserInfo>

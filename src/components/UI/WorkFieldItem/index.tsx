@@ -42,8 +42,7 @@ export const WorkFieldItem: FunctionComponent<Props> = ({
   selected, 
   slug,
   onClick 
-}) => { 
-  console.log(slug)
+}) => {
   return (
     <Box selected={selected} onClick={onClick}>
       <div>{getIcon(slug)}</div>
