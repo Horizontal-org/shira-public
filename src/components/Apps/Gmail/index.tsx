@@ -118,6 +118,7 @@ const Subject = styled.div`
   width: max-content;
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     padding: 8px 0 8px 8px;
+    width: 100%;
   }
 
   span {
