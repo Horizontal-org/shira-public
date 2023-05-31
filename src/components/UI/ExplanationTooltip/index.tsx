@@ -7,12 +7,14 @@ interface Props {
   explanation: Explanation
   explanationNumber: number
   showExplanations: boolean
+  app?: string
 }
 
 const ExplanationTooltip: FunctionComponent<Props> = ({ 
   explanation,
   explanationNumber,
-  showExplanations 
+  showExplanations,
+  app
 }) => {
   console.log("🚀 ~ file: index.tsx:17 ~ showExplanations", showExplanations)
 
@@ -79,6 +81,9 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
       console.log(parentDiv)
       reference.style.zIndex = '4';
       reference.style.background = 'white';
+      if(app === 'datingapp' && reference.className === 'userInfo') {
+        reference.style.background = 'transparent'
+      }
       if (parentDiv) {
         parentDiv.style.zIndex = '4';
       }
