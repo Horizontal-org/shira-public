@@ -33,25 +33,26 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   showExplanations,
   handleShowExplanations
 }) => {
+  console.log(realAnswer, userAnswer)
   const { t } = useTranslation()
   const { width } = useGetWidth()
   const compareAnswers = () => {
     if (userAnswer === 'unsure') {
-      return (<>
+      return (<div>
         <UnsureIcon />
         <span>{t("quiz.answers.results.unsure")}</span>
-      </>)
+      </div>)
     }
     if (realAnswer === userAnswer) {
-      return (<>
+      return (<div>
         <CorrectIcon />
         <span>{t("quiz.answers.results.correct")}</span>
-      </>)
+      </div>)
     } else {
-      return (<>
+      return (<div>
         <WrongIcon />
         <span>{t("quiz.answers.results.incorrect")}</span>
-      </>)
+      </div>)
     }
   }
   console.log(explanationNumber, showExplanations)
@@ -60,7 +61,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       { (userAnswer && width > 800) && (
         <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
-          { realAnswer === 'phising' ? (
+          { realAnswer === 'phishing' ? (
             <p>{`This message looks like phishing`}</p>
           ) : (
             <p>{`This message seems ${realAnswer}`}</p>
@@ -72,7 +73,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
         (userAnswer && width < 800 && !showExplanations) && (
           <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
-          { realAnswer === 'phising' ? (
+          { realAnswer === 'phishing' ? (
             <p>{`This message looks like phishing`}</p>
           ) : (
             <p>{`This message seems ${realAnswer}`}</p>
@@ -148,17 +149,23 @@ const UserAnswerWrapper = styled.div<{hide?: boolean}>`
   > p {
     margin: 0;
     padding-left: 30px;
+    font-weight: 300;
+    font-size: 21px;
+    color: #333030;
   }
 
-  > span {
-    font-weight: 700;
-    font-size: 16px;
-  }
-
-  > svg {
-    height: 18px;
-    width: 18px;
-    margin-right: 10px;
+  >div {
+    display: flex;
+    align-items: center;
+    > span {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    > svg {
+      height: 28px;
+      width: 28px;
+      margin-right: 10px;
+    }
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
@@ -166,7 +173,18 @@ const UserAnswerWrapper = styled.div<{hide?: boolean}>`
     display: block;
     padding-bottom: 16px;
     >p {
+      padding-top: 8px;
       padding-left: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.07px;
+    }
+
+    >div {
+      > svg {
+        height: 24px;
+        width: 24px;
+      }
     }
   }
 `

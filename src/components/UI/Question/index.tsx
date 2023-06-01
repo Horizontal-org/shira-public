@@ -71,7 +71,7 @@ export const Question: FunctionComponent<Props> = ({
             onNext={onNext}
             userAnswer={answer}
             onAnswer={(a) => { handleAnswer(a) }}
-            realAnswer={question.isPhising ? 'phising' : 'legitimate'}
+            realAnswer={question.isPhising ? 'phishing' : 'legitimate'}
           />
         ) : <AnswerOptions 
               goBack={goBack} 
