@@ -25,7 +25,6 @@ const DatingApp: FunctionComponent<Props> = ({ phone, content, explanations, exp
           explanation={explanation}
           explanationNumber={explanationNumber}
           showExplanations={showExplanations}
-          app='datingapp'
         />
       ))}
       <Header phone={phone}/>
