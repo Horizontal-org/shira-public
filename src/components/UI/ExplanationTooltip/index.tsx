@@ -1,59 +1,39 @@
-import { FunctionComponent, useEffect } from "react"
+import { FunctionComponent, useEffect, useState, useRef } from "react"
+import styled from 'styled-components'
+import './styles.css'
 
 import { Explanation } from "../../../domain/explanation"
-import Tooltip from "../Tooltip"
+import { usePopper } from 'react-popper';
 
 interface Props {
   explanation: Explanation
   explanationNumber: number
   showExplanations: boolean
-  app?: string
+  referenceElement?: HTMLElement
 }
 
 const ExplanationTooltip: FunctionComponent<Props> = ({ 
   explanation,
   explanationNumber,
   showExplanations,
-  app
 }) => {
-  console.log("🚀 ~ file: index.tsx:17 ~ showExplanations", showExplanations)
+  const [popperElement, setPopperElement] = useState(null);
+  const [arrowElement, setArrowElement] = useState(null);
 
-  // refactor this
-  useEffect( () => {
-    const observer = new ResizeObserver(() => {
-      const tooltip = document.querySelector(`#explanation-${explanation.index}`) as HTMLElement
-      const reference = document.querySelector(`[data-explanation="${explanation.index}"]`) as HTMLElement
-      const container = reference.closest(".apps-container") as HTMLElement
-      let scrollPerformed = false
+  const referenceElementRef = useRef<HTMLElement>(null);
 
-      const handleScroll = () => {
-        scrollPerformed=true
-        const referencePosition = reference.getBoundingClientRect()
-        tooltip.style.top = `${referencePosition.y + referencePosition.height}px`
-        tooltip.style.left = `${referencePosition.x}px`
-      }
+  useEffect(() => {
+  const referenceElement = document.querySelector(`[data-explanation="${explanation.index}"]`) as HTMLElement;
+  referenceElementRef.current = referenceElement;
+  }, [explanation.index]);
 
-      if(showExplanations && parseInt(explanation.index) === explanationNumber) {
-        reference.scrollIntoView({ behavior: 'smooth' })
-        container.addEventListener("scroll", handleScroll)
+  useEffect(() => {
+    const referenceElement = document.querySelector(`[data-explanation="${explanation.index}"]`) as HTMLElement;
 
-        if(!scrollPerformed) {
-          const referencePosition = reference.getBoundingClientRect()
-
-          tooltip.style.top = `${referencePosition.y + referencePosition.height}px`
-          tooltip.style.left = `${referencePosition.x}px`
-        }
-      } else {
-        container.removeEventListener("scroll", handleScroll)
-      }
-    })
-
-    observer.observe(document.documentElement)
-
-    return () => {
-      observer.unobserve(document.documentElement)
+    if(showExplanations && parseInt(explanation.index) === explanationNumber) {
+      referenceElement.scrollIntoView({ behavior: 'smooth' })
     }
-  }, [explanation.index, explanationNumber, showExplanations])
+  }, [explanationNumber, showExplanations, explanation.index])
 
   useEffect(() => {
     const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
@@ -81,9 +61,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
       console.log(parentDiv)
       reference.style.zIndex = '4';
       reference.style.background = 'white';
-      if(app === 'datingapp' && reference.className === 'userInfo') {
-        reference.style.background = 'transparent'
-      }
+
       if (parentDiv) {
         parentDiv.style.zIndex = '4';
       }
@@ -96,13 +74,41 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
     }
     
   }, [explanationNumber, showExplanations])
+  
+  const { styles, attributes } = usePopper(referenceElementRef.current, popperElement, {
+    modifiers: [
+      { name: 'flip', options: { fallbackPlacements: ['top', 'bottom'], padding: 8 }},
+      { name: 'arrow', options: { element: arrowElement } }
+    ],
+  });
+
   return (
-    <Tooltip 
-        explanationIndex={explanation.index}
-        text={explanation.text} 
-        hide={parseInt(explanation.index) !== explanationNumber || !showExplanations}
-    />
+    <Wrapper 
+      ref={setPopperElement} 
+      id={`explanation-${explanation.index}`} 
+      className="tooltip" 
+      style={styles.popper} 
+      {...attributes.popper}
+      hide={parseInt(explanation.index) !== explanationNumber || !showExplanations}
+      >
+      {explanation.text}
+      <div ref={setArrowElement} id='arrow' style={styles.arrow}/>
+    </Wrapper>
   )
 }
 
+const Wrapper = styled('div')<{ hide: boolean }>`
+  ${props => props.hide && `
+  visibility: hidden;
+  > #arrow::before {
+    visibility: hidden;
+  }
+  `
+}
+`
+
+
+
+
 export default ExplanationTooltip
+
