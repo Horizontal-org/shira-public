@@ -101,6 +101,10 @@ const WhyShiraWrapper = styled.div`
     margin-bottom: 10px;
   }
 
+  @media(max-width: 1200px) {
+    margin: 20px 50px;
+  }
+
   @media(max-width: ${props => props.theme.breakpoints.xs}) {
     margin: 20px 0;
   }
@@ -114,6 +118,10 @@ const CreatedByWrapper = styled.div`
   h2 {
     margin-bottom: 10px;
   }
+  @media(max-width: 1200px) {
+    margin: 20px 50px;
+  }
+
   @media(max-width: ${props => props.theme.breakpoints.xs}) {
     margin: 20px 0;
   }
@@ -130,7 +138,7 @@ const FlexWrapper = styled.div`
     max-width: 700px;
   }
 
-  @media(max-width: ${props => props.theme.breakpoints.xs}) {
+  @media(max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;
   }
 `
