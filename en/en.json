@@ -1,0 +1,90 @@
+{
+    "welcome": {
+        "title": "Welcome to Shira",
+        "subtitle": "Build skills to detect and defeat phishing attempts",
+        "start": "Start quiz"
+    },
+    "setup": {
+        "name": {
+            "title": "Add a name and email address",
+            "subtitle": "We ask for a name and email address to make the phishing quiz feel more realistic. This information will not be saved, sent out of our servers, or shared with anyone else",
+            "recommendation": "To be extra-safe, you can use a fake name and email address, or generate random ones.",
+            "name": "Name",
+            "email": "Email",
+            "random_button": "Make a random name and email address",
+            "next_button": "Next"
+        },
+        "apps": {
+            "title": "Which apps do you use?",
+            "subtitle": "This will help us customize the quiz questions to make them look as realistic as possible. This information will not be saved, sent out of our servers, or shared with anyone else.",
+            "select": "Select at least 1",
+            "footer_title": "Quiz setup",
+            "back_button": "Back",
+            "next_button": "Next"
+        },
+        "fields_of_work": {
+            "title": "Which fields do you work in?",
+            "subtitle": "This will help us customize the quiz questions to make them look as realistic as possible. This information will not be saved, sent out of our servers, or shared with anyone else.",
+            "select": "Select up to 3 items",
+            "footer_title": "Quiz setup",
+            "back_button": "Back",
+            "next_button": "Start quiz"
+        }
+    },
+    "quiz": {
+        "how_it_works": {
+            "title": "How it works",
+            "explanation_1": "This quiz contains 10 questions.",
+            "explanation_2": "For each question, please determine whether the message shown seems like a phishing attempt or seems legitimate.",
+            "explanation_3": "If you are not sure, you can select the “I don’t know” option.",
+            "footer_title": "Quiz intro"
+        },
+        "answers": {
+            "options": {
+                "unsure": "I don’t know",
+                "legitimate": "Looks legitimate",
+                "phising": "Looks like phising"
+            },
+            "results": {
+                "unsure": "“I don’t know”",
+                "correct": "Good job!",
+                "incorrect": "Incorrect",
+                "next_button": "Next"
+            }
+        }
+    },
+    "feedback": {
+        "title": "Help us improve",
+        "subtitle": "One last thing before the quiz results: let us know what you think about Shira to help improve it for future users.",
+        "box": {
+            "question_1": {
+                "title": "1. How easy is Shira to use?",
+                "very_complicated": "Very complicated",
+                "complicated": "Complicated",
+                "easy": "Easy",
+                "very_easy": "Very easy"
+            },
+            "question_2": {
+                "title": "2. How likely are you to recommend Shira to friends or colleagues?",
+                "not_likely": "Not likely",
+                "somewhat_likely": "Somewhat likely",
+                "likely": "Likely",
+                "very_likely": "Very likely"
+            },
+            "question_3": {
+                "title": "3. How can we improve Shira?",
+                "input_placeholder": "Placeholder"
+            },
+            "bottom_text": "Your feedback will be sent when you click “see results”"
+        },
+        "footer_title": "You’re almost done! Keep going to see your quiz results and recommended next steps.",
+        "next_button": "See results"
+    },
+    "completed": {
+        "title": "Quiz completed",
+        "heavy_subtitle": "You answered 7 out of 10 questions correctly.",
+        "subtitle": "Take a new quiz or check out some recommendations below to continue strengthening your skills and become better at avoiding phishing.",
+        "back_button": "Back to home",
+        "next_button": "New quiz"
+    }
+}
