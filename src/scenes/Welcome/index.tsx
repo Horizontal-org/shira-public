@@ -13,7 +13,7 @@ export const WelcomeScene: FunctionComponent = () => {
   const { t, i18n } = useTranslation()
 
   return (
-    <SceneWrapper>
+    <SceneWrapper bg='white'>
       <Navbar />
       <CenterWrapper>
         <Title>{t('welcome.title')}</Title>
@@ -22,6 +22,7 @@ export const WelcomeScene: FunctionComponent = () => {
           <Select 
             onChange={(v) => {
               i18n.changeLanguage(v)
+              localStorage.setItem('lang', v);
             }}
             autoselect
             options={[
@@ -32,6 +33,10 @@ export const WelcomeScene: FunctionComponent = () => {
               {
                 label: 'Español',
                 value: 'es'
+              },
+              {
+                label: 'French',
+                value: 'fr'
               }
             ]}
           />
@@ -56,6 +61,10 @@ const CenterWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: -100px;
+
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+    padding: 24px;
+  }
 `
 
 const Buttons = styled.div`

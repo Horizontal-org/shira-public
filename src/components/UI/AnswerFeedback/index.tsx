@@ -1,5 +1,5 @@
 import { Dispatch, FunctionComponent, SetStateAction } from "react";
-import { FiChevronRight } from "react-icons/fi";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import styled from 'styled-components'
 import { Button } from "../Button";
 
@@ -8,9 +8,11 @@ import WrongIcon from '../Icons/Wrong'
 import CorrectIcon from '../Icons/Correct'
 import { useTranslation } from "react-i18next";
 import QuestionMarkIcon from '../Icons/QuestionMark'
+import useGetWidth from "../../../hooks/useGetWidth";
 
 interface Props {
   onNext:  () => void;
+  onAnswer: (answer: string) => void;
   realAnswer: string;
   userAnswer: string | null;
   explanationsLength: number
@@ -22,6 +24,7 @@ interface Props {
 
 export const AnswerFeedback: FunctionComponent<Props> = ({
   onNext,
+  onAnswer,
   realAnswer,
   userAnswer,
   explanationsLength,
@@ -30,33 +33,35 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   showExplanations,
   handleShowExplanations
 }) => {
+  console.log(realAnswer, userAnswer)
   const { t } = useTranslation()
+  const { width } = useGetWidth()
   const compareAnswers = () => {
     if (userAnswer === 'unsure') {
-      return (<>
+      return (<div>
         <UnsureIcon />
         <span>{t("quiz.answers.results.unsure")}</span>
-      </>)
+      </div>)
     }
     if (realAnswer === userAnswer) {
-      return (<>
+      return (<div>
         <CorrectIcon />
         <span>{t("quiz.answers.results.correct")}</span>
-      </>)
+      </div>)
     } else {
-      return (<>
+      return (<div>
         <WrongIcon />
         <span>{t("quiz.answers.results.incorrect")}</span>
-      </>)
+      </div>)
     }
   }
-
+  console.log(explanationNumber, showExplanations)
   return (
     <Wrapper>
-      { userAnswer && (
-        <UserAnswerWrapper>          
+      { (userAnswer && width > 800) && (
+        <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
-          { realAnswer === 'phising' ? (
+          { realAnswer === 'phishing' ? (
             <p>{`This message looks like phishing`}</p>
           ) : (
             <p>{`This message seems ${realAnswer}`}</p>
@@ -64,42 +69,79 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
         </UserAnswerWrapper>
       )}
 
-      { 
-        explanationsLength > 0 && !showExplanations && (
-          <Button 
-            text='See Why'
-            type='outline'
-            onClick={() => handleShowExplanations(true)}
-            leftIcon={<QuestionMarkIcon size={18}/>}
-          />
-      )}
-
       {
-        explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
-          <Button 
-            text={t("quiz.answers.results.next_button")}
-            type='outline'
-            onClick={() => setExplanationNumber(explanationNumber + 1)}
-            leftIcon={<FiChevronRight size={18}/>}
-          />
-        )
+        (userAnswer && width < 800 && !showExplanations) && (
+          <UserAnswerWrapper hide={showExplanations}>          
+          {compareAnswers()}
+          { realAnswer === 'phishing' ? (
+            <p>{`This message looks like phishing`}</p>
+          ) : (
+            <p>{`This message seems ${realAnswer}`}</p>
+          )}
+        </UserAnswerWrapper>)
       }
 
-      {
-        ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
+      <OptionsWrapper>
+        {(showExplanations && explanationNumber > 0) && <ActionButtonsWrapper>
           <Button 
-            text='Next Question'
+            text={t("quiz.answers.results.back_button")}
             type='outline'
-            onClick={onNext}
-            rightIcon={<FiChevronRight size={18}/>}
+            onClick={() => {
+              if(explanationsLength > 0 && explanationNumber >= 0) {
+                setExplanationNumber(explanationNumber - 1)
+              } else {
+                onAnswer(null)
+              }
+            }}
+            leftIcon={<FiChevronLeft size={18}/>}
           />
-        )
-      }
+        </ActionButtonsWrapper>}
+          { 
+            explanationsLength > 0 && !showExplanations && (
+              <ActionButtonsWrapper size="lg">
+                <Button 
+                  text='See Why'
+                  size={width < 490 ? 'lg' : 'md'}
+                  type='primary'
+                  onClick={() => handleShowExplanations(true)}
+                  leftIcon={<QuestionMarkIcon size={18} />}
+                />
+              </ActionButtonsWrapper>
+          )}
+
+          {
+            explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
+              <ActionButtonsWrapper size={explanationNumber === 0 ? 'lg' : 'md'}>
+                <Button 
+                  text={t("quiz.answers.results.next_button")}
+                  size={width < 490 ? 'lg' : 'md'}
+                  type='primary'
+                  onClick={() => setExplanationNumber(explanationNumber + 1)}
+                  rightIcon={<FiChevronRight size={18}/>}
+                />
+              </ActionButtonsWrapper>
+            )
+          }
+
+          {
+            ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
+              <ActionButtonsWrapper size="lg">
+                <Button 
+                  text='Next Question'
+                  size={width < 490 ? 'lg' : 'md'}
+                  type='primary'
+                  onClick={onNext}
+                  rightIcon={<FiChevronRight size={18}/>}
+                />
+              </ActionButtonsWrapper>
+            )
+          }
+      </OptionsWrapper>
     </Wrapper>
   )
 }
 
-const UserAnswerWrapper = styled.div`
+const UserAnswerWrapper = styled.div<{hide?: boolean}>`
   padding-left: 50px;
   display: flex;
   align-items: center;
@@ -107,17 +149,54 @@ const UserAnswerWrapper = styled.div`
   > p {
     margin: 0;
     padding-left: 30px;
+    font-weight: 300;
+    font-size: 21px;
+    color: #333030;
   }
 
-  > span {
-    font-weight: 700;
-    font-size: 16px;
+  >div {
+    display: flex;
+    align-items: center;
+    > span {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    > svg {
+      height: 28px;
+      width: 28px;
+      margin-right: 10px;
+    }
   }
 
-  > svg {
-    height: 18px;
-    width: 18px;
-    margin-right: 10px;
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    padding-left: 16px;
+    display: block;
+    padding-bottom: 16px;
+    >p {
+      padding-top: 8px;
+      padding-left: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19.07px;
+    }
+
+    >div {
+      > svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+`
+
+const OptionsWrapper = styled.div`
+  display: flex;
+`
+
+const ActionButtonsWrapper = styled.div<{ size?: string }>`
+  padding-left: 16px;
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    ${props => props.size === 'lg' && `width: 100%;`};
   }
 `
 
@@ -125,4 +204,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
+
+  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+    display: block;
+  }
 `

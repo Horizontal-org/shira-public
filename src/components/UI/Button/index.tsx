@@ -8,6 +8,7 @@ interface Props {
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   disabled?: boolean
+  size?: string
 }
 
 export const Button: FunctionComponent<Props> = ({
@@ -16,7 +17,8 @@ export const Button: FunctionComponent<Props> = ({
   type,
   leftIcon,
   rightIcon,
-  disabled
+  disabled,
+  size
 }) => {
   return (
     <StyledButton
@@ -24,6 +26,7 @@ export const Button: FunctionComponent<Props> = ({
       styledType={type || 'primary'}
       styleDisabled={disabled || false}
       disabled={disabled || false}
+      size={size}
     >
       { leftIcon && (
         <Left>
@@ -47,41 +50,63 @@ interface StyledButtonProps {
   styledType: string;
   children: ReactNode;
   styleDisabled: boolean;
+  size?: string;
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
   all: unset;
-  border-radius: 4px;
-  padding: 11px 16px;
+  border-radius: 100px;
+  padding: 16px 24px;
   cursor: pointer;
   font-weight: 400;
   display: flex;
   
   justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 
   ${props => props.styledType === 'primary' && `
     color: white;
-    background: ${props.theme.primary.base};
-    border: 2px solid ${props.theme.primary.base};
+    background: ${props.theme.colors.blue7};
+    border: 2px solid ${props.theme.colors.blue7};
+    &:hover {
+      background: ${props.theme.colors.blue8};
+      border-color: ${props.theme.colors.blue8};
+    }
+    &:focus {
+      background: ${props.theme.colors.blue8};
+      border-color: ${props.theme.colors.blue4};
+    }
   `}
 
   ${props => props.styledType === 'outline' && `
     background: white;
-    border: 2px solid ${props.theme.primary.base};
-    color: ${props.theme.primary.base};
+    border: 1px solid ${props.theme.colors.dark.mediumGrey};
+    color: ${props.theme.colors.dark.black};
+
+    &:focus {
+      border: 2px solid ${props.theme.colors.dark.mediumGrey};
+    }
   `}
 
   ${props => props.styledType === 'secondary' && `
-    background: ${props.theme.secondary.dark};
-    border: 2px solid ${props.theme.secondary.dark};
+    background: ${props.theme.colors.green7};
+    border: 1px solid ${props.theme.colors.green7};
     color: white;
   `}
 
   ${props => props.styleDisabled && `
-    background: white;
-    color: #ACADAE;
-    border: 2px solid #ACADAE;
+    opacity: 0.5;
     cursor: auto;    
+  `}
+
+  ${props => props.size === 'lg' && `
+    width: 80%;
+    justify-content: center;
   `}
 
 `
