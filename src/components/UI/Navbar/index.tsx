@@ -3,20 +3,23 @@ import styled from 'styled-components'
 import Logo  from '../Icons/Logo'
 import { useNavigate } from 'react-router-dom'
 
-export const Navbar: FunctionComponent = () => {
+interface Props {
+  color?: string
+}
+export const Navbar: FunctionComponent<Props> = ({ color }) => {
   let navigate = useNavigate()
 
   return (
-    <NavbarWrapper>
+    <NavbarWrapper color={color}>
       <Logo />
       
       <Nav>
         <Link onClick={() => { navigate('/') }}>
           Home
         </Link>
-        <Link onClick={() => { navigate('/resources') }}>
+        {/* <Link onClick={() => { navigate('/resources') }}>
           Resources
-        </Link>
+        </Link> */}
         <Link onClick={() => { navigate('/about') }}>
           About
         </Link>
@@ -25,10 +28,12 @@ export const Navbar: FunctionComponent = () => {
   )
 }
 
-const NavbarWrapper = styled.div`
+const NavbarWrapper = styled.div<{color?: string}>`
   display: flex;
   align-items: center;
   padding: ${props => props.theme.spacing.md};
+  position: relative;
+  background: ${props => props.color ? props.color : 'transparent'};
 `
 
 const Nav = styled.nav`
