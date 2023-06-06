@@ -22,6 +22,7 @@ const icons = {
   'marketing': '📢',
   'arts-and-culture': '🎨',
   'human-rights': '✊🏽',
+  'general': '🌐'
 }
 
 const getIcon = (slug) => {

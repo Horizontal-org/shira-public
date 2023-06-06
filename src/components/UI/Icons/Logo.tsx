@@ -9,7 +9,7 @@ function Icon() {
       viewBox="0 0 1024 1024"
     >
       <g clipPath="url(#clip0_1817_32757)">
-        <path fill="#fff" d="M0 0H1024V1024H0z"></path>
+        <path fill="#none" d="M0 0H1024V1024H0z"></path>
         <path fill="url(#pattern0)" d="M0 0H1024V1024H0z"></path>
       </g>
       <defs>

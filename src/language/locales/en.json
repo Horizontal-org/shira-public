@@ -88,5 +88,33 @@
         "subtitle": "Take a new quiz or check out some recommendations below to continue strengthening your skills and become better at avoiding phishing.",
         "back_button": "Home",
         "next_button": "New quiz"
+    },
+    "about":{
+        "title": "About",
+        "subtitle": "Shira helps users develop the skills needed to detect and defeat phishing attacks",
+        "why_shira": {
+            "title": "Why Shira?",
+            "option_1":{
+                "title": "1. Easy to use",
+                "description": "Shira was created considering communities that are the most at-risk of phishing attacks, especially users with limited tech literacy."
+            },
+            "option_2":{
+                "title": "2. Customizable ",
+                "description": "We try to make phishing messages look as realistic as possible, to simulate what internet users actually face in their daily lives and the phishing attacks they are likely to face."
+            },
+            "option_3":{
+                "title": "3. Privacy-friendly",
+                "description": "We do not collect, save, or share any data about users visiting Shira or taking quizzes. To learn more, check out our privacy policy and  a recent security audit performed by an independent security firm."
+            },
+            "privacy_policy_cta": "Privacy policy",
+            "security_audit_cta": "Security audit"
+        },
+        "created_by": {
+            "title": "Who created it?",
+            "description": "Shira is an open source project created by Horizontal: a non-profit that supports frontline defenders, activists and journalists through digital security and tool development.",
+            "website_cta": "Horizontal's Website"
+        },
+        "footer_title": "Contact",
+        "footer_description": "Have a feature request, a bug report or just want to connect with us? Email us at contact@wearehorizontal.org"
     }
 }
