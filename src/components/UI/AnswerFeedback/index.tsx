@@ -33,7 +33,6 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   showExplanations,
   handleShowExplanations
 }) => {
-  console.log(realAnswer, userAnswer)
   const { t } = useTranslation()
   const { width } = useGetWidth()
   const compareAnswers = () => {
@@ -55,7 +54,6 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       </div>)
     }
   }
-  console.log(explanationNumber, showExplanations)
   return (
     <Wrapper>
       { (userAnswer && width > 800) && (
