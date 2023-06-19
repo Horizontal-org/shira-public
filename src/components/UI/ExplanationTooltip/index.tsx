@@ -58,7 +58,6 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
     // here we should highlight the current explanation
     if(reference && showExplanations) {
       parentDiv = reference.parentElement as HTMLElement;
-      console.log(parentDiv)
       reference.style.zIndex = '4';
       reference.style.background = 'white';
 

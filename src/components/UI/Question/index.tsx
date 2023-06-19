@@ -7,6 +7,7 @@ import { Footer } from '../Footer';
 import { SceneWithFooter } from '../SceneWithFooter';
 import { Explanation } from '../../../domain/explanation';
 import useGetWidth from '../../../hooks/useGetWidth';
+import { useStore } from '../../../store';
 
 interface Props {
   question: QuestionType;
@@ -30,6 +31,13 @@ export const Question: FunctionComponent<Props> = ({
   const [explanationsOrder, handleExplanationsOrder] = useState<Array<number>>([])
   const [showExplanations, handleShowExplanations] = useState<boolean>(false)
   const [isExpanded, handleIsExpanded] = useState(false)
+
+  const { persistedEmail, persistedName } = useStore(
+    (state) => ({
+      persistedName: state.setup.name,
+      persistedEmail: state.setup.email,
+    })
+  )
   
   useEffect(() => {
     const order = parseExplanations(question.explanations)
@@ -48,7 +56,7 @@ export const Question: FunctionComponent<Props> = ({
       {/* TODO Replace app param with algorithm on backend */}
       <AppLayout 
         app={question.app}
-        content={question.content}
+        content={question.content.replace('{{name}}', persistedName).replace('{{email}}', persistedEmail)}
         explanations={parseExplanations(question.explanations)}
         explanationNumber={explanationsOrder[explanationNumber]}
         answer={answer}
