@@ -15,7 +15,8 @@ interface Props {
   questionIndex: number;
   onNext: () => void;
   goBack: () => void;
-  changeScene: (scene: string) => void
+  changeScene: (scene: string) => void;
+  setCorrectQuestions:() => void;
 }
 
 export const Question: FunctionComponent<Props> = ({
@@ -24,6 +25,7 @@ export const Question: FunctionComponent<Props> = ({
   questionIndex,
   goBack,
   onNext,
+  setCorrectQuestions
 }) => {
   const { width } = useGetWidth()
   const [answer, handleAnswer] = useState<string | null>(null)
@@ -46,6 +48,13 @@ export const Question: FunctionComponent<Props> = ({
 
     handleExplanationsOrder(order)
   }, [])
+
+  useEffect(() => {
+    const realAnswer = question.isPhising ? 'phishing' : 'legitimate'
+    if (answer === realAnswer) {
+      setCorrectQuestions()
+    }
+  }, [answer])
 
   const parseExplanations = (explanation: Explanation[]):Explanation[] => 
     explanation.filter( expl =>  document.querySelector(`[data-explanation="${expl.index}"]`))
@@ -70,7 +79,7 @@ export const Question: FunctionComponent<Props> = ({
         isExpanded={isExpanded}
         handleIsExpanded={handleIsExpanded}        
         action={answer ? (
-          <AnswerFeedback 
+          <AnswerFeedback
             showExplanations={showExplanations}
             handleShowExplanations={handleShowExplanations}
             explanationNumber={explanationNumber}

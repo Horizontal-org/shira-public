@@ -9,7 +9,9 @@ export interface QuizSlice {
     apps: string[],
     fieldsOfWork: string[]
   ) => void;
-  quiz: Question[]
+  quiz: Question[],
+  correctedQuestions: Question[],
+  setCorrectQuestions: (question: Question) => void
 }
 
 export const createQuizSlice: StateCreator<
@@ -22,5 +24,9 @@ export const createQuizSlice: StateCreator<
     const res = await getQuiz(apps, fieldsOfWork)
     set({quiz: res})
   },
-  quiz: []
+  quiz: [],
+  correctedQuestions: [],
+  setCorrectQuestions: (question) => {
+    set(state => ({correctedQuestions: [...state.correctedQuestions, question]}))
+  }
 })
