@@ -84,7 +84,7 @@
     },
     "completed": {
       "title": "Cuestionario completado",
-      "heavy_subtitle": "Respondiste correctamente 7 de 10 preguntas.",
+      "heavy_subtitle": "Respondiste correctamente {{correctQuestions}} de {{questions}} preguntas.",
       "subtitle": "Realiza un nuevo cuestionario o consulta algunas recomendaciones a continuación para seguir fortaleciendo tus habilidades y ser mejor en la prevención de phishing.",
       "back_button": "Inicio",
       "next_button": "Nuevo cuestionario"

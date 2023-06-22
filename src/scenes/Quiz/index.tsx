@@ -13,13 +13,15 @@ export const Quiz:FunctionComponent<Props> = () => {
     apps,
     fieldsOfWork,
     fetchQuiz,
-    quiz
+    quiz,
+    setCorrectQuestions
   } = useStore((state) => ({
     changeScene: state.changeScene,
     apps: state.setup.apps,
     fieldsOfWork: state.setup.fields_of_work,
     fetchQuiz: state.fetchQuiz,
-    quiz: state.quiz
+    quiz: state.quiz,
+    setCorrectQuestions: state.setCorrectQuestions
   }), shallow)
 
   const [questions, handleQuestions] = useState([])
@@ -64,6 +66,7 @@ export const Quiz:FunctionComponent<Props> = () => {
               changeScene('quiz-setup-work')
             }
           }}
+          setCorrectQuestions={() => setCorrectQuestions(questions[questionIndex])}
         />
       ) : (
         <QuizInstructions 
