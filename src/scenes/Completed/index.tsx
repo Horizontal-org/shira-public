@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react'
+import shallow from 'zustand/shallow'
 import { useTranslation } from 'react-i18next'
 import { Navbar } from '../../components/UI/Navbar'
 import { FiHome } from 'react-icons/fi'
@@ -18,7 +19,15 @@ interface Props {}
 export const CompletedScene: FunctionComponent<Props> = () => {
   const { t } = useTranslation()
   const { width } = useGetWidth()
-  const changeScene = useStore((state) => state.changeScene)
+  const {
+    changeScene,
+    quiz,
+    correctQuestions
+  } = useStore((state) => ({
+    changeScene: state.changeScene,
+    quiz: state.quiz,
+    correctQuestions: state.correctedQuestions,
+  }), shallow)
 
   return (
     <Wrapper>
@@ -26,7 +35,12 @@ export const CompletedScene: FunctionComponent<Props> = () => {
       <StyledSectionWrapper>
         <StyledSection>
           <Heading>{ t('completed.title') }</Heading>
-          <HeavySubtitle>{ t('completed.heavy_subtitle') }</HeavySubtitle>
+          <HeavySubtitle>
+            { 
+              t('completed.heavy_subtitle', 
+              {correctQuestions: correctQuestions.length, questions: quiz.length}) 
+            }
+          </HeavySubtitle>
           {width < 800 && (
             <MobileIconWrapper>
               <CompletedMobile />

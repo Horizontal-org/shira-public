@@ -1,0 +1,118 @@
+{
+    "welcome": {
+        "title": "Bienvenue à Shira",
+        "subtitle": "Apprenez à détecter et vaincre les tentatives de phishing",
+        "start": "Démarrer le questionnaire"
+    },
+    "setup": {
+        "name": {
+            "title": "Ajouter un nom et une adresse e-mail",
+            "subtitle": "Nous demandons un nom et une adresse électronique pour rendre le quiz d'hameçonnage plus réaliste. Ces informations ne seront pas sauvegardées, envoyées hors de nos serveurs ou partagées avec qui que ce soit.",
+            "recommendation": "Pour plus de sécurité, vous pouvez utiliser un faux nom et une fausse adresse électronique, ou en générer au hasard.",
+            "name": "Nom",
+            "email": "E-mail",
+            "random_button": "Créez un nom et une adresse e-mail aléatoires",
+            "next_button": "Suivant"
+        },
+        "apps": {
+            "title": "Quelles applications utilisez-vous ?",
+            "subtitle": "Cela nous aidera à personnaliser les questions du quiz pour les rendre aussi réalistes que possible. Ces informations ne seront pas sauvegardées, envoyées hors de nos serveurs ou partagées avec qui que ce soit.",
+            "select": "Sélectionnez au moins 1",
+            "footer_title": "Configuration du quiz",
+            "back_button": "Retour",
+            "next_button": "Suivant"
+        },
+        "fields_of_work": {
+            "title": "Dans quels domaines travaillez-vous ?",
+            "subtitle": "Cela nous aidera à personnaliser les questions du quiz pour les rendre aussi réalistes que possible. Ces informations ne seront pas sauvegardées, envoyées hors de nos serveurs ou partagées avec qui que ce soit.",
+            "select": "Sélectionner jusqu'à 3 éléments",
+            "footer_title": "Configuration du quiz",
+            "back_button": "Retour",
+            "next_button": "Démarrer le quiz"
+        }
+    },
+    "quiz": {
+        "how_it_works": {
+            "title": "Comment ça marche",
+            "explanation_1": "Ce quiz contient 10 questions.",
+            "explanation_2": "Pour chaque question, veuillez déterminer si le message affiché ressemble à une tentative de phishing ou semble légitime.",
+            "explanation_3": "Si vous n'êtes pas sûr, vous pouvez sélectionner l'option \"Je ne sais pas\".",
+            "footer_title": "Intro du quiz"
+        },
+        "answers": {
+            "options": {
+                "unsure": "Je ne sais pas",
+                "legitimate": "Il a l'air légitime",
+                "phising": "On dirait du phising"
+            },
+            "results": {
+                "unsure": "« Je ne sais pas »",
+                "correct": "Bon travail !",
+                "incorrect": "Incorrect",
+                "next_button": "Suivant"
+            }
+        }
+    },
+    "feedback": {
+        "title": "Aidez-nous à nous améliorer",
+        "subtitle": "Une dernière chose avant les résultats du quiz: dites-nous ce que vous pensez de Shira pour aider à l’améliorer pour les futurs utilisateurs.",
+        "box": {
+            "question_1": {
+                "title": "1. Shira est-il facile à utiliser ?",
+                "very_complicated": "Très compliqué",
+                "complicated": "Compliqué",
+                "easy": "Facile",
+                "very_easy": "Très facile"
+            },
+            "question_2": {
+                "title": "2. Quelle est la probabilité que vous recommandiez Shira à vos amis ou collègues ?",
+                "not_likely": "Peu probable",
+                "somewhat_likely": "Assez probable",
+                "likely": "Probable",
+                "very_likely": "Très probable"
+            },
+            "question_3": {
+                "title": "3. Comment pouvons-nous améliorer Shira?",
+                "input_placeholder": ""
+            },
+            "bottom_text": "Vos commentaires seront envoyés lorsque vous cliquerez sur « voir les résultats »"
+        },
+        "footer_title": "Vous avez presque terminé ! Continuez pour voir les résultats de votre quiz et les prochaines étapes recommandées.",
+        "next_button": "Voir les résultats"
+    },
+    "completed": {
+        "title": "Quiz terminé",
+        "heavy_subtitle": "You answered {{correctQuestions}} out of {{questions}} questions correctly.",
+        "subtitle": "Répondez à un nouveau quiz ou consultez quelques recommandations ci-dessous pour continuer à renforcer vos compétences et mieux éviter le phishing.",
+        "back_button": "Retour a l'accueil",
+        "next_button": "Nouveau quiz"
+    },
+    "about":{
+        "title": "À propos",
+        "subtitle": "Shira aide les utilisateurs à développer les compétences nécessaires pour détecter et contrer les attaques de phishing",
+        "why_shira": {
+        "title": "Pourquoi Shira ?",
+        "option_1":{
+        "title": "1. Facilité d'utilisation",
+        "description": "Shira a été créée en tenant compte des communautés les plus exposées aux attaques de phishing, notamment les utilisateurs ayant une faible connaissance technique."
+        },
+        "option_2":{
+        "title": "2. Personnalisable",
+        "description": "Nous essayons de rendre les messages de phishing aussi réalistes que possible, afin de simuler ce à quoi les utilisateurs d'Internet sont réellement confrontés dans leur vie quotidienne et les attaques de phishing auxquelles ils sont susceptibles d'être confrontés."
+        },
+        "option_3":{
+        "title": "3. Respect de la vie privée",
+        "description": "Nous ne collectons, ne sauvegardons ni ne partageons aucune donnée concernant les utilisateurs visitant Shira ou passant des quiz. Pour en savoir plus, consultez notre politique de confidentialité et un récent audit de sécurité effectué par une société de sécurité indépendante."
+        },
+        "privacy_policy_cta": "Politique de confidentialité",
+        "security_audit_cta": "Audit de sécurité"
+        },
+        "created_by": {
+        "title": "Qui l'a créé ?",
+        "description": "Shira est un projet open source créé par Horizontal : une organisation à but non lucratif qui soutient les défenseurs de première ligne, les militants et les journalistes grâce à la sécurité numérique et au développement d'outils.",
+        "website_cta": "Site web de Horizontal"
+        },
+        "footer_title": "Contact",
+        "footer_description": "Vous avez une demande de fonctionnalité, un rapport de bogue ou simplement envie de nous contacter ? Envoyez-nous un e-mail à contact@wearehorizontal.org"
+        }
+}
