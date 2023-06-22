@@ -8,6 +8,6 @@ const getLang = () => {
 
 
 export const getQuiz = async(apps:string[], fieldsOfWork: string[]) => {
-  const res = await axios.get<Question[]>(`${process.env.REACT_APP_API_URL}/question/quiz?fieldsOfWork=${fieldsOfWork.join(',')}&apps=${apps.join(',')}&lang=${getLang()}`)
+  const res = await axios.get<Question[]>(`${process.env.REACT_APP_API_URL}/question/quiz?fieldsOfWork=${fieldsOfWork.join(',')}&apps=${apps.join(',')}`)
   return res.data
 }
