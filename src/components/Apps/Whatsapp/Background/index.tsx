@@ -30,7 +30,6 @@ const ChildrenWrapper = styled.div`
   flex-grow: 1;
   justify-content: center;
   position: relative;
-  z-index: 2;
 `
 
 const HeadBrand = styled.div`
@@ -39,7 +38,6 @@ const HeadBrand = styled.div`
   left: 0;
   background: #00a884;
   width: 100%;
-  z-index: 1;
   height: 120px;
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
