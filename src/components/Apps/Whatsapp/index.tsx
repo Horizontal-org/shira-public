@@ -39,13 +39,11 @@ const Whatsapp: FunctionComponent<Props> = ({
       <StyledScrollbar />
       <Background>
         <Content>
-          <div>
             <Sidebar /> 
             <MessageWrapper 
               content={content}
               phone={phone}
             />
-          </div>
         </Content>
       </Background>
     </DesktopWrapper>
@@ -77,11 +75,7 @@ const Content = styled.div`
   width: 80vw;
   height: calc(100% - 50px);
   background: white;
-
-  > div {
-    height: 100%;
-    display: flex;
-  }
+  display: flex;
 
   mark {
     background: transparent;
