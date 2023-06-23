@@ -17,16 +17,12 @@ const MessageWrapper: FunctionComponent<Props> = ({
   phone,
   content
 }) => {
-
-  const [elements, handleElements] = useState(Array.from(content.querySelectorAll('[id*="component-"]')))
-
-
   return (
     <Wrapper>
       <Recipient phone={phone}/>
       <ContentWrapper>
         <div>
-        { elements.sort((a, b) => parseInt(a.getAttribute('data-position')) - parseInt(b.getAttribute('data-position'))).map((e) => (
+        { Array.from(content.querySelectorAll('[id*="component-"]')).sort((a, b) => parseInt(a.getAttribute('data-position')) - parseInt(b.getAttribute('data-position'))).map((e) => (
           <>
             { e.getAttribute('id').includes('component-text') && (
               <Message data={e}/>
@@ -50,6 +46,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 `
 
 const ContentWrapper = styled.div`
@@ -59,6 +56,7 @@ const ContentWrapper = styled.div`
   background-size: cover;
   display: flex;
   flex-direction: column-reverse;
+  position: relative;
 `
 
 export default MessageWrapper

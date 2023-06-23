@@ -24,6 +24,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
 
   useEffect(() => {
   const referenceElement = document.querySelector(`[data-explanation="${explanation.index}"]`) as HTMLElement;
+
   referenceElementRef.current = referenceElement;
   }, [explanation.index]);
 
@@ -36,7 +37,7 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   }, [explanationNumber, showExplanations, explanation.index])
 
   useEffect(() => {
-    const reference = document.querySelector(`[data-explanation="${explanationNumber}"]`)  as HTMLElement
+    const references = document.querySelectorAll(`[data-explanation="${explanationNumber}"]`)  as NodeListOf<HTMLElement>
     const explanations = document.querySelectorAll(`[data-explanation]`) as NodeListOf<HTMLElement>
     let parentDiv: HTMLElement | null = null
 
@@ -56,27 +57,29 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
     })
     
     // here we should highlight the current explanation
-    if(reference && showExplanations) {
-      parentDiv = reference.parentElement as HTMLElement;
-      reference.style.zIndex = '4';
-      reference.style.background = 'white';
-
-      if (parentDiv) {
-        parentDiv.style.zIndex = '4';
+    references.forEach( reference => {
+      if(reference && showExplanations) {
+        parentDiv = reference.parentElement as HTMLElement;
+        reference.style.zIndex = '4';
+        reference.style.background = 'white';
+  
+        if (parentDiv) {
+          parentDiv.style.zIndex = '4';
+        }
+  
+        if(parentDiv.tagName.toLocaleLowerCase() === 'p') {
+          const div = parentDiv.parentElement as HTMLElement
+          const highlited = div?.parentElement as HTMLElement
+          highlited.style.zIndex = '4'
+        }
       }
-
-      if(parentDiv.tagName.toLocaleLowerCase() === 'p') {
-        const div = parentDiv.parentElement as HTMLElement
-        const highlited = div?.parentElement as HTMLElement
-        highlited.style.zIndex = '4'
-      }
-    }
+    })
     
   }, [explanationNumber, showExplanations])
   
   const { styles, attributes } = usePopper(referenceElementRef.current, popperElement, {
     modifiers: [
-      { name: 'flip', options: { fallbackPlacements: ['top', 'bottom'], padding: 8 }},
+      { name: 'flip', options: { fallbackPlacements: ['top', 'bottom'], padding: 100 }},
       { name: 'arrow', options: { element: arrowElement } }
     ],
   });
