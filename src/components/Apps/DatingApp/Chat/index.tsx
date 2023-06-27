@@ -37,7 +37,20 @@ const Wrapper = styled.div`
     background: transparent;
     position: relative;
   }
-  
+  overflow-y: scroll;
+
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  padding-top: 8px;
 `
 
 const Date = styled.div`

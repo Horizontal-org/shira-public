@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   width: fit-content;
-  max-width: 70%;
+  max-width: 80%;
   text-align: left;
   background: #70BEDF;
   border-radius: 8px;
@@ -37,6 +37,10 @@ const Content = styled.div`
 
   p {
     margin: 2px;
+  }
+
+  a{
+    word-wrap: break-word;
   }
 
   div:after {

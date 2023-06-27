@@ -30,7 +30,7 @@ const Content = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: 50%;
+  max-width: 80%;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 8px 12px;
