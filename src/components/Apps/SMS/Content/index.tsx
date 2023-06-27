@@ -39,5 +39,16 @@ const Wrapper = styled.div`
     background: transparent;
     position: relative;
   }
+
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
   
 `

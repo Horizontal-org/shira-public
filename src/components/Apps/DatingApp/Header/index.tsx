@@ -52,7 +52,7 @@ const Profile = styled.div`
   padding-left: 8px;
 `
 const UserInfo = styled.div`
-  color: #fafafa
+  color: #fafafa;
 `
 
 const UserName = styled.div`

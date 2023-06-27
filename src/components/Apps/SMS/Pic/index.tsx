@@ -16,13 +16,13 @@ export const Pic: FunctionComponent<Props> = () => {
 
 
 const Wrapper = styled.div`
-  align-self: flex-end;
+  align-self: felx-start;
   margin-bottom: -6px;
   margin-right: 6px;
 
   > svg {
-    width: 36px;
-    height: 36px;
+    width: 25px;
+    height: 25px;
     fill: ${props => props.theme.primary.base};
   }
 `

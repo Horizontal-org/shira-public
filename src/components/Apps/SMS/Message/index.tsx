@@ -25,7 +25,7 @@ const Content = styled.div`
   text-align: left;
   background: #CAEAF0;
   border-radius: 12px;
-  font-size: 15px;
+  font-size: 14px;
   color: #333;
   padding: 8px 12px;
 
@@ -37,4 +37,6 @@ const Content = styled.div`
   p {
     margin: 2px;
   }
+
+  overflow-x: hidden;
 `

@@ -15,12 +15,12 @@ interface Props {
 export const Header: FunctionComponent<Props> = ({ phone }) => {
   return (
     <Wrapper>
-      <div>
+      <NumberWrapper>
         <SvgWrapper><Arrow /></SvgWrapper>
         <Phone>
           <span data-explanation={phone.explanationPosition}>{phone.textContent}</span>
         </Phone>
-      </div>
+      </NumberWrapper>
       <div>
         <SvgWrapper><Call /></SvgWrapper>
         <SvgWrapper><Search /></SvgWrapper>
@@ -51,14 +51,20 @@ const SvgWrapper = styled.div`
     height: 20px;
   }
 `
-
+const NumberWrapper = styled.div`
+  width: 80%;
+`
 const Phone = styled.div`
   font-size: 16px;
-  font-weight: 400; 
-  color: #424242;
+  font-weight: 500; 
+  color: #5F6368;
   margin-top: -6px;
-
+  width: 70%;
+  overflow: hidden;
+  text-shrink: 0;
+  text-overflow: ellipsis;
   span {
+    white-space: nowrap;
     position: relative;
   }
 `

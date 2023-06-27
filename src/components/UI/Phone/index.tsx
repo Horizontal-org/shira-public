@@ -82,6 +82,10 @@ const Mobile = styled('div')<PhoneProps>`
   justify-content: space-between;
   overflow: hidden;
 
+  @media (max-width: ${props => props.theme.breakpoints.md}) and (max-height: 860px) {
+    width: 90%;
+  }
+
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     border-radius: 0;
     border: none;
