@@ -4,16 +4,16 @@ export const SectionWrapper = styled.div<{ size?: string }>`
   padding: 32px 24px;
   background: #fff;
   @media (min-width:  ${props => props.theme.breakpoints.xs}) {
-    width: 80vw;
+    width: ${props => props.size === 'lg' ? '100vw' : '80vw'};
     padding: 48px;
     border-radius: 24px;
   }
 
   @media (min-width:  ${props => props.theme.breakpoints.md}) {
-    width: ${props => props.size === 'lg' ? '70vw' : '50vw'};
+    width: ${props => props.size === 'lg' ? '80vw' : '50vw'};
   }
   @media (min-width:  ${props => props.theme.breakpoints.lg}) {
-    width: ${props => props.size === 'lg' ? '50vw' : '40vw'};
+    width: ${props => props.size === 'lg' ? '60vw' : '40vw'};
   }
 
   @media(max-width: ${props => props.theme.breakpoints.xs}) {
