@@ -124,7 +124,9 @@ const Wrapper = styled.div`
     width: 100%;
     padding: 0;
   }
-  @media(min-width: ${props => props.theme.breakpoints.lg}) {
+
+  @media(min-width: ${props => props.theme.breakpoints.md}) {
+    border: none;
     margin: 0 auto;
     width: 90%;
   }
@@ -141,6 +143,10 @@ const PillWrapper = styled.div`
 
 const Item = styled.div`
   padding-top: 16px;
+
+  @media (min-width: ${props => props.theme.breakpoints.xs}) and (max-width: 1200px) {
+    padding-top: 8px;
+  }
 
   p {
     color: ${ props => props.theme.colors.dark.black};

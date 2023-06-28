@@ -107,7 +107,7 @@ const FeedbackSubtitle = styled.div`
   line-height: 32px;
   color: #404040;
 
-  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
@@ -122,6 +122,12 @@ const FeedbackHeading = styled.div`
 const Box = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.xs}) {
     margin-top: 40px;
+  }
+
+  >div>div{
+    @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height:860px) {
+      height: 71vh;
+    }
   }
 
   @media(max-width: ${props => props.theme.breakpoints.xs}) {
