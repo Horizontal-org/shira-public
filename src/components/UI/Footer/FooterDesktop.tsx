@@ -1,7 +1,8 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode, useState } from "react";
 import styled from 'styled-components'
 import { VscClose } from 'react-icons/vsc'
 import { useStore } from "../../../store";
+import { Dialog } from "../Dialog";
 
 interface Props {
   title?: string;
@@ -14,10 +15,12 @@ export const FooterDesktop: FunctionComponent<Props> = ({
   action,
 }) => {
   const changeScene = useStore((state) => state.changeScene)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
   return (
     <Wrapper>
       <LeftContent>
-        <CloseButton onClick={() => { changeScene('welcome') }}>
+        <CloseButton onClick={() => setIsDialogOpen(!isDialogOpen)}>
           <VscClose size={24} color='#111' />
         </CloseButton>
         <Title>
@@ -27,6 +30,14 @@ export const FooterDesktop: FunctionComponent<Props> = ({
 
       { action }
 
+      <Dialog
+        isOpen={isDialogOpen}
+        setIsOpen={setIsDialogOpen} 
+        title="Exit quiz?"
+        description="Are you sure you want to exit the quiz? Your progress will be lost."
+        action={() => { changeScene('welcome') }}
+        actionDescription="Exit quiz"
+      />
     </Wrapper>
   )
 }
