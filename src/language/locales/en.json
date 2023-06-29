@@ -92,6 +92,15 @@
     "about":{
         "title": "About",
         "subtitle": "Shira helps users develop the skills needed to detect and defeat phishing attacks",
+        "bring_shira_button": "Bring Shira to your organization",
+        "background": {
+            "title": "Background",
+            "subtitle": "Phishing is a major security threat for Internet users everywhere." ,
+            "section1": "Often, emails and messages claiming to be from trusted organizations, companies and individuals are actually attempts to trick users into sharing sensitive information (such as bank account information and passwords) or installing malware.",
+            "section2": "On major providers like Gmail and Facebook, phishing has been ongoing for years. But the situation is worsening, with phishing happening on Tutanota and Protonmail accounts (two services that many human rights defenders use) and on mobile apps like WhatsApp and Telegram.",
+            "section3": "Despite how widespread and alarming this threat is -- with real-life consequences especially for marginalized communities -- there is no easy-to-use solution to build skills to detect and defeat phishing attacks effectively.",
+            "section4": "That’s why we created Shira."
+        },
         "why_shira": {
             "title": "Why Shira?",
             "option_1":{
@@ -110,9 +119,67 @@
             "security_audit_cta": "Security audit"
         },
         "created_by": {
-            "title": "Who created it?",
-            "description": "Shira is an open source project created by Horizontal: a non-profit that supports frontline defenders, activists and journalists through digital security and tool development.",
+            "title": "Who makes Shira?",
+            "description": {
+                "section1": "Shira is an project by Horizontal, a non-profit that supports frontline defenders, activists and journalists through digital security and tool development.",
+                "section2": "Like all of Horizontal’s tools, Shira is free and open source. You can help us improve and sustain Shira by",
+                "donation_link": "making a donation here.",
+                "section3": "To contribute to translating Shira, email us at contact@wearehorizontal.org."
+            },
             "website_cta": "Horizontal's Website"
+        },
+        "advisors": {
+            "title": "Advisors",
+            "subtitle": "Shira is supported by a board of advisors, made up of experts in digital security and tool development.",
+            "person1": {
+                "name": "Amir Rashidi",
+                "job": "Director of Digital Rights and Security, Miaan"
+            },
+            "person2": {
+                "name": "Cheekay Cinco",
+                "job": "Digital Security Trainer and Facilitator"
+            },
+            "person3": {
+                "name": "Esther Onfroy",
+                "job": "Co-founder, Defensive Lab Agency"
+            },
+            "person4": {
+                "name": "Happy Ayomirwoth Ongi",
+                "job": "Digital security Consultant and Facilitator"
+            },
+            "person5": {
+                "name": "Harlo Holmes",
+                "job": "Chief Information Security Officer & Director of Digital Security at Freedom of the Press Foundation"
+            },
+            "person6": {
+                "name": "Lobsang Gyatso",
+                "job": "Director of Technology, Tibet Action Institute"
+            },
+            "person7": {
+                "name": "Mario Felaco",
+                "job": "Executive Director, Conexo"
+            },
+            "person8": {
+                "name": "Mohammed Al-Maskati",
+                "job": "Security researcher"
+            },
+            "person9": {
+                "name": "Nick Carr",
+                "job": "Cyber Crime Intelligence & Adversary Tradecraft, Microsoft"
+            },
+            "person10": {
+                "name": "Sadibou Sow",
+                "job": "Educational Technology Consultant"
+            },
+            "person11": {
+                "name": "Trinh Nguyen",
+                "job": "Holistic Security Trainer, Article19"
+            }
+        },
+        "bring": {
+            "title": "Bring Shira to your organization",
+            "section1": "By default, Shira includes several options to customize quizzes and make them relevant to each user (apps, fields of work, etc). But if you want to make quizzes even more realistic-looking to your staff, partners, or members, we can help: we can create custom quizzes based on your work and context, even using real-life phishing attacks you received, and provide training to your organization.",
+            "section2": "If that sounds interesting to you or if you have questions, contact us at contact@wearehorizontal.org."
         },
         "footer_title": "Contact",
         "footer_description": "Have a feature request, a bug report or just want to connect with us? Email us at contact@wearehorizontal.org"
