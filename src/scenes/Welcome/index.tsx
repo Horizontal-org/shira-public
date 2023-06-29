@@ -35,7 +35,7 @@ export const WelcomeScene: FunctionComponent = () => {
                 value: 'es'
               },
               {
-                label: 'French',
+                label: 'Francais',
                 value: 'fr'
               }
             ]}
