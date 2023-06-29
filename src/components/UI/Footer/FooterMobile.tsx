@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { VscClose } from 'react-icons/vsc'
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { useStore } from "../../../store";
+import { Dialog } from "../Dialog";
 
 interface Props {
   title?: string;
@@ -22,7 +23,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
   showExplanations
 }) => {
   const changeScene = useStore((state) => state.changeScene)
-
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   const toggleDropdown = () => {
     handleIsExpanded(!isExpanded)
   }
@@ -32,7 +33,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
       <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton} showExplanations={showExplanations}>
         {!hideCloseButton && (
           <LeftContent>
-            <CloseButton onClick={() => { changeScene('welcome') }}>
+            <CloseButton onClick={() => setIsDialogOpen(!isDialogOpen)}>
               <VscClose size={24} color='#111' />
             </CloseButton>
           </LeftContent>
@@ -42,7 +43,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
           <ExpandedDropdown isExpanded={isExpanded}>
             {isExpanded && (
               <LeftContent>
-                <CloseButton isExpanded={isExpanded} onClick={() => { changeScene('welcome') }}>
+                <CloseButton isExpanded={isExpanded} onClick={() => setIsDialogOpen(!isDialogOpen) }>
                   <VscClose size={24} color='#A51D0F' />
                 </CloseButton>
                 <ExitText>Exit quiz</ExitText>
@@ -62,6 +63,15 @@ export const FooterMobile: FunctionComponent<Props> = ({
           <Title>{title}</Title>
         )}
       </Wrapper>
+
+      <Dialog
+        isOpen={isDialogOpen}
+        setIsOpen={setIsDialogOpen} 
+        title="Exit quiz?"
+        description="Are you sure you want to exit the quiz? Your progress will be lost."
+        action={() => { changeScene('welcome') }}
+        actionDescription="Exit quiz"
+      />
     </Container>
   )
 }
