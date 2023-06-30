@@ -74,7 +74,7 @@ export const Question: FunctionComponent<Props> = ({
 
       <Footer
         title={`${questionIndex + 1}/${questionCount}`}
-        hideCloseButton={(width < 768 && !showExplanations)}
+        hideCloseButton={(width <= 1024 && !showExplanations)}
         showExplanations={showExplanations}
         isExpanded={isExpanded}
         handleIsExpanded={handleIsExpanded}        
