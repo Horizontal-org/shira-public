@@ -189,6 +189,10 @@ const UserAnswerWrapper = styled.div<{hide?: boolean}>`
 
 const OptionsWrapper = styled.div`
   display: flex;
+
+  @media (min-width:  ${props => props.theme.breakpoints.md}) {
+    padding-right: 16px;
+  }
 `
 
 const ActionButtonsWrapper = styled.div<{ size?: string }>`

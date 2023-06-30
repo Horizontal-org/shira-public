@@ -58,7 +58,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
         </LegitimateButton>
       </OptionsWrapper>
       { (width > 768 || isExpanded) && (
-        <OptionsWrapper>
+        <OptionsActionsWrapper>
           <ActionButtonsWrapper>
             <Button
               onClick={() => { goBack()}} 
@@ -76,7 +76,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
               rightIcon={<FiChevronRight size={18}/>}
             />
           </ActionButtonsWrapper>
-        </OptionsWrapper>
+        </OptionsActionsWrapper>
       )}
     </Wrapper>
   )
@@ -109,8 +109,34 @@ const OptionsWrapper = styled.div<{isExpanded?: boolean}>`
   }
 `
 
+const OptionsActionsWrapper = styled.div<{isExpanded?: boolean}>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (min-width: ${props => props.theme.breakpoints.sm}) {
+    padding-right: 8px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    display: flex;
+    margin: 0 16px;
+    padding: 0 4px;
+  }
+}
+`
 const ActionButtonsWrapper = styled.div`
-  padding-left: 16px;
+  padding: 0 8px;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 0;
+    width: 50%;
+
+    >button {
+      width: 75%;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      justify-content: center;
+    }
+  }
 `
 // add prop to styled button
 interface StyledButtonProps {
