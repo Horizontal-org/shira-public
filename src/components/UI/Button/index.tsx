@@ -56,7 +56,7 @@ interface StyledButtonProps {
 const StyledButton = styled.button<StyledButtonProps>`
   all: unset;
   border-radius: 100px;
-  padding: 16px 24px;
+  padding: 12px 20px;
   cursor: pointer;
   font-weight: 400;
   display: flex;

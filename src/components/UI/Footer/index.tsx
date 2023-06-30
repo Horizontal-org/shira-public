@@ -24,7 +24,7 @@ export const Footer: FunctionComponent<Props> = ({
 
   return (
     <>
-      {width < 768 ? (
+      {width <= 1024 ? (
         <FooterMobile 
           title={title} 
           action={action} 

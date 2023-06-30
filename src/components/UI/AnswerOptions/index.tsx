@@ -57,8 +57,8 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
           <Text isExpanded={isExpanded}>{ t('quiz.answers.options.legitimate') }</Text>        
         </LegitimateButton>
       </OptionsWrapper>
-      { (width > 768 || isExpanded) && (
-        <OptionsWrapper>
+      { (width > 1024 || isExpanded) && (
+        <OptionsActionsWrapper>
           <ActionButtonsWrapper>
             <Button
               onClick={() => { goBack()}} 
@@ -67,7 +67,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
               leftIcon={<FiChevronLeft size={18}/>}
             />
           </ActionButtonsWrapper>
-          <ActionButtonsWrapper>
+          <ActionButtonsWrapper type="primary">
             <Button 
               text={t("quiz.answers.results.next_button")}
               type='primary'
@@ -76,7 +76,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
               rightIcon={<FiChevronRight size={18}/>}
             />
           </ActionButtonsWrapper>
-        </OptionsWrapper>
+        </OptionsActionsWrapper>
       )}
     </Wrapper>
   )
@@ -93,7 +93,7 @@ const Wrapper = styled.div<{isExpanded?: boolean}>`
     margin-left: 12px;
   }
 
-  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+  @media (max-width:  ${props => props.theme.breakpoints.md}) {
     padding-left: 0;
     display: ${props => props.isExpanded ? 'block' : 'flex'};
   }
@@ -103,14 +103,45 @@ const OptionsWrapper = styled.div<{isExpanded?: boolean}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: ${props => props.isExpanded ? 'block' : 'flex'};
+    ${props => props.isExpanded && `width: 90%`}
+  }
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
     display: ${props => props.isExpanded ? 'block' : 'flex'};
     ${props => props.isExpanded && `width: 80%`}
   }
 `
 
-const ActionButtonsWrapper = styled.div`
-  padding-left: 16px;
+const OptionsActionsWrapper = styled.div<{isExpanded?: boolean}>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
+    padding-right: 8px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: flex;
+    margin: 0 16px;
+    padding: 0 4px;
+  }
+}
+`
+const ActionButtonsWrapper = styled.div<{type?: string}>`
+  padding: 0 8px;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 0;
+    width: 50%;
+
+    >button {
+      width: 75%;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      justify-content: center;
+      ${props => props.type === 'primary' && `float: right;`}
+    }
+  }
 `
 // add prop to styled button
 interface StyledButtonProps {
@@ -137,9 +168,10 @@ const StyledButton = styled.button<StyledButtonProps>`
     margin-right: 10px;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     border-radius: ${props => props.isExpanded ? '100px' : '16px'};
     padding: 16px;
+    margin-right: 15px;
     >svg {
       ${props => !props.isExpanded && `margin-right: 0;`}
     }

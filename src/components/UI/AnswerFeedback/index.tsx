@@ -56,7 +56,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
   }
   return (
     <Wrapper>
-      { (userAnswer && width > 800) && (
+      { (userAnswer && width > 1024) && (
         <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
           { realAnswer === 'phishing' ? (
@@ -68,7 +68,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       )}
 
       {
-        (userAnswer && width < 800 && !showExplanations) && (
+        (userAnswer && width <= 1024 && !showExplanations) && (
           <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
           { realAnswer === 'phishing' ? (
@@ -112,7 +112,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
               <ActionButtonsWrapper size={explanationNumber === 0 ? 'lg' : 'md'}>
                 <Button 
                   text={t("quiz.answers.results.next_button")}
-                  size={width < 490 ? 'lg' : 'md'}
+                  size={width <= 1024 ? 'lg' : 'md'}
                   type='primary'
                   onClick={() => setExplanationNumber(explanationNumber + 1)}
                   rightIcon={<FiChevronRight size={18}/>}
@@ -189,11 +189,15 @@ const UserAnswerWrapper = styled.div<{hide?: boolean}>`
 
 const OptionsWrapper = styled.div`
   display: flex;
+
+  @media (min-width:  ${props => props.theme.breakpoints.md}) {
+    padding-right: 16px;
+  }
 `
 
 const ActionButtonsWrapper = styled.div<{ size?: string }>`
   padding-left: 16px;
-  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+  @media (max-width:  ${props => props.theme.breakpoints.md}) {
     ${props => props.size === 'lg' && `width: 100%;`};
   }
 `
