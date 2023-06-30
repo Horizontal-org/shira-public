@@ -67,7 +67,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
               leftIcon={<FiChevronLeft size={18}/>}
             />
           </ActionButtonsWrapper>
-          <ActionButtonsWrapper>
+          <ActionButtonsWrapper type="primary">
             <Button 
               text={t("quiz.answers.results.next_button")}
               type='primary'
@@ -107,7 +107,7 @@ const OptionsWrapper = styled.div<{isExpanded?: boolean}>`
     display: ${props => props.isExpanded ? 'block' : 'flex'};
     ${props => props.isExpanded && `width: 90%`}
   }
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.xs}) {
     display: ${props => props.isExpanded ? 'block' : 'flex'};
     ${props => props.isExpanded && `width: 80%`}
   }
@@ -127,7 +127,7 @@ const OptionsActionsWrapper = styled.div<{isExpanded?: boolean}>`
   }
 }
 `
-const ActionButtonsWrapper = styled.div`
+const ActionButtonsWrapper = styled.div<{type?: string}>`
   padding: 0 8px;
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -139,6 +139,7 @@ const ActionButtonsWrapper = styled.div`
       padding-top: 12px;
       padding-bottom: 12px;
       justify-content: center;
+      ${props => props.type === 'primary' && `float: right;`}
     }
   }
 `
