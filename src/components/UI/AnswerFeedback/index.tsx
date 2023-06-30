@@ -68,7 +68,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
       )}
 
       {
-        (userAnswer && width < 1024 && !showExplanations) && (
+        (userAnswer && width <= 1024 && !showExplanations) && (
           <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
           { realAnswer === 'phishing' ? (
@@ -112,7 +112,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
               <ActionButtonsWrapper size={explanationNumber === 0 ? 'lg' : 'md'}>
                 <Button 
                   text={t("quiz.answers.results.next_button")}
-                  size={width < 1024 ? 'lg' : 'md'}
+                  size={width <= 1024 ? 'lg' : 'md'}
                   type='primary'
                   onClick={() => setExplanationNumber(explanationNumber + 1)}
                   rightIcon={<FiChevronRight size={18}/>}
