@@ -80,7 +80,8 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   const { styles, attributes } = usePopper(referenceElementRef.current, popperElement, {
     modifiers: [
       { name: 'flip', options: { fallbackPlacements: ['top', 'bottom'], padding: 100 }},
-      { name: 'arrow', options: { element: arrowElement } }
+      { name: 'arrow', options: { element: arrowElement } },
+      { name: 'offset', options: { offset: [0, 8] }},
     ],
   });
 
