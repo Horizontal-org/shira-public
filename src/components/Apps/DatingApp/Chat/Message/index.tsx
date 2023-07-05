@@ -26,12 +26,12 @@ const Content = styled.div`
   text-align: left;
   background: #70BEDF;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: #1F1F20;
   padding: 8px 12px;
 
   h1, h2, h3, h4, h5 {
-    font-size: 12px;
+    font-size: 14px;
     margin: 2px;
   }
 
