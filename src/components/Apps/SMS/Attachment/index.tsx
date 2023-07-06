@@ -40,7 +40,7 @@ const Content = styled.div`
 
   border: 1px solid #eee;
   border-radius: 12px;
-  font-size: 12px;
+  font-size: 14px;
   color: #333;
 `
 

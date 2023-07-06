@@ -37,7 +37,7 @@ const Content = styled.div`
   background: #70BEDF;
 
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: #333;
 
   div:after {
