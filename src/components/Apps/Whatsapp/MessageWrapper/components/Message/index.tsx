@@ -46,10 +46,10 @@ const Content = styled.div`
   display: inline;
   text-align: left;
   
-  font-size: 12px;
+  font-size: 14px;
   color: #111b21;
   h1, h2, h3, h4, h5 {
-    font-size: 12px;
+    font-size: 14px;
     margin: 0.8px;
   }
 
