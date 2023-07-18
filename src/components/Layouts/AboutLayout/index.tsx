@@ -20,6 +20,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
       <AboutWrapper>
         <Heading>{t('about.title')}</Heading>
         <p>{t('about.subtitle')}</p>
+        {/* COMMENTING OUT FOR NOW
         <HeaderButtonWrapper>
           <Button
             text={t('about.bring_shira_button')}
@@ -27,6 +28,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
             onClick={() => {bringShiraRef.current.scrollIntoView() }}
           />
         </HeaderButtonWrapper>
+        */}
       </AboutWrapper>
       <ContentWrapper>
         <SectionWrapper>
@@ -35,9 +37,6 @@ export const AboutLayout: FunctionComponent<Props> = () => {
             <OptionTitle>{t('about.background.subtitle')}</OptionTitle>
             <p>
               <OptionDescription>{t('about.background.section1')}</OptionDescription>
-            </p>
-            <p>
-              <OptionDescription>{t('about.background.section2')}</OptionDescription>
             </p>
             <p>
               <OptionDescription>{t('about.background.section3')}</OptionDescription>
@@ -185,7 +184,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
 
       <ContactWrapper>
         <Heading>{t('about.footer_title')}</Heading>
-        <p>{t('about.footer_description')} <Contact>contact@wearehorizontal.org</Contact></p>
+        <p>{t('about.footer_description')} <Contact><a href="mailto:contact@wearehorizontal.org">contact@wearehorizontal.org</a></Contact></p>
       </ContactWrapper>
 
 
