@@ -1,18 +1,18 @@
 {
     "welcome": {
         "title": "Welcome to Shira",
-        "subtitle": "Build skills to detect and defeat phishing attempts",
+        "subtitle": "Learn to detect and defeat phishing attempts",
         "start": "Start quiz"
     },
     "setup": {
         "name": {
-            "title": "Create a name and email address",
+            "title": "Add a name and email address",
             "subtitle": "We ask for a name and email address to make the phishing quiz feel more realistic. This information will not be saved, sent out of our servers, or shared with anyone else",
             "recommendation": "To be extra-safe, you can use a fake name and email address, or generate random ones.",
             "name": "Name",
             "email": "Email",
             "footer_title": "Quiz setup",
-            "random_button": "Create a random name and email address",
+            "random_button": "Make a random name and email address",
             "next_button": "Next"
         },
         "apps": {
@@ -29,14 +29,15 @@
             "select": "Select up to 3 items",
             "footer_title": "Quiz setup",
             "back_button": "Back",
-            "next_button": "Next"
+            "next_button": "Start quiz"
         }
     },
     "quiz": {
         "how_it_works": {
             "title": "How it works",
             "explanation_1": "This quiz contains 10 questions.",
-            "explanation_2": "For each question, select one of the options:",
+            "explanation_2": "For each question, please determine whether the message shown seems like a phishing attempt or seems legitimate.",
+            "explanation_3": "If you are not sure, you can select the “I don’t know” option.",
             "footer_title": "Quiz intro",
             "next": "OK"
         },
@@ -61,8 +62,8 @@
         "box": {
             "question_1": {
                 "title": "1. How easy is Shira to use?",
-                "very_complicated": "Very Difficult",
-                "complicated": "Difficult",
+                "very_complicated": "Very complicated",
+                "complicated": "Complicated",
                 "easy": "Easy",
                 "very_easy": "Very easy"
             },
@@ -75,12 +76,12 @@
             },
             "question_3": {
                 "title": "3. How can we improve Shira?",
-                "input_placeholder": "Enter your feedback here"
+                "input_placeholder": "Placeholder"
             },
-            "bottom_text": "Your feedback will be sent when you click “quiz results”"
+            "bottom_text": "Your feedback will be sent when you click “see results”"
         },
         "footer_title": "You’re almost done! Keep going to see your quiz results and recommended next steps.",
-        "next_button": "Quiz results"
+        "next_button": "See results"
     },
     "completed": {
         "title": "Quiz completed",
