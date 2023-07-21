@@ -7,24 +7,23 @@
     "setup": {
         "name": {
             "title": "Ajouter un nom et une adresse e-mail",
-            "subtitle": "Nous demandons un nom et une adresse électronique pour rendre le quiz d'hameçonnage plus réaliste. Ces informations ne seront pas sauvegardées, envoyées hors de nos serveurs ou partagées avec qui que ce soit.",
+            "subtitle": "",
             "recommendation": "Pour plus de sécurité, vous pouvez utiliser un faux nom et une fausse adresse électronique, ou en générer au hasard.",
             "name": "Nom",
             "email": "E-mail",
             "random_button": "Créez un nom et une adresse e-mail aléatoires",
-            "next_button": "Suivant"
+            "next_button": "Suivant",
+            "footer_title": ""
         },
         "apps": {
             "title": "Quelles applications utilisez-vous ?",
-            "subtitle": "Cela nous aidera à personnaliser les questions du quiz pour les rendre aussi réalistes que possible. Ces informations ne seront pas sauvegardées, envoyées hors de nos serveurs ou partagées avec qui que ce soit.",
             "select": "Sélectionnez au moins 1",
             "footer_title": "Configuration du quiz",
             "back_button": "Retour",
             "next_button": "Suivant"
         },
         "fields_of_work": {
-            "title": "Dans quels domaines travaillez-vous ?",
-            "subtitle": "Cela nous aidera à personnaliser les questions du quiz pour les rendre aussi réalistes que possible. Ces informations ne seront pas sauvegardées, envoyées hors de nos serveurs ou partagées avec qui que ce soit.",
+            "title": "",
             "select": "Sélectionner jusqu'à 3 éléments",
             "footer_title": "Configuration du quiz",
             "back_button": "Retour",
@@ -35,21 +34,23 @@
         "how_it_works": {
             "title": "Comment ça marche",
             "explanation_1": "Ce quiz contient 10 questions.",
-            "explanation_2": "Pour chaque question, veuillez déterminer si le message affiché ressemble à une tentative de phishing ou semble légitime.",
+            "explanation_2": "Pour chaque question, choisissez si le message affiché ressemble à une tentative de phishing ou semble légitime.",
             "explanation_3": "Si vous n'êtes pas sûr, vous pouvez sélectionner l'option \"Je ne sais pas\".",
-            "footer_title": "Intro du quiz"
+            "footer_title": "Intro du quiz",
+            "next": "OK"
         },
         "answers": {
             "options": {
                 "unsure": "Je ne sais pas",
                 "legitimate": "Il a l'air légitime",
-                "phising": "On dirait du phising"
+                "phising": "On dirait du phishing"
             },
             "results": {
                 "unsure": "« Je ne sais pas »",
                 "correct": "Bon travail !",
                 "incorrect": "Incorrect",
                 "next_button": "Suivant",
+                "back_button": "",
                 "bottom-bar_looks-like-phishing": "Ce message ressemble à une tentative de phishing",
                 "bottom-bar_looks-legit": "Ce message ne ressemble pas à une tentative de phishing."
             }
@@ -57,7 +58,7 @@
     },
     "feedback": {
         "title": "Aidez-nous à nous améliorer",
-        "subtitle": "Une dernière chose avant les résultats du quiz: dites-nous ce que vous pensez de Shira pour aider à l’améliorer pour les futurs utilisateurs.",
+        "subtitle": "",
         "box": {
             "question_1": {
                 "title": "1. Shira est-il facile à utiliser ?",
@@ -84,37 +85,103 @@
     },
     "completed": {
         "title": "Quiz terminé",
-        "heavy_subtitle": "You answered {{correctQuestions}} out of {{questions}} questions correctly.",
         "subtitle": "Répondez à un nouveau quiz ou consultez quelques recommandations ci-dessous pour continuer à renforcer vos compétences et mieux éviter le phishing.",
         "back_button": "Retour a l'accueil",
-        "next_button": "Nouveau quiz"
+        "next_button": "Nouveau quiz",
+        "heavy_subtitle": "You answered {{correctQuestions}} out of {{questions}} questions correctly."
     },
-    "about":{
-        "title": "À propos",
-        "subtitle": "Shira aide les utilisateurs à développer les compétences nécessaires pour détecter et contrer les attaques de phishing",
+    "about": {
+        "title": "",
+        "subtitle": "",
         "why_shira": {
-        "title": "Pourquoi Shira ?",
-        "option_1":{
-        "title": "1. Facilité d'utilisation",
-        "description": "Shira a été créée en tenant compte des communautés les plus exposées aux attaques de phishing, notamment les utilisateurs ayant une faible connaissance technique."
-        },
-        "option_2":{
-        "title": "2. Personnalisable",
-        "description": "Nous essayons de rendre les messages de phishing aussi réalistes que possible, afin de simuler ce à quoi les utilisateurs d'Internet sont réellement confrontés dans leur vie quotidienne et les attaques de phishing auxquelles ils sont susceptibles d'être confrontés."
-        },
-        "option_3":{
-        "title": "3. Respect de la vie privée",
-        "description": "Nous ne collectons, ne sauvegardons ni ne partageons aucune donnée concernant les utilisateurs visitant Shira ou passant des quiz. Pour en savoir plus, consultez notre politique de confidentialité et un récent audit de sécurité effectué par une société de sécurité indépendante."
-        },
-        "privacy_policy_cta": "Politique de confidentialité",
-        "security_audit_cta": "Audit de sécurité"
+            "title": "",
+            "option_1": {
+                "title": "",
+                "description": ""
+            },
+            "option_2": {
+                "title": "",
+                "description": ""
+            },
+            "option_3": {
+                "title": "",
+                "description": ""
+            },
+            "privacy_policy_cta": "",
+            "security_audit_cta": ""
         },
         "created_by": {
-        "title": "Qui l'a créé ?",
-        "description": "Shira est un projet open source créé par Horizontal : une organisation à but non lucratif qui soutient les défenseurs de première ligne, les militants et les journalistes grâce à la sécurité numérique et au développement d'outils.",
-        "website_cta": "Site web de Horizontal"
+            "title": "",
+            "website_cta": "",
+            "description": {
+                "section1": "",
+                "section2": "",
+                "donation_link": "",
+                "section3": ""
+            }
         },
-        "footer_title": "Contact",
-        "footer_description": "Vous avez une demande de fonctionnalité, un rapport de bogue ou simplement envie de nous contacter ? Envoyez-nous un e-mail à"
+        "footer_title": "",
+        "footer_description": "",
+        "bring_shira_button": "",
+        "background": {
+            "title": "",
+            "subtitle": "",
+            "section1": "",
+            "section3": "",
+            "section4": ""
+        },
+        "advisors": {
+            "title": "",
+            "subtitle": "",
+            "person1": {
+                "name": "",
+                "job": ""
+            },
+            "person2": {
+                "name": "",
+                "job": ""
+            },
+            "person3": {
+                "name": "",
+                "job": ""
+            },
+            "person4": {
+                "name": "",
+                "job": ""
+            },
+            "person5": {
+                "name": "",
+                "job": ""
+            },
+            "person6": {
+                "name": "",
+                "job": ""
+            },
+            "person7": {
+                "name": "",
+                "job": ""
+            },
+            "person8": {
+                "name": "",
+                "job": ""
+            },
+            "person9": {
+                "name": "",
+                "job": ""
+            },
+            "person10": {
+                "name": "",
+                "job": ""
+            },
+            "person11": {
+                "name": "",
+                "job": ""
+            }
+        },
+        "bring": {
+            "title": "",
+            "section1": "",
+            "section2": ""
         }
+    }
 }
