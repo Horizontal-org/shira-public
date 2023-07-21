@@ -52,7 +52,9 @@
                 "correct": "Good job!",
                 "incorrect": "Incorrect",
                 "next_button": "Next",
-                "back_button": "Back"
+                "back_button": "Back",
+                "real_answer": "This message seems {{answer}}",
+                "looks_phishing": "This message looks like phishing"
             }
         }
     },
