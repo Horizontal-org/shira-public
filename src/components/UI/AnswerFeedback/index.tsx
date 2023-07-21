@@ -60,9 +60,9 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
         <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
           { realAnswer === 'phishing' ? (
-            <p>{t("quiz.answers.results.looks_phishing")}</p>
+            <p>{t("quiz.answers.results.bottom-bar_looks-like-phishing")}</p>
           ) : (
-            <p>{t("quiz.answers.results.real_answer", {answer: realAnswer})}</p>
+            <p>{t("quiz.answers.results.bottom-bar_looks-legit")}</p>
           )}
         </UserAnswerWrapper>
       )}
@@ -72,9 +72,9 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
           <UserAnswerWrapper hide={showExplanations}>          
           {compareAnswers()}
           { realAnswer === 'phishing' ? (
-            <p>{t("quiz.answers.results.looks_phishing")}</p>
+            <p>{t("quiz.answers.results.bottom-bar_looks-like-phishing")}</p>
           ) : (
-            <p>{t("quiz.answers.results.real_answer", {answer: realAnswer})}</p>
+            <p>{t("quiz.answers.results.bottom-bar_looks-legit")}</p>
           )}
         </UserAnswerWrapper>)
       }
