@@ -1,91 +1,91 @@
 {
     "welcome": {
-        "title": "Bienvenue à Shira",
-        "subtitle": "Apprenez à détecter et vaincre les tentatives de phishing",
-        "start": "Démarrer le questionnaire"
+        "title": "Bienvenido a Shira",
+        "subtitle": "Aprenda a detectar y derrotar los intentos de phishing",
+        "start": "Iniciar cuestionario"
     },
     "setup": {
         "name": {
-            "title": "Ajouter un nom et une adresse e-mail",
+            "title": "Agregar un nombre y una dirección de correo electrónico",
             "subtitle": "",
-            "recommendation": "Pour plus de sécurité, vous pouvez utiliser un faux nom et une fausse adresse électronique, ou en générer au hasard.",
-            "name": "Nom",
-            "email": "E-mail",
-            "random_button": "Créez un nom et une adresse e-mail aléatoires",
-            "next_button": "Suivant",
+            "recommendation": "Para mayor seguridad, puedes utilizar un nombre y una dirección de correo electrónico falsos o generar otros aleatorios.",
+            "name": "Nombre",
+            "email": "Correo electrónico",
+            "random_button": "Crea un nombre y una dirección de correo electrónico aleatorios",
+            "next_button": "Siguiente",
             "footer_title": ""
         },
         "apps": {
-            "title": "Quelles applications utilisez-vous ?",
-            "select": "Sélectionnez au moins 1",
-            "footer_title": "Configuration du quiz",
-            "back_button": "Retour",
-            "next_button": "Suivant"
+            "title": "¿Qué aplicaciones usas?",
+            "select": "Seleccione al menos 1",
+            "footer_title": "Configuración del cuestionario",
+            "back_button": "Volver",
+            "next_button": "Siguiente"
         },
         "fields_of_work": {
             "title": "",
-            "select": "Sélectionner jusqu'à 3 éléments",
-            "footer_title": "Configuration du quiz",
-            "back_button": "Retour",
-            "next_button": "Démarrer le quiz"
+            "select": "Seleccione hasta 3 artículos",
+            "footer_title": "Configuración del cuestionario",
+            "back_button": "Volver",
+            "next_button": "Iniciar cuestionario"
         }
     },
     "quiz": {
         "how_it_works": {
-            "title": "Comment ça marche",
-            "explanation_1": "Ce quiz contient 10 questions.",
-            "explanation_2": "Pour chaque question, choisissez si le message affiché ressemble à une tentative de phishing ou semble légitime.",
-            "explanation_3": "Si vous n'êtes pas sûr, vous pouvez sélectionner l'option \"Je ne sais pas\".",
-            "footer_title": "Intro du quiz",
+            "title": "Cómo funciona",
+            "explanation_1": "Este cuestionario contiene 10 preguntas.",
+            "explanation_2": "Para cada pregunta, elige si el mensaje que se muestra parece un intento de phishing o parece legítimo.",
+            "explanation_3": "Si no está seguro, puede seleccionar la opción \"No sé\".",
+            "footer_title": "Introducción al cuestionario",
             "next": ""
         },
         "answers": {
             "options": {
-                "unsure": "Je ne sais pas",
-                "legitimate": "Il a l'air légitime",
-                "phising": "On dirait du phishing"
+                "unsure": "No sé",
+                "legitimate": "Parece legítimo",
+                "phising": "Parece phishing"
             },
             "results": {
-                "unsure": "« Je ne sais pas »",
-                "correct": "Bon travail !",
-                "incorrect": "Incorrect",
-                "next_button": "Suivant",
+                "unsure": "\"No sé\"",
+                "correct": "¡Buen trabajo!",
+                "incorrect": "Incorrecto",
+                "next_button": "Siguiente",
                 "back_button": ""
             }
         }
     },
     "feedback": {
-        "title": "Aidez-nous à nous améliorer",
+        "title": "Ayúdanos a mejorar",
         "subtitle": "",
         "box": {
             "question_1": {
-                "title": "1. Shira est-il facile à utiliser ?",
-                "very_complicated": "Très compliqué",
-                "complicated": "Compliqué",
-                "easy": "Facile",
-                "very_easy": "Très facile"
+                "title": "1. ¿Qué tan fácil es usar Shira?",
+                "very_complicated": "Muy complicado",
+                "complicated": "Complicado",
+                "easy": "Fácil",
+                "very_easy": "Muy fácil"
             },
             "question_2": {
-                "title": "2. Quelle est la probabilité que vous recommandiez Shira à vos amis ou collègues ?",
-                "not_likely": "Peu probable",
-                "somewhat_likely": "Assez probable",
+                "title": "2. ¿Qué tan probable es que recomiende Shira a amigos o colegas?",
+                "not_likely": "No es probable",
+                "somewhat_likely": "Algo probable",
                 "likely": "Probable",
-                "very_likely": "Très probable"
+                "very_likely": "Muy probable"
             },
             "question_3": {
-                "title": "3. Comment pouvons-nous améliorer Shira?",
+                "title": "3. ¿Cómo podemos mejorar Shira?",
                 "input_placeholder": ""
             },
-            "bottom_text": "Vos commentaires seront envoyés lorsque vous cliquerez sur « voir les résultats »"
+            "bottom_text": "Sus comentarios se enviarán cuando haga clic en \"ver resultados\""
         },
-        "footer_title": "Vous avez presque terminé ! Continuez pour voir les résultats de votre quiz et les prochaines étapes recommandées.",
-        "next_button": "Voir les résultats"
+        "footer_title": "¡Ya casi terminaste! Sigue adelante para ver los resultados de tu cuestionario y los próximos pasos recomendados.",
+        "next_button": "Ver resultados"
     },
     "completed": {
-        "title": "Quiz terminé",
-        "subtitle": "Répondez à un nouveau quiz ou consultez quelques recommandations ci-dessous pour continuer à renforcer vos compétences et mieux éviter le phishing.",
-        "back_button": "Retour a l'accueil",
-        "next_button": "Nouveau quiz",
+        "title": "Cuestionario completado",
+        "subtitle": "Realice un nuevo cuestionario o consulte algunas recomendaciones a continuación para seguir reforzando sus conocimientos y ser mejor a la hora de evitar el phishing.",
+        "back_button": "Volver al inicio",
+        "next_button": "Nuevo cuestionario",
         "heavy_subtitle": ""
     },
     "about": {

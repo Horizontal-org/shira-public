@@ -1,91 +1,91 @@
 {
     "welcome": {
-        "title": "Bienvenue à Shira",
-        "subtitle": "Apprenez à détecter et vaincre les tentatives de phishing",
-        "start": "Démarrer le questionnaire"
+        "title": "",
+        "subtitle": "",
+        "start": ""
     },
     "setup": {
         "name": {
-            "title": "Ajouter un nom et une adresse e-mail",
+            "title": "",
             "subtitle": "",
-            "recommendation": "Pour plus de sécurité, vous pouvez utiliser un faux nom et une fausse adresse électronique, ou en générer au hasard.",
-            "name": "Nom",
-            "email": "E-mail",
-            "random_button": "Créez un nom et une adresse e-mail aléatoires",
-            "next_button": "Suivant",
+            "recommendation": "",
+            "name": "",
+            "email": "",
+            "random_button": "",
+            "next_button": "",
             "footer_title": ""
         },
         "apps": {
-            "title": "Quelles applications utilisez-vous ?",
-            "select": "Sélectionnez au moins 1",
-            "footer_title": "Configuration du quiz",
-            "back_button": "Retour",
-            "next_button": "Suivant"
+            "title": "",
+            "select": "",
+            "footer_title": "",
+            "back_button": "",
+            "next_button": ""
         },
         "fields_of_work": {
             "title": "",
-            "select": "Sélectionner jusqu'à 3 éléments",
-            "footer_title": "Configuration du quiz",
-            "back_button": "Retour",
-            "next_button": "Démarrer le quiz"
+            "select": "",
+            "footer_title": "",
+            "back_button": "",
+            "next_button": ""
         }
     },
     "quiz": {
         "how_it_works": {
-            "title": "Comment ça marche",
-            "explanation_1": "Ce quiz contient 10 questions.",
-            "explanation_2": "Pour chaque question, choisissez si le message affiché ressemble à une tentative de phishing ou semble légitime.",
-            "explanation_3": "Si vous n'êtes pas sûr, vous pouvez sélectionner l'option \"Je ne sais pas\".",
-            "footer_title": "Intro du quiz",
+            "title": "",
+            "explanation_1": "",
+            "explanation_2": "",
+            "explanation_3": "",
+            "footer_title": "",
             "next": ""
         },
         "answers": {
             "options": {
-                "unsure": "Je ne sais pas",
-                "legitimate": "Il a l'air légitime",
-                "phising": "On dirait du phishing"
+                "unsure": "",
+                "legitimate": "",
+                "phising": ""
             },
             "results": {
-                "unsure": "« Je ne sais pas »",
-                "correct": "Bon travail !",
-                "incorrect": "Incorrect",
-                "next_button": "Suivant",
+                "unsure": "",
+                "correct": "",
+                "incorrect": "",
+                "next_button": "",
                 "back_button": ""
             }
         }
     },
     "feedback": {
-        "title": "Aidez-nous à nous améliorer",
+        "title": "",
         "subtitle": "",
         "box": {
             "question_1": {
-                "title": "1. Shira est-il facile à utiliser ?",
-                "very_complicated": "Très compliqué",
-                "complicated": "Compliqué",
-                "easy": "Facile",
-                "very_easy": "Très facile"
+                "title": "",
+                "very_complicated": "",
+                "complicated": "",
+                "easy": "",
+                "very_easy": ""
             },
             "question_2": {
-                "title": "2. Quelle est la probabilité que vous recommandiez Shira à vos amis ou collègues ?",
-                "not_likely": "Peu probable",
-                "somewhat_likely": "Assez probable",
-                "likely": "Probable",
-                "very_likely": "Très probable"
+                "title": "",
+                "not_likely": "",
+                "somewhat_likely": "",
+                "likely": "",
+                "very_likely": ""
             },
             "question_3": {
-                "title": "3. Comment pouvons-nous améliorer Shira?",
+                "title": "",
                 "input_placeholder": ""
             },
-            "bottom_text": "Vos commentaires seront envoyés lorsque vous cliquerez sur « voir les résultats »"
+            "bottom_text": ""
         },
-        "footer_title": "Vous avez presque terminé ! Continuez pour voir les résultats de votre quiz et les prochaines étapes recommandées.",
-        "next_button": "Voir les résultats"
+        "footer_title": "",
+        "next_button": ""
     },
     "completed": {
-        "title": "Quiz terminé",
-        "subtitle": "Répondez à un nouveau quiz ou consultez quelques recommandations ci-dessous pour continuer à renforcer vos compétences et mieux éviter le phishing.",
-        "back_button": "Retour a l'accueil",
-        "next_button": "Nouveau quiz",
+        "title": "",
+        "subtitle": "",
+        "back_button": "",
+        "next_button": "",
         "heavy_subtitle": ""
     },
     "about": {
