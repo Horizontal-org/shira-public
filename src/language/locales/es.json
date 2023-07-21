@@ -1,57 +1,58 @@
 {
     "welcome": {
-      "title": "Bienvenide a Shira",
-      "subtitle": "Desarrolla habilidades para detectar y derrotar intentos de phishing",
-      "start": "Comenzar cuestionario"
-    },
+        "title": "Bienvenido a Shira",
+        "subtitle": "Aprenda a detectar y derrotar los intentos de phishing",
+        "start": "Iniciar cuestionario"
+      },
     "setup": {
       "name": {
-        "title": "Crea un nombre y dirección de correo electrónico",
-        "subtitle": "Solicitamos un nombre y dirección de correo electrónico para que el cuestionario de phishing se sienta más realista. Esta información no se guardará, enviará fuera de nuestros servidores ni se compartirá con nadie más",
+        "title": "Agregar un nombre y una dirección de correo electrónico",
+        "subtitle": "Para mayor seguridad, puedes utilizar un nombre y una dirección de correo electrónico falsos o generar otros aleatorios.",
         "recommendation": "Para ser extra seguro/a, puedes usar un nombre y dirección de correo electrónico falsos o generar uno aleatorio.",
         "name": "Nombre",
         "email": "Correo electrónico",
         "footer_title": "Configuración del cuestionario",
-        "random_button": "Crear un nombre y dirección de correo electrónico aleatorios",
+        "random_button": "Crea un nombre y una dirección de correo electrónico aleatorios",
         "next_button": "Siguiente"
       },
       "apps": {
-        "title": "¿Qué aplicaciones utilizas?",
-        "subtitle": "Esto nos ayudará a personalizar las preguntas del cuestionario para que parezcan lo más realistas posible. Esta información no se guardará, enviará fuera de nuestros servidores ni se compartirá con nadie más.",
+        "title": "¿Qué aplicaciones usas?",
         "select": "Selecciona al menos 1",
         "footer_title": "Configuración del cuestionario",
-        "back_button": "Atrás",
+        "back_button": "Volver",
         "next_button": "Siguiente"
       },
       "fields_of_work": {
         "title": "¿En qué campos trabajas?",
         "subtitle": "Esto nos ayudará a personalizar las preguntas del cuestionario para que parezcan lo más realistas posible. Esta información no se guardará, enviará fuera de nuestros servidores ni se compartirá con nadie más.",
-        "select": "Selecciona hasta 3 opciones",
+        "select": "Seleccione hasta 3 artículos",
         "footer_title": "Configuración del cuestionario",
-        "back_button": "Atrás",
+        "back_button": "Volver",
         "next_button": "Siguiente"
       }
     },
     "quiz": {
       "how_it_works": {
         "title": "Cómo funciona",
-        "explanation_1": "Este cuestionario contiene 10 preguntas.",
-        "explanation_2": "Para cada pregunta, selecciona una de las opciones:",
+        "explanation_2": "Para cada pregunta, elige si el mensaje que se muestra parece un intento de phishing o parece legítimo.",
+        "explanation_3": "Si no está seguro, puede seleccionar la opción \"No sé\".",
         "footer_title": "Introducción al cuestionario",
         "next": "OK"
       },
       "answers": {
         "options": {
-          "unsure": "No lo sé",
+          "unsure": "No sé",
           "legitimate": "Parece legítimo",
           "phising": "Parece phishing"
         },
         "results": {
-          "unsure": "“No lo sé”",
+          "unsure": "\"No sé\"",
           "correct": "¡Buen trabajo!",
           "incorrect": "Incorrecto",
           "next_button": "Siguiente",
-          "back_button": "Atrás"
+          "back_button": "Atrás",
+          "bottom-bar_looks-like-phishing": "Algunos elementos de este mensaje sugieren que este podria ser un intento de phishing.",
+          "bottom-bar_looks-legit": "Este mensaje no parece un intento de phishing"
         }
       }
     },
@@ -61,14 +62,14 @@
       "box": {
         "question_1": {
           "title": "1. ¿Qué tan fácil es de usar Shira?",
-          "very_complicated": "Muy difícil",
-          "complicated": "Difícil",
+          "very_complicated": "Muy complicado",
+          "complicated": "Complicado",
           "easy": "Fácil",
           "very_easy": "Muy fácil"
         },
         "question_2": {
           "title": "2. ¿Qué tan probable es que recomiendes Shira a tus amigos o colegas?",
-          "not_likely": "Poco probable",
+          "not_likely": "No es probable",
           "somewhat_likely": "Algo probable",
           "likely": "Probable",
           "very_likely": "Muy probable"
@@ -77,16 +78,16 @@
           "title": "3. ¿Cómo podemos mejorar Shira?",
           "input_placeholder": "Ingresa tus comentarios aquí"
         },
-        "bottom_text": "Tus comentarios se enviarán al hacer clic en 'resultados del cuestionario'"
+        "bottom_text": "Sus comentarios se enviarán cuando haga clic en \"ver resultados\""
       },
-      "footer_title": "¡Casi has terminado! Continúa para ver los resultados del cuestionario y los siguientes pasos recomendados.",
-      "next_button": "Resultados del cuestionario"
+      "footer_title": "¡Ya casi terminaste! Sigue adelante para ver los resultados de tu cuestionario y los próximos pasos recomendados.",
+      "next_button": "Ver resultados"
     },
     "completed": {
       "title": "Cuestionario completado",
       "heavy_subtitle": "Respondiste correctamente {{correctQuestions}} de {{questions}} preguntas.",
-      "subtitle": "Realiza un nuevo cuestionario o consulta algunas recomendaciones a continuación para seguir fortaleciendo tus habilidades y ser mejor en la prevención de phishing.",
-      "back_button": "Inicio",
+      "subtitle": "Realice un nuevo cuestionario o consulte algunas recomendaciones a continuación para seguir reforzando sus conocimientos y ser mejor a la hora de evitar el phishing.",
+      "back_button": "Volver al inicio",
       "next_button": "Nuevo cuestionario"
     },
     "about": {
@@ -116,5 +117,58 @@
       },
       "footer_title": "Contacto",
       "footer_description": "¿Tienes una solicitud de función, un informe de error o simplemente quieres comunicarte con nosotros? Envíanos un correo electrónico a"
-    }
+    },
+    "advisors": {
+      "title": "",
+      "subtitle": "",
+      "person1": {
+          "name": "Amir Rashidi",
+          "job": "Director of Digital Rights and Security, Miaan"
+      },
+      "person2": {
+          "name": "Cheekay Cinco",
+          "job": "Digital Security Trainer and Facilitator"
+      },
+      "person3": {
+          "name": "Esther Onfroy",
+          "job": "Co-founder, Defensive Lab Agency"
+      },
+      "person4": {
+          "name": "Happy Ayomirwoth Ongi",
+          "job": "Digital security Consultant and Facilitator"
+      },
+      "person5": {
+          "name": "Harlo Holmes",
+          "job": "Chief Information Security Officer & Director of Digital Security at Freedom of the Press Foundation"
+      },
+      "person6": {
+          "name": "Lobsang Gyatso",
+          "job": "Director of Technology, Tibet Action Institute"
+      },
+      "person7": {
+          "name": "Mario Felaco",
+          "job": "Executive Director, Conexo"
+      },
+      "person8": {
+          "name": "Mohammed Al-Maskati",
+          "job": "Security researcher"
+      },
+      "person9": {
+          "name": "Nick Carr",
+          "job": "Cyber Crime Intelligence & Adversary Tradecraft, Microsoft"
+      },
+      "person10": {
+          "name": "Sadibou Sow",
+          "job": "Educational Technology Consultant"
+      },
+      "person11": {
+          "name": "Trinh Nguyen",
+          "job": "Holistic Security Trainer, Article19"
+      }
+  },
+  "bring": {
+      "title": "",
+      "section1": "",
+      "section2": ""
+  }
   }

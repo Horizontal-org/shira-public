@@ -57,6 +57,7 @@ const Wrapper = styled.div`
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     padding: 8px;
   }
+  z-index: 99999;
 `
 
 const LeftContent = styled.div`
