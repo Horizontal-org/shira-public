@@ -49,7 +49,9 @@
                 "unsure": "« Je ne sais pas »",
                 "correct": "Bon travail !",
                 "incorrect": "Incorrect",
-                "next_button": "Suivant"
+                "next_button": "Suivant",
+                "bottom-bar_looks-like-phishing": "Ce message ressemble à une tentative de phishing",
+                "bottom-bar_looks-legit": "Ce message ne ressemble pas à une tentative de phishing."
             }
         }
     },
