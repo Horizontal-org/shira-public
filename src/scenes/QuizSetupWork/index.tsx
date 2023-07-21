@@ -52,11 +52,11 @@ export const QuizSetupWorkScene: FunctionComponent<Props> = () => {
                   if (selected.includes(a.id + '')) {
                     newSelected = selected.filter(s => s !== (a.id + ''))
                   } else {
-                    newSelected.push(a.id + '')
+                    if(selected.length < 3) {
+                      newSelected.push(a.id + '')
+                    }
                   }
-                  if(selected.length < 3) {
-                    handleSelected(newSelected)
-                  }
+                  handleSelected(newSelected)
                 }}
               />
             ))}
