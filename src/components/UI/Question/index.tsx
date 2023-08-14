@@ -47,6 +47,18 @@ export const Question: FunctionComponent<Props> = ({
       .map(e => parseInt(e.index))
 
     handleExplanationsOrder(order)
+
+    const anchorElements = document.querySelectorAll('a')
+
+    anchorElements.forEach((element) => {
+      element.addEventListener('click', (event) => {
+        event.preventDefault()
+      })
+
+      element.addEventListener('contextmenu', (event) => {
+        event.preventDefault()
+      })
+    })
   }, [])
 
   useEffect(() => {
