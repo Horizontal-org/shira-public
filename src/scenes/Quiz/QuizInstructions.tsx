@@ -25,11 +25,6 @@ export const QuizInstructions:FunctionComponent<Props> = ({
   return (
     <SceneWithFooter>
       <Wrapper>
-        {width > 1026 &&(
-          <div>
-            <HowItWorks />
-          </div>
-        )}
         <InfoWrapper>
           <Heading>{t('quiz.how_it_works.title')}</Heading>
             <p>{t('quiz.how_it_works.explanation_1')}</p>
@@ -79,6 +74,10 @@ const Wrapper = styled.div`
     height: 90vh;
     margin: 0 auto;
   }
+
+  @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+    height: 85vh;
+  }
 `
 
 const InfoWrapper = styled.div`
@@ -99,6 +98,13 @@ const InfoWrapper = styled.div`
       font-weight: 300;
       font-size: 21px;
       line-height: 29px;
+    }
+  }
+
+  @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+    height: 400px;
+    > h2 {
+      line-height: 32px;
     }
   }
 `

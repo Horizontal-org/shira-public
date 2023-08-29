@@ -166,6 +166,12 @@ const UserAnswerWrapper = styled.div<{hide?: boolean}>`
     }
   }
 
+  @media(max-width: ${props => props.theme.breakpoints.lg}) {
+    >p {
+      font-size: 18px;
+    }
+  }
+
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     padding-left: 16px;
     display: block;
