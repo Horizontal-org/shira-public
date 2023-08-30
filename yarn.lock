@@ -11647,13 +11647,13 @@
     "iterate-value" "^1.0.2"
 
 "promise.prototype.finally@^3.1.0":
-  "integrity" "sha512-nNc3YbgMfLzqtqvO/q5DP6RR0SiHI9pUPGzyDf1q+usTwCN2kjvAnJkBb7bHe3o+fFSBPpsGMoYtaSi+LTNqng=="
-  "resolved" "https://registry.npmjs.org/promise.prototype.finally/-/promise.prototype.finally-3.1.4.tgz"
-  "version" "3.1.4"
+  "integrity" "sha512-4TQ3Dk8yyUZGyU+UXInKdkQ2b6xtiBXAIScGAtGnXVmJtG1uOrxRgbF1ggIu72uzoWFzUfT3nUKa1SuMm9NBdg=="
+  "resolved" "https://registry.npmjs.org/promise.prototype.finally/-/promise.prototype.finally-3.1.5.tgz"
+  "version" "3.1.5"
   dependencies:
     "call-bind" "^1.0.2"
-    "define-properties" "^1.1.4"
-    "es-abstract" "^1.20.4"
+    "define-properties" "^1.2.0"
+    "es-abstract" "^1.22.1"
 
 "promise@^8.1.0":
   "integrity" "sha512-W04AqnILOL/sPRXziNicCjSNRruLAuIHEOVBazepu0545DDNGYHz7ar9ZgZ1fMU8/MA4mVxp5rkBWRi6OXIy3Q=="
@@ -13411,13 +13411,13 @@
     "es-abstract" "^1.20.4"
 
 "string.prototype.padstart@^3.0.0":
-  "integrity" "sha512-XqOHj8horGsF+zwxraBvMTkBFM28sS/jHBJajh17JtJKA92qazidiQbLosV4UA18azvLOVKYo/E3g3T9Y5826w=="
-  "resolved" "https://registry.npmjs.org/string.prototype.padstart/-/string.prototype.padstart-3.1.4.tgz"
-  "version" "3.1.4"
+  "integrity" "sha512-R57IsE3JIfModQWrVXYZ8ZHWMBNDpIoniDwhYCR1nx+iHwDkjjk26a8xM9BYgf7SAXJO7sdNPng5J+0ccr5LFQ=="
+  "resolved" "https://registry.npmjs.org/string.prototype.padstart/-/string.prototype.padstart-3.1.5.tgz"
+  "version" "3.1.5"
   dependencies:
     "call-bind" "^1.0.2"
-    "define-properties" "^1.1.4"
-    "es-abstract" "^1.20.4"
+    "define-properties" "^1.2.0"
+    "es-abstract" "^1.22.1"
 
 "string.prototype.trim@^1.2.7":
   "integrity" "sha512-p6TmeT1T3411M8Cgg9wBTMRtY2q9+PNy9EV1i2lIXUN/btt763oIfxwN3RR8VU6wHX8j/1CFy0L+YuThm6bgOg=="

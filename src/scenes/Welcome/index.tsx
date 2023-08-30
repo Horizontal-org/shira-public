@@ -12,13 +12,13 @@ import  {DAPClient} from 'divviup-ts/packages/dap'
 const mockBatch = () => {
   let count = 0
   setInterval(() => {
-    if (count < 90) {
+    if (count < 120) {
       const client = new DAPClient({
         "type": "count",
-        "taskId": "AvKQ0XUl3GljERZbhrlV6vkXp-rqm0XIGXcRbD5PJFw",
+        "taskId": "BflLM7xjTancTdtEMdlaKYIlmxOSVeYWm-3AzL0ld9k",
         "leader": "https://dap-04.api.divviup.org/",
         "helper": "https://helper.shira.app/",
-        "timePrecisionSeconds": 300
+        "timePrecisionSeconds": 60
       });
   
       client.sendMeasurement(true)
@@ -35,7 +35,7 @@ export const WelcomeScene: FunctionComponent = () => {
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    // mockBatch()
+    mockBatch()
   }, [])
   
   return (
