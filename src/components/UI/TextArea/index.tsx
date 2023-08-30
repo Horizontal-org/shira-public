@@ -28,7 +28,7 @@ const StyledInput = styled.textarea`
   appearance: none;
 
   width: 95%;
-  height: 112px;
+  height: 90px;
 
   font-family: 'Open Sans';
   font-style: normal;
