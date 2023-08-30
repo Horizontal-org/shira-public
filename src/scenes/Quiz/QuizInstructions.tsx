@@ -106,6 +106,11 @@ const InfoWrapper = styled.div`
     > h2 {
       line-height: 32px;
     }
+
+    > p {
+      font-size: 18px;
+      line-height: 21px;
+    }
   }
 `
 

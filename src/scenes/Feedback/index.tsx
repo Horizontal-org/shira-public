@@ -135,6 +135,12 @@ const Box = styled.div`
     }
   }
 
+  >div {
+    @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+      margin-top: 0;
+    }
+  }
+
   @media(max-width: ${props => props.theme.breakpoints.xs}) {
     h2{
       color: ${props => props.theme.colors.green6};

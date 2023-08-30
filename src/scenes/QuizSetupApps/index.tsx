@@ -97,4 +97,9 @@ const Apps = styled.div`
   @media (max-width:  ${props => props.theme.breakpoints.sm}) {
     gap: 40px 12px;
   }
+
+  @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+    padding-top: 0px;
+    gap: 20px 20px;
+  }
 `

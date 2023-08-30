@@ -130,6 +130,9 @@ export const QuizSetupNameScene: FunctionComponent<Props> = () => {
 
 const FormContent = styled.div`
   padding-top: 20px;
+  @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+    padding-top: 0;
+  }
 `
 
 const FormButton = styled.div`
