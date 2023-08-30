@@ -55,12 +55,12 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   all: unset;
+  -webkit-tap-highlight-color: transparent;
   border-radius: 100px;
   padding: 12px 20px;
   cursor: pointer;
   font-weight: 400;
   display: flex;
-  
   justify-content: space-between;
   align-items: center;
 
