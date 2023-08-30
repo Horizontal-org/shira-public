@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import styled from 'styled-components'
 import { Button } from "../../components/UI/Button";
 import { Navbar } from "../../components/UI/Navbar";
@@ -7,11 +7,37 @@ import { Select } from "../../components/UI/Select";
 import { FiChevronRight } from 'react-icons/fi'
 import { useStore } from "../../store";
 import { useTranslation } from "react-i18next";
+import  {DAPClient} from 'divviup-ts/packages/dap'
+
+const mockBatch = () => {
+  let count = 0
+  setInterval(() => {
+    if (count < 90) {
+      const client = new DAPClient({
+        "type": "count",
+        "taskId": "AvKQ0XUl3GljERZbhrlV6vkXp-rqm0XIGXcRbD5PJFw",
+        "leader": "https://dap-04.api.divviup.org/",
+        "helper": "https://helper.shira.app/",
+        "timePrecisionSeconds": 300
+      });
+  
+      client.sendMeasurement(true)
+      count = count + 1
+      console.log('sent ', count)
+    } else {
+      console.log('finished ')
+    }
+  }, 2000)
+}
 
 export const WelcomeScene: FunctionComponent = () => {  
   const changeScene = useStore((state) => state.changeScene)
   const { t, i18n } = useTranslation()
 
+  useEffect(() => {
+    // mockBatch()
+  }, [])
+  
   return (
     <SceneWrapper bg='white'>
       <Navbar />
