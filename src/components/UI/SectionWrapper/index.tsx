@@ -29,4 +29,8 @@ export const Wrapper = styled.div`
     align-items: center;
     height: 80vh;
   }
+
+  @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+    margin-top: 20px;
+  }
 `
