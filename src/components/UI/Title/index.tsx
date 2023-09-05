@@ -16,6 +16,10 @@ export const Heading = styled(Title)`
   font-size: 60px;
   line-height: 81px;
 
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    font-size: 48px;
+    line-height: 65px;
+  }
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: 40px;
     line-height: 54px;
