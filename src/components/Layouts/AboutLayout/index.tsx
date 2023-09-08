@@ -81,7 +81,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
               text={t('about.why_shira.security_audit_cta')}
               type="primary"
               leftIcon={<ReadIcon />}
-              onClick={() => {}}
+              onClick={() => {window.open('/src/files/shira-security-audit.pdf')}}
             />
           </ButtonsWrapper>
 
