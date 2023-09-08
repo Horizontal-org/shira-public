@@ -81,7 +81,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
               text={t('about.why_shira.security_audit_cta')}
               type="primary"
               leftIcon={<ReadIcon />}
-              onClick={() => {}}
+              onClick={() => {window.open('https://drive.google.com/file/d/1TNf33bkFOZpUhl5adXVzaIB7arRe1vUB/view?usp=sharing'}}
             />
           </ButtonsWrapper>
 
