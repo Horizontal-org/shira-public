@@ -6,8 +6,10 @@ import { FiHome } from 'react-icons/fi'
 import { HiOutlineRefresh } from 'react-icons/hi'
 import styled from 'styled-components'
 import { Button } from '../../components/UI/Button'
-import CompletedIcon from '../../components/UI/Icons/Completed'
+
+import CompletedIcon from './assets/CompletedIcon'
 import CompletedMobile from '../../components/UI/Icons/CompletedMobile'
+
 import { Subtitle } from '../../components/UI/Subtitle'
 import { Heading } from '../../components/UI/Title'
 import { useStore } from '../../store'
@@ -43,8 +45,8 @@ export const CompletedScene: FunctionComponent<Props> = () => {
           </HeavySubtitle>
           {width < 800 && (
             <MobileIconWrapper>
-              <CompletedMobile />
-            </MobileIconWrapper>  
+              <CompletedIcon />
+            </MobileIconWrapper>
           )}
           <InfoSubtitle>{ t('completed.subtitle') }</InfoSubtitle>
 
@@ -52,10 +54,7 @@ export const CompletedScene: FunctionComponent<Props> = () => {
 
         {width > 800 && (
           <div>
-            <CompletedIcon 
-              width={318}
-              height={312}
-            />
+            <CompletedIcon />
           </div>
         )}
       </StyledSectionWrapper>
@@ -141,4 +140,8 @@ const StyledSectionWrapper = styled.div`
 const MobileIconWrapper = styled.div`
   display: flex;
   justify-content: center;
+
+  > svg {
+    width: 300px;
+  }
 `

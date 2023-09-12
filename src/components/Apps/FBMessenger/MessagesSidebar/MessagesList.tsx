@@ -9,9 +9,9 @@ const MessagesList: FunctionComponent = () => {
         <ProfilePicture />
 
         <MessageInfo>
-          <div>Name</div>
+          <div>Roseanna</div>
           <SecondaryText>
-            <span> Some Message . 1 day ago</span>
+            <span> Hello there. Thanks for the follow . 1 day ago</span>
           </SecondaryText>
         </MessageInfo>
 
@@ -21,9 +21,9 @@ const MessagesList: FunctionComponent = () => {
         <ProfilePicture />
 
         <MessageInfo>
-          <div>Name</div>
+          <div>Erica</div>
           <SecondaryText>
-            <span> Some Message . 1 day ago</span>
+            <span> Thanks mate! . 2 days ago</span>
           </SecondaryText>
         </MessageInfo>
 
@@ -33,9 +33,9 @@ const MessagesList: FunctionComponent = () => {
         <ProfilePicture />
 
         <MessageInfo>
-          <div>Name</div>
+          <div>Pauline</div>
           <SecondaryText>
-            <span> Some Message . 1 day ago</span>
+            <span> Feel way better now . 1 day ago</span>
           </SecondaryText>
         </MessageInfo>
 
@@ -45,9 +45,9 @@ const MessagesList: FunctionComponent = () => {
         <ProfilePicture />
 
         <MessageInfo>
-          <div>Name</div>
+          <div>Jose</div>
           <SecondaryText>
-            <span> Some Message . 1 day ago</span>
+            <span> Did you notice? . 1 day ago</span>
           </SecondaryText>
         </MessageInfo>
 
