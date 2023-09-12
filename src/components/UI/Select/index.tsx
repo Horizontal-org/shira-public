@@ -61,6 +61,7 @@ export const LanguageSelect: FunctionComponent<Props> = ({
           <Options>
             { options.map((o, i) => (
               <Option 
+                key={o.value}
                 option={o}
                 index={i}
                 submit={() => {

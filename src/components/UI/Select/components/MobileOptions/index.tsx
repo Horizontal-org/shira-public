@@ -67,6 +67,7 @@ const Wrapper = styled.div`
 
   @media (max-width: ${props => props.theme.breakpoints.xs}) {
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
 

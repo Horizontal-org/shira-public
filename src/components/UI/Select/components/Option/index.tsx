@@ -15,13 +15,13 @@ export const Option: FunctionComponent<Props> = ({
 }) => {
 
   return (
-    <OptionWrapper>
+        
+      <OptionWrapper onClick={submit}>
       { index > 0 && (
         <Separate />
       )}
       <Label 
         key={option.value}
-        onClick={submit}
       >
         { option.label }
       </Label>

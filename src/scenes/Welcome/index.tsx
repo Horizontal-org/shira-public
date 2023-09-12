@@ -48,15 +48,15 @@ export const WelcomeScene: FunctionComponent = () => {
                     labelEnglish: 'Spanish',
                     value: 'es'
                   },
+                  // {
+                  //   label: 'Français',
+                  //   labelEnglish: 'French',
+                  //   value: 'fr'
+                  // },
                   {
-                    label: 'Français',
-                    labelEnglish: 'French',
-                    value: 'fr'
-                  },
-                  {
-                    label: 'Mandarin',
+                    label: '普通话',
                     labelEnglish: 'Mandarin',
-                    value: 'mn'
+                    value: 'zh_CN'
                   }
                 ]}
               />
