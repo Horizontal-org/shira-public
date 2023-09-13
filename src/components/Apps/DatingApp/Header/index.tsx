@@ -41,7 +41,7 @@ export const Header: FunctionComponent<Props> = ({ phone }) => {
 }
 
 const Wrapper = styled.div`
-  padding: 0 8px;
+  padding: 0 8px 8px 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const SectionWrapper = styled.div<{ size?: string }>`
+  z-index: 2;
+  position: relative; 
   padding: 32px 24px;
   background: #fff;
   @media (min-width:  ${props => props.theme.breakpoints.xs}) {

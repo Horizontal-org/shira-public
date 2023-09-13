@@ -7,20 +7,25 @@ import { Heading } from "../../UI/Title";
 import { Button } from "../../UI/Button";
 import HorizontalLogo from "../../UI/Icons/Horizontal";
 import ReadIcon from './assets/ReadIcon'
+import Background from './assets/backgroundabout.svg'
+import { useNavigate } from "react-router-dom";
 
 interface Props {}
 
 export const AboutLayout: FunctionComponent<Props> = () => {
   const { t } = useTranslation()
+  let navigate = useNavigate()
   const bringShiraRef = useRef(null)
 
   return (
     <AboutSceneWrapper bg='white'>
+      <BackgroundWrapper>
+        <img src={Background} alt='background-image' />
+      </BackgroundWrapper>
       <Navbar color="#DBE3A3"/>
       <AboutWrapper>
         <Heading>{t('about.title')}</Heading>
         <p>{t('about.subtitle')}</p>
-        {/* COMMENTING OUT FOR NOW
         <HeaderButtonWrapper>
           <Button
             text={t('about.bring_shira_button')}
@@ -28,7 +33,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
             onClick={() => {bringShiraRef.current.scrollIntoView() }}
           />
         </HeaderButtonWrapper>
-        */}
+       
       </AboutWrapper>
       <ContentWrapper>
         <SectionWrapper>
@@ -74,14 +79,14 @@ export const AboutLayout: FunctionComponent<Props> = () => {
               text={t('about.why_shira.privacy_policy_cta')}
               type="primary"
               leftIcon={<ReadIcon />}
-              onClick={() => {}}
+              onClick={() => { navigate('/privacy') }}
             />
 
             <Button
               text={t('about.why_shira.security_audit_cta')}
               type="primary"
               leftIcon={<ReadIcon />}
-              onClick={() => {window.open('https://drive.google.com/file/d/1TNf33bkFOZpUhl5adXVzaIB7arRe1vUB/view?usp=sharing'}}
+              onClick={() => { window.open('https://drive.google.com/file/d/1TNf33bkFOZpUhl5adXVzaIB7arRe1vUB/view') }}
             />
           </ButtonsWrapper>
 
@@ -206,13 +211,29 @@ const HeaderButtonWrapper = styled.div`
   justify-content: center;
 `
 
+const BackgroundWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  > img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+`
+
 const AboutWrapper = styled.div`
   text-align: center;
-  padding: 24px;
-  padding-bottom: 60px;
-  background: ${props => props.theme.colors.green2}};
+  padding: -60px 24px 60px 24px;
+  z-index: 2;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   p {
-    margin: 0 auto;
+    margin: 20px 0;
     font-weight: 600;
     font-size: 24px;
     line-height: 33px;
@@ -297,7 +318,7 @@ const Advisor = styled.div`
 
   > p {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 600;    
   }
 
   > div {
@@ -395,7 +416,11 @@ const ContactWrapper = styled.div`
 `
 
 
-const AboutSceneWrapper = styled(SceneWrapper)``
+const AboutSceneWrapper = styled(SceneWrapper)`
+  position: relative;
+
+
+`
 
 
 const ContentWrapper = styled.div`  

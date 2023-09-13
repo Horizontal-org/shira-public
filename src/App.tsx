@@ -10,6 +10,7 @@ import { AboutLayout } from "./components/Layouts/AboutLayout";
 import { ToastProvider } from "./hooks/useToast";
 import theme from "./utils/theme";
 import './language/i18n'
+import { PrivacyLayout } from "./components/Layouts/PrivacyLayout";
 
 interface Props {}
 
@@ -22,6 +23,7 @@ const App: FunctionComponent<Props> = () => {
             <Routes>          
               <Route path="/" element={<MainLayout />} />
               <Route path="/about" element={<AboutLayout />} />
+              <Route path='/privacy' element={<PrivacyLayout />} />
             </Routes>
           </BrowserRouter>
         </ThemeProvider>
