@@ -1,5 +1,6 @@
 export default {
   breakpoints: {
+    'xl': '1700px',
     'lg': '1440px',
     'md': '1024px',
     'sm': '800px',

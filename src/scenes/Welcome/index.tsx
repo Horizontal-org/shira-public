@@ -94,7 +94,7 @@ const CenterWrapper = styled.div`
 
 const GreenFishWrapper = styled.div`
   display: flex;
-  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+  @media (max-width: ${props => props.theme.breakpoints.xl}) {
     > svg {
       width: 410px;
       height: 348px;
@@ -115,7 +115,7 @@ const GreenFishWrapper = styled.div`
     box-sizing: border-box;
     padding: 10px;
   
-    > svg {
+  > svg {
       width: 230px;
       height: 199px;
     }
@@ -159,6 +159,17 @@ const MailHookWrapper = styled.div`
     }
   }
 
+  @media(max-width: ${props => props.theme.breakpoints.lg}) and (min-width: ${props => props.theme.breakpoints.md}) {
+    > svg {
+      width: 101px;
+      height: 167px;
+    }
+  }
+
+  @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+    display: none;
+  }
+
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     > svg {
@@ -173,10 +184,13 @@ const MailHookWrapper = styled.div`
 `
 
 const Content = styled.div`
-  height: 530px;
+  height: 500px;
   display: flex;
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media(max-width: ${props => props.theme.breakpoints.lg}) and (min-width: ${props => props.theme.breakpoints.md}) {
+    height: 480px;
+  }
+  @media (max-width: 850px) {
     flex-direction: column;
     align-items: center;
   }
