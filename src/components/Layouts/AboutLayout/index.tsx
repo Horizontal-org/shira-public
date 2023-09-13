@@ -25,15 +25,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
       <Navbar color="#DBE3A3"/>
       <AboutWrapper>
         <Heading>{t('about.title')}</Heading>
-        <p>{t('about.subtitle')}</p>
-        <HeaderButtonWrapper>
-          <Button
-            text={t('about.bring_shira_button')}
-            type="outline"
-            onClick={() => {bringShiraRef.current.scrollIntoView() }}
-          />
-        </HeaderButtonWrapper>
-       
+        <p>{t('about.subtitle')}</p>       
       </AboutWrapper>
       <ContentWrapper>
         <SectionWrapper>
