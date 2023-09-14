@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { GlobalStyle } from '../../utils/storybook';
-import { Select } from '../../components/UI/Select';
+import { LanguageSelect } from '../../components/UI/Select';
 
 export default {
   title: 'UI/Select',
-  component: Select,
+  component: LanguageSelect,
   parameters: {
     layout: 'padded',
   },
@@ -17,9 +17,9 @@ export default {
       </div>
     ),
   ]
-} as ComponentMeta<typeof Select>;
+} as ComponentMeta<typeof LanguageSelect>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof LanguageSelect> = (args) => <LanguageSelect {...args} />;
 
 export const Default = Template.bind({})
 Default.args = {

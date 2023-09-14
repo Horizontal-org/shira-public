@@ -120,6 +120,7 @@ const FeedbackHeading = styled.div`
 `
 
 const Box = styled.div`
+  
   @media (min-width: ${props => props.theme.breakpoints.xs}) {
     margin-top: 40px;
   }
