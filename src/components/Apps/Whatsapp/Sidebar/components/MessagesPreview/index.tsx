@@ -2,8 +2,30 @@ import { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import ProfilePicture from '../../../ProfilePicture'
 
-const parseMessages: any = () => {
-  let message = (
+interface Props {}
+
+const MessagesPreview: FunctionComponent<Props> = () => {
+  return (
+    <Wrapper>
+      <Messages>
+      <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Mark Curry</span>
+          </Username>
+          <Time>
+            12:04 PM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        On second thoughts, let's not go there        </MessageContent>
+      </UserInfo>
+    </Message>
+
     <Message>
       <PictureWrapper>
         <ProfilePicture imageSize='49px' />
@@ -11,33 +33,148 @@ const parseMessages: any = () => {
       <UserInfo>
         <UserInfoFirstRow>
           <Username>
-            <span>Juan Dans</span>
+            <span>Ruby Mejia</span>
+          </Username>
+          <Time>
+            11:00 AM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        Well, I didn't vote for you        </MessageContent>
+      </UserInfo>
+    </Message>
+
+    <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Connie Zamora</span>
+          </Username>
+          <Time>
+            09:47 PM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        Can you put it on my calendar?        </MessageContent>
+      </UserInfo>
+    </Message>
+
+    <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Farrah Guerra</span>
+          </Username>
+          <Time>
+            03:03 AM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        I am attempting to harness the innate energy of cyclic harmonic repitition        </MessageContent>
+      </UserInfo>
+    </Message>
+
+    <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Annabel Carpenter</span>
+          </Username>
+          <Time>
+            12:45 AM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        what about scaling components to a global audience?
+        </MessageContent>
+      </UserInfo>
+    </Message>
+
+    <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Jesse Bass
+</span>
+          </Username>
+          <Time>
+            05:05 PM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        I can't get involved! I've got work to do!        </MessageContent>
+      </UserInfo>
+    </Message>
+
+    <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Reggie Ramos</span>
+          </Username>
+          <Time>
+            01:34 PM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        I care deeply for nature       
+        </MessageContent>
+      </UserInfo>
+    </Message>
+
+    <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Morgan Buchanan</span>
+          </Username>
+          <Time>
+            09:03 PM
+          </Time>
+        </UserInfoFirstRow>
+        <MessageContent>
+        Oh, I think we should just stay friends.
+        </MessageContent>
+      </UserInfo>
+    </Message>
+
+    <Message>
+      <PictureWrapper>
+        <ProfilePicture imageSize='49px' />
+      </PictureWrapper>
+      <UserInfo>
+        <UserInfoFirstRow>
+          <Username>
+            <span>Kareem Salinas
+</span>
           </Username>
           <Time>
             12:40 PM
           </Time>
         </UserInfoFirstRow>
         <MessageContent>
-          Chromatic automates gathering UI feedback, visual testing, and documentation, so developers can iterate faster with less manual work.
+        I'm sorry, guys. I never meant to hurt you
         </MessageContent>
       </UserInfo>
     </Message>
-  )
-
-  let messages = Array.from(Array(10).keys()).map((m, i) => {
-    return message
-  })
-
-  return messages
-}
-
-interface Props {}
-
-const MessagesPreview: FunctionComponent<Props> = () => {
-  return (
-    <Wrapper>
-      <Messages>
-        { parseMessages() }
       </Messages>
     </Wrapper>
   )

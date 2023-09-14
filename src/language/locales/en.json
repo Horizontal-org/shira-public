@@ -1,8 +1,13 @@
 {
     "welcome": {
         "title": "Welcome to Shira",
-        "subtitle": "Learn to detect and defeat phishing attempts",
+        "subtitle": "Learn to identify and defeat phishing attempts",
         "start": "Start quiz"
+    },
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "menu": "Menu"
     },
     "setup": {
         "name": {
@@ -50,9 +55,7 @@
                 "correct": "Good job!",
                 "incorrect": "Incorrect",
                 "next_button": "Next",
-                "back_button": "Back",
-                "bottom-bar_looks-like-phishing": "Some elements suggest that this message may be a phishing attempt.",
-                "bottom-bar_looks-legit": "This message does not look like a phishing attempt."
+                "back_button": "Back"
             }
         }
     },

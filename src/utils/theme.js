@@ -1,5 +1,6 @@
 export default {
   breakpoints: {
+    'xl': '1700px',
     'lg': '1440px',
     'md': '1024px',
     'sm': '800px',
@@ -13,6 +14,7 @@ export default {
     dark: '#2693C2'
   },
   secondary: {
+    veryDark: '#3F6A3A',
     dark: '#9DB149',
     base: '#C1D24B',
     light: '#ECF3CC'

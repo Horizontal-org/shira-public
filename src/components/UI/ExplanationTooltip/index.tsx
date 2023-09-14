@@ -49,11 +49,6 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
       if (parentDiv) {
         parentDiv.style.zIndex = '0';
       }
-      if(parentDiv.tagName.toLocaleLowerCase() === 'p') {
-        const div = parentDiv.parentElement as HTMLElement
-        const highlited = div?.parentElement as HTMLElement
-        highlited.style.zIndex = '0'
-      }
     })
     
     // here we should highlight the current explanation
@@ -65,12 +60,6 @@ const ExplanationTooltip: FunctionComponent<Props> = ({
   
         if (parentDiv) {
           parentDiv.style.zIndex = '4';
-        }
-  
-        if(parentDiv.tagName.toLocaleLowerCase() === 'p') {
-          const div = parentDiv.parentElement as HTMLElement
-          const highlited = div?.parentElement as HTMLElement
-          highlited.style.zIndex = '4'
         }
       }
     })

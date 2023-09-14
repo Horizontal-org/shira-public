@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const SectionWrapper = styled.div<{ size?: string }>`
+  z-index: 2;
+  position: relative; 
   padding: 32px 24px;
   background: #fff;
   @media (min-width:  ${props => props.theme.breakpoints.xs}) {
@@ -28,5 +30,9 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 80vh;
+  }
+
+  @media(min-width: ${props => props.theme.breakpoints.md}) and (max-height: 680px) {
+    margin-top: 20px;
   }
 `
