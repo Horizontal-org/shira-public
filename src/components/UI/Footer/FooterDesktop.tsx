@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { VscClose } from 'react-icons/vsc'
 import { useStore } from "../../../store";
 import { Dialog } from "../Dialog";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   title?: string;
@@ -14,6 +15,7 @@ export const FooterDesktop: FunctionComponent<Props> = ({
   title,
   action,
 }) => {
+  const { t } = useTranslation()
   const changeScene = useStore((state) => state.changeScene)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
@@ -33,10 +35,10 @@ export const FooterDesktop: FunctionComponent<Props> = ({
       <Dialog
         isOpen={isDialogOpen}
         setIsOpen={setIsDialogOpen} 
-        title="Exit quiz?"
-        description="Are you sure you want to exit the quiz? Your progress will be lost."
+        title={t('quiz.exit.title')}
+        description={t('quiz.exit.description')}
         action={() => { changeScene('welcome') }}
-        actionDescription="Exit quiz"
+        actionDescription={t('quiz.exit.action_description')}
       />
     </Wrapper>
   )
