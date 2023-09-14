@@ -63,6 +63,7 @@
                 "correct": "Good job!",
                 "incorrect": "Incorrect",
                 "next_button": "Next",
+                "next_question": "Next Question",
                 "back_button": "Back",
                 "see_why": "See why",
                 "bottom-bar_looks-legit": "This message does not look like a phishing attempt.",
