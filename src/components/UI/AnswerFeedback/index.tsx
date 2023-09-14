@@ -98,7 +98,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
             explanationsLength > 0 && !showExplanations && (
               <ActionButtonsWrapper size="lg">
                 <Button 
-                  text='See Why'
+                  text={t('quiz.answers.results.see_why')}
                   size={width < 490 ? 'lg' : 'md'}
                   type='primary'
                   onClick={() => handleShowExplanations(true)}

@@ -32,7 +32,15 @@
             "select": "Seleccione hasta 3 artículos",
             "footer_title": "Configuración del cuestionario",
             "back_button": "Volver",
-            "next_button": "Iniciar cuestionario"
+            "next_button": "Iniciar cuestionario",
+            "items" : {
+                "human-rights": "Derechos Humanos",
+                "journalism-and-media": "Periodismo y comunicación",
+                "education": "Academia",
+                "marketing": "Marketing",
+                "healthcare": "Salud",
+                "general": "General"
+            }
         }
     },
     "quiz": {
@@ -55,7 +63,10 @@
                 "correct": "¡Buen trabajo!",
                 "incorrect": "Incorrecto",
                 "next_button": "Siguiente",
-                "back_button": "Atrás"
+                "back_button": "Atrás",
+                "See why": "Ver por qué",
+                "bottom-bar_looks-legit": "Este mensaje no parece un intento de phishing.",
+                "bottom-bar_looks-like-phishing": "Algunos elementos sugieren que este mensaje puede ser un intento de phishing."
             }
         }
     },
