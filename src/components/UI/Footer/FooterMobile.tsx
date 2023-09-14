@@ -4,6 +4,7 @@ import { VscClose } from 'react-icons/vsc'
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { useStore } from "../../../store";
 import { Dialog } from "../Dialog";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   title?: string;
@@ -22,6 +23,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
   handleIsExpanded,
   showExplanations
 }) => {
+  const { t } = useTranslation()  
   const changeScene = useStore((state) => state.changeScene)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const toggleDropdown = () => {
@@ -46,7 +48,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
                 <CloseButton isExpanded={isExpanded} onClick={() => setIsDialogOpen(!isDialogOpen) }>
                   <VscClose size={24} color='#A51D0F' />
                 </CloseButton>
-                <ExitText>Exit quiz</ExitText>
+                <ExitText>{t('quiz.exit.action_description')}</ExitText>
               </LeftContent>
             )}
             <DropdownOpen onClick={toggleDropdown}>
@@ -67,10 +69,10 @@ export const FooterMobile: FunctionComponent<Props> = ({
       <Dialog
         isOpen={isDialogOpen}
         setIsOpen={setIsDialogOpen} 
-        title="Exit quiz?"
-        description="Are you sure you want to exit the quiz? Your progress will be lost."
+        title={t('quiz.exit.title')}
+        description={t('quiz.exit.description')}
         action={() => { changeScene('welcome') }}
-        actionDescription="Exit quiz"
+        actionDescription={t('quiz.exit.action_description')}
       />
     </Container>
   )
