@@ -68,13 +68,13 @@
                 "bottom-bar_looks-legit": "该信息不像是网络钓鱼。",
                 "bottom-bar_looks-like-phishing": "某些内容表明，该消息可能是网络钓鱼。",
                 "see_why": "了解原因"
-            },
-            "exit": {
-                "title": "出口测验",
-                "action_description": "退出测验",
-                "description": "您确定要退出测验吗？您的进度将不会被保存",
-                "cancel": "取消"
             }
+        },
+        "exit": {
+            "title": "出口测验",
+            "action_description": "退出测验",
+            "description": "您确定要退出测验吗？您的进度将不会被保存",
+            "cancel": "取消"
         }
     },
     "feedback": {
