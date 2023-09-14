@@ -6,6 +6,7 @@ import { NavigateFunction } from "react-router-dom";
 import CloseIcon from '../CloseIcon'
 import HomeIcon from '../HomeIcon'
 import AboutIcon from '../AboutIcon'
+import { useTranslation } from "react-i18next";
 
 interface Props {
   onNavigate: (route: string) => void;
@@ -16,6 +17,7 @@ export const MobileMenu: FunctionComponent<Props> = ({
   onClose,
   onNavigate
 }) => {
+  const { t } = useTranslation()
 
   return (
     <Wrapper>
@@ -33,7 +35,7 @@ export const MobileMenu: FunctionComponent<Props> = ({
           <HomeIcon />
         </SvgWrapper>
         <p>
-          Home
+        {t('navbar.home')}
         </p>
       </Nav>
       <Nav onClick={() => {
@@ -43,7 +45,7 @@ export const MobileMenu: FunctionComponent<Props> = ({
           <AboutIcon />
         </SvgWrapper>
         <p>
-          About
+        {t('navbar.about')}
         </p>
       </Nav>
     </Wrapper>
