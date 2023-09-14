@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import styled from 'styled-components'
 import { Button } from "../../components/UI/Button";
 import { Navbar } from "../../components/UI/Navbar";
@@ -7,6 +7,7 @@ import { LanguageSelect } from "../../components/UI/Select";
 import { FiChevronRight } from 'react-icons/fi'
 import { useStore } from "../../store";
 import { useTranslation } from "react-i18next";
+import  {DAPClient} from 'divviup-ts/packages/dap'
 
 import MailHook from '../../assets/Mailhook'
 import MobileMailHook from '../../assets/MobileMailhook'
@@ -16,6 +17,19 @@ export const WelcomeScene: FunctionComponent = () => {
   const changeScene = useStore((state) => state.changeScene)
   const { t, i18n } = useTranslation()
 
+  useEffect(() => {
+    if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
+      const client = new DAPClient({
+        "type": "count",
+        "taskId": "Vy416JqNn638jhZIgzcNeQ1ZDBNY1yL93AjOIoUjSoA",
+        "leader": "https://dap-04.api.divviup.org/",
+        "helper": "https://helper.shira.app/",
+        "timePrecisionSeconds": 60
+      });
+      client.sendMeasurement(true)
+    }
+  }, [])
+  
   return (
     <SceneWrapper bg='white'>
       <Navbar />
