@@ -32,7 +32,15 @@
             "select": "Seleccione hasta 3 artículos",
             "footer_title": "Configuración del cuestionario",
             "back_button": "Volver",
-            "next_button": "Iniciar cuestionario"
+            "next_button": "Iniciar cuestionario",
+            "items" : {
+                "human-rights": "Derechos Humanos",
+                "journalism-and-media": "Periodismo y comunicación",
+                "education": "Academia",
+                "marketing": "Marketing",
+                "healthcare": "Salud",
+                "general": "General"
+            }
         }
     },
     "quiz": {

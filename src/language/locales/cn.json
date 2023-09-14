@@ -32,7 +32,15 @@
             "select": "最多选择 3 个项目",
             "footer_title": "测试设置",
             "back_button": "上一个",
-            "next_button": "开始测试"
+            "next_button": "开始测试",
+            "items" : {
+                "human-rights": "人权",
+                "journalism-and-media": "新闻与媒体",
+                "education": "学术界",
+                "marketing": "市场营销",
+                "healthcare": "医疗保健",
+                "general": "一般情况"
+            }
         }
     },
     "quiz": {

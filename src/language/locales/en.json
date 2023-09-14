@@ -32,7 +32,15 @@
             "select": "Select up to 3 items",
             "footer_title": "Quiz setup",
             "back_button": "Back",
-            "next_button": "Start quiz"
+            "next_button": "Start quiz",
+            "items" : {
+                "human-rights": "Human rights",
+                "journalism-and-media": "Journalism and media",
+                "education": "Academia",
+                "marketing": "Marketing",
+                "healthcare": "Healthcare",
+                "general": "General"
+            }
         }
     },
     "quiz": {
