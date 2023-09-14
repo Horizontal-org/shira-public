@@ -32,7 +32,8 @@ export const MobileOptions: FunctionComponent<Props> = ({
               isSelected={selected && o.value === selected.value}
               index={i}
               submit={() => {
-                handleSelected(o)
+                // handleSelected(o)
+                submit(o) 
               }}
             />
           ))}
