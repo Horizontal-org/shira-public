@@ -5,6 +5,8 @@ import { Question } from '../../components/UI/Question'
 import { SceneWrapper } from '../../components/UI/SceneWrapper'
 import { useStore } from '../../store'
 import { QuizInstructions } from './QuizInstructions'
+import  {DAPClient} from 'divviup-ts/packages/dap'
+
 interface Props {}
 
 export const Quiz:FunctionComponent<Props> = () => {
@@ -56,6 +58,15 @@ export const Quiz:FunctionComponent<Props> = () => {
             if (questionIndex < (questions.length -1)) {
               handleQuestionIndex(questionIndex + 1)
             } else {
+              const client = new DAPClient({
+                "type": "count",
+                "taskId": "TZYHQiAYoLdWomFc_ywJUWlRcdTpURfFDDPD6qicX9M",
+                "leader": "https://dap-04.api.divviup.org/",
+                "helper": "https://helper.shira.app/",
+                "timePrecisionSeconds": 60
+              });
+              client.sendMeasurement(true)
+
               changeScene('feedback')
             }
           }}
@@ -74,6 +85,14 @@ export const Quiz:FunctionComponent<Props> = () => {
             if (quiz.length === 0) { 
               changeScene('feedback')                  
             } else {
+              const client = new DAPClient({
+                "type": "count",
+                "taskId": "B26mzqQCUaU1XGLRIl_dm5LPsSzy69OinEs9wT-4y44",
+                "leader": "https://dap-04.api.divviup.org/",
+                "helper": "https://helper.shira.app/",
+                "timePrecisionSeconds": 60
+              });
+              client.sendMeasurement(true)
               handleStarted(true) 
             }
           }}

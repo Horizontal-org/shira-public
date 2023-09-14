@@ -9,33 +9,19 @@ import { useStore } from "../../store";
 import { useTranslation } from "react-i18next";
 import  {DAPClient} from 'divviup-ts/packages/dap'
 
-const mockBatch = () => {
-  let count = 0
-  setInterval(() => {
-    if (count < 120) {
-      const client = new DAPClient({
-        "type": "count",
-        "taskId": "BflLM7xjTancTdtEMdlaKYIlmxOSVeYWm-3AzL0ld9k",
-        "leader": "https://dap-04.api.divviup.org/",
-        "helper": "https://helper.shira.app/",
-        "timePrecisionSeconds": 60
-      });
-  
-      client.sendMeasurement(true)
-      count = count + 1
-      console.log('sent ', count)
-    } else {
-      console.log('finished ')
-    }
-  }, 2000)
-}
-
 export const WelcomeScene: FunctionComponent = () => {  
   const changeScene = useStore((state) => state.changeScene)
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    mockBatch()
+    const client = new DAPClient({
+      "type": "count",
+      "taskId": "Vy416JqNn638jhZIgzcNeQ1ZDBNY1yL93AjOIoUjSoA",
+      "leader": "https://dap-04.api.divviup.org/",
+      "helper": "https://helper.shira.app/",
+      "timePrecisionSeconds": 60
+    });
+    client.sendMeasurement(true)
   }, [])
   
   return (
