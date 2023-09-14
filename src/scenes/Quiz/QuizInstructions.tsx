@@ -62,6 +62,7 @@ export const QuizInstructions:FunctionComponent<Props> = ({
 }
 
 const Wrapper = styled.div`
+  position: relative;
   @media(max-width: ${props => props.theme.breakpoints.xs}) {
     text-align: center;
     margin: 25px;

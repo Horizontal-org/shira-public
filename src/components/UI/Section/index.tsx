@@ -1,7 +1,12 @@
 import { FunctionComponent, ReactNode } from 'react'
+import styled from 'styled-components';
+
 import { SectionWrapper, Wrapper } from '../SectionWrapper';
 import { Subtitle } from '../Subtitle';
 import { Title } from '../Title';
+
+import QuizSetupFish from './assets/QuizSetupFish'
+import QuizSetupHook from './assets/QuizSetupHook'
 
 interface Props {
   title: string;
@@ -17,7 +22,9 @@ export const Section: FunctionComponent<Props> = ({
   size,
 }) => {
   return (
-    <Wrapper>
+    <StyledWrapper>
+      
+
       <SectionWrapper size={size}>
         <div>
           <Title>{title}</Title>
@@ -27,7 +34,61 @@ export const Section: FunctionComponent<Props> = ({
         </div>
         { children }
       </SectionWrapper>
-    </Wrapper>
+
+
+      <SetupFish>
+        <QuizSetupFish />
+      </SetupFish>
+
+      <SetupHook>
+        <QuizSetupHook />
+      </SetupHook>
+    </StyledWrapper>
   )
 }
 
+
+const StyledWrapper = styled(Wrapper)`
+`
+
+const SetupHook = styled.div`
+  position:fixed;
+  top: 10px;
+  left: 10px;
+
+  @media(max-width: ${props => props.theme.breakpoints.md}) {
+    > svg {
+      width: 150px;
+      height: 200px;
+    }
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.xs}) {
+    display: none;
+  }
+`
+
+const SetupFish = styled.div`
+  position:fixed;
+  bottom: 10px;
+  right: 0px;
+  overflow: hidden;
+
+
+  > svg {
+    width: 500px;    
+  }
+
+
+  @media(max-width: ${props => props.theme.breakpoints.md}) {
+    bottom: 40px;
+    > svg {
+      width: 300px;
+      height: 200px;
+    }
+  }
+
+  @media(max-width: ${props => props.theme.breakpoints.xs}) {
+    display: none;
+  }
+`

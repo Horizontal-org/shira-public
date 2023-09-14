@@ -7,7 +7,8 @@ import { Question } from "../../domain/question";
 export interface QuizSlice {
   fetchQuiz: (
     apps: string[],
-    fieldsOfWork: string[]
+    fieldsOfWork: string[],
+    language: string
   ) => void;
   quiz: Question[],
   correctedQuestions: Question[],
@@ -20,8 +21,8 @@ export const createQuizSlice: StateCreator<
   [],
   QuizSlice
 > = (set) => ({  
-  fetchQuiz: async (apps, fieldsOfWork) => { 
-    const res = await getQuiz(apps, fieldsOfWork)
+  fetchQuiz: async (apps, fieldsOfWork, language) => { 
+    const res = await getQuiz(apps, fieldsOfWork, language)
     set({quiz: res})
   },
   quiz: [],
