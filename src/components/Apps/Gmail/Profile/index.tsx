@@ -70,6 +70,9 @@ const ProfileWrapper = styled.div`
 
 const Sender = styled.div`
   display: flex;
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    flex-direction: column;
+  }
 `
 
 const SenderName = styled.span`
@@ -87,6 +90,6 @@ const SenderEmail = styled.span`
   padding-left: 4px;
   font-weight: 400;
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    display: none;
+    padding-left: 0;
   }
 `
