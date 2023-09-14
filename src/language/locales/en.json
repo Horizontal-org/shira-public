@@ -32,7 +32,15 @@
             "select": "Select up to 3 items",
             "footer_title": "Quiz setup",
             "back_button": "Back",
-            "next_button": "Start quiz"
+            "next_button": "Start quiz",
+            "items" : {
+                "human-rights": "Human rights",
+                "journalism-and-media": "Journalism and media",
+                "education": "Academia",
+                "marketing": "Marketing",
+                "healthcare": "Healthcare",
+                "general": "General"
+            }
         }
     },
     "quiz": {
@@ -55,7 +63,10 @@
                 "correct": "Good job!",
                 "incorrect": "Incorrect",
                 "next_button": "Next",
-                "back_button": "Back"
+                "back_button": "Back",
+                "see_why": "See why",
+                "bottom-bar_looks-legit": "This message does not look like a phishing attempt.",
+                "bottom-bar_looks-like-phishing": "Some elements suggest that this message may be a phishing attempt."
             }
         }
     },
