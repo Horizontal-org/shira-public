@@ -14,14 +14,16 @@ export const WelcomeScene: FunctionComponent = () => {
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    const client = new DAPClient({
-      "type": "count",
-      "taskId": "Vy416JqNn638jhZIgzcNeQ1ZDBNY1yL93AjOIoUjSoA",
-      "leader": "https://dap-04.api.divviup.org/",
-      "helper": "https://helper.shira.app/",
-      "timePrecisionSeconds": 60
-    });
-    client.sendMeasurement(true)
+    if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
+      const client = new DAPClient({
+        "type": "count",
+        "taskId": "Vy416JqNn638jhZIgzcNeQ1ZDBNY1yL93AjOIoUjSoA",
+        "leader": "https://dap-04.api.divviup.org/",
+        "helper": "https://helper.shira.app/",
+        "timePrecisionSeconds": 60
+      });
+      client.sendMeasurement(true)
+    }
   }, [])
   
   return (
