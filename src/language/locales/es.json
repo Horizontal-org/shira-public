@@ -1,8 +1,13 @@
 {
     "welcome": {
         "title": "Bienvenido a Shira",
-        "subtitle": "Aprende a detectar y derrotar los intentos de phishing",
+        "subtitle": "Aprenda a identificar y derrotar los intentos de phishing",
         "start": "Iniciar cuestionario"
+    },
+    "navbar": {
+        "home": "Inicio",
+        "about": "Acerca de",
+        "menu": "Menu"
     },
     "setup": {
         "name": {
@@ -50,9 +55,7 @@
                 "correct": "¡Buen trabajo!",
                 "incorrect": "Incorrecto",
                 "next_button": "Siguiente",
-                "back_button": "Atrás",
-                "bottom-bar_looks-legit": "Este mensaje no parece un intento de phishing.",
-                "bottom-bar_looks-like-phishing": "Algunos elementos sugieren que este mensaje puede ser un intento de phishing."
+                "back_button": "Atrás"
             }
         }
     },

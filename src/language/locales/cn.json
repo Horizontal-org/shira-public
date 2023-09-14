@@ -4,6 +4,11 @@
         "subtitle": "了解如何识别以及抵御网络钓鱼攻击",
         "start": "开始测试"
     },
+    "navbar": {
+        "home": "首页",
+        "about": "关于",
+        "menu": "菜单"
+    },
     "setup": {
         "name": {
             "title": "请输入名字和电子邮件地址",

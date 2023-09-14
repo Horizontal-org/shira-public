@@ -4,12 +4,14 @@ import Logo  from '../Icons/Logo'
 import { useNavigate } from 'react-router-dom'
 import { MobileMenu } from './components/MobileMenu'
 import MenuIcon from './components/MenuIcon'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   color?: string
 }
 export const Navbar: FunctionComponent<Props> = ({ color }) => {
   let navigate = useNavigate()
+  const { t } = useTranslation()
 
   const [mobileMenu, handleMobileMenu] = useState(false)
 
@@ -21,13 +23,13 @@ export const Navbar: FunctionComponent<Props> = ({ color }) => {
           
           <Nav>
             <Link onClick={() => { navigate('/') }}>
-              Home
+              {t('navbar.home')}
             </Link>
             {/* <Link onClick={() => { navigate('/resources') }}>
               Resources
             </Link> */}
             <Link onClick={() => { navigate('/about') }}>
-              About
+            {t('navbar.about')}
             </Link>
           </Nav>
         </LeftNavbar>
@@ -36,7 +38,7 @@ export const Navbar: FunctionComponent<Props> = ({ color }) => {
           handleMobileMenu(true)
         }}>
           <span>
-            Menu
+          {t('navbar.menu')}
           </span>
           <MenuIcon />
         </RightNavbar>

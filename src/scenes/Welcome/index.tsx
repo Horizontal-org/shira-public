@@ -56,7 +56,7 @@ export const WelcomeScene: FunctionComponent = () => {
                   {
                     label: '普通话',
                     labelEnglish: 'Mandarin',
-                    value: 'zh_CN'
+                    value: 'cn'
                   }
                 ]}
               />
