@@ -1,6 +1,7 @@
 import { FunctionComponent, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   title?: string;
@@ -19,6 +20,7 @@ export const Dialog: FunctionComponent<Props> = ({
   isOpen,
   setIsOpen,
 }) => {
+  const { t } = useTranslation();
   const dialogRef = useRef(null);
 
   const handleClickOutside = (event) => {
@@ -53,7 +55,7 @@ export const Dialog: FunctionComponent<Props> = ({
               <Button
                 onClick={() => setIsOpen(false)}
                 type='outline'
-                text='Cancel'
+                text={t('quiz.exit.cancel')}
               />
               <Button
                 onClick={handleActionClick}

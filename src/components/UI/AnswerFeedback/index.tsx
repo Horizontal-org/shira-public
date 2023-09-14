@@ -125,7 +125,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
             ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
               <ActionButtonsWrapper size="lg">
                 <Button 
-                  text='Next Question'
+                  text={t("quiz.answers.results.next_question")}
                   size={width < 490 ? 'lg' : 'md'}
                   type='primary'
                   onClick={onNext}
