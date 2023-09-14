@@ -63,7 +63,10 @@
                 "correct": "¡Buen trabajo!",
                 "incorrect": "Incorrecto",
                 "next_button": "Siguiente",
-                "back_button": "Atrás"
+                "back_button": "Atrás",
+                "See why": "Ver por qué",
+                "bottom-bar_looks-legit": "Este mensaje no parece un intento de phishing.",
+                "bottom-bar_looks-like-phishing": "Algunos elementos sugieren que este mensaje puede ser un intento de phishing."
             }
         }
     },
