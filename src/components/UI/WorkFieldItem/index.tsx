@@ -1,15 +1,7 @@
 import { FunctionComponent } from "react";
 import styled from 'styled-components'
 
-// Icons
-import HumanResourcesSvg from './assets/HumanResources'
-import ActivistSvg from './assets/Activist'
-import Book from './assets/Book'
-import Business from './assets/Business'
-import Service from './assets/Service'
-import Media from './assets/Media'
-
-
+import { useTranslation } from "react-i18next";
 
 const icons = {
   'human-resources': '✊🏽',
@@ -44,10 +36,12 @@ export const WorkFieldItem: FunctionComponent<Props> = ({
   slug,
   onClick 
 }) => {
+  const { t } = useTranslation()
+
   return (
     <Box selected={selected} onClick={onClick}>
       <div>{getIcon(slug)}</div>
-      <span>{name}</span>
+      <span>{t(`setup.fields_of_work.items.${slug}`)}</span>
     </Box>
   )
 }
