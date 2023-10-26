@@ -140,13 +140,18 @@ const Title = styled.div`
   text-align: center;
 `
 
+// padding: ${props => props.isExpanded ? '8px 0' : '0'};
+
 const ExpandedDropdown = styled.div<{ isExpanded?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
+
   ${props => !props.isExpanded && `
     position: absolute;
+    padding: 0;
+    height: 100%;
     top: 0;
   `}
 `

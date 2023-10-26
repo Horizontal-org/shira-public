@@ -169,6 +169,14 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
 
   @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 16px;
+    margin-right: 15px;
+  
+    margin-bottom: ${props => props.isExpanded ? '16px' : '0'};
+    ${props => props.isExpanded && `width: 100%;`};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     border-radius: ${props => props.isExpanded ? '100px' : '16px'};
     padding: 16px;
     margin-right: 15px;
@@ -205,7 +213,7 @@ export const LegitimateButton = styled(StyledButton)`
 `
 
 export const Text = styled.div<{isExpanded?: boolean}>`
-  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
     ${props => !props.isExpanded && `display: none;`} 
   }
 `
