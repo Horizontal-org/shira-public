@@ -83,6 +83,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
 }
 
 const Wrapper = styled.div<{isExpanded?: boolean}>`
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,16 +104,24 @@ const OptionsWrapper = styled.div<{isExpanded?: boolean}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    display: ${props => props.isExpanded ? 'block' : 'flex'};
-    ${props => props.isExpanded && `width: 90%`}
-  }
-  @media (max-width: ${props => props.theme.breakpoints.xs}) {
-    display: ${props => props.isExpanded ? 'block' : 'flex'};
-    ${props => props.isExpanded && `width: 80%`}
+
+    ${props => props.isExpanded && `
+      flex-direction: column;
+      padding: 24px;
+    `}
   }
 `
-
+  
+  // @media (max-width: ${props => props.theme.breakpoints.md}) {
+  //   display: ${props => props.isExpanded ? 'block' : 'flex'};
+  //   ${props => props.isExpanded && `width: 90%`}
+  // }
+  // @media (max-width: ${props => props.theme.breakpoints.xs}) {
+  //   display: ${props => props.isExpanded ? 'block' : 'flex'};
+  //   ${props => props.isExpanded && `width: 80%`}
+  // }
 const OptionsActionsWrapper = styled.div<{isExpanded?: boolean}>`
   display: flex;
   align-items: center;
@@ -176,7 +185,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     ${props => props.isExpanded && `width: 100%;`};
   }
   
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     border-radius: ${props => props.isExpanded ? '100px' : '16px'};
     padding: 16px;
     margin-right: 15px;
@@ -213,7 +222,7 @@ export const LegitimateButton = styled(StyledButton)`
 `
 
 export const Text = styled.div<{isExpanded?: boolean}>`
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     ${props => !props.isExpanded && `display: none;`} 
   }
 `
