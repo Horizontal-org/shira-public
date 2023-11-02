@@ -13,16 +13,19 @@ interface Props {
   handleIsExpanded?: (isExpanded: boolean) => void;
   isExpanded?: boolean;
   showExplanations?: boolean;
+  hasAnswer: boolean;
 }
 
-export const FooterMobile: FunctionComponent<Props> = ({
+export const QuizFooterMobile: FunctionComponent<Props> = ({
   title,
   action,
   hideCloseButton,
   isExpanded,
   handleIsExpanded,
-  showExplanations
+  showExplanations,
+  hasAnswer
 }) => {
+
   const { t } = useTranslation()  
   const changeScene = useStore((state) => state.changeScene)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -33,7 +36,8 @@ export const FooterMobile: FunctionComponent<Props> = ({
   return (
     <Container>
       <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton} showExplanations={showExplanations}>
-        {!hideCloseButton && (
+   
+        { !isExpanded && !hideCloseButton && (
           <LeftContent>
             <CloseButton onClick={() => setIsDialogOpen(!isDialogOpen)}>
               <VscClose size={24} color='#111' />
@@ -41,8 +45,11 @@ export const FooterMobile: FunctionComponent<Props> = ({
           </LeftContent>
         )}
 
-        {hideCloseButton && (
-          <ExpandedDropdown isExpanded={isExpanded}>
+        {(!hasAnswer || (hasAnswer && !showExplanations)) && (
+          <ExpandedDropdown 
+            isExpanded={isExpanded}
+            hasAnswer={hasAnswer}
+          >
             {isExpanded && (
               <LeftContent>
                 <CloseButton isExpanded={isExpanded} onClick={() => setIsDialogOpen(!isDialogOpen) }>
@@ -98,7 +105,6 @@ const Wrapper = styled.div<WrapperProps>`
   transition: bottom 0.3s ease;
 
   display: ${({ isExpanded }) => (isExpanded) ? 'block' : 'flex'}};
-  ${({ hideCloseButton }) => hideCloseButton && `flex-direction: row-reverse;`}
   justify-content: space-between;
   align-items: center;
   height: auto;
@@ -114,6 +120,8 @@ const Wrapper = styled.div<WrapperProps>`
 
   ${props => props.showExplanations && `display: flex;`}
 `
+// ${({ hideCloseButton }) => hideCloseButton && `flex-direction: row-reverse;`}
+
 
 const LeftContent = styled.div`
   display: flex;
@@ -142,7 +150,7 @@ const Title = styled.div`
 
 // padding: ${props => props.isExpanded ? '8px 0' : '0'};
 
-const ExpandedDropdown = styled.div<{ isExpanded?: boolean }>`
+const ExpandedDropdown = styled.div<{ isExpanded?: boolean; hasAnswer?: boolean; }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -153,6 +161,11 @@ const ExpandedDropdown = styled.div<{ isExpanded?: boolean }>`
     padding: 0;
     height: 100%;
     top: 0;
+    right: 0;
+
+    ${props.hasAnswer && `
+      top: -30px;
+    `}
   `}
 `
 const DropdownOpen = styled.div`
@@ -165,7 +178,7 @@ const ExitText = styled.div`
   font-weight: 600;
 `
 
-FooterMobile.defaultProps = {
+QuizFooterMobile.defaultProps = {
   title: '',
   action: <></>
 }

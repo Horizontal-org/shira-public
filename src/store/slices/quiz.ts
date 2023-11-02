@@ -28,6 +28,8 @@ export const createQuizSlice: StateCreator<
   quiz: [],
   correctedQuestions: [],
   setCorrectQuestions: (question) => {
-    set(state => ({correctedQuestions: [...state.correctedQuestions, question]}))
+    set(state => ({correctedQuestions: [...state.correctedQuestions.filter((c) => { 
+      return c.id !== question.id
+    }), question]}))
   }
 })

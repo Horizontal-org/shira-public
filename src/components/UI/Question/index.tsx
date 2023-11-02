@@ -3,7 +3,7 @@ import { Question as QuestionType } from '../../../domain/question';
 import { AppLayout } from '../../Layouts/AppLayout';
 import { AnswerFeedback } from '../AnswerFeedback';
 import { AnswerOptions } from '../AnswerOptions';
-import { Footer } from '../Footer';
+import { QuizFooter } from '../QuizFooter';
 import { SceneWithFooter } from '../SceneWithFooter';
 import { Explanation } from '../../../domain/explanation';
 import useGetWidth from '../../../hooks/useGetWidth';
@@ -31,7 +31,9 @@ export const Question: FunctionComponent<Props> = ({
   const [answer, handleAnswer] = useState<string | null>(null)
   const [ explanationNumber, setExplanationNumber ] = useState<number>(0)
   const [explanationsOrder, handleExplanationsOrder] = useState<Array<number>>([])
+
   const [showExplanations, handleShowExplanations] = useState<boolean>(false)
+  
   const [isExpanded, handleIsExpanded] = useState(false)
 
   const { persistedEmail, persistedName } = useStore(
@@ -74,7 +76,6 @@ export const Question: FunctionComponent<Props> = ({
   return (
     <SceneWithFooter>
 
-      {/* TODO Replace app param with algorithm on backend */}
       <AppLayout 
         app={question.app}
         content={question.content.replace('{{name}}', persistedName).replace('{{email}}', persistedEmail)}
@@ -84,9 +85,10 @@ export const Question: FunctionComponent<Props> = ({
         showExplanations={showExplanations}
       />
 
-      <Footer
+      <QuizFooter
         title={`${questionIndex + 1}/${questionCount}`}
-        hideCloseButton={(width <= 1024 && !showExplanations)}
+        hideCloseButton={(width <= 1024 && parseExplanations(question.explanations).length > 0 && !!(answer) && !showExplanations)}
+        hasAnswer={!!(answer)}
         showExplanations={showExplanations}
         isExpanded={isExpanded}
         handleIsExpanded={handleIsExpanded}        
@@ -104,10 +106,14 @@ export const Question: FunctionComponent<Props> = ({
           />
         ) : <AnswerOptions 
               goBack={goBack} 
-              onAnswer={(a) => { handleAnswer(a) }} 
+              onAnswer={(a) => { 
+                handleIsExpanded(false)
+                handleAnswer(a) 
+              }} 
               isExpanded={isExpanded}
               handleIsExpanded={handleIsExpanded} 
-            />}
+            />
+        }
       />
     </SceneWithFooter>
   )
