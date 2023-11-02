@@ -73,13 +73,9 @@ export const Question: FunctionComponent<Props> = ({
   const parseExplanations = (explanation: Explanation[]):Explanation[] => 
     explanation.filter( expl =>  document.querySelector(`[data-explanation="${expl.index}"]`))
 
-
-
   return (
     <SceneWithFooter>
 
-      {/* TODO Replace app param with algorithm on backend */}
-      
       <AppLayout 
         app={question.app}
         content={question.content.replace('{{name}}', persistedName).replace('{{email}}', persistedEmail)}
