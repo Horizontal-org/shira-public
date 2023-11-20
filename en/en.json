@@ -27,7 +27,15 @@
             "select": "Select up to 3 items",
             "footer_title": "Quiz setup",
             "back_button": "Back",
-            "next_button": "Start quiz"
+            "next_button": "Start quiz",
+            "items": {
+                "human-rights": "Human rights",
+                "journalism-and-media": "Journalism and media",
+                "education": "Academia",
+                "marketing": "Marketing",
+                "healthcare": "Healthcare",
+                "general": "General"
+            }
         }
     },
     "quiz": {
@@ -50,8 +58,18 @@
                 "correct": "Good job!",
                 "incorrect": "Incorrect",
                 "next_button": "Next",
-                "back_button": "Back"
+                "back_button": "Back",
+                "next_question": "Next Question",
+                "see_why": "See why",
+                "bottom-bar_looks-legit": "This message does not look like a phishing attempt.",
+                "bottom-bar_looks-like-phishing": "Some elements suggest that this message may be a phishing attempt."
             }
+        },
+        "exit": {
+            "title": "Exit quiz?",
+            "action_description": "Exit quiz",
+            "description": "Are you sure you want to exit the quiz? Your progress will not be saved.",
+            "cancel": "Cancel"
         }
     },
     "feedback": {
@@ -181,5 +199,10 @@
             "section1": "By default, Shira includes several options to customize quizzes and make them relevant to each user (apps, fields of work, etc). But if you want to make quizzes even more realistic-looking to your staff, partners, or members, we can help: we can create custom quizzes based on your work and context, even using real-life phishing attacks you received, and provide training to your organization.",
             "section2": "If that sounds interesting to you or if you have questions, contact us at contact@wearehorizontal.org."
         }
+    },
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "menu": "Menu"
     }
 }
