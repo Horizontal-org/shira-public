@@ -20,6 +20,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
   const { t } = useTranslation()
   const { width } = useGetWidth()
   const [selected, handleSelected] = useState<string | null>(null)
+  console.log("🚀 ~ file: index.tsx:23 ~ selected:", selected)
 
   const handleAnswer = (answer) => {
     handleSelected(answer)
@@ -37,6 +38,9 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
           onClick={() => { handleAnswer('phishing') }}>
           <PhisingIcon />
           <Text isExpanded={isExpanded}>{ t('quiz.answers.options.phising') }</Text>        
+          { selected === 'phishing' && (
+            <RedExtraBorder isExpanded={isExpanded}/>
+          )}
         </PhisingButton>
 
         <UnsureButton
@@ -46,6 +50,9 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
           onClick={() => { handleAnswer('unsure') }}>
           <UnsureIcon />
           <Text isExpanded={isExpanded}>{ t('quiz.answers.options.unsure') }</Text>        
+          { selected === 'unsure' && (
+            <YellowExtraBorder isExpanded={isExpanded}/>
+          )}
         </UnsureButton>
 
         <LegitimateButton
@@ -55,6 +62,9 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
           onClick={() => { handleAnswer('legitimate') }}>
           <LegitimateIcon />
           <Text isExpanded={isExpanded}>{ t('quiz.answers.options.legitimate') }</Text>        
+          { selected === 'legitimate' && (
+            <GreenExtraBorder isExpanded={isExpanded}/>
+          )}
         </LegitimateButton>
       </OptionsWrapper>
       { (width > 1024 || isExpanded) && (
@@ -83,6 +93,7 @@ export const AnswerOptions: FunctionComponent<Props> = ({onAnswer, goBack, isExp
 }
 
 const Wrapper = styled.div<{isExpanded?: boolean}>`
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,16 +114,24 @@ const OptionsWrapper = styled.div<{isExpanded?: boolean}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    display: ${props => props.isExpanded ? 'block' : 'flex'};
-    ${props => props.isExpanded && `width: 90%`}
-  }
-  @media (max-width: ${props => props.theme.breakpoints.xs}) {
-    display: ${props => props.isExpanded ? 'block' : 'flex'};
-    ${props => props.isExpanded && `width: 80%`}
+
+    ${props => props.isExpanded && `
+      flex-direction: column;
+      padding: 24px;
+    `}
   }
 `
-
+  
+  // @media (max-width: ${props => props.theme.breakpoints.md}) {
+  //   display: ${props => props.isExpanded ? 'block' : 'flex'};
+  //   ${props => props.isExpanded && `width: 90%`}
+  // }
+  // @media (max-width: ${props => props.theme.breakpoints.xs}) {
+  //   display: ${props => props.isExpanded ? 'block' : 'flex'};
+  //   ${props => props.isExpanded && `width: 80%`}
+  // }
 const OptionsActionsWrapper = styled.div<{isExpanded?: boolean}>`
   display: flex;
   align-items: center;
@@ -152,15 +171,15 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   all: unset;
+  position: relative;
   border-radius: 100px;
-  padding: 11px 16px;
+  padding: 10px 16px;
   cursor: pointer;
   font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 16px;
-  ${props => props.opacity && `opacity: 0.64;`}
 
   > svg {
     height: 18px;
@@ -168,6 +187,14 @@ const StyledButton = styled.button<StyledButtonProps>`
     margin-right: 10px;
   }
 
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 16px;
+    margin-right: 15px;
+  
+    margin-bottom: ${props => props.isExpanded ? '16px' : '0'};
+    ${props => props.isExpanded && `width: 100%;`};
+  }
+  
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     border-radius: ${props => props.isExpanded ? '100px' : '16px'};
     padding: 16px;
@@ -181,31 +208,84 @@ const StyledButton = styled.button<StyledButtonProps>`
 `
 
 export const PhisingButton = styled(StyledButton)`
-  background: ${props => props.selected ? props.theme.colors.error8 : props.theme.colors.error7};
-  &:hover {
-    background: ${props => props.theme.colors.error6};
-  }
+  background: ${props => props.selected ?  props.theme.colors.error9 : props.theme.colors.error7};
+  border: 3px ${props => props.selected ? 'solid white' : `solid ${props.theme.colors.error7}` };
+
+
+  ${props => !props.selected && `
+
+    &:focus {
+      border: 3px solid ${props.theme.colors.error3};
+    }  
+  `}
+
   color: #fff;
 `
 
 export const UnsureButton = styled(StyledButton)`
-  background: ${props => props.selected ? props.theme.colors.warning3 : props.theme.colors.warning2};
-  color: ${props => props.theme.colors.dark.black};
-  &:hover {
-    background: ${props => props.theme.colors.warning1};
-  }
+  background: ${props => props.selected ?  props.theme.colors.warning3 : props.theme.colors.warning2};
+  border: 3px ${props => props.selected ? 'solid white' : `solid ${props.theme.colors.warning2}` };
+
+
+  ${props => !props.selected && `
+    &:hover {
+      background: ${props.theme.colors.warning1};
+      border: 3px solid ${props.theme.colors.warning1};
+    }
+
+    &:focus {
+      border: 3px solid ${props.theme.colors.warning3};
+    }  
+  `}
+
 `
 
 export const LegitimateButton = styled(StyledButton)`
-  background: ${props => props.selected ? props.theme.colors.green8 : props.theme.colors.green7};
+  background: ${props => props.selected ?  props.theme.colors.green9 : props.theme.colors.green7};
+  border: 3px ${props => props.selected ? 'solid white' : `solid ${props.theme.colors.green7}` };
+
+
+${props => !props.selected && `
   &:hover {
-    background: ${props => props.theme.colors.green6};
+    background: ${props.theme.colors.green6};
+    border: 3px solid ${props.theme.colors.green6};
   }
+
+  &:focus {
+    border: 3px solid ${props.theme.colors.green4};
+  }  
+`}
+
   color: #fff;
 `
 
 export const Text = styled.div<{isExpanded?: boolean}>`
-  @media (max-width: ${props => props.theme.breakpoints.xs}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     ${props => !props.isExpanded && `display: none;`} 
   }
+`
+
+const ExtraBorder = styled.div<{isExpanded?: boolean}>`
+  position: absolute;
+  background: transparent;
+  border-radius: 100px;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    border-radius: ${props => props.isExpanded ? '100px' : '16px'};
+  }
+`
+
+const GreenExtraBorder = styled(ExtraBorder)`
+  border: 3px dashed ${props => props.theme.colors.green5};  
+`
+
+const YellowExtraBorder = styled(ExtraBorder)`
+  border: 3px dashed ${props => props.theme.colors.warning5};  
+`
+
+const RedExtraBorder = styled(ExtraBorder)`
+  border: 3px dashed ${props => props.theme.colors.error5};  
 `

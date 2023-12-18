@@ -4,11 +4,6 @@
         "subtitle": "了解如何识别以及抵御网络钓鱼攻击",
         "start": "开始测试"
     },
-    "navbar": {
-        "home": "首页",
-        "about": "关于",
-        "menu": "菜单"
-    },
     "setup": {
         "name": {
             "title": "请输入名字和电子邮件地址",
@@ -33,13 +28,13 @@
             "footer_title": "测试设置",
             "back_button": "上一个",
             "next_button": "开始测试",
-            "items" : {
-                "human-rights": "人权",
-                "journalism-and-media": "新闻与媒体",
-                "education": "学术界",
-                "marketing": "市场营销",
-                "healthcare": "医疗保健",
-                "general": "一般情况"
+            "items": {
+                "human-rights": "",
+                "journalism-and-media": "",
+                "education": "",
+                "marketing": "",
+                "healthcare": "",
+                "general": ""
             }
         }
     },
@@ -63,18 +58,18 @@
                 "correct": "干得不错！",
                 "incorrect": "错误",
                 "next_button": "下一个",
-                "next_question": "下一个问题",
                 "back_button": "上一个",
+                "next_question": "",
+                "see_why": "",
                 "bottom-bar_looks-legit": "该信息不像是网络钓鱼。",
-                "bottom-bar_looks-like-phishing": "某些内容表明，该消息可能是网络钓鱼。",
-                "see_why": "了解原因"
+                "bottom-bar_looks-like-phishing": "某些内容表明，该消息可能是网络钓鱼。"
             }
         },
         "exit": {
-            "title": "出口测验",
-            "action_description": "退出测验",
-            "description": "您确定要退出测验吗？您的进度将不会被保存",
-            "cancel": "取消"
+            "title": "",
+            "action_description": "",
+            "description": "",
+            "cancel": ""
         }
     },
     "feedback": {
@@ -97,7 +92,7 @@
             },
             "question_3": {
                 "title": "3. 如何改进 Shira？",
-                "input_placeholder": "占位符"
+                "input_placeholder": "在这里写下您的反馈"
             },
             "bottom_text": "点击“查看结果”之后将发送反馈"
         },
@@ -204,5 +199,10 @@
             "section1": "Shira 默认提供多个选项来定制测试，以使测试题和每个用户（应用程序、工作领域等）息息相关。但是，如果想使得测试对你的员工、合作伙伴或者会员来说更加实际，我们可以基于你的工作、背景、甚至是你在真实生活中受到的网络钓鱼攻击来定制测试，并对你的机构进行培训。",
             "section2": "如果对此有兴趣或疑问，请联系 contact@wearehorizontal.org。"
         }
+    },
+    "navbar": {
+        "home": "",
+        "about": "关于 Shira",
+        "menu": ""
     }
 }

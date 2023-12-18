@@ -7,7 +7,7 @@ import { Heading } from "../../UI/Title";
 import { Button } from "../../UI/Button";
 import HorizontalLogo from "../../UI/Icons/Horizontal";
 import ReadIcon from './assets/ReadIcon'
-import Background from './assets/backgroundabout.svg'
+import Background from './assets/backgroundabout.png'
 import { useNavigate } from "react-router-dom";
 
 interface Props {}

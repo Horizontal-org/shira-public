@@ -53,6 +53,11 @@ interface StyledButtonProps {
   size?: string;
 }
 
+// @media (max-width: ${props => props.theme.breakpoints.sm}) {
+//   padding: 8px 16px;
+//   font-size: 14px;
+// }
+
 const StyledButton = styled.button<StyledButtonProps>`
   all: unset;
   -webkit-tap-highlight-color: transparent;
@@ -64,10 +69,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
+ 
 
   ${props => props.styledType === 'primary' && `
     color: white;

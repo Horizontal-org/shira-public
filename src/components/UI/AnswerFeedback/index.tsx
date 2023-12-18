@@ -99,7 +99,7 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
               <ActionButtonsWrapper size="lg">
                 <Button 
                   text={t('quiz.answers.results.see_why')}
-                  size={width < 490 ? 'lg' : 'md'}
+                  size={width < 1024 ? 'lg' : 'md'}
                   type='primary'
                   onClick={() => handleShowExplanations(true)}
                   leftIcon={<QuestionMarkIcon size={18} />}
@@ -109,10 +109,9 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
 
           {
             explanationsLength > 0 && explanationNumber < (explanationsLength - 1) && showExplanations && (
-              <ActionButtonsWrapper size={explanationNumber === 0 ? 'lg' : 'md'}>
+              <ActionButtonsWrapper>
                 <Button 
                   text={t("quiz.answers.results.next_button")}
-                  size={width <= 1024 ? 'lg' : 'md'}
                   type='primary'
                   onClick={() => setExplanationNumber(explanationNumber + 1)}
                   rightIcon={<FiChevronRight size={18}/>}
@@ -123,10 +122,9 @@ export const AnswerFeedback: FunctionComponent<Props> = ({
 
           {
             ((explanationNumber === (explanationsLength - 1) && showExplanations) || explanationsLength === 0) && (
-              <ActionButtonsWrapper size="lg">
+              <ActionButtonsWrapper>
                 <Button 
                   text={t("quiz.answers.results.next_question")}
-                  size={width < 490 ? 'lg' : 'md'}
                   type='primary'
                   onClick={onNext}
                   rightIcon={<FiChevronRight size={18}/>}
@@ -170,9 +168,15 @@ const UserAnswerWrapper = styled.div<{hide?: boolean}>`
     >p {
       font-size: 18px;
     }
+
+    > div {
+      > span {
+        font-size: 14px;
+      }
+    }
   }
 
-  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+  @media (max-width:  ${props => props.theme.breakpoints.md}) {
     padding-left: 16px;
     display: block;
     padding-bottom: 16px;
@@ -199,21 +203,35 @@ const OptionsWrapper = styled.div`
   @media (min-width:  ${props => props.theme.breakpoints.md}) {
     padding-right: 16px;
   }
+
+  @media (max-width:  ${props => props.theme.breakpoints.md}) {
+    justify-content: flex-end;
+  }
 `
 
 const ActionButtonsWrapper = styled.div<{ size?: string }>`
   padding-left: 16px;
   @media (max-width:  ${props => props.theme.breakpoints.md}) {
-    ${props => props.size === 'lg' && `width: 100%;`};
+    ${props => props.size === 'lg' && `
+      display: flex;
+      flex-grow: 1;
+
+      > button {
+        width: 100%;
+      }
+    `};
   }
-`
+  
+  `
+  
+  
 
 const Wrapper = styled.div`
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
 
-  @media (max-width:  ${props => props.theme.breakpoints.sm}) {
+  @media (max-width:  ${props => props.theme.breakpoints.md}) {
     display: block;
   }
 `

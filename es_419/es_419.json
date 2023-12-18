@@ -19,15 +19,23 @@
             "title": "¿Qué aplicaciones usas?",
             "select": "Selecciona al menos 1",
             "footer_title": "Configuración del cuestionario",
-            "back_button": "Volver",
+            "back_button": "Atrás",
             "next_button": "Siguiente"
         },
         "fields_of_work": {
             "title": "¿Qué áreas son relevantes para ti?",
             "select": "Seleccione hasta 3 artículos",
             "footer_title": "Configuración del cuestionario",
-            "back_button": "Volver",
-            "next_button": "Iniciar cuestionario"
+            "back_button": "Atrás",
+            "next_button": "Iniciar cuestionario",
+            "items": {
+                "human-rights": "Derechos humanos",
+                "journalism-and-media": "Periodismo y comunicación",
+                "education": "Academia",
+                "marketing": "Marketing",
+                "healthcare": "Salud",
+                "general": "General"
+            }
         }
     },
     "quiz": {
@@ -50,8 +58,18 @@
                 "correct": "¡Buen trabajo!",
                 "incorrect": "Incorrecto",
                 "next_button": "Siguiente",
-                "back_button": "Atrás"
+                "back_button": "Atrás",
+                "next_question": "Siguiente pregunta",
+                "see_why": "Ver por qué",
+                "bottom-bar_looks-legit": "Este mensaje no parece un intento de phishing.",
+                "bottom-bar_looks-like-phishing": "Algunos elementos sugieren que este mensaje puede ser un intento de phishing."
             }
+        },
+        "exit": {
+            "title": "¿Salir del cuestionario?",
+            "action_description": "Salir del cuestionario",
+            "description": "¿Estás seguro de que quieres salir del cuestionario? Tu progreso no se guardará.",
+            "cancel": "Cancelar"
         }
     },
     "feedback": {
@@ -74,7 +92,7 @@
             },
             "question_3": {
                 "title": "3. ¿Cómo podemos mejorar Shira?",
-                "input_placeholder": "Marcador"
+                "input_placeholder": "Escribe tus comentarios aquí"
             },
             "bottom_text": "Tus comentarios se enviarán cuando hagas clic en \"ver resultados\""
         },
@@ -181,5 +199,10 @@
             "section1": "De manera predeterminada, Shira incluye varias opciones para personalizar los cuestionarios y hacerlos relevantes para cada usuari(a)o (Apps, campo de trabajo, etc). Pero si quieres hacer que los cuestionarios sean aún más realistas para tus socios, miembros o personal, podemos ayudar: podemos crear cuestionarios personalizados basados en tu trabajo y contexto, incluso usando ataques de phishing reales que hayas recibido, y brindar capacitación a tu organización.",
             "section2": "Si te parece interesante o si tienes preguntas, contactanos en: contact@wearehorizontal.org."
         }
+    },
+    "navbar": {
+        "home": "Inicio",
+        "about": "Información",
+        "menu": "Menú"
     }
 }
