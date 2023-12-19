@@ -51,7 +51,7 @@
             "options": {
                 "unsure": "Je ne sais pas",
                 "legitimate": "Ça a l'air légitime",
-                "phising": "On dirait de l'hameçonnage."
+                "phising": "On dirait de l'hameçonnage"
             },
             "results": {
                 "unsure": "\"Je ne sais pas\"",
