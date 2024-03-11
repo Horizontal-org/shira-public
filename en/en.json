@@ -51,7 +51,7 @@
             "options": {
                 "unsure": "I don’t know",
                 "legitimate": "Looks legitimate",
-                "phising": "Looks like phising"
+                "phising": "Looks like phishing"
             },
             "results": {
                 "unsure": "“I don’t know”",
@@ -92,7 +92,7 @@
             },
             "question_3": {
                 "title": "3. How can we improve Shira?",
-                "input_placeholder": "Write your feedback here"
+                "input_placeholder": "Placeholder"
             },
             "bottom_text": "Your feedback will be sent when you click “see results”"
         },

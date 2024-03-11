@@ -51,7 +51,7 @@
             "options": {
                 "unsure": "I don’t know",
                 "legitimate": "Looks legitimate",
-                "phising": "Looks like phising"
+                "phising": "Looks like phishing"
             },
             "results": {
                 "unsure": "“I don’t know”",
