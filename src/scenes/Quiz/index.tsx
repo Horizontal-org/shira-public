@@ -21,7 +21,7 @@ const quizCreation = async() => {
       helper: "https://helper-dap-09.shira.app/",
       timePrecisionSeconds: 300
     });
-    task.sendMeasurement(true);
+    await task.sendMeasurement(true);
     console.log('sent;')        
   }
 }
@@ -35,7 +35,7 @@ const quizEnd = async() => {
       helper: "https://helper-dap-09.shira.app/",
       timePrecisionSeconds: 300
     });
-    task.sendMeasurement(true);
+    await task.sendMeasurement(true);
     console.log('sent;')        
   }
 }

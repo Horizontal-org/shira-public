@@ -28,7 +28,7 @@ export const WelcomeScene: FunctionComponent = () => {
           helper: "https://helper-dap-09.shira.app/",
           timePrecisionSeconds: 300
         });
-        task.sendMeasurement(true); // your measurement here
+        await task.sendMeasurement(true); // your measurement here
         console.log('sent;')
       }
     }
