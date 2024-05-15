@@ -7,7 +7,8 @@ import { LanguageSelect } from "../../components/UI/Select";
 import { FiChevronRight } from 'react-icons/fi'
 import { useStore } from "../../store";
 import { useTranslation } from "react-i18next";
-import  {DAPClient} from 'divviup-ts/packages/dap'
+// import  {DAPClient} from 'divviup-ts/packages/dap'
+import {Task} from "@divviup/dap/dist/task";
 
 import MailHook from '../../assets/Mailhook'
 import MobileMailHook from '../../assets/MobileMailhook'
@@ -18,16 +19,21 @@ export const WelcomeScene: FunctionComponent = () => {
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
-      const client = new DAPClient({
-        "type": "count",
-        "taskId": "Vy416JqNn638jhZIgzcNeQ1ZDBNY1yL93AjOIoUjSoA",
-        "leader": "https://dap-04.api.divviup.org/",
-        "helper": "https://helper.shira.app/",
-        "timePrecisionSeconds": 60
-      });
-      client.sendMeasurement(true)
+    const sendMetric = async() => {
+      if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
+        const task = new Task({
+          type: "count",
+          id: "uRn1hMZ6ZmgiSY_2kalj-vMx7yh980B4yqnnwWQpTL0",
+          leader: "https://dap-09-3.api.divviup.org/",
+          helper: "https://helper-dap-09.shira.app/",
+          timePrecisionSeconds: 300
+        });
+        task.sendMeasurement(true); // your measurement here
+        console.log('sent;')
+      }
     }
+
+    sendMetric()
   }, [])
   
   return (
