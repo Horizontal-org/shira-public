@@ -5,10 +5,40 @@ import { Question } from '../../components/UI/Question'
 import { SceneWrapper } from '../../components/UI/SceneWrapper'
 import { useStore } from '../../store'
 import { QuizInstructions } from './QuizInstructions'
-import  {DAPClient} from 'divviup-ts/packages/dap'
+// import  {DAPClient} from 'divviup-ts/packages/dap'
+import {Task} from "@divviup/dap/dist/task";
+
 import { useTranslation } from 'react-i18next'
 
 interface Props {}
+
+const quizCreation = async() => {
+  if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
+    const task = new Task({
+      type: "count",
+      id: "Eld5WkALoWMG-hc2sHyDXHIBOn1VE3DuV2ZLN2eUfWA",
+      leader: "https://dap-09-3.api.divviup.org/",
+      helper: "https://helper-dap-09.shira.app/",
+      timePrecisionSeconds: 300
+    });
+    task.sendMeasurement(true);
+    console.log('sent;')        
+  }
+}
+
+const quizEnd = async() => {
+  if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
+    const task = new Task({
+      type: "count",
+      id: "DD7RBmAB6uHS3lCucrggpHeipFpXNHHLHx4fO6nbELU",
+      leader: "https://dap-09-3.api.divviup.org/",
+      helper: "https://helper-dap-09.shira.app/",
+      timePrecisionSeconds: 300
+    });
+    task.sendMeasurement(true);
+    console.log('sent;')        
+  }
+}
 
 export const Quiz:FunctionComponent<Props> = () => {
   const {
@@ -60,16 +90,7 @@ export const Quiz:FunctionComponent<Props> = () => {
             if (questionIndex < (questions.length -1)) {
               handleQuestionIndex(questionIndex + 1)
             } else {
-              if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
-                const client = new DAPClient({
-                  "type": "count",
-                  "taskId": "TZYHQiAYoLdWomFc_ywJUWlRcdTpURfFDDPD6qicX9M",
-                  "leader": "https://dap-04.api.divviup.org/",
-                  "helper": "https://helper.shira.app/",
-                  "timePrecisionSeconds": 60
-                });
-                client.sendMeasurement(true)
-              }
+              quizEnd()
               changeScene('feedback')
             }
           }}
@@ -88,16 +109,7 @@ export const Quiz:FunctionComponent<Props> = () => {
             if (quiz.length === 0) { 
               changeScene('feedback')                  
             } else {
-              if (process.env.REACT_APP_ENABLE_ANALYTICS == 'yes') {
-                const client = new DAPClient({
-                  "type": "count",
-                  "taskId": "B26mzqQCUaU1XGLRIl_dm5LPsSzy69OinEs9wT-4y44",
-                  "leader": "https://dap-04.api.divviup.org/",
-                  "helper": "https://helper.shira.app/",
-                  "timePrecisionSeconds": 60
-                });
-                client.sendMeasurement(true)
-              }
+              quizCreation()
               handleStarted(true) 
             }
           }}
