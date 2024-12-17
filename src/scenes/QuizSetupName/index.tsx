@@ -1,6 +1,6 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import { lowerCase } from 'lodash'
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import shallow from 'zustand/shallow'
 
 import { Button } from "../../components/UI/Button";

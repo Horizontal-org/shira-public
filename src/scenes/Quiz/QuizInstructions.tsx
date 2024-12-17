@@ -1,6 +1,6 @@
 import { FunctionComponent, } from 'react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import { Button } from '../../components/UI/Button'
 import { Footer } from '../../components/UI/Footer'
 import { PhisingButton, UnsureButton, LegitimateButton, Text } from '../../components/UI/AnswerOptions'

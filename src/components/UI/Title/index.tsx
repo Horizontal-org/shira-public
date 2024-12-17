@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from '@horizontal-org/shira-ui';
 
 export const Title = styled.h2`
   margin-top: 0;

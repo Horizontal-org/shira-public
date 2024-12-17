@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 import LegitimateIcon from '../Icons/ThumbUp'

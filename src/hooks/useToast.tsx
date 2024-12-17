@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import ToastContainer from "../components/UI/ToastContainer";
 
 const Ctx = React.createContext(null);

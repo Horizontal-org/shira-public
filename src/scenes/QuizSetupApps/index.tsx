@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import { AppItem } from '../../components/UI/AppItem'
 import { Button } from '../../components/UI/Button'
 import { Footer } from '../../components/UI/Footer'

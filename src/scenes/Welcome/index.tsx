@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect } from "react";
-import styled from 'styled-components'
-import { Button } from "../../components/UI/Button";
+import { styled } from '@horizontal-org/shira-ui'
+// import { Button } from "../../components/UI/Button";
+import { Button } from '@horizontal-org/shira-ui'
 import { Navbar } from "../../components/UI/Navbar";
 import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { LanguageSelect } from "../../components/UI/Select";
