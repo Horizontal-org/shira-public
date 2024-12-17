@@ -1,9 +1,8 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import { lowerCase } from 'lodash'
-import { styled } from '@horizontal-org/shira-ui'
+import { styled, Button } from '@horizontal-org/shira-ui'
 import shallow from 'zustand/shallow'
 
-import { Button } from "../../components/UI/Button";
 import { Footer } from "../../components/UI/Footer";
 import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { FiChevronRight } from 'react-icons/fi'

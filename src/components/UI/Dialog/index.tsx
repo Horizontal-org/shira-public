@@ -1,6 +1,5 @@
 import { FunctionComponent, useRef, useEffect } from 'react';
-import { styled } from '@horizontal-org/shira-ui';
-import { Button } from '../Button';
+import { styled, Button } from '@horizontal-org/shira-ui';
 import { useTranslation } from 'react-i18next';
 
 interface Props {

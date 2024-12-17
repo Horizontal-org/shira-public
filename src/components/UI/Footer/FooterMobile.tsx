@@ -97,7 +97,7 @@ const Wrapper = styled.div<WrapperProps>`
   right: 0;
   transition: bottom 0.3s ease;
 
-  display: ${({ isExpanded }) => (isExpanded) ? 'block' : 'flex'}};
+  display: ${({ isExpanded }) => (isExpanded) ? 'block' : 'flex'};
   ${({ hideCloseButton }) => hideCloseButton && `flex-direction: row-reverse;`}
   justify-content: space-between;
   align-items: center;

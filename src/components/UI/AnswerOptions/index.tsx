@@ -1,12 +1,11 @@
 import { FunctionComponent, useState } from "react";
-import { styled } from '@horizontal-org/shira-ui'
+import { styled, Button } from '@horizontal-org/shira-ui'
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 import LegitimateIcon from '../Icons/ThumbUp'
 import UnsureIcon from '../Icons/Unsure'
 import PhisingIcon from '../Icons/Alert'
 import { useTranslation } from "react-i18next";
-import { Button } from "../Button";
 import useGetWidth from "../../../hooks/useGetWidth";
 
 interface Props {

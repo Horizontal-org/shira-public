@@ -4,7 +4,6 @@ import { Navbar } from "../../UI/Navbar";
 import { SceneWrapper } from "../../UI/SceneWrapper";
 import { useTranslation } from "react-i18next";
 import { Heading } from "../../UI/Title";
-import { Button } from "../../UI/Button";
 import HorizontalLogo from "../../UI/Icons/Horizontal";
 
 interface Props {}
