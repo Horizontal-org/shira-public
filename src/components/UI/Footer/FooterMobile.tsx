@@ -30,6 +30,7 @@ export const FooterMobile: FunctionComponent<Props> = ({
     handleIsExpanded(!isExpanded)
   }
 
+  console.log("------footer mobile----")
   return (
     <Container>
       <Wrapper isExpanded={isExpanded} hideCloseButton={hideCloseButton} showExplanations={showExplanations}>
@@ -129,7 +130,7 @@ const CloseButton = styled.div<{isExpanded?: boolean}>`
   cursor: pointer;
   background: $fff;
   border-right: 1px solid ${props => props.isExpanded ? 'none' : props.theme.colors.dark.mediumGrey};
-  margin-right: ${props => props.isExpanded ? '0px' : '16px'}};
+  margin-right: ${props => props.isExpanded ? '0px' : '16px'};
 `
 
 const Title = styled.div`
