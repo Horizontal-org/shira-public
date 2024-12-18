@@ -1,5 +1,4 @@
-import { ThemeProvider } from "styled-components"
-import theme from '../src/utils/theme'
+import { ThemeProvider } from "@horizontal-org/shira-ui"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,7 +12,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <Story />
     </ThemeProvider>
   )

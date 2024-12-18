@@ -14,7 +14,6 @@ import { ThemeProvider, defaultTheme, styled } from "@horizontal-org/shira-ui";
 interface Props {}
 
 const App: FunctionComponent<Props> = () => {
-  console.log('Imported theme:', defaultTheme)
   return (
     <Wrapper>
       <ToastProvider>
