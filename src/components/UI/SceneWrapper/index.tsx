@@ -1,4 +1,5 @@
-import styled from "styled-components";
+// import { styled } from '@horizontal-org/shira-ui';
+import { styled } from '@horizontal-org/shira-ui'
 
 export const SceneWrapper = styled.div<{ bg?: string }>`
   height: 100vh;

@@ -1,13 +1,11 @@
 import { FunctionComponent, useEffect } from "react";
-import styled from 'styled-components'
-import { Button } from "../../components/UI/Button";
+import { styled, Button } from '@horizontal-org/shira-ui'
 import { Navbar } from "../../components/UI/Navbar";
 import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { LanguageSelect } from "../../components/UI/Select";
 import { FiChevronRight } from 'react-icons/fi'
 import { useStore } from "../../store";
 import { useTranslation } from "react-i18next";
-// import  {DAPClient} from 'divviup-ts/packages/dap'
 import {Task} from "@divviup/dap/dist/task";
 
 import MailHook from '../../assets/Mailhook'
@@ -28,7 +26,7 @@ export const WelcomeScene: FunctionComponent = () => {
           helper: "https://helper-dap-09.shira.app/",
           timePrecisionSeconds: 300
         });
-        task.sendMeasurement(true); // your measurement here
+        await task.sendMeasurement(true); // your measurement here
         console.log('sent;')
       }
     }

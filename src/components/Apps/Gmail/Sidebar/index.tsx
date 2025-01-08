@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react' 
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import Categories from './components/Categories'
 
 import RedPencilImage from './assets/redpencil.png'

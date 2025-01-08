@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 
 import { useTranslation } from "react-i18next";
 

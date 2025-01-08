@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FunctionComponent } from "react";
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 
 interface Props {
   placeholder?: string;
