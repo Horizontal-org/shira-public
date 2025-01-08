@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import styled, { createGlobalStyle } from 'styled-components'
+import { styled, createGlobalStyle } from '@horizontal-org/shira-ui'
 
 import Header from './Header'
 import Sidebar from "./Sidebar"

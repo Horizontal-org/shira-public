@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 
 // Icons
 import GmailSvg from './assets/Mail'

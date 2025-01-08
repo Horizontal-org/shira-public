@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from 'react'
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import Recipient from './components/Recipient'
 import Message from './components/Message'
 import Background from './assets/background.png'

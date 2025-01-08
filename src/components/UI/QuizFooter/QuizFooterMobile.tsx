@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode, useState } from "react";
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import { VscClose } from 'react-icons/vsc'
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { useStore } from "../../../store";
@@ -104,7 +104,7 @@ const Wrapper = styled.div<WrapperProps>`
   right: 0;
   transition: bottom 0.3s ease;
 
-  display: ${({ isExpanded }) => (isExpanded) ? 'block' : 'flex'}};
+  display: ${({ isExpanded }) => (isExpanded) ? 'block' : 'flex'};
   justify-content: space-between;
   align-items: center;
   height: auto;
@@ -137,7 +137,7 @@ const CloseButton = styled.div<{isExpanded?: boolean}>`
   cursor: pointer;
   background: $fff;
   border-right: 1px solid ${props => props.isExpanded ? 'none' : props.theme.colors.dark.mediumGrey};
-  margin-right: ${props => props.isExpanded ? '0px' : '16px'}};
+  margin-right: ${props => props.isExpanded ? '0px' : '16px'};
 `
 
 const Title = styled.div`

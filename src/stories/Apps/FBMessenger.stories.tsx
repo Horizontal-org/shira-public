@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import FBMessenger from '../../components/Apps/FBMessenger';

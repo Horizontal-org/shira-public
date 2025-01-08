@@ -1,10 +1,9 @@
 import { FunctionComponent, useRef } from "react";
-import styled from 'styled-components'
+import { styled, Button } from '@horizontal-org/shira-ui'
 import { Navbar } from "../../UI/Navbar";
 import { SceneWrapper } from "../../UI/SceneWrapper";
 import { useTranslation } from "react-i18next";
 import { Heading } from "../../UI/Title";
-import { Button } from "../../UI/Button";
 import HorizontalLogo from "../../UI/Icons/Horizontal";
 import ReadIcon from './assets/ReadIcon'
 import Background from './assets/backgroundabout.png'

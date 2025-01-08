@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@divviup/dap": "^0.9.0",
+    "@horizontal-org/shira-ui": "1.0.23",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@popperjs/core": "^2.11.8",
     "@svgr/webpack": "^5.5.0",
@@ -26,7 +27,6 @@
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.2.0",
-    "divviup-ts": "file:../divviup-ts",
     "dotenv": "^10.0.0",
     "dotenv-expand": "^5.1.0",
     "eslint": "^8.3.0",
@@ -67,7 +67,6 @@
     "semver": "^7.3.5",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
-    "styled-components": "^5.3.5",
     "tailwindcss": "^3.0.2",
     "terser-webpack-plugin": "^5.2.5",
     "typescript": "^4.6.3",
@@ -128,7 +127,6 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.10",
-    "@types/styled-components": "^5.1.25",
     "chromatic": "^6.5.4",
     "webpack": "^5.72.0"
   },

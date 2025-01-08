@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from '@horizontal-org/shira-ui'
 
 export default props => (
   <Wrapper {...props} />
