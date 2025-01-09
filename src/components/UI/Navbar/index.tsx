@@ -1,3 +1,4 @@
+//old navbar -- remove
 import { FunctionComponent, useState } from 'react'
 import { styled } from '@horizontal-org/shira-ui'
 import Logo  from '../Icons/Logo'

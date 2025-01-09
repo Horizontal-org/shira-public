@@ -1418,10 +1418,10 @@
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@horizontal-org/shira-ui@1.0.23":
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/@horizontal-org/shira-ui/-/shira-ui-1.0.23.tgz#3c25ca6fbc0d3248a5b43617953da2ac2a0edb1d"
-  integrity sha512-2v3uwSI2YnWHf+oolJiXE4nLTFugaurJbZS1jDjYPWGcC/FLsBehRBhkTjNtLJ4qtND5qGoVyCjNl69KxHR4qQ==
+"@horizontal-org/shira-ui@1.0.26":
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/@horizontal-org/shira-ui/-/shira-ui-1.0.26.tgz#6679c122ff2fd36de2dd2220d61df09e8802b842"
+  integrity sha512-waGqrjpqXEj2kPma01v75/r2AmaDUlqmONZqjgNS6KlciarVrdNrlVax6qN5ZrInJlDO4mxEN0yrlexKpVjqPg==
   dependencies:
     react-icons "^5.4.0"
     styled-components "^6.1.13"
