@@ -1,21 +1,23 @@
 import { FunctionComponent, useRef } from "react";
-import { styled } from '@horizontal-org/shira-ui'
-import { Navbar } from "../../UI/Navbar";
+import { styled, Navbar } from '@horizontal-org/shira-ui'
 import { SceneWrapper } from "../../UI/SceneWrapper";
 import { useTranslation } from "react-i18next";
 import { Heading } from "../../UI/Title";
 import HorizontalLogo from "../../UI/Icons/Horizontal";
-
+import { useAppNavigation } from "../../../hooks/useAppNavigation";
 interface Props {}
 
 export const PrivacyLayout: FunctionComponent<Props> = () => {
   const { t } = useTranslation()
   const bringShiraRef = useRef(null)
-
+  const handleNavigation = useAppNavigation()
   return (
     <AboutSceneWrapper bg='white'>
       
-      <Navbar color="#DBE3A3"/>
+      <Navbar
+        translatedTexts={{home: t('navbar.home'), about: t('navbar.about'), menu: t('navbar.menu'), logIn: t('navbar.login'), createSpace: t('navbar.create_space')}}
+        onNavigate={handleNavigation}
+      />
       <AboutWrapper>
         <Heading>Privacy policy</Heading>
       </AboutWrapper>

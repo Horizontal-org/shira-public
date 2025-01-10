@@ -1,10 +1,9 @@
 import { FunctionComponent } from 'react'
 import shallow from 'zustand/shallow'
 import { useTranslation } from 'react-i18next'
-import { Navbar } from '../../components/UI/Navbar'
 import { FiHome } from 'react-icons/fi'
 import { HiOutlineRefresh } from 'react-icons/hi'
-import { styled, Button } from '@horizontal-org/shira-ui'
+import { styled, Button, Navbar } from '@horizontal-org/shira-ui'
 
 import CompletedIcon from './assets/CompletedIcon'
 import CompletedMobile from '../../components/UI/Icons/CompletedMobile'
@@ -13,7 +12,7 @@ import { Subtitle } from '../../components/UI/Subtitle'
 import { Heading } from '../../components/UI/Title'
 import { useStore } from '../../store'
 import useGetWidth from '../../hooks/useGetWidth'
-
+import { useAppNavigation } from '../../hooks/useAppNavigation'
 interface Props {}
 
 
@@ -30,9 +29,14 @@ export const CompletedScene: FunctionComponent<Props> = () => {
     correctQuestions: state.correctedQuestions,
   }), shallow)
 
+  const handleNavigation = useAppNavigation()
+
   return (
     <Wrapper>
-      <Navbar />
+      <Navbar
+        translatedTexts={{home: t('navbar.home'), about: t('navbar.about'), menu: t('navbar.menu'), logIn: t('navbar.login'), createSpace: t('navbar.create_space')}}
+        onNavigate={handleNavigation}
+      />
       <StyledSectionWrapper>
         <StyledSection>
           <Heading>{ t('completed.title') }</Heading>

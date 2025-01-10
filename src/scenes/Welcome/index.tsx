@@ -1,5 +1,4 @@
 import { FunctionComponent, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { 
   styled,
   Button,
@@ -11,6 +10,7 @@ import { FiChevronRight } from 'react-icons/fi'
 import { useStore } from "../../store";
 import { useTranslation } from "react-i18next";
 import {Task} from "@divviup/dap/dist/task";
+import { useAppNavigation } from "../../hooks/useAppNavigation";
 
 import MailHook from '../../assets/Mailhook'
 import MobileMailHook from '../../assets/MobileMailhook'
@@ -19,7 +19,7 @@ import GreenFish from '../../assets/GreenFish'
 export const WelcomeScene: FunctionComponent = () => {  
   const changeScene = useStore((state) => state.changeScene)
   const { t, i18n } = useTranslation()
-  let navigate = useNavigate()
+  const handleNavigation = useAppNavigation()
 
   useEffect(() => {
     const sendMetric = async() => {
@@ -39,14 +39,6 @@ export const WelcomeScene: FunctionComponent = () => {
     sendMetric()
   }, [])
 
-  const handleNavigation = (route: string) => {
-    if (route === '/login' || route === '/create-space') {
-      const adminUrl = process.env.REACT_APP_ADMIN_URL;
-      window.location.href = `${adminUrl}${route}`;
-    } else {
-      navigate(route);
-    }
-  }  
   return (
     <SceneWrapper bg='white'>
       <Navbar
