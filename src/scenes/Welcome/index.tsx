@@ -1,12 +1,16 @@
 import { FunctionComponent, useEffect } from "react";
-import { styled, Button } from '@horizontal-org/shira-ui'
-import { Navbar } from "../../components/UI/Navbar";
+import { 
+  styled,
+  Button,
+  Navbar
+} from '@horizontal-org/shira-ui'
 import { SceneWrapper } from "../../components/UI/SceneWrapper";
 import { LanguageSelect } from "../../components/UI/Select";
 import { FiChevronRight } from 'react-icons/fi'
 import { useStore } from "../../store";
 import { useTranslation } from "react-i18next";
 import {Task} from "@divviup/dap/dist/task";
+import { useAppNavigation } from "../../hooks/useAppNavigation";
 
 import MailHook from '../../assets/Mailhook'
 import MobileMailHook from '../../assets/MobileMailhook'
@@ -15,6 +19,7 @@ import GreenFish from '../../assets/GreenFish'
 export const WelcomeScene: FunctionComponent = () => {  
   const changeScene = useStore((state) => state.changeScene)
   const { t, i18n } = useTranslation()
+  const handleNavigation = useAppNavigation()
 
   useEffect(() => {
     const sendMetric = async() => {
@@ -33,10 +38,13 @@ export const WelcomeScene: FunctionComponent = () => {
 
     sendMetric()
   }, [])
-  
+
   return (
     <SceneWrapper bg='white'>
-      <Navbar />
+      <Navbar
+        translatedTexts={{home: t('navbar.home'), about: t('navbar.about'), menu: t('navbar.menu'), logIn: t('navbar.login'), createSpace: t('navbar.create_space')}}
+        onNavigate={handleNavigation}
+      />
 
       <MailHookWrapper>
         <MailHook />

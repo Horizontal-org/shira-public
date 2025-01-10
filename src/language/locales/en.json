@@ -203,6 +203,8 @@
     "navbar": {
         "home": "Home",
         "about": "About",
-        "menu": "Menu"
+        "menu": "Menu",
+        "login": "Log in",
+        "create_space": "Create space"
     }
 }

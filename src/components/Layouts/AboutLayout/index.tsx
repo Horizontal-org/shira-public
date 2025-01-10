@@ -1,27 +1,28 @@
 import { FunctionComponent, useRef } from "react";
-import { styled, Button } from '@horizontal-org/shira-ui'
-import { Navbar } from "../../UI/Navbar";
+import { styled, Button, Navbar } from '@horizontal-org/shira-ui'
 import { SceneWrapper } from "../../UI/SceneWrapper";
 import { useTranslation } from "react-i18next";
 import { Heading } from "../../UI/Title";
 import HorizontalLogo from "../../UI/Icons/Horizontal";
 import ReadIcon from './assets/ReadIcon'
 import Background from './assets/backgroundabout.png'
-import { useNavigate } from "react-router-dom";
+import { useAppNavigation } from "../../../hooks/useAppNavigation";
 
 interface Props {}
 
 export const AboutLayout: FunctionComponent<Props> = () => {
   const { t } = useTranslation()
-  let navigate = useNavigate()
   const bringShiraRef = useRef(null)
-
+  const handleNavigation = useAppNavigation();
   return (
     <AboutSceneWrapper bg='white'>
       <BackgroundWrapper>
         <img src={Background} alt='background-image' />
       </BackgroundWrapper>
-      <Navbar color="#DBE3A3"/>
+      <Navbar
+        translatedTexts={{home: t('navbar.home'), about: t('navbar.about'), menu: t('navbar.menu'), logIn: t('navbar.login'), createSpace: t('navbar.create_space')}}
+        onNavigate={handleNavigation}
+      />
       <AboutWrapper>
         <Heading>{t('about.title')}</Heading>
         <p>{t('about.subtitle')}</p>       
@@ -70,7 +71,7 @@ export const AboutLayout: FunctionComponent<Props> = () => {
               text={t('about.why_shira.privacy_policy_cta')}
               type="primary"
               leftIcon={<ReadIcon />}
-              onClick={() => { navigate('/privacy') }}
+              onClick={() => { handleNavigation('/privacy') }}
             />
 
             <Button
